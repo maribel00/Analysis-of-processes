@@ -2,7 +2,7 @@
 
 # Step 1: Import the data
 # Import .csv file
-setwd("/home/maribel/Escritorio/5º\ DGIIM/TFG/Analysis-of-processes/code/R") # Change working directory
+setwd("/home/maribel/Escritorio/5º\ DGIIM/TFG/Analysis-of-processes/code/datasets") # Change working directory
 data <- read.csv("DBA1520.csv", header = FALSE)
 data
 # assigning new names to the columns of the data frame
