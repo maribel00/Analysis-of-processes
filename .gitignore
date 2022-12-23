@@ -39,4 +39,4 @@ vignettes/*.pdf
 .Renviron
 
 # Dataset
-code/R/DBA1520.csv
+/code/R/datasets
