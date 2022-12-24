@@ -5,6 +5,10 @@
 setwd("/home/maribel/Escritorio/5º\ DGIIM/TFG/Analysis-of-processes/code/datasets") # Change working directory
 data <- read.csv("DBA1520.csv", header = FALSE)
 data
+
+# dimension of the dataset
+dim(data)
+
 # assigning new names to the columns of the data frame
 names(data) <- c('year','group','date','map','action')
 
@@ -24,6 +28,14 @@ glimpse(data)
 
 # Step 3: Check the format of the variable poison
 levels(data$map)
+
+# Step 4: Cleaning the dataset
+
+# Delete rows with nulls
+data <- na.omit(data)
+summary(data)
+
+# Write the cleaned dataset into a .csv file
 
 # Step 4: Plot a box plot
 # install.packages("ggplot2") # Install it again
