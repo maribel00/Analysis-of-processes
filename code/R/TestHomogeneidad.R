@@ -1,5 +1,9 @@
 # Two way ANOVA Test
 
+# Step 0: Install and load package "xtable" to convert outputs into latex tables
+# install.packages("xtable")
+library(xtable)
+
 # Step 1: Import the data
 # Import .csv file
 setwd("/home/maribel/Escritorio/5º\ DGIIM/TFG/Analysis-of-processes/code/datasets") # Change working directory
@@ -10,14 +14,25 @@ dim(data)
 
 # Print head and summary of data frame
 print("Top 6 Entries of data frame:")
-head(data)
+head <- head(data)
+table <- as.matrix(head)
+table
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
+
 print("Summary:")
-summary(data)
+summary <- summary(data)
+table <- as.matrix(summary)
+table
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = FALSE)
 
 # Step 2: Convert the variables species, branch, location and transpiration as ordered level
 # install.packages("dplyr")
 library(dplyr)
-data[,1]<-as.ordered(data[,1])
+data[,1]<-as.character.default(data[,1])
 data[,2]<-as.ordered(data[,2])
 data[,3]<-as.character.Date(data[,3])
 data[,4]<-as.ordered(data[,4])
@@ -46,10 +61,22 @@ ggplot(data, aes(x = year, y = action, fill = year)) +
 
 # Step 5: Compute the two way ANOVA test
 anova_two_way <- aov(year~map * action, data = data)
-summary(anova_two_way)
+summary <- summary(anova_two_way)
+table <- as.matrix(summary)
+table
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
 
 # Obtaining the coefficients
-coef(anova_two_way)
+coefficients <- coef(anova_two_way)
+coefficients
+
+table <- as.matrix(coefficients)
+table
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
 
 # Interaction plot
 interaction.plot(data$map, data$action, data$year)
@@ -62,6 +89,12 @@ plot(anova_two_way)
 # Run a pairwise t-test
 data.hsd <- TukeyHSD(anova_two_way, "map")
 data.hsd
+
+table <- as.matrix(data.hsd$map)
+table
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
 
 layout(1)
 plot(data.hsd)

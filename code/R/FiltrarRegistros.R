@@ -20,7 +20,7 @@ summary(data)
 # Step 2: Convert the variables species, branch, location and transpiration as ordered level
 # install.packages("dplyr")
 library(dplyr)
-data[,1]<-as.ordered(data[,1])
+data[,1]<-as.character.default(data[,1])
 data[,2]<-as.ordered(data[,2])
 data[,3]<-as.character.Date(data[,3])
 data[,4]<-as.ordered(data[,4])
@@ -44,4 +44,3 @@ summary(data)
 
 # Write the cleaned dataset into a .csv file
 write.csv(data, "cleandataset.csv", row.names = FALSE, col.names = TRUE)
-

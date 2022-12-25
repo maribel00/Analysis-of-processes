@@ -1,0 +1,194 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\author{María Isabel Ruiz Martínez}
+\title{Iteración 0}
+\begin{document}
+
+\maketitle
+
+\section{Tables}
+
+Dimesiones: 47828 registros, 5 columnas por registro.
+
+Muestra del dataset:
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sun Dec 25 16:36:37 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rlllll}
+  \hline
+ & year & group & date & map & action \\ 
+  \hline
+1 & 1516 & Achernar & 17/10/2015 19:41:45 & 0 & 0 \\ 
+  2 & 1516 & Bellatrix & 17/10/2015 19:41:45 & 0 & 0 \\ 
+  3 & 1516 & Cerastes & 17/10/2015 19:41:45 & 0 & 0 \\ 
+  4 & 1516 & Denebola & 17/10/2015 19:41:45 & 0 & 0 \\ 
+  5 & 1516 & Elnath & 17/10/2015 19:41:45 & 0 & 0 \\ 
+  6 & 1516 & Furud & 17/10/2015 19:41:45 & 0 & 0 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+Resumen del dataset que tenemos:
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sun Dec 25 16:37:38 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{lllll}
+  \hline
+     year &    group &     date &      map &     action \\ 
+  \hline
+Min.   :1516   & Length:47828       & Length:47828       & Min.   :0.000   & Min.   :0.000   \\ 
+  1st Qu.:1516   & Class :character   & Class :character   & 1st Qu.:1.000   & 1st Qu.:1.000   \\ 
+  Median :1617   & Mode  :character   & Mode  :character   & Median :3.000   & Median :2.000   \\ 
+  Mean   :1700   &  &  & Mean   :3.834   & Mean   :2.325   \\ 
+  3rd Qu.:1920   &  &  & 3rd Qu.:6.000   & 3rd Qu.:3.000   \\ 
+  Max.   :1920   &  &  & Max.   :9.000   & Max.   :5.000   \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+Resumen two way ANOVA test:
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sun Dec 25 16:38:29 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrrrr}
+  \hline
+ & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
+  \hline
+map         & 9 & 93731934.01 & 10414659.33 & 462.78 & 0.0000 \\ % < 2e-16 ***
+  action      & 4 & 1392357.62 & 348089.40 & 15.47 & 0.0000 \\ % 1.2e-12 ***
+  map:action  & 32 & 11542304.03 & 360697.00 & 16.03 & 0.0000 \\ % < 2e-16 ***
+  Residuals   & 47782 & 1075308032.78 & 22504.46 &  &  \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+% Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Coeficientes del modelo:
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sun Dec 25 16:39:51 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rr}
+  \hline
+ & x \\ 
+  \hline
+(Intercept) & -3028.03 \\ 
+  map.L & 23654.26 \\ 
+  map.Q & -24955.00 \\ 
+  map.C & 21598.74 \\ 
+  map\verb|^|4 & -15994.08 \\ 
+  map\verb|^|5 & 10348.56 \\ 
+  map\verb|^|6 & -5647.81 \\ 
+  map\verb|^|7 & 2498.01 \\ 
+  map\verb|^|8 & -914.27 \\ 
+  map\verb|^|9 & 286.26 \\ 
+  action.L & -3862.79 \\ 
+  action.Q & 2831.94 \\ 
+  action.C & -2099.11 \\ 
+  action\verb|^|4 & 1259.94 \\ 
+  map.L:action.L & 18957.56 \\ 
+  map.Q:action.L & -19571.62 \\ 
+  map.C:action.L & 17087.65 \\ 
+  map\verb|^|4:action.L & -12803.65 \\ 
+  map\verb|^|5:action.L & 7719.13 \\ 
+  map\verb|^|6:action.L & -4226.21 \\ 
+  map\verb|^|7:action.L & 2059.40 \\ 
+  map\verb|^|8:action.L & -642.03 \\ 
+  map.L:action.Q & -13883.73 \\ 
+  map.Q:action.Q & 14397.91 \\ 
+  map.C:action.Q & -12449.92 \\ 
+  map\verb|^|4:action.Q & 9397.10 \\ 
+  map\verb|^|5:action.Q & -5606.73 \\ 
+  map\verb|^|6:action.Q & 3080.43 \\ 
+  map\verb|^|7:action.Q & -1509.95 \\ 
+  map\verb|^|8:action.Q & 511.33 \\ 
+  map.L:action.C & 10334.24 \\ 
+  map.Q:action.C & -10690.73 \\ 
+  map.C:action.C & 9289.41 \\ 
+  map\verb|^|4:action.C & -6940.32 \\ 
+  map\verb|^|5:action.C & 4181.43 \\ 
+  map\verb|^|6:action.C & -2240.23 \\ 
+  map\verb|^|7:action.C & 1121.38 \\ 
+  map\verb|^|8:action.C & -369.64 \\ 
+  map.L:action\verb|^|4 & -6184.41 \\ 
+  map.Q:action\verb|^|4 & 6398.77 \\ 
+  map.C:action\verb|^|4 & -5539.15 \\ 
+  map\verb|^|4:action\verb|^|4 & 4172.09 \\ 
+  map\verb|^|5:action\verb|^|4 & -2476.48 \\ 
+  map\verb|^|6:action\verb|^|4 & 1375.66 \\ 
+  map\verb|^|7:action\verb|^|4 & -664.54 \\ 
+  map\verb|^|8:action\verb|^|4 & 223.22 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+% Tukey multiple comparisons of means
+% 95% family-wise confidence level
+% Fit: aov(formula = year ~ map * action, data = data)
+% $map
+% latex table generated in R 4.2.2 by xtable 1.8-4 package
+% Sun Dec 25 16:51:38 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & diff & lwr & upr & p adj \\ 
+  \hline
+1-0 & -44.48 & -125.96 & 37.00 & 0.78 \\ 
+  2-0 & -59.45 & -141.02 & 22.13 & 0.39 \\ 
+  3-0 & 12.11 & -69.67 & 93.88 & 1.00 \\ 
+  4-0 & 13.58 & -68.33 & 95.49 & 1.00 \\ 
+  5-0 & 66.71 & -15.20 & 148.61 & 0.23 \\ 
+  6-0 & 51.63 & -30.11 & 133.36 & 0.60 \\ 
+  7-0 & 36.94 & -44.86 & 118.75 & 0.92 \\ 
+  8-0 & 47.86 & -33.96 & 129.68 & 0.70 \\ 
+  9-0 & 21.00 & -60.67 & 102.68 & 1.00 \\ 
+  2-1 & -14.97 & -21.62 & -8.31 & 0.00 \\ 
+  3-1 & 56.59 & 47.82 & 65.35 & 0.00 \\ 
+  4-1 & 58.06 & 48.14 & 67.98 & 0.00 \\ 
+  5-1 & 111.19 & 101.30 & 121.07 & 0.00 \\ 
+  6-1 & 96.10 & 87.70 & 104.51 & 0.00 \\ 
+  7-1 & 81.42 & 72.42 & 90.43 & 0.00 \\ 
+  8-1 & 92.34 & 83.16 & 101.52 & 0.00 \\ 
+  9-1 & 65.48 & 57.73 & 73.23 & 0.00 \\ 
+  3-2 & 71.55 & 61.93 & 81.18 & 0.00 \\ 
+  4-2 & 73.03 & 62.34 & 83.71 & 0.00 \\ 
+  5-2 & 126.15 & 115.50 & 136.81 & 0.00 \\ 
+  6-2 & 111.07 & 101.78 & 120.36 & 0.00 \\ 
+  7-2 & 96.39 & 86.55 & 106.23 & 0.00 \\ 
+  8-2 & 107.31 & 97.31 & 117.30 & 0.00 \\ 
+  9-2 & 80.45 & 71.74 & 89.16 & 0.00 \\ 
+  4-3 & 1.47 & -10.64 & 13.59 & 1.00 \\ 
+  5-3 & 54.60 & 42.51 & 66.69 & 0.00 \\ 
+  6-3 & 39.52 & 28.61 & 50.43 & 0.00 \\ 
+  7-3 & 24.84 & 13.46 & 36.22 & 0.00 \\ 
+  8-3 & 35.75 & 24.24 & 47.27 & 0.00 \\ 
+  9-3 & 8.90 & -1.52 & 19.31 & 0.17 \\ 
+  5-4 & 53.13 & 40.18 & 66.08 & 0.00 \\ 
+  6-4 & 38.04 & 26.19 & 49.90 & 0.00 \\ 
+  7-4 & 23.36 & 11.07 & 35.65 & 0.00 \\ 
+  8-4 & 34.28 & 21.86 & 46.69 & 0.00 \\ 
+  9-4 & 7.42 & -3.98 & 18.83 & 0.56 \\ 
+  6-5 & -15.08 & -26.91 & -3.25 & 0.00 \\ 
+  7-5 & -29.76 & -42.03 & -17.50 & 0.00 \\ 
+  8-5 & -18.85 & -31.24 & -6.46 & 0.00 \\ 
+  9-5 & -45.70 & -57.08 & -34.33 & 0.00 \\ 
+  7-6 & -14.68 & -25.78 & -3.58 & 0.00 \\ 
+  8-6 & -3.77 & -15.01 & 7.47 & 0.99 \\ 
+  9-6 & -30.62 & -40.73 & -20.51 & 0.00 \\ 
+  8-7 & 10.91 & -0.78 & 22.61 & 0.09 \\ 
+  9-7 & -15.94 & -26.56 & -5.33 & 0.00 \\ 
+  9-8 & -26.86 & -37.61 & -16.10 & 0.00 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\end{document}
