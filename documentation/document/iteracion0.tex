@@ -10,11 +10,31 @@
 
 \maketitle
 
+As for the interpretation, separate \emph{cells} will be taking into consideration (by setting one covariate to have value $1$ or $0$). For instance, suppose first that $x_1= 0$. Then we end up with the equation $y = \beta_0 + \beta_4 \cdot x_2 + \epsilon$, whereas, if $x_1= 1$, then $y = (\beta_0 + \beta_1 + \beta_2 + \beta_3) + (\beta_4 + \beta_5 + \beta_6 + \beta_7) \cdot x_2 + \epsilon$. We see that if $x_1= 1$, then the intercept becomes $\beta_0 + \beta_1 + \beta_2 + \beta_3 = 1019,40761$, and the coefficient (slope) $\beta_4 + \beta_5 + \beta_6 + \beta_7 = -169,90548$, compared to $\beta_0 = 1137.23333$, and $\beta_4 = -81.05801$, if $x_1= 0$. Since the covariates are indicator random variables, and the setting is balanced, their mean is $0.5$, which suggests an overall increase in the mean in case $x_1 = 0$.
+
+Similarly, if $x_2= 0$, the formula becomes $y = \beta_0 + \beta_1 \cdot x_1 + \beta_2 \cdot x_1^2 + \beta_3 \cdot x_1^3 + \epsilon$, whereas if $x_2= 1$, then $y = (\beta_0 + \beta_4) + (\beta_1 + \beta_5) \cdot x_1 + (\beta_2 + \beta_6) \cdot x_1^2 + (\beta_3 ¨+ \beta_7) \cdot x_1^3 + \epsilon$. Looking at the level function, we are able to see that, if $x_2=1$, the intercept becomes $\beta_0 + \beta_4 = 1056,17532$, and the accompanying coefficients of the different powers of $x_1$ become $\beta_1 + \beta_5 = -125,44837$, $\beta_2 + \beta_6 = 188,62929$ and $\beta_3 + \beta_7 = -269,85411$, compared to $\beta_0 = 1137.23333$, $\beta_1 = -43.08158$, $\beta_2 = 109.43333$ and $\beta_3 = -184.17747$ otherwise, which suggests the decrease in the mean for $x_2= 1$.
+
+Regarding, the slope coefficients, note that if $x_1= 0$, then the a unit increase in $x_2$ (that is if $x_2=1$) leads to a decrease of $-81.05801$ in the moisture content. On the other hand, if $x_1= 1$, then a unit increase in $x_2$ leads to a higher decrease of $-169,90548$. This change in the slopes can also be seen in the interaction plot (Figure \ref{fig:3}), where the change for the transpiration type 2 or \emph{Slow transpiration} is larger than for transpiration type 1 or \emph{Rapid transpiration}.
+
+Finally, I have obtained the \emph{Tukey Honest Significant Differences} (TukeyHSD) for the variable \emph{transpiration}. I obtain that levels $1$ (Slow transpiration) and $2$ (Rapid transpiration) are significantly different $p-value = 6.8\cdot 10^{-06}$ ($< 0.05$). We can confirm this result graphically: in Figure \ref{fig:10} Point 0 is not included in the $95\%$ confidence interval corresponding to the difference mean “1” and “2”.
+
+Figure \ref{fig:6} shows that there are no major violations from the model assumptions. The mean and variance of the residuals does not seem to be varying with respect to the fitted values. As a consequence, we may conclude that the homoscedasticity assumption holds. However, judging by the upper corner at the right of the Normal Q-Q plot, the residuals seem to be slightly subgaussian. Nevertheless, given the small sample size, we may assume that the normality assumption holds.
+
 \section{Tables}
 
-Dimesiones: 47828 registros, 5 columnas por registro.
+El dataset, tras haber sido filtrados los registros erróneos, consta de 47828 filas correspondientes a los diferentes acciones de unos drones en una serie de mundos virtuales. En cada registro se detallan los siguientes atributos:
+\begin{itemize}
+\item \emph{year}: identifica el curso académico en el que se realizó dicha acción.
+\item \emph{group}: grupo de prácticas que ha prograda al dron que acomete la acción.
+\item \emph{date}: fecha en la que se lleva a cabo la acción.
+\item \emph{map}: mundo virtual en el que se ha realizado la acción.
+\item \emph{action}: indica el tipo de acción realizada.
+\end{itemize}
+% Dimesiones: 47828 registros, 5 columnas por registro.
 
-Muestra del dataset:
+En la Tabla \ref{table:1} se presentan los primeros seis registros del dataset. Además, en la Tabla \ref{table:2} puede apreciarse un resumen de los datos que tenemos.
+
+% Muestra del dataset:
 % latex table generated in R 4.2.2 by xtable 1.8-4 package
 % Sun Dec 25 16:36:37 2022
 \begin{table}[ht]
@@ -31,9 +51,11 @@ Muestra del dataset:
   6 & 1516 & Furud & 17/10/2015 19:41:45 & 0 & 0 \\ 
    \hline
 \end{tabular}
+\caption{Table caption goes here}
+\label{table:1}
 \end{table}
 
-Resumen del dataset que tenemos:
+% Resumen del dataset que tenemos:
 % latex table generated in R 4.2.2 by xtable 1.8-4 package
 % Sun Dec 25 16:37:38 2022
 \begin{table}[ht]
@@ -50,9 +72,13 @@ Min.   :1516   & Length:47828       & Length:47828       & Min.   :0.000   & Min
   Max.   :1920   &  &  & Max.   :9.000   & Max.   :5.000   \\ 
    \hline
 \end{tabular}
+\caption{Table caption goes here}
+\label{table:2}
 \end{table}
 
-Resumen two way ANOVA test:
+Un resumen de los resultados obtenidos al realizar el test two way ANOVA se muestra en la Tabla \ref{table:3}. Puede observarse que la variable \emph{map} es significante al nivel $0$, que la variable \emph{action} es significante al nivel $0$ y que la variable \emph{map:action} (el término de interacción) es significante al nivel $0$ también.
+
+%Resumen two way ANOVA test:
 % latex table generated in R 4.2.2 by xtable 1.8-4 package
 % Sun Dec 25 16:38:29 2022
 \begin{table}[ht]
@@ -67,11 +93,28 @@ map         & 9 & 93731934.01 & 10414659.33 & 462.78 & 0.0000 \\ % < 2e-16 ***
   Residuals   & 47782 & 1075308032.78 & 22504.46 &  &  \\ 
    \hline
 \end{tabular}
+\caption{Table caption goes here}
+\label{table:3}
 \end{table}
 
 % Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Coeficientes del modelo:
+La notación escalar del modelo ajustado al aplicar el test tiene la siguiente estructura:
+
+\begin{equation}
+\begin{split}
+    y = {} & \beta_0 + \mbox{map.L} \cdot x_1 + \mbox{map.Q} \cdot x_1^2 + \mbox{map.C} \cdot x_1^3 + \mbox{map}^4 \cdot x_1^4 + \mbox{map}^5 \cdot x_1^5 + map^6 \cdot x_1^6
+\\ & + map^7 \cdot x_1^7 + map^8 \cdot x_1^8 + map^9 \cdot x_1^9 + action.L \cdot x_2 + action.Q \cdot x_2^2 + action.C \cdot x_2^3
+\\ &+ action^4 \cdot x_2^4 + map.L:action.L \cdot  x_1 \cdot x_2 + map.Q:action.L \cdot  x_1^2 \cdot x_2 \\ & + map.C:action.L \cdot  x_1^3 \cdot x_2 + map^4:action.L \cdot  x_1^4 \cdot x_2 + map^5:action.L \cdot  x_1^5 \cdot x_2 \\ & + map^6:action.L \cdot  x_1^6 \cdot x_2 + map^7:action.L \cdot  x_1^7 \cdot x_2 + map^8:action.L \cdot  x_1^8 \cdot x_2 \\ & + map.L:action.Q \cdot  x_1 \cdot x_2^2 + map.Q:action.Q \cdot  x_1^2 \cdot x_2^2 + map.C:action.Q \cdot  x_1^3 \cdot x_2^2 \\ & + map^4:action.Q \cdot  x_1^4 \cdot x_2^2 + map^5:action.Q \cdot  x_1^5 \cdot x_2^2 + map^6:action.Q \cdot  x_1^6 \cdot x_2^2 \\ & + map^7:action.Q \cdot  x_1^7 \cdot x_2^2 + map^8:action.Q \cdot  x_1^8 \cdot x_2^2 + map.L:action.C \cdot  x_1 \cdot x_2^3 \\ & + map.Q:action.C \cdot  x_1^2 \cdot x_2^3 + map.C:action.C \cdot  x_1^3 \cdot x_2^3  + map^4:action.C \cdot  x_1^4 \cdot x_2^3 \\ & + map^5:action.C \cdot  x_1^5 \cdot x_2^3 + map^6:action.C \cdot  x_1^6 \cdot x_2^3 + map^7:action.C \cdot  x_1^7 \cdot x_2^3 \\ & + map^8:action.C \cdot  x_1^8 \cdot x_2^3 + map.L:action^4 \cdot  x_1 \cdot x_2^4 + map.Q:action^4 \cdot  x_1^2 \cdot x_2^4 \\ & + map.C:action^4 \cdot  x_1^3 \cdot x_2^4 + map^4:action^4 \cdot  x_1^4 \cdot x_2^4 + map^5:action^4 \cdot  x_1^5 \cdot x_2^4 \\ & + map^6:action^4 \cdot  x_1^6 \cdot x_2^4 + map^7:action^4 \cdot  x_1^7 \cdot x_2^4 \\ & + map^8:action^4 \cdot  x_1^8 \cdot x_2^4 + \epsilon
+\end{split}
+\label{eq1}
+\end{equation}
+
+donde $\beta_0$ es el intercept, $\mbox{map.L}$ y $\mbox{action.L}$ son los coeficientes de los principales efectos, $x_1$ y $x_2$ son los parámetros sometidos a investigación (en este caso, $x_1$ representa el parámetro mapa y $x_2$ representa la acción), $y$ representa el año y $\epsilon$ es el término error.
+
+La Tabla \ref{table:4} muestra los valores de los coeficientes de la fórmula que se han obtenido tras ajustar el regression model con los datos.
+
+%Coeficientes del modelo:
 % latex table generated in R 4.2.2 by xtable 1.8-4 package
 % Sun Dec 25 16:39:51 2022
 \begin{table}[ht]
@@ -128,6 +171,8 @@ Coeficientes del modelo:
   map\verb|^|8:action\verb|^|4 & 223.22 \\ 
    \hline
 \end{tabular}
+\caption{Table caption goes here}
+\label{table:4}
 \end{table}
 
 % Tukey multiple comparisons of means
@@ -189,6 +234,8 @@ Coeficientes del modelo:
   9-8 & -26.86 & -37.61 & -16.10 & 0.00 \\ 
    \hline
 \end{tabular}
+\caption{Table caption goes here}
+\label{table:5}
 \end{table}
 
 \end{document}
