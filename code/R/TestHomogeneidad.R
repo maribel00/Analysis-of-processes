@@ -206,11 +206,11 @@ par(pty="s",mar=c(3,1,2,1)+0.1)
 plot(anova_two_way)
 
 # Run a pairwise t-test
-data$map <- as.factor(data$map)
-data$action <- as.factor(data$action)
-anova_two_way <- aov(year~map*action, data = data)
-summary <- summary(anova_two_way)
-summary
+#data$map <- as.factor(data$map)
+#data$action <- as.factor(data$action)
+#anova_two_way <- aov(year~map*action, data = data)
+#summary <- summary(anova_two_way)
+#summary
 #                Df    Sum Sq  Mean Sq F value  Pr(>F)    
 # map             9 9.373e+07 10414659  462.78 < 2e-16 ***
 # action          4 1.392e+06   348089   15.47 1.2e-12 ***
@@ -219,7 +219,7 @@ summary
 # ---
 # Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-coef(anova_two_way)
+#coef(anova_two_way)
 
 data.hsd <- TukeyHSD(anova_two_way)
 data.hsd
