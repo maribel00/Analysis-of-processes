@@ -80,7 +80,7 @@ library(ggplot2) # Load the library (you have to do this one on each new session
 ggplot(data, aes(x = map, y = year, fill = as.factor(map))) +
   geom_boxplot() +
   theme_classic() +
-  ggtitle("Boxplot of Map by Year") +
+  #ggtitle("Boxplot of Map by Year") +
   scale_fill_brewer(palette = "Paired")
 
 # Calculate outliers
@@ -93,7 +93,7 @@ print(outliers)
 ggplot(data, aes(x = action, y = year, fill = as.factor(action))) +
   geom_boxplot() +
   theme_classic() +
-  ggtitle("Boxplot of Action by Year") + 
+  #ggtitle("Boxplot of Action by Year") + 
   scale_fill_brewer(palette = "Paired")
 
 
@@ -104,17 +104,18 @@ outliers <- boxplot.stats(data$action)$out
 print(outliers)
 # integer(0)
 
+layout(1)
 boxplot.map <- boxplot(data$map, ylab = "Map")
 
 data.boxplot.map <- boxplot(data$map~data$year, xlab = "Year", ylab = "Map", las = 2)
-title("Boxplot of Year by Map")
+#title("Boxplot of Year by Map")
 data.boxplot.map$out # outliers
 # numeric(0)
 
 boxplot.action <- boxplot(data$action, ylab = "Action")
 
 data.boxplot.action <- boxplot(data$action~data$year, xlab = "Year", ylab = "Action", las = 2)
-title("Boxplot of Year by Action")
+# title("Boxplot of Year by Action")
 data.boxplot.action$out # outliers
 # numeric(0)
 
@@ -198,6 +199,8 @@ table
 print(xtable(table), include.rownames = TRUE)
 
 # Interaction plot
+layout(1)
+par(legend.justification = "right")
 interaction.plot(data$map, data$action, data$year)
 
 # Diagnostic plots
@@ -206,11 +209,11 @@ par(pty="s",mar=c(3,1,2,1)+0.1)
 plot(anova_two_way)
 
 # Run a pairwise t-test
-#data$map <- as.factor(data$map)
-#data$action <- as.factor(data$action)
-#anova_two_way <- aov(year~map*action, data = data)
-#summary <- summary(anova_two_way)
-#summary
+data$map <- as.factor(data$map)
+data$action <- as.factor(data$action)
+anova_two_way <- aov(year~map*action, data = data)
+summary <- summary(anova_two_way)
+summary
 #                Df    Sum Sq  Mean Sq F value  Pr(>F)    
 # map             9 9.373e+07 10414659  462.78 < 2e-16 ***
 # action          4 1.392e+06   348089   15.47 1.2e-12 ***
@@ -219,7 +222,7 @@ plot(anova_two_way)
 # ---
 # Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-#coef(anova_two_way)
+coef(anova_two_way)
 
 data.hsd <- TukeyHSD(anova_two_way)
 data.hsd
