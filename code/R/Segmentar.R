@@ -1,5 +1,9 @@
 # Segmentation
 
+# Step 0: Install and load package "xtable" to convert outputs into latex tables
+# install.packages("xtable")
+library(xtable)
+
 # Step 1: Import the data
 # Import .csv file
 setwd("/home/maribel/Escritorio/5º\ DGIIM/TFG/Analysis-of-processes/code/datasets") # Change working directory
@@ -11,7 +15,8 @@ dim(data)
 
 # Print head and summary of data frame
 print("Top 6 Entries of data frame:")
-head(data)
+head <- head(data)
+head
 #   Group           Team Size Year Grade
 # 1    G1 DBA 1819 P3 GL    4 1819 10,00
 # 2    G2 DBA 1920 P3 GJ    4 1920  4,01
@@ -19,8 +24,22 @@ head(data)
 # 4    G4 DBA 1920 P2 GE    4 1920  8,95
 # 5    G5 DBA 1920 P3 GK    4 1920  4,51
 # 6    G6 DBA 1415 P3 G6    6 1415  7,20
+table <- as.matrix(head)
+table
+#   Group Team             Size Year   Grade  
+# 1 "G1"  "DBA 1819 P3 GL" "4"  "1819" "10,00"
+# 2 "G2"  "DBA 1920 P3 GJ" "4"  "1920" "4,01" 
+# 3 "G3"  "DBA 1819 P2 GH" "4"  "1819" "7,96" 
+# 4 "G4"  "DBA 1920 P2 GE" "4"  "1920" "8,95" 
+# 5 "G5"  "DBA 1920 P3 GK" "4"  "1920" "4,51" 
+# 6 "G6"  "DBA 1415 P3 G6" "6"  "1415" "7,20" 
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
+
 print("Summary:")
-summary(data)
+summary <- summary(data)
+summary
 #    Group               Team                Size            Year         Grade          
 # Length:118         Length:118         Min.   :3.000   Min.   :1314   Length:118        
 # Class :character   Class :character   1st Qu.:4.000   1st Qu.:1516   Class :character  
@@ -28,6 +47,18 @@ summary(data)
 #                                       Mean   :4.831   Mean   :1662                     
 #                                       3rd Qu.:6.000   3rd Qu.:1819                     
 #                                       Max.   :6.000   Max.   :1920
+table <- as.matrix(summary)
+table
+#    Group               Team                Size            Year         Grade          
+# Length:118         Length:118         Min.   :3.000   Min.   :1314   Length:118        
+# Class :character   Class :character   1st Qu.:4.000   1st Qu.:1516   Class :character  
+# Mode  :character   Mode  :character   Median :5.000   Median :1718   Mode  :character  
+#                                       Mean   :4.831   Mean   :1662                     
+#                                       3rd Qu.:6.000   3rd Qu.:1819                     
+#                                       Max.   :6.000   Max.   :1920 
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = FALSE)
 
 # Step 2: Clean the data
 # deleting duplicates
@@ -275,7 +306,8 @@ names(data)[names(data) == "Size"] <- "size"
 names(data)[names(data) == "Year"] <- "year"
 # Rename column where name is "Grade"
 names(data)[names(data) == "Grade"] <- "grade"
-head(data)
+head <- head(data)
+head
 #    group size year grade
 # 1 Lesath    4 1819 10,00
 # 2 Jabbah    4 1920  4,01
@@ -283,6 +315,18 @@ head(data)
 # 4 Elnath    4 1920  8,95
 # 5   Keid    4 1920  4,51
 # 6  Furud    6 1415  7,20
+table <- as.matrix(head)
+table
+#   group    size year   grade  
+# 1 "Lesath" "4"  "1819" "10,00"
+# 2 "Jabbah" "4"  "1920" "4,01" 
+# 3 "Haldus" "4"  "1819" "7,96" 
+# 4 "Elnath" "4"  "1920" "8,95" 
+# 5 "Keid"   "4"  "1920" "4,51" 
+# 6 "Furud"  "6"  "1415" "7,20"
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
 
 # Group by mean using dplyr
 library(dplyr)
@@ -306,7 +350,8 @@ glimpse(data)
 data_grouped <- data %>%
   group_by(group, year) %>%
   summarize(size = mean(size), mean_grade = mean(grade))
-head(data_grouped)
+head <- head(data_grouped)
+head
 # A tibble: 6 × 4
 # Groups:   group [2]
 #   group      year  size mean_grade
@@ -317,10 +362,23 @@ head(data_grouped)
 # 4 Achernar   1617     5      10   
 # 5 Achernar   1718     5       8.33
 # 6 Bellatrix  1516     5       8.2 
+table <- as.matrix(head)
+table
+#      group       year   size mean_grade
+# [1,] "Achernar"  "1314" "6"  " 9.40"   
+# [2,] "Achernar"  "1415" "5"  " 9.00"   
+# [3,] "Achernar"  "1516" "5"  " 8.20"   
+# [4,] "Achernar"  "1617" "5"  "10.00"   
+# [5,] "Achernar"  "1718" "5"  " 8.33"   
+# [6,] "Bellatrix" "1516" "5"  " 8.20" 
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
 
 # Step 9: Inner join of the two datasets
 data_joined <- inner_join(data_grouped, data.map.action, by = c("year", "group"))
-head(data_joined)
+head <- head(data_joined)
+head
 # A tibble: 6 × 7
 # Groups:   group [1]
 #   group     year  size mean_grade date                  map action
@@ -331,6 +389,18 @@ head(data_joined)
 # 4 Achernar  1516     5        8.2 22/10/2015 17:29:39     1      3
 # 5 Achernar  1516     5        8.2 22/10/2015 17:34:09     1      1
 # 6 Achernar  1516     5        8.2 22/10/2015 17:34:10     1      2
+table <- as.matrix(head)
+table
+#      group      year   size mean_grade date                  map action
+# [1,] "Achernar" "1516" "5"  "8.2"      "17/10/2015 19:41:45" "0" "0"   
+# [2,] "Achernar" "1516" "5"  "8.2"      "22/10/2015 17:29:21" "1" "1"   
+# [3,] "Achernar" "1516" "5"  "8.2"      "22/10/2015 17:29:22" "1" "2"   
+# [4,] "Achernar" "1516" "5"  "8.2"      "22/10/2015 17:29:39" "1" "3"   
+# [5,] "Achernar" "1516" "5"  "8.2"      "22/10/2015 17:34:09" "1" "1"   
+# [6,] "Achernar" "1516" "5"  "8.2"      "22/10/2015 17:34:10" "1" "2"   
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
 
 # Step 10: Segmentation of the new joined dataset
 # Suspenso

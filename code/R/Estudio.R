@@ -1,10 +1,15 @@
 # Study of the segmented data
 
+# Step 0: Install and load package "xtable" to convert outputs into latex tables
+# install.packages("xtable")
+library(xtable)
+
 # Step 1: Import the data
 # Import .csv file
 setwd("/home/maribel/Escritorio/5º\ DGIIM/TFG/Analysis-of-processes/code/datasets") # Change working directory
 dataS <- read.csv("datasetS.csv", header = TRUE)
-head(dataS)
+head <- head(dataS)
+head
 #    group year size mean_grade                date map action
 # 1 Girtab 1617    6       4.67 15/11/2016 7:31:31    1      1
 # 2 Girtab 1617    6       4.67 15/11/2016 7:31:53    1      1
@@ -12,13 +17,26 @@ head(dataS)
 # 4 Girtab 1617    6       4.67 15/11/2016 12:50:28   1      1
 # 5 Girtab 1617    6       4.67 15/11/2016 13:27:27   1      1
 # 6 Girtab 1617    6       4.67 15/11/2016 13:27:58   1      1
+table <- as.matrix(head)
+table
+#   group    year   size mean_grade date                  map action
+# 1 "Girtab" "1617" "6"  "4.67"     "15/11/2016 7:31:31 " "1" "1"   
+# 2 "Girtab" "1617" "6"  "4.67"     "15/11/2016 7:31:53 " "1" "1"   
+# 3 "Girtab" "1617" "6"  "4.67"     "15/11/2016 12:50:03" "1" "1"   
+# 4 "Girtab" "1617" "6"  "4.67"     "15/11/2016 12:50:28" "1" "1"   
+# 5 "Girtab" "1617" "6"  "4.67"     "15/11/2016 13:27:27" "1" "1"   
+# 6 "Girtab" "1617" "6"  "4.67"     "15/11/2016 13:27:58" "1" "1"  
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
 
 # dimension of the dataset
 dim(dataS)
 # [1] 2397    7
 
 dataA <- read.csv("datasetA.csv", header = TRUE)
-head(dataA)
+head <- head(dataA)
+head
 #       group year size mean_grade                date map action
 # 1 Bellatrix 1920    4      6.835 05/11/2019 10:24:51   1      1
 # 2 Bellatrix 1920    4      6.835 05/11/2019 10:24:51   1      2
@@ -26,13 +44,26 @@ head(dataA)
 # 4 Bellatrix 1920    4      6.835 05/11/2019 10:25:26   1      2
 # 5 Bellatrix 1920    4      6.835 05/11/2019 10:25:39   1      1
 # 6 Bellatrix 1920    4      6.835 05/11/2019 10:25:45   1      2
+table <- as.matrix(head)
+table
+#   group       year   size mean_grade date                  map action
+# 1 "Bellatrix" "1920" "4"  "6.835"    "05/11/2019 10:24:51" "1" "1"   
+# 2 "Bellatrix" "1920" "4"  "6.835"    "05/11/2019 10:24:51" "1" "2"   
+# 3 "Bellatrix" "1920" "4"  "6.835"    "05/11/2019 10:25:04" "1" "1"   
+# 4 "Bellatrix" "1920" "4"  "6.835"    "05/11/2019 10:25:26" "1" "2"   
+# 5 "Bellatrix" "1920" "4"  "6.835"    "05/11/2019 10:25:39" "1" "1"   
+# 6 "Bellatrix" "1920" "4"  "6.835"    "05/11/2019 10:25:45" "1" "2" 
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
 
 # dimension of the dataset
 dim(dataA)
 # [1] 7053    7
 
 dataN <- read.csv("datasetN.csv", header = TRUE)
-head(dataN)
+head <- head(dataN)
+head
 #      group year size mean_grade                date map action
 # 1 Achernar 1516    5        8.2 17/10/2015 19:41:45   0      0
 # 2 Achernar 1516    5        8.2 22/10/2015 17:29:21   1      1
@@ -40,13 +71,26 @@ head(dataN)
 # 4 Achernar 1516    5        8.2 22/10/2015 17:29:39   1      3
 # 5 Achernar 1516    5        8.2 22/10/2015 17:34:09   1      1
 # 6 Achernar 1516    5        8.2 22/10/2015 17:34:10   1      2
+table <- as.matrix(head)
+table
+#   group      year   size mean_grade date                  map action
+# 1 "Achernar" "1516" "5"  "8.2"      "17/10/2015 19:41:45" "0" "0"   
+# 2 "Achernar" "1516" "5"  "8.2"      "22/10/2015 17:29:21" "1" "1"   
+# 3 "Achernar" "1516" "5"  "8.2"      "22/10/2015 17:29:22" "1" "2"   
+# 4 "Achernar" "1516" "5"  "8.2"      "22/10/2015 17:29:39" "1" "3"   
+# 5 "Achernar" "1516" "5"  "8.2"      "22/10/2015 17:34:09" "1" "1"   
+# 6 "Achernar" "1516" "5"  "8.2"      "22/10/2015 17:34:10" "1" "2" 
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
 
 # dimension of the dataset
 dim(dataN)
 # [1] 18840     7
 
 dataSOB <- read.csv("datasetSOB.csv", header = TRUE)
-head(dataSOB)
+head <- head(dataSOB)
+head
 #       group year size mean_grade                date map action
 # 1 Bellatrix 1617    5       9.72 07/11/2016 11:13:31   1      1
 # 2 Bellatrix 1617    5       9.72 07/11/2016 11:36:59   1      1
@@ -54,13 +98,26 @@ head(dataSOB)
 # 4 Bellatrix 1617    5       9.72 07/11/2016 11:42:22   1      1
 # 5 Bellatrix 1617    5       9.72 07/11/2016 11:45:37   1      1
 # 6 Bellatrix 1617    5       9.72 07/11/2016 11:49:23   1      1
+table <- as.matrix(head)
+table
+#   group       year   size mean_grade date                  map action
+# 1 "Bellatrix" "1617" "5"  "9.72"     "07/11/2016 11:13:31" "1" "1"   
+# 2 "Bellatrix" "1617" "5"  "9.72"     "07/11/2016 11:36:59" "1" "1"   
+# 3 "Bellatrix" "1617" "5"  "9.72"     "07/11/2016 11:41:07" "1" "1"   
+# 4 "Bellatrix" "1617" "5"  "9.72"     "07/11/2016 11:42:22" "1" "1"   
+# 5 "Bellatrix" "1617" "5"  "9.72"     "07/11/2016 11:45:37" "1" "1"   
+# 6 "Bellatrix" "1617" "5"  "9.72"     "07/11/2016 11:49:23" "1" "1"  
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
 
 # dimension of the dataset
 dim(dataSOB)
 # [1] 17891     7
 
 dataMH <- read.csv("datasetMH.csv", header = TRUE)
-head(dataMH)
+head <- head(dataMH)
+head
 #      group year size mean_grade                date map action
 # 1 Achernar 1617    5         10 09/11/2016 21:23:22   1      1
 # 2 Achernar 1617    5         10 09/11/2016 21:25:11   1      1
@@ -68,6 +125,18 @@ head(dataMH)
 # 4 Achernar 1617    5         10 10/11/2016 0:22:50    1      1
 # 5 Achernar 1617    5         10 10/11/2016 0:23:12    1      1
 # 6 Achernar 1617    5         10 10/11/2016 0:25:53    1      1
+table <- as.matrix(head)
+table
+#   group      year   size mean_grade date                  map action
+# 1 "Achernar" "1617" "5"  "10"       "09/11/2016 21:23:22" "1" "1"   
+# 2 "Achernar" "1617" "5"  "10"       "09/11/2016 21:25:11" "1" "1"   
+# 3 "Achernar" "1617" "5"  "10"       "10/11/2016 0:21:37 " "1" "1"   
+# 4 "Achernar" "1617" "5"  "10"       "10/11/2016 0:22:50 " "1" "1"   
+# 5 "Achernar" "1617" "5"  "10"       "10/11/2016 0:23:12 " "1" "1"   
+# 6 "Achernar" "1617" "5"  "10"       "10/11/2016 0:25:53 " "1" "1" 
+
+# Transform table into a latex table:
+print(xtable(table), include.rownames = TRUE)
 
 # dimension of the dataset
 dim(dataMH)
