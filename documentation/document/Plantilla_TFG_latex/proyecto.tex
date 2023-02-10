@@ -23,6 +23,12 @@
 \usepackage{graphicx}
 \usepackage{afterpage}
 
+%%% PAQUETES AÑADIDOS POR MI
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+
 \usepackage{longtable}
 
 \usepackage[pdfborder={000}]{hyperref} %referencia
@@ -184,17 +190,17 @@ pdfproducer = {pdflatex}
 \mainmatter
 \setlength{\parskip}{5pt}
 
-\input{capitulos/01_Introduccion}
+\input{capitulos/capitulo_01/01_Introduccion}
 %
 %\input{capitulos/02_EspecificacionRequisitos}
 %
-\input{capitulos/03_Planificacion}
+\input{capitulos/capitulo_03/03_Planificacion}
 
-\input{capitulos/04_Analisis}
+\input{capitulos/capitulo_04/04_Analisis}
 
 %\input{capitulos/05_Diseno}
 %
-%\input{capitulos/06_Implementacion}
+\input{capitulos/capitulo_06/06_Implementacion}
 %
 %\input{capitulos/07_Pruebas}
 %

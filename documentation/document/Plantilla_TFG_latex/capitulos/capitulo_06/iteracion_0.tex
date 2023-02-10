@@ -1,28 +1,4 @@
-\documentclass[10pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage[hidelinks]{hyperref} 
-\usepackage{color}
-\usepackage{xcolor}
-\usepackage{caption}
-\usepackage{subcaption}
-\author{María Isabel Ruiz Martínez}
-\title{Análisis ANOVA y primeras conclusiones}
-
-%Ruta absoluta en formato tipo Unix (Linux, OsX)
-\graphicspath{ {/home/maribel/Escritorio/5º DGIIM/TFG/Analysis-of-processes/documentation/images} }
-
-\begin{document}
-
-\maketitle
-
-\listoftables
-\listoffigures
-
-\section{Descripción del dataset}
+\subsection{Descripción del dataset}
 
 Los datasets que se van a usar han sido recopilados por Luis Castillo Vidal y corresponden a la actividad de sus alumnos en la asignatura \href{https://www.ugr.es/estudiantes/grados/grado-ingenieria-informatica/desarrollo-basado-agentes-ing-software}{\color{blue}{Desarrollo Basado en Agentes}}.
 
@@ -84,13 +60,13 @@ La Figuras \ref{fig:boxplotmap} y \ref{fig:boxplotaction} muestran, respectivame
 
 \begin{figure}[!tbp]
   \begin{subfigure}[b]{0.49\textwidth}
-    \includegraphics[width=\textwidth, height=\textwidth]{Rplot02.png}
+    \includegraphics[width=\textwidth, height=\textwidth]{imagenes/Rplot02.png}
     \caption{Gráfico de caja y bigotes de la variable \emph{map}}
     \label{fig:boxplotmap}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.49\textwidth}
-    \includegraphics[width=\textwidth, height=\textwidth]{Rplot04.png}
+    \includegraphics[width=\textwidth, height=\textwidth]{imagenes/Rplot04.png}
     \caption{Gráfico de caja y bigotes de la variable \emph{action}}
     \label{fig:boxplotaction}
   \end{subfigure}
@@ -101,13 +77,13 @@ Además, podemos ver la distribución de los diferentes niveles del factor \emph
 
 \begin{figure}[!tbp]
   \begin{subfigure}[b]{0.49\textwidth}
-    \includegraphics[width=\textwidth, height=\textwidth]{Rplot.png}
+    \includegraphics[width=\textwidth, height=\textwidth]{imagenes/Rplot.png}
     \caption{Distribución de los diferentes niveles del factor \emph{map}}
     \label{fig:yearmap}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.49\textwidth}
-    \includegraphics[width=\textwidth, height=\textwidth]{Rplot01.png}
+    \includegraphics[width=\textwidth, height=\textwidth]{imagenes/Rplot01.png}
     \caption{Distribución de los diferentes niveles del factor \emph{action}}
     \label{fig:yearaction}
   \end{subfigure}
@@ -118,13 +94,13 @@ Por último, también podemos ver la distribución de las variables \emph{map} y
 
 \begin{figure}[!tbp]
   \begin{subfigure}[b]{0.49\textwidth}
-    \includegraphics[width=\textwidth, height=\textwidth]{Rplot03.png}
+    \includegraphics[width=\textwidth, height=\textwidth]{imagenes/Rplot03.png}
     \caption{Distribución de la variable \emph{map} en función de \emph{year}}
     \label{fig:mapyear}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.49\textwidth}
-    \includegraphics[width=\textwidth, height=\textwidth]{Rplot05.png}
+    \includegraphics[width=\textwidth, height=\textwidth]{imagenes/Rplot05.png}
     \caption{Distribución de la variable \emph{action} en función de \emph{year}}
     \label{fig:actionyear}
   \end{subfigure}
@@ -184,13 +160,13 @@ Length:118         & Length:118         & Min.   :3.000   & Min.   :1314   & Len
 \label{table:7}
 \end{table}
 
-\section{Introducción}
+\subsection{Introducción}
 
 En este estudio inicial se desarrollará un modelo estadístico para determinar el efecto de los parámetros \emph{map} y \emph{action} (dos varibles explicativas) en la variable respuesta \emph{year}.
 
 La relevancia de cada una de las variables en el modelo se determinará por el test \emph{two way ANOVA} con un $5\%$ de nivel de significancia y se empleará la técnica de los \emph{mínimos cuadrados} para estimar los coeficientes del modelo considerado.
 
-\section{Two way ANOVA}
+\subsection{Two way ANOVA}
 
 Un resumen de los resultados obtenidos al realizar el test two way ANOVA se muestra en la Tabla \ref{table:3}. Puede observarse que la variable \emph{map} es significante al nivel $0$, que la variable \emph{action} es significante al nivel $0.01$ y que la variable \emph{map:action} (el término de interacción) no es significante. Así pues, puede concluirse que el dataset es homógeneo, es decir, las combinaciones \emph{map:action} son estadísticamente iguales en todos los años considerados.
 
@@ -247,7 +223,7 @@ La Figura \ref{fig:interaccion} muestra la interacción entre los parámetros ma
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.60\textwidth]{Rplot06.png}
+    \includegraphics[width=0.60\textwidth]{imagenes/Rplot06.png}
     \caption{Interacción entre las variables \emph{map} y \emph{action}}
     \label{fig:interaccion}
 \end{figure}
@@ -261,12 +237,12 @@ La Figura \ref{fig:suposiciones} muestra que no se violan las suposiciones que h
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.60\textwidth]{Rplot07.png}
+    \includegraphics[width=0.60\textwidth]{imagenes/Rplot07.png}
     \caption{Gráficas diagnósticas del modelo ANOVA}
     \label{fig:suposiciones}
 \end{figure}
 
-\section{Segmentación de los datos}
+\subsection{Segmentación de los datos}
 
 Se ha realizado una segmentación de los registros del primer dataset en función de la calificación obtenida por los grupos que han realizado las acciones en los mapas.
 
@@ -449,4 +425,3 @@ Una muestra de los datasets generados tras la segmentación puede apreciarse en 
 \caption{Muestra del dataset de los grupos con \textbf{matrícula de honor}. Consta de $1646$ registros con $7$ campos cada uno.}
 \label{table:15}
 \end{table}
-\end{document}
