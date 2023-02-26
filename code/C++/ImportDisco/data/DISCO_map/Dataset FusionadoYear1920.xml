@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Process Map data exported from Fluxicon Disco (fluxicon.com/disco).  -->
+<!--  (c) 2023 Fluxicon, All Rights Reserved  -->
+<!--  Note: All durations are given in milliseconds.  -->
+<ProcessMap numNodes="4" nodeThreshold="0.2" edgeThreshold="0.2" discoVersion="3.3.7">
+	<Log numCases="4734"/>
+	<Layout width="2.7285123" height="1.1972"/>
+	<Nodes size="4">
+		<Node index="0" activity="PROBLEM1">
+			<Frequency total="2606" case="1057" start="1024" end="1030" maxRepetitions="8" caseCoverage="0.22327841149133926"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.0" y="0.40138236" width="0.25838345" height="0.19721852"/>
+		</Node>
+		<Node index="1" activity="PROBLEM9">
+			<Frequency total="1965" case="708" start="662" end="672" maxRepetitions="7" caseCoverage="0.14955640050697086"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.54975855" y="0.40138236" width="0.25838345" height="0.19721852"/>
+		</Node>
+		<StartNode index="2">
+			<Layout x="0.37931442" y="0.0" width="0.049477514" height="0.1044103"/>
+		</StartNode>
+		<EndNode index="3">
+			<Layout x="0.37931442" y="0.8955897" width="0.049477514" height="0.1044103"/>
+		</EndNode>
+	</Nodes>
+	<Edges size="6">
+		<Edge sourceIndex="0" targetIndex="0" type="observed">
+			<Frequency total="1532" case="680" maxRepetitions="7" caseCoverage="0.1436417405999155"/>
+			<Duration total="135419000" min="0" max="35781000" mean="88393" median="9014"/>
+			<Layout curve="0.2604813,0.4539425,0.31314123,0.45133644,0.3573385,0.4666889,0.3573385,0.49999163,0.3573385,0.5332943,0.31314123,0.54863846,0.2604813,0.5460408" labelX="0.4038157" labelY="0.49999163"/>
+		</Edge>
+		<Edge sourceIndex="1" targetIndex="1" type="observed">
+			<Frequency total="1245" case="626" maxRepetitions="6" caseCoverage="0.13223489649345163"/>
+			<Duration total="136082000" min="0" max="8984000" mean="109302" median="14880"/>
+			<Layout curve="0.8102438,0.4539425,0.8628879,0.45133644,0.9071009,0.4666889,0.9071009,0.49999163,0.9071009,0.5332943,0.8628879,0.54863846,0.8102438,0.5460408" labelX="0.95353067" labelY="0.49999163"/>
+		</Edge>
+		<Edge sourceIndex="2" targetIndex="0" type="observed">
+			<Frequency total="1024" case="1024" maxRepetitions="1" caseCoverage="0.21630756231516687"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.38603148,0.091630444,0.34637824,0.15294018,0.25015438,0.3015369,0.18740104,0.39847142" labelX="0.36256728" labelY="0.25289005"/>
+		</Edge>
+		<Edge sourceIndex="2" targetIndex="1" type="observed">
+			<Frequency total="662" case="662" maxRepetitions="1" caseCoverage="0.1398394592310942"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.4221026,0.091630444,0.46176374,0.15294018,0.55798763,0.3015369,0.6207251,0.39847142" labelX="0.59895504" labelY="0.25289005"/>
+		</Edge>
+		<Edge sourceIndex="0" targetIndex="3" type="observed">
+			<Frequency total="1030" case="1030" maxRepetitions="1" caseCoverage="0.2175749894381073"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.18748416,0.6016371,0.2505225,0.69901437,0.347253,0.848438,0.38655794,0.9091463" labelX="0.36256728" labelY="0.7470932"/>
+		</Edge>
+		<Edge sourceIndex="1" targetIndex="3" type="observed">
+			<Frequency total="672" case="672" maxRepetitions="1" caseCoverage="0.14195183776932827"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.62064594,0.6016371,0.5575918,0.69901437,0.46089295,0.848438,0.421588,0.9091463" labelX="0.59895504" labelY="0.7470932"/>
+		</Edge>
+	</Edges>
+</ProcessMap>
