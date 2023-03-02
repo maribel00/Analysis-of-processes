@@ -1,10 +1,21 @@
 \subsection{Extracción de los procesos con DISCO}
 
+Del dataset proporcionado se extraerán los campos de información más importantes:
+\begin{enumerate}
+\item El identificador del caso, extraído de una clave aleatoria generada al principio de cada operación \texttt{LOGIN} y que distingue de manera unívoca cada sesión de trabajo de los estudiantes.
+\item El agente, que se refiere al nombre del grupo de estudiantes.
+\item La fecha y hora a la que se registró la transacción.
+\item El campo actividad (\texttt{Activity}), que refleja la acción de los alumnos en el mundo virtual.
+\item Varios campos de tipo recurso (\texttt{Resource}) que proporcionan información adicional que puede sernos de utilidad a la hora de filtrar los registros.
+\end{enumerate}
+
+Se importarán el dataset de dos maneras diferentes, con el objetivo de estudiar tanto la frecuencia con que cada problema o mapa ha sido visitado como las acciones compuestas mapa-porcentaje superado. En la primera importación la \texttt{Activity} es la columna \emph{Objeto} mientras que en la segunda es la columna \emph{Compuesto} tal y como puede verse en las Figuras \ref{fig:DISCO1} y \ref{fig:DISCO2}.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.25\textwidth]{imagenes/DISCO_compound/DISCO.png}
+    \includegraphics[width=0.90\textwidth]{imagenes/DISCO_map/DISCO_cut.png}
     \caption{Análisis de procesos del dataset compuesto (acción mapa).}
-    \label{fig:DISCO}
+    \label{fig:DISCO1}
 \end{figure}
 
 \begin{figure}[H]
@@ -16,9 +27,9 @@
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.25\textwidth]{imagenes/DISCO_compound/DISCO.png}
+    \includegraphics[width=0.90\textwidth]{imagenes/DISCO_compound/DISCO_cut.png}
     \caption{Análisis de procesos del dataset compuesto (acción compuesta).}
-    \label{fig:DISCO}
+    \label{fig:DISCO2}
 \end{figure}
 
 \begin{figure}[H]
@@ -87,6 +98,8 @@ Como puede observarse, mientras que en los cursos académicos 1516, 1617 y 1718 
     \label{fig:año1920}
 \end{figure}
 
+Como podemos observar en la Figura \ref{fig:año1920}, los procesos extraídos en el curso académico 1920 resultan ser algo distintos a los del resto de cursos, pues parece que hay un mayor variedad, habiendo nodos de hasta seis problemas diferentes y estando estos más balanceados.
+
 \subsection{Segmentación por calificaciones}
 
 De ahora en adelante se considerará que la calificación de un grupo es \emph{``baja''} si es inferior a $7.5$, \emph{``media-baja''} si es igual o mayor que $7.5$ y menor a $8.5$, \emph{``media-alta''} si es igual a o mayor que $8.5$ e inferior a $9.5$ y \emph{``alta''} si es igual o superior a $9.5$.
@@ -148,6 +161,7 @@ Tras haber extraído los correspondientes grafos, notamos que los grupos con cal
     \label{fig:bestGrades}
 \end{figure}
 
+Observando las Figuras \ref{fig:worstGrades}, \ref{fig:midLowGrades}, \ref{fig:midHighGrades} y \ref{fig:bestGrades}, podemos ver que hay una correlación directa de la nota que sacan con la frecuencia relativa del problema con la que frecuence el nodo \texttt{PROBLEM2-20}.
 
 \subsection{Segmentación por año y calificación}
 
@@ -247,6 +261,8 @@ En los grupos con calificación \emph{``media-alta''} podemos observar dos compo
   \caption{Extracción de procesos del dataset integrado por las acciones mapa de los grupos con calificación \emph{``alta''} a lo largo de cuatro cursos académicos.}
 \end{figure}
 
+El mismo patrón puede observarse en los grafos de los grupos con las calificaciones más altas en los cuatro cursos académicos, siendo los problemas $1$ y $9$ los más frecuentados en el curso 1920, mientras en el resto de los cursos son los problemas $1$ y $2$ los más frecuentados.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.25\textwidth]{imagenes/DISCO_compound/Year1617WorstGrades.png}
@@ -337,3 +353,12 @@ En los grupos con calificación \emph{``media-alta''} podemos observar dos compo
     \caption{Extracción de procesos del dataset integrado por las acciones compuestas de los grupos con calificación \emph{``alta''} del curso académico 1920.}
     \label{fig:year1920BestGrades}
 \end{figure}
+
+Como podemos ver en las Figuras \ref{fig:year1516BestGrades}, \ref{fig:year1617BestGrades} y \ref{fig:year1920BestGrades}, el problema $2$ cobra importancia así como otros terceros problemas que varían en función del año:
+\begin{itemize}
+\item El problema $9$ es el tercero más frecuentado en el curso 1516.
+\item El problema $6$ ocupa el tercer puesto en el año académico 1617.
+\item El año 1920 presenta diferencias. El nodo más visitado es el \texttt{PROBLEM9-20} (frecuencia $50$), seguido de los nodos \texttt{PROBLEM6-20}, \texttt{PROBLEM1-20}, \texttt{PROBLEM3-20} y \texttt{PROBLEM3-20} (con frecuencias $49$, $48$, $38$ y $37$ respectivamente).
+\end{itemize}
+
+Por último, cabe descatar que parece que hay una tendencia a resolver los problemas de manera más secuencial en los procesos extraídos con los grupos de calificaciones más altas. Esto puede observarse claramente si se siguen todas las Figuras de este apartado correspondientes al curso académico 1920 (Figuras \ref{fig:year1920WorstGrades}, \ref{fig:year1920MidLowGrades}, \ref{fig:year1920MidHighGrades} y \ref{fig:year1920BestGrades}).
