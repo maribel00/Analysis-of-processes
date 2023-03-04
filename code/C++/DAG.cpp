@@ -93,9 +93,27 @@ int DAG::num_problems(vector<string> path){
     return num_problems;
 }
 
+vector<int> DAG::find_index(int row){
+    vector<int> index;
+    int i = 0;
+    for (const auto& list : paths) {
+        if (list.back() == row)
+            index.push_back(i);
+        ++i;
+    }
+    return index;
+}
+
 int DAG::find_paths(int row){
-    if (row == (size-1)) // Hemos llegado a END
+    if (row == (size-1)){ // Hemos llegado a END
+        vector<int> index = find_index(row);
+        
+        for (const auto& ele : index){
+            paths[ele].pop_back();
+            names[ele].pop_back();
+        }
         return 0;
+    }
     else if (row == (size-2)){ // Encontrar los nodos después de START
         for (int col = 0; col < size; ++col){
             if (frequency[row].at(col) > 0){
@@ -111,35 +129,34 @@ int DAG::find_paths(int row){
         }
     }
     else {
-        vector<int> index;
-        int i = 0;
-        for (const auto& list : paths) {
-            if (list.back() == row)
-                index.push_back(i);
-            ++i;
-        }
+        vector<int> index = find_index(row);
 
         vector<int> columns;
         for (int col = 0; col < size; ++col){
             if (frequency[row].at(col) > 0){
-                /*string name = header[col];
-                for (const auto& ele : index){
-                    paths[ele].push_back(col);
-                    names[ele].push_back(name);
-                }
-                find_paths(col);*/
                 columns.push_back(col);
             }
         }
+
+        int col = columns.back();
+
         if (columns.size() == 1){
             string name = header[col];
             for (const auto& ele : index){
-                    paths[ele].push_back(col);
-                    names[ele].push_back(name);
+                paths[ele].push_back(col);
+                names[ele].push_back(name);
             }
             find_paths(col);
         }
         else {
+            string name = header[col];
+            for (const auto& ele : index){
+                paths[ele].push_back(col);
+                names[ele].push_back(name);
+            }
+            find_paths(col);
+            columns.pop_back();
+
             for (const auto& column : columns){
                 for (const auto& ele : index){
                     vector<int> new_path;
@@ -148,10 +165,12 @@ int DAG::find_paths(int row){
                         new_path.push_back(integer);
                     for (const auto& name : names[ele])
                         new_sequence.push_back(name);
-
+                    new_path.push_back(column);
+                    new_sequence.push_back(header[column]);
                     paths.push_back(new_path);
                     names.push_back(new_sequence);
                 }
+                find_paths(column);
             }
         }
     }
