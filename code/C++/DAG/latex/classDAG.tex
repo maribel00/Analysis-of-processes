@@ -1,0 +1,198 @@
+\hypertarget{classDAG}{}\doxysection{DAG Class Reference}
+\label{classDAG}\index{DAG@{DAG}}
+
+
+Class representing a Directed Acyclic Graph.  
+
+
+
+
+{\ttfamily \#include $<$DAG.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDAG_a34810cce0da6387bfb0499416ee370c5}{DAG}} (string filename)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classDAG}{DAG}} object. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{classDAG_a7cffca40d0415cceb4f882d7d19c6c41}{get\+\_\+frequency}} ()
+\begin{DoxyCompactList}\small\item\em Get the frequency object. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ unsigned $>$ $>$ \mbox{\hyperlink{classDAG_aae0624002ac8462dc16c499a561f4dde}{get\+\_\+duration}} ()
+\begin{DoxyCompactList}\small\item\em Get the duration object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDAG_a250daa0916578df39730abd1c8a165a3}{is\+\_\+correct}} ()
+\begin{DoxyCompactList}\small\item\em Indicate whether the given file has been opened correctly or not. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDAG_ac68c3bff912793d9d86e8c32b60a34dc}{get\+\_\+size}} ()
+\begin{DoxyCompactList}\small\item\em Get the size object. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{classDAG_a46b23c2bfe6cb4cfb6df6bf6b87849ce}{get\+\_\+header}} ()
+\begin{DoxyCompactList}\small\item\em Get the header object. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{classDAG_ab93ca58de2e119495f2f2c6527f0c851}{get\+\_\+paths}} ()
+\begin{DoxyCompactList}\small\item\em Get the paths object. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ string $>$ $>$ \mbox{\hyperlink{classDAG_a599fc630a74c336f6b72795a8b821037}{get\+\_\+names}} ()
+\begin{DoxyCompactList}\small\item\em Get the names object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDAG_a72032bbd35c4d3c6e636c81188f1cb87}{get\+\_\+coefficient}} ()
+\begin{DoxyCompactList}\small\item\em Get the coefficient object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{classDAG_af873f693db32c3a6065bfb19b21a0f39}{operator$<$$<$}} (ostream \&ostr, const \mbox{\hyperlink{classDAG}{DAG}} \&dag)
+\begin{DoxyCompactList}\small\item\em Output operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a Directed Acyclic Graph. 
+
+This class defined a serie of functions to explore this type of graphs. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDAG_a34810cce0da6387bfb0499416ee370c5}\label{classDAG_a34810cce0da6387bfb0499416ee370c5}} 
+\index{DAG@{DAG}!DAG@{DAG}}
+\index{DAG@{DAG}!DAG@{DAG}}
+\doxysubsubsection{\texorpdfstring{DAG()}{DAG()}}
+{\footnotesize\ttfamily DAG\+::\+DAG (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classDAG}{DAG}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDAG_a72032bbd35c4d3c6e636c81188f1cb87}\label{classDAG_a72032bbd35c4d3c6e636c81188f1cb87}} 
+\index{DAG@{DAG}!get\_coefficient@{get\_coefficient}}
+\index{get\_coefficient@{get\_coefficient}!DAG@{DAG}}
+\doxysubsubsection{\texorpdfstring{get\_coefficient()}{get\_coefficient()}}
+{\footnotesize\ttfamily float DAG\+::get\+\_\+coefficient (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the coefficient object. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDAG_aae0624002ac8462dc16c499a561f4dde}\label{classDAG_aae0624002ac8462dc16c499a561f4dde}} 
+\index{DAG@{DAG}!get\_duration@{get\_duration}}
+\index{get\_duration@{get\_duration}!DAG@{DAG}}
+\doxysubsubsection{\texorpdfstring{get\_duration()}{get\_duration()}}
+{\footnotesize\ttfamily vector$<$vector$<$unsigned$>$ $>$ DAG\+::get\+\_\+duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the duration object. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$vector$<$unsigned$>$$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDAG_a7cffca40d0415cceb4f882d7d19c6c41}\label{classDAG_a7cffca40d0415cceb4f882d7d19c6c41}} 
+\index{DAG@{DAG}!get\_frequency@{get\_frequency}}
+\index{get\_frequency@{get\_frequency}!DAG@{DAG}}
+\doxysubsubsection{\texorpdfstring{get\_frequency()}{get\_frequency()}}
+{\footnotesize\ttfamily vector$<$vector$<$int$>$ $>$ DAG\+::get\+\_\+frequency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the frequency object. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$vector$<$int$>$$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDAG_a46b23c2bfe6cb4cfb6df6bf6b87849ce}\label{classDAG_a46b23c2bfe6cb4cfb6df6bf6b87849ce}} 
+\index{DAG@{DAG}!get\_header@{get\_header}}
+\index{get\_header@{get\_header}!DAG@{DAG}}
+\doxysubsubsection{\texorpdfstring{get\_header()}{get\_header()}}
+{\footnotesize\ttfamily vector$<$string$>$ DAG\+::get\+\_\+header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the header object. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$string$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDAG_a599fc630a74c336f6b72795a8b821037}\label{classDAG_a599fc630a74c336f6b72795a8b821037}} 
+\index{DAG@{DAG}!get\_names@{get\_names}}
+\index{get\_names@{get\_names}!DAG@{DAG}}
+\doxysubsubsection{\texorpdfstring{get\_names()}{get\_names()}}
+{\footnotesize\ttfamily vector$<$vector$<$string$>$ $>$ DAG\+::get\+\_\+names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the names object. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$vector$<$string$>$$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDAG_ab93ca58de2e119495f2f2c6527f0c851}\label{classDAG_ab93ca58de2e119495f2f2c6527f0c851}} 
+\index{DAG@{DAG}!get\_paths@{get\_paths}}
+\index{get\_paths@{get\_paths}!DAG@{DAG}}
+\doxysubsubsection{\texorpdfstring{get\_paths()}{get\_paths()}}
+{\footnotesize\ttfamily vector$<$vector$<$int$>$ $>$ DAG\+::get\+\_\+paths (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the paths object. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$vector$<$int$>$$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDAG_ac68c3bff912793d9d86e8c32b60a34dc}\label{classDAG_ac68c3bff912793d9d86e8c32b60a34dc}} 
+\index{DAG@{DAG}!get\_size@{get\_size}}
+\index{get\_size@{get\_size}!DAG@{DAG}}
+\doxysubsubsection{\texorpdfstring{get\_size()}{get\_size()}}
+{\footnotesize\ttfamily int DAG\+::get\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the size object. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDAG_a250daa0916578df39730abd1c8a165a3}\label{classDAG_a250daa0916578df39730abd1c8a165a3}} 
+\index{DAG@{DAG}!is\_correct@{is\_correct}}
+\index{is\_correct@{is\_correct}!DAG@{DAG}}
+\doxysubsubsection{\texorpdfstring{is\_correct()}{is\_correct()}}
+{\footnotesize\ttfamily bool DAG\+::is\+\_\+correct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indicate whether the given file has been opened correctly or not. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classDAG_af873f693db32c3a6065bfb19b21a0f39}\label{classDAG_af873f693db32c3a6065bfb19b21a0f39}} 
+\index{DAG@{DAG}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!DAG@{DAG}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{ostr,  }\item[{const \mbox{\hyperlink{classDAG}{DAG}} \&}]{dag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Output operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ostr} & \\
+\hline
+{\em dag} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ostream\& 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{DAG_8h}{DAG.\+h}}\item 
+\mbox{\hyperlink{DAG_8cpp}{DAG.\+cpp}}\end{DoxyCompactItemize}

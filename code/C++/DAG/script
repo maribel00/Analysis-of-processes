@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Crear una tabla vacía
+echo "Directorio Archivo  Salida" > outputComplete.csv
+echo "Directorio Archivo  Salida" > outputGrade.csv
+echo "Directorio Archivo  Salida" > outputYear.csv
+echo "Directorio Archivo  Salida" > outputYearGrade.csv
+
+# Definir una lista de argumentos
+argumentos1=("1 CompleteWorstGrades.csv" "1 CompleteMidLowGrades.csv" "1 CompleteMidHighGrades.csv" "1 CompleteHighGrades.csv")
+argumentos2=("2 WorstGrades.csv" "2 MidLowGrades.csv" "2 MidHighGrades.csv" "2 BestGrades.csv")
+argumentos3=("2 Year1516.csv" "2 Year1617.csv" "2 Year1718.csv" "2 Year1920.csv")
+argumentos4=("2 Year1617WorstGrades.csv" "2 Year1718WorstGrades.csv" "2 Year1920WorstGrades.csv" "2 Year1516MidLowGrades.csv" "2 Year1718MidLowGrades.csv" "2 Year1920MidLowGrades.csv" "2 Year1516MidHighGrades.csv" "2 Year1617MidHighGrades.csv" "2 Year1718MidHighGrades.csv" "2 Year1920MidHighGrades.csv" "2 Year1516HighGrades.csv" "2 Year1617HighGrades.csv" "2 Year1920HighGrades.csv")
+
+# Bucle a través de la lista de argumentos 1
+for argumento in "${argumentos1[@]}"
+do
+    # Ejecutar el programa con el argumento actual
+    salida=$(./pruebaDAG $argumento)
+
+    # Agregar el argumento y la salida a la tabla
+    echo "$argumento  $salida" >> outputComplete.csv
+done
+
+# Bucle a través de la lista de argumentos 2
+for argumento in "${argumentos2[@]}"
+do
+    # Ejecutar el programa con el argumento actual
+    salida=$(./pruebaDAG $argumento)
+
+    # Agregar el argumento y la salida a la tabla
+    echo "$argumento  $salida" >> outputGrade.csv
+done
+
+# Bucle a través de la lista de argumentos 3
+for argumento in "${argumentos3[@]}"
+do
+    # Ejecutar el programa con el argumento actual
+    salida=$(./pruebaDAG $argumento)
+
+    # Agregar el argumento y la salida a la tabla
+    echo "$argumento  $salida" >> outputYear.csv
+done
+
+# Bucle a través de la lista de argumentos 4
+for argumento in "${argumentos4[@]}"
+do
+    # Ejecutar el programa con el argumento actual
+    salida=$(./pruebaDAG $argumento)
+
+    # Agregar el argumento y la salida a la tabla
+    echo "$argumento  $salida" >> outputYearGrade.csv
+done
