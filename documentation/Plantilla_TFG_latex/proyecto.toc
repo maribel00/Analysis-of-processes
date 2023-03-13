@@ -1,0 +1,24 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Introducción, motivaciones, objetivos y estructura}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Introducción}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Motivaciones}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Objetivos}{2}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Planificación}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Herramientas}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Análisis}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Planteamiento del problema}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Algunos conceptos relevantes}{6}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Implementación}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Análisis ANOVA y primeras conclusiones}{9}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Descripción del dataset}{9}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Introducción}{12}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Two way ANOVA}{13}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Segmentación de los datos}{15}{subsection.4.1.4}%
+\contentsline {section}{\numberline {4.2}Extracción de procesos ocultos en los datasets}{17}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Extracción de los procesos con DISCO}{17}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Segmentación por años}{22}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Segmentación por calificaciones}{26}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Segmentación por año y calificación}{32}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Análisis de los procesos por distintas categorías}{50}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Análisis de los motivos en los cambios de comportamiento}{50}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Análisis de si hay cambios inducidos por los éxitos de los demás grupos}{50}{section.4.5}%

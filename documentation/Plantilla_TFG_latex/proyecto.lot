@@ -1,0 +1,19 @@
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Muestra del primer dataset\relax }}{11}{table.caption.11}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Resumen del primer dataset que tenemos\relax }}{11}{table.caption.12}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Muestra del segundo dataset\relax }}{12}{table.caption.16}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Resumen del segundo dataset que tenemos\relax }}{12}{table.caption.17}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Resultados del test two way ANOVA\relax }}{13}{table.caption.18}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Coeficientes del modelo\relax }}{13}{table.caption.19}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Dataset 2 tras ser preparado para hacer join\relax }}{15}{table.caption.22}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Dataset 2 tras agrupar por grupo y año\relax }}{15}{table.caption.23}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces Unión de ambos datasets\relax }}{16}{table.caption.24}%
+\contentsline {table}{\numberline {4.10}{\ignorespaces Muestra del dataset de los grupos \textbf {suspensos}. Consta de $2397$ registros con $7$ campos cada uno.\relax }}{16}{table.caption.25}%
+\contentsline {table}{\numberline {4.11}{\ignorespaces Muestra del dataset de los grupos \textbf {aprobados}. Consta de $7053$ registros con $7$ campos cada uno.\relax }}{16}{table.caption.26}%
+\contentsline {table}{\numberline {4.12}{\ignorespaces Muestra del dataset de los grupos con \textbf {notable}. Consta de $18840$ registros con $7$ campos cada uno.\relax }}{17}{table.caption.27}%
+\contentsline {table}{\numberline {4.13}{\ignorespaces Muestra del dataset de los grupos con \textbf {sobresaliente}. Consta de $17891$ registros con $7$ campos cada uno.\relax }}{17}{table.caption.28}%
+\contentsline {table}{\numberline {4.14}{\ignorespaces Muestra del dataset de los grupos con \textbf {matrícula de honor}. Consta de $1646$ registros con $7$ campos cada uno.\relax }}{18}{table.caption.29}%

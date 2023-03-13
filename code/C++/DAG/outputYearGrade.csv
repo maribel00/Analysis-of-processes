@@ -1,14 +1,14 @@
-Directorio,Archivo,Salida
-2,Year1617WorstGrades.csv,0.739231
-2,Year1718WorstGrades.csv,0.983628
-2,Year1920WorstGrades.csv,0.744285
-2,Year1516MidLowGrades.csv,1.07204
-2,Year1718MidLowGrades.csv,0.660522
-2,Year1920MidLowGrades.csv,0.590114
-2,Year1516MidHighGrades.csv,1.17552
-2,Year1617MidHighGrades.csv,0.677559
-2,Year1718MidHighGrades.csv,0.674498
-2,Year1920MidHighGrades.csv,0.716135
-2,Year1516HighGrades.csv,0.56367
-2,Year1617HighGrades.csv,0.820369
-2,Year1920HighGrades.csv,0.339578
+Directorio Archivo  Salida
+3 Year1516MidLowGrades.csv  1.07204
+3 Year1516MidHighGrades.csv  1.17552
+3 Year1516HighGrades.csv  0.56367
+3 Year1617WorstGrades.csv  0.739231
+3 Year1617MidHighGrades.csv  0.677559
+3 Year1617HighGrades.csv  0.820369
+3 Year1718WorstGrades.csv  0.983628
+3 Year1718MidLowGrades.csv  0.660522
+3 Year1718MidHighGrades.csv  0.674498
+3 Year1920WorstGrades.csv  0.744285
+3 Year1920MidLowGrades.csv  0.590114
+3 Year1920MidHighGrades.csv  0.716135
+3 Year1920HighGrades.csv  0.339578

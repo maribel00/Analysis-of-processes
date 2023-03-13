@@ -1,0 +1,2018 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.2.8)  12 MAR 2023 23:18
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**proyecto.tex
+(./proyecto.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21>
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2021/10/04 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk11.clo
+File: bk11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@chapter=\count186
+\c@section=\count187
+\c@subsection=\count188
+\c@subsubsection=\count189
+\c@paragraph=\count190
+\c@subparagraph=\count191
+\c@figure=\count192
+\c@table=\count193
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+\lst@mode=\count194
+\lst@gtempboxa=\box50
+\lst@token=\toks17
+\lst@length=\count195
+\lst@currlwidth=\dimen139
+\lst@column=\count196
+\lst@pos=\count197
+\lst@lostspace=\dimen140
+\lst@width=\dimen141
+\lst@newlines=\count198
+\lst@lineno=\count199
+\lst@maxwidth=\dimen142
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count266
+\lst@skipnumbers=\count267
+\lst@framebox=\box51
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2022/01/26 3.70 The Babel package
+\babel@savecnt=\count268
+\U@D=\dimen143
+\l@unhyphenated=\language8
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count269
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
+Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
+\es@quottoks=\toks20
+\es@quotdepth=\count270
+))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen144
+\ar@mcellbox=\box52
+\extrarowheight=\dimen145
+\NC@list=\toks21
+\extratabsurround=\skip49
+\backup@length=\skip50
+\ar@cellbox=\box53
+))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks22
+\verbatim@line=\toks23
+\verbatim@in@stream=\read3
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
+rs
+\f@nch@headwidth=\skip51
+\f@nch@O@elh=\skip52
+\f@nch@O@erh=\skip53
+\f@nch@O@olh=\skip54
+\f@nch@O@orh=\skip55
+\f@nch@O@elf=\skip56
+\f@nch@O@erf=\skip57
+\f@nch@O@olf=\skip58
+\f@nch@O@orf=\skip59
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen146
+\Gin@req@width=\dimen147
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/afterpage.sty
+Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
+\AP@output=\toks24
+\AP@partial=\box54
+\AP@footins=\box55
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2021/12/07 v1.3c Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+LaTeX Info: Redefining \color on input line 711.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen148
+\captionmargin@=\dimen149
+\captionwidth=\dimen150
+\caption@tempdima=\dimen151
+\caption@indent=\dimen152
+\caption@parindent=\dimen153
+\caption@hangindent=\dimen154
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count271
+\c@continuedfloat=\count272
+Package caption Info: listings package is loaded.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+\c@subfigure=\count273
+\c@subtable=\count274
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count275
+\float@exts=\toks25
+\float@box=\box56
+\@float@everytoks=\toks26
+\@floatcapt=\box57
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks27
+\pgfutil@tempdima=\dimen155
+\pgfutil@tempdimb=\dimen156
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box58
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
+))
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks28
+\pgfkeys@temptoks=\toks29
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
+ex
+\pgfkeys@tmptoks=\toks30
+))
+\pgf@x=\dimen157
+\pgf@y=\dimen158
+\pgf@xa=\dimen159
+\pgf@ya=\dimen160
+\pgf@xb=\dimen161
+\pgf@yb=\dimen162
+\pgf@xc=\dimen163
+\pgf@yc=\dimen164
+\pgf@xd=\dimen165
+\pgf@yd=\dimen166
+\w@pgf@writea=\write3
+\r@pgf@reada=\read4
+\c@pgf@counta=\count276
+\c@pgf@countb=\count277
+\c@pgf@countc=\count278
+\c@pgf@countd=\count279
+\t@pgf@toka=\toks31
+\t@pgf@tokb=\toks32
+\t@pgf@tokc=\toks33
+\pgf@sys@id@count=\count280
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f
+File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex
+File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfsyssoftpath@smallbuffer@items=\count281
+\pgfsyssoftpath@bigbuffer@items=\count282
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex
+File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen167
+\pgfmath@count=\count283
+\pgfmath@box=\box59
+\pgfmath@toks=\toks34
+\pgfmath@stack@operand=\toks35
+\pgfmath@stack@operation=\toks36
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count284
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x
+File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@picminx=\dimen168
+\pgf@picmaxx=\dimen169
+\pgf@picminy=\dimen170
+\pgf@picmaxy=\dimen171
+\pgf@pathminx=\dimen172
+\pgf@pathmaxx=\dimen173
+\pgf@pathminy=\dimen174
+\pgf@pathmaxy=\dimen175
+\pgf@xx=\dimen176
+\pgf@xy=\dimen177
+\pgf@yx=\dimen178
+\pgf@yy=\dimen179
+\pgf@zx=\dimen180
+\pgf@zy=\dimen181
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex
+File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@path@lastx=\dimen182
+\pgf@path@lasty=\dimen183
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex
+File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@shorten@end@additional=\dimen184
+\pgf@shorten@start@additional=\dimen185
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x
+File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfpic=\box60
+\pgf@hbox=\box61
+\pgf@layerbox@main=\box62
+\pgf@picture@serial@count=\count285
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex
+File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgflinewidth=\dimen186
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex
+File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@pt@x=\dimen187
+\pgf@pt@y=\dimen188
+\pgf@pt@temp=\dimen189
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex
+File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex
+File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x
+File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowsep=\dimen190
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@max=\dimen191
+\pgf@sys@shading@range@num=\count286
+\pgf@shadingcount=\count287
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex
+File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfexternal@startupbox=\box63
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x
+File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex
+File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex
+File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodeparttextbox=\box64
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty
+Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@nodesepstart=\dimen192
+\pgf@nodesepend=\dimen193
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty
+Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
+)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen194
+\pgffor@skip=\dimen195
+\pgffor@stack=\toks37
+\pgffor@toks=\toks38
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex
+File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@plot@mark@count=\count288
+\pgfplotmarksize=\dimen196
+)
+\tikz@lastx=\dimen197
+\tikz@lasty=\dimen198
+\tikz@lastxsaved=\dimen199
+\tikz@lastysaved=\dimen256
+\tikz@lastmovetox=\dimen257
+\tikz@lastmovetoy=\dimen258
+\tikzleveldistance=\dimen259
+\tikzsiblingdistance=\dimen260
+\tikz@figbox=\box65
+\tikz@figbox@bg=\box66
+\tikz@tempbox=\box67
+\tikz@tempbox@bg=\box68
+\tikztreelevel=\count289
+\tikznumberofchildren=\count290
+\tikznumberofcurrentchild=\count291
+\tikz@fig@count=\count292
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfmatrixcurrentrow=\count293
+\pgfmatrixcurrentcolumn=\count294
+\pgf@matrix@numberofcolumns=\count295
+)
+\tikz@expandcount=\count296
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip60
+\LTright=\skip61
+\LTpre=\skip62
+\LTpost=\skip63
+\LTchunksize=\count297
+\LTcapwidth=\dimen261
+\LT@head=\box69
+\LT@firsthead=\box70
+\LT@foot=\box71
+\LT@lastfoot=\box72
+\LT@gbox=\box73
+\LT@cols=\count298
+\LT@rows=\count299
+\c@LT@tables=\count300
+\c@LT@chunks=\count301
+\LT@p@ftn=\toks39
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+)
+\@linkdim=\dimen262
+\Hy@linkcounter=\count302
+\Hy@pagecounter=\count303
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-06-07 v7.00m Hyperref: patches for babel la
+nguages
+)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count304
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+
+Package hyperref Warning: Invalid value `000'
+(hyperref)                for option `pdfborder'.
+(hyperref)                Option setting is ignored on input line 4073.
+
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count305
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen263
+
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count306
+\Field@Width=\dimen264
+\Fld@charsize=\dimen265
+Package hyperref Info: Hyper figures OFF on input line 6076.
+Package hyperref Info: Link nesting OFF on input line 6081.
+Package hyperref Info: Hyper index ON on input line 6084.
+Package hyperref Info: backreferencing OFF on input line 6091.
+Package hyperref Info: Link coloring OFF on input line 6096.
+Package hyperref Info: Link coloring with OCG OFF on input line 6101.
+Package hyperref Info: PDF/A mode OFF on input line 6106.
+LaTeX Info: Redefining \ref on input line 6146.
+LaTeX Info: Redefining \pageref on input line 6150.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count307
+\c@Item=\count308
+\c@Hfootnote=\count309
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count310
+\c@bookmark@seq@number=\count311
+
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip64
+)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 65.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 65.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 65.
+
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+\everycr=\toks40
+\minrowclearance=\skip65
+)
+(/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks41
+\footnotemargin=\dimen266
+\c@pp@next@reset=\count312
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
+\c@teorema=\count313
+\c@ejemplo=\count314
+\c@definicion=\count315
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2022/01/29 v0.5u Insert pages of external PDF documents (AM)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count316
+\calc@Bcount=\count317
+\calc@Adimen=\dimen267
+\calc@Bdimen=\dimen268
+\calc@Askip=\skip66
+\calc@Bskip=\skip67
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count318
+\calc@Cskip=\skip68
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
+\ESO@tempdima=\dimen269
+\ESO@tempdimb=\dimen270
+)
+\AM@pagewidth=\dimen271
+\AM@pageheight=\dimen272
+\AM@fboxrule=\dimen273
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2022/01/29 v0.5u Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count319
+\AM@pagebox=\box74
+\AM@global@opts=\toks42
+\AM@pagecnt=\count320
+\AM@toc@title=\toks43
+\c@AM@survey=\count321
+\AM@templatesizebox=\box75
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count322
+\l__pdf_internal_box=\box76
+)
+(./proyecto.aux
+LaTeX Info: Redefining \. on input line 21.
+LaTeX Info: Redefining \% on input line 21.
+)
+\openout1 = `proyecto.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+\c@lstlisting=\count323
+LaTeX Info: Redefining \. on input line 182.
+LaTeX Info: Redefining \% on input line 182.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count324
+\scratchdimen=\dimen274
+\scratchbox=\box77
+\nofMPsegments=\count325
+\nofMParguments=\count326
+\everyMPshowfont=\toks44
+\MPscratchCnt=\count327
+\MPscratchDim=\dimen275
+\MPnumerator=\count328
+\makeMPintoPDFobject=\count329
+\everyMPtoPDFconversion=\toks45
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+)
+Package caption Info: End \AtBeginDocument code.
+Package hyperref Info: Link coloring OFF on input line 182.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count330
+)
+LaTeX Info: Redefining \ref on input line 182.
+LaTeX Info: Redefining \pageref on input line 182.
+LaTeX Info: Redefining \nameref on input line 182.
+
+(./proyecto.out) (./proyecto.out)
+\@outlinefile=\write4
+\openout4 = `proyecto.out'.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+(./portada/portada.tex
+\centeroffset=\skip69
+<imagenes/logos/logo_ugr.jpg, id=99, 777.90625pt x 231.86626pt>
+File: imagenes/logos/logo_ugr.jpg Graphic file (type jpg)
+<use imagenes/logos/logo_ugr.jpg>
+Package pdftex.def Info: imagenes/logos/logo_ugr.jpg  used on input line 12.
+(pdftex.def)             Requested size: 323.9978pt x 96.57295pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 23.
+
+Overfull \hbox (24.0pt too wide) in paragraph at lines 9--24
+| $[]$ 
+ []
+
+<imagenes/logos/etsiit_logo.png, id=100, 110.814pt x 40.4712pt>
+File: imagenes/logos/etsiit_logo.png Graphic file (type png)
+<use imagenes/logos/etsiit_logo.png>
+Package pdftex.def Info: imagenes/logos/etsiit_logo.png  used on input line 33.
+
+(pdftex.def)             Requested size: 108.0011pt x 39.44412pt.
+
+Overfull \hbox (24.0pt too wide) in paragraph at lines 26--40
+| $[]$ 
+ []
+
+[1
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./imagenes/logos/logo_ugr.
+jpg> <./imagenes/logos/etsiit_logo.png>]) (./prefacios/prefacio.tex [2
+
+]
+(./portada/portada_2.tex [3] [4
+
+]
+<imagenes/logos/logo.png, id=125, 123.46124pt x 45.92157pt>
+File: imagenes/logos/logo.png Graphic file (type png)
+<use imagenes/logos/logo.png>
+Package pdftex.def Info: imagenes/logos/logo.png  used on input line 21.
+(pdftex.def)             Requested size: 123.46092pt x 45.92145pt.
+
+Overfull \hbox (24.0pt too wide) in paragraph at lines 8--31
+| $[]$ 
+ []
+
+
+Overfull \hbox (24.0pt too wide) in paragraph at lines 33--47
+| $[]$
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.49 \end{titlepage}
+                     [1 <./imagenes/logos/logo.png>])pdfTeX warning (ext4): des
+tination with the same identifier (name{page.2}) has been already used, duplica
+te ignored
+<to be read again> 
+                   \relax 
+l.11 \cleardoublepage
+                      [2
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.28 \cleardoublepage
+                      [3]pdfTeX warning (ext4): destination with the same ident
+ifier (name{page.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.28 \cleardoublepage
+                      [4
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+
+ []
+
+[5] [6
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+[7] [8
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
+
+ []
+
+[9] [10
+
+]) [11] [12
+
+] (./proyecto.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+\tf@toc=\write5
+\openout5 = `proyecto.toc'.
+
+ [1
+
+] [2
+
+] (./proyecto.lof
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [3]
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
+(Font)              using `OT1/cmr/bx/n' instead on input line 43.
+
+
+Package spanish Warning: Replacing `OT1/cmr/bx/sc' by 
+(spanish)                faked small caps on input line 43.
+
+LaTeX Info: Redefining \. on input line 43.
+LaTeX Info: Redefining \% on input line 43.
+[4])
+\tf@lof=\write6
+\openout6 = `proyecto.lof'.
+
+LaTeX Info: Redefining \. on input line 190.
+LaTeX Info: Redefining \% on input line 190.
+
+
+Package spanish Warning: Replacing `OT1/cmr/bx/sc' by 
+(spanish)                faked small caps on input line 190.
+
+[5] [6
+
+] (./proyecto.lot
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+\tf@lot=\write7
+\openout7 = `proyecto.lot'.
+
+ [7] [8
+
+] (./capitulos/capitulo_01/01_Introduccion.tex
+Cap\'{\i }tulo 1.
+(./capitulos/capitulo_01/introduccion.tex)
+(./capitulos/capitulo_01/motivacion.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4 \rightline{\small Maruja Torres}
+                                     [1
+
+])
+(./capitulos/capitulo_01/objetivos.tex))
+(./capitulos/capitulo_03/03_Planificacion.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \chapter
+            {Planificación} [2]
+Cap\'{\i }tulo 2.
+(./capitulos/capitulo_03/herramientas.tex
+Overfull \hbox (3.38722pt too wide) in paragraph at lines 9--10
+[]\OT1/cmr/m/n/10.95 Para el se-gui-mien-to del pro-yec-to se han uti-li-za-do 
+las \OT1/cmtt/m/n/10.95 Hojas de c^^Salculo
+ []
+
+)) (./capitulos/capitulo_04/04_Analisis.texpdfTeX warning (ext4): destination w
+ith the same identifier (name{page.3}) has been already used, duplicate ignored
+
+<to be read again> 
+                   \relax 
+l.1 \chapter
+            {Análisis} [3
+
+]pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \chapter
+            {Análisis} [4
+
+]
+Cap\'{\i }tulo 3.
+(./capitulos/capitulo_04/planteamiento.tex
+
+LaTeX Warning: Reference `fig:1' on page 5 undefined on input line 1.
+
+
+LaTeX Warning: Reference `fig:2' on page 5 undefined on input line 8.
+
+
+LaTeX Warning: Reference `fig:3' on page 5 undefined on input line 9.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.13 
+      [5]) (./capitulos/capitulo_04/grafo.tex
+LaTeX Info: Redefining \. on input line 56.
+LaTeX Info: Redefining \% on input line 56.
+pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.56 
+      [6])) (./capitulos/capitulo_06/06_Implementacion.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \chapter
+            {Implementación} [7]pdfTeX warning (ext4): destination with the sa
+me identifier (name{page.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \chapter
+            {Implementación} [8
+
+]
+Cap\'{\i }tulo 4.
+(./capitulos/capitulo_06/iteracion_0.tex
+Overfull \hbox (53.8679pt too wide) in paragraph at lines 43--55
+ [][] 
+ []
+
+<imagenes/Rplot02.png, id=434, 276.28218pt x 225.84375pt>
+File: imagenes/Rplot02.png Graphic file (type png)
+<use imagenes/Rplot02.png>
+Package pdftex.def Info: imagenes/Rplot02.png  used on input line 63.
+(pdftex.def)             Requested size: 176.3984pt x 176.41241pt.
+<imagenes/Rplot04.png, id=435, 276.28218pt x 225.84375pt>
+File: imagenes/Rplot04.png Graphic file (type png)
+<use imagenes/Rplot04.png>
+Package pdftex.def Info: imagenes/Rplot04.png  used on input line 69.
+(pdftex.def)             Requested size: 176.3984pt x 176.41241pt.
+<imagenes/Rplot.png, id=438, 276.28218pt x 225.84375pt>
+File: imagenes/Rplot.png Graphic file (type png)
+<use imagenes/Rplot.png>
+Package pdftex.def Info: imagenes/Rplot.png  used on input line 80.
+(pdftex.def)             Requested size: 176.3984pt x 176.41241pt.
+<imagenes/Rplot01.png, id=439, 276.28218pt x 225.84375pt>
+File: imagenes/Rplot01.png Graphic file (type png)
+<use imagenes/Rplot01.png>
+Package pdftex.def Info: imagenes/Rplot01.png  used on input line 86.
+(pdftex.def)             Requested size: 176.3984pt x 176.41241pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.94 
+      [9]
+LaTeX Info: Redefining \. on input line 94.
+LaTeX Info: Redefining \% on input line 94.
+pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.94 
+      [10 <./imagenes/Rplot02.png> <./imagenes/Rplot04.png> <./imagenes/Rplot.p
+ng (PNG copy)> <./imagenes/Rplot01.png (PNG copy)>]
+<imagenes/Rplot03.png, id=451, 276.28218pt x 225.84375pt>
+File: imagenes/Rplot03.png Graphic file (type png)
+<use imagenes/Rplot03.png>
+Package pdftex.def Info: imagenes/Rplot03.png  used on input line 97.
+(pdftex.def)             Requested size: 176.3984pt x 176.41241pt.
+<imagenes/Rplot05.png, id=452, 276.28218pt x 225.84375pt>
+File: imagenes/Rplot05.png Graphic file (type png)
+<use imagenes/Rplot05.png>
+Package pdftex.def Info: imagenes/Rplot05.png  used on input line 103.
+(pdftex.def)             Requested size: 176.3984pt x 176.41241pt.
+LaTeX Info: Redefining \. on input line 111.
+LaTeX Info: Redefining \% on input line 111.
+pdfTeX warning (ext4): destination with the same identifier (name{page.11}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.111 \begin{itemize}
+                      [11 <./imagenes/Rplot03.png> <./imagenes/Rplot05.png>]
+Overfull \hbox (64.2704pt too wide) in paragraph at lines 147--159
+ [][] 
+ []
+
+LaTeX Info: Redefining \. on input line 168.
+LaTeX Info: Redefining \% on input line 168.
+pdfTeX warning (ext4): destination with the same identifier (name{page.12}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.168 
+       [12]
+LaTeX Info: Redefining \. on input line 223.
+LaTeX Info: Redefining \% on input line 223.
+ [13]
+<imagenes/Rplot06.png, id=475, 276.28218pt x 225.84375pt>
+File: imagenes/Rplot06.png Graphic file (type png)
+<use imagenes/Rplot06.png>
+Package pdftex.def Info: imagenes/Rplot06.png  used on input line 226.
+(pdftex.def)             Requested size: 216.0022pt x 176.56749pt.
+<imagenes/Rplot07.png, id=477, 276.28218pt x 225.84375pt>
+File: imagenes/Rplot07.png Graphic file (type png)
+<use imagenes/Rplot07.png>
+Package pdftex.def Info: imagenes/Rplot07.png  used on input line 240.
+(pdftex.def)             Requested size: 216.0022pt x 176.56749pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 248.
+LaTeX Info: Redefining \% on input line 248.
+ [14 <./imagenes/Rplot06.png> <./imagenes/Rplot07.png (PNG copy)>]
+Overfull \hbox (27.22774pt too wide) in paragraph at lines 302--314
+ [][] 
+ []
+
+LaTeX Info: Redefining \. on input line 324.
+LaTeX Info: Redefining \% on input line 324.
+[15]
+Overfull \hbox (15.10672pt too wide) in paragraph at lines 333--345
+ [][] 
+ []
+
+
+Overfull \hbox (24.91612pt too wide) in paragraph at lines 353--365
+ [][] 
+ []
+
+
+Overfull \hbox (27.22774pt too wide) in paragraph at lines 373--385
+ [][] 
+ []
+
+
+Overfull \hbox (24.91612pt too wide) in paragraph at lines 393--405
+ [][] 
+ []
+
+
+Overfull \hbox (27.22774pt too wide) in paragraph at lines 413--425
+ [][] 
+ []
+
+) (./capitulos/capitulo_06/iteracion_1.tex
+Underfull \vbox (badness 8132) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
+ [16]
+LaTeX Info: Redefining \. on input line 13.
+LaTeX Info: Redefining \% on input line 13.
+
+[17]
+<imagenes/DISCO_map/DISCO_cut.png, id=510, 1019.81pt x 916.42375pt>
+File: imagenes/DISCO_map/DISCO_cut.png Graphic file (type png)
+<use imagenes/DISCO_map/DISCO_cut.png>
+Package pdftex.def Info: imagenes/DISCO_map/DISCO_cut.png  used on input line 1
+6.
+(pdftex.def)             Requested size: 323.9978pt x 291.15009pt.
+<imagenes/DISCO_map/Dataset Fusionado.png, id=511, 675.52374pt x 597.23125pt>
+File: imagenes/DISCO_map/Dataset Fusionado.png Graphic file (type png)
+<use imagenes/DISCO_map/Dataset Fusionado.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset Fusionado.png  used on inpu
+t line 23.
+(pdftex.def)             Requested size: 270.0pt x 238.706pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
+ [18 <./imagenes/DISCO_map/DISCO_cut.png>]
+<imagenes/DISCO_compound/DISCO_cut.png, id=517, 989.6975pt x 918.43124pt>
+File: imagenes/DISCO_compound/DISCO_cut.png Graphic file (type png)
+<use imagenes/DISCO_compound/DISCO_cut.png>
+Package pdftex.def Info: imagenes/DISCO_compound/DISCO_cut.png  used on input l
+ine 30.
+(pdftex.def)             Requested size: 323.9978pt x 300.6588pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 34.
+LaTeX Info: Redefining \% on input line 34.
+ [19 <./imagenes/DISCO_map/Dataset Fusionado.png (PNG copy)>]
+<imagenes/DISCO_compound/Dataset Fusionado - Compuesto.png, id=523, 2212.265pt 
+x 1222.5675pt>
+File: imagenes/DISCO_compound/Dataset Fusionado - Compuesto.png Graphic file (t
+ype png)
+<use imagenes/DISCO_compound/Dataset Fusionado - Compuesto.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Dataset Fusionado - Compuesto.
+png  used on input line 37.
+(pdftex.def)             Requested size: 450.0pt x 248.66919pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 37--38
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 41.
+LaTeX Info: Redefining \% on input line 41.
+ [20 <./imagenes/DISCO_compound/DISCO_cut.png>]
+<imagenes/DISCO_map/Dataset FusionadoYear1516.png, id=529, 675.52374pt x 597.23
+125pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1516.png Graphic file (type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1516.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1516.png  used
+ on input line 46.
+(pdftex.def)             Requested size: 237.60161pt x 237.60333pt.
+
+Overfull \hbox (21.59941pt too wide) in paragraph at lines 46--47
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoYear1617.png, id=530, 835.12pt x 447.6725p
+t>
+File: imagenes/DISCO_map/Dataset FusionadoYear1617.png Graphic file (type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1617.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1617.png  used
+ on input line 52.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 52--53
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoYear1718.png, id=531, 835.12pt x 447.6725p
+t>
+File: imagenes/DISCO_map/Dataset FusionadoYear1718.png Graphic file (type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1718.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1718.png  used
+ on input line 58.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 58--59
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoYear1920.png, id=532, 835.12pt x 447.6725p
+t>
+File: imagenes/DISCO_map/Dataset FusionadoYear1920.png Graphic file (type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1920.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1920.png  used
+ on input line 64.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 64--65
+[][] 
+ []
+
+
+Overfull \hbox (74.43773pt too wide) in paragraph at lines 45--68
+[][]  []
+ []
+
+
+Overfull \hbox (74.43773pt too wide) in paragraph at lines 45--68
+[]  [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 70.
+LaTeX Info: Redefining \% on input line 70.
+ [21 <./imagenes/DISCO_compound/Dataset Fusionado - Compuesto.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 72.
+LaTeX Info: Redefining \% on input line 72.
+ [22 <./imagenes/DISCO_map/Dataset FusionadoYear1516.png (PNG copy)> <./imagene
+s/DISCO_map/Dataset FusionadoYear1617.png (PNG copy)> <./imagenes/DISCO_map/Dat
+aset FusionadoYear1718.png (PNG copy)> <./imagenes/DISCO_map/Dataset FusionadoY
+ear1920.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1516.png, id=541, 2470.22874pt x 1134.2375pt>
+File: imagenes/DISCO_compound/Year1516.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1516.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1516.png  used on input li
+ne 75.
+(pdftex.def)             Requested size: 450.0pt x 206.61154pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 75--76
+ [][] 
+ []
+
+<imagenes/DISCO_compound/Year1617.png, id=542, 1030.85126pt x 922.44624pt>
+File: imagenes/DISCO_compound/Year1617.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1617.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1617.png  used on input li
+ne 82.
+(pdftex.def)             Requested size: 450.0pt x 402.66841pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 82--83
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+ [23 <./imagenes/DISCO_compound/Year1516.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1718.png, id=547, 1348.03625pt x 913.4125pt>
+File: imagenes/DISCO_compound/Year1718.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1718.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1718.png  used on input li
+ne 89.
+(pdftex.def)             Requested size: 450.0pt x 304.91144pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 89--90
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 93.
+LaTeX Info: Redefining \% on input line 93.
+ [24 <./imagenes/DISCO_compound/Year1617.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1920.png, id=552, 2023.56pt x 772.8875pt>
+File: imagenes/DISCO_compound/Year1920.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1920.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1920.png  used on input li
+ne 96.
+(pdftex.def)             Requested size: 450.0pt x 171.87552pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 96--97
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 102.
+LaTeX Info: Redefining \% on input line 102.
+ [25 <./imagenes/DISCO_compound/Year1718.png (PNG copy)> <./imagenes/DISCO_comp
+ound/Year1920.png (PNG copy)>]
+<imagenes/DISCO_map/Dataset FusionadoWorstGrades.png, id=559, 835.12pt x 447.67
+25pt>
+File: imagenes/DISCO_map/Dataset FusionadoWorstGrades.png Graphic file (type pn
+g)
+<use imagenes/DISCO_map/Dataset FusionadoWorstGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoWorstGrades.png  u
+sed on input line 109.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 109--110
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoMidLowGrades.png, id=560, 835.12pt x 447.6
+725pt>
+File: imagenes/DISCO_map/Dataset FusionadoMidLowGrades.png Graphic file (type p
+ng)
+<use imagenes/DISCO_map/Dataset FusionadoMidLowGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoMidLowGrades.png  
+used on input line 115.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 115--116
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoMidHighGrades.png, id=561, 675.52374pt x 5
+97.23125pt>
+File: imagenes/DISCO_map/Dataset FusionadoMidHighGrades.png Graphic file (type 
+png)
+<use imagenes/DISCO_map/Dataset FusionadoMidHighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoMidHighGrades.png 
+ used on input line 121.
+(pdftex.def)             Requested size: 237.60161pt x 237.60333pt.
+
+Overfull \hbox (21.59941pt too wide) in paragraph at lines 121--122
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoHighGrades.png, id=562, 835.12pt x 447.672
+5pt>
+File: imagenes/DISCO_map/Dataset FusionadoHighGrades.png Graphic file (type png
+)
+<use imagenes/DISCO_map/Dataset FusionadoHighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoHighGrades.png  us
+ed on input line 127.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 127--128
+[][] 
+ []
+
+
+Overfull \hbox (74.43773pt too wide) in paragraph at lines 108--131
+[][]  []
+ []
+
+
+Overfull \hbox (74.43773pt too wide) in paragraph at lines 108--131
+[]  [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 133.
+LaTeX Info: Redefining \% on input line 133.
+ [26]
+Underfull \vbox (badness 1960) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 135.
+LaTeX Info: Redefining \% on input line 135.
+ [27 <./imagenes/DISCO_map/Dataset FusionadoWorstGrades.png (PNG copy)> <./imag
+enes/DISCO_map/Dataset FusionadoMidLowGrades.png (PNG copy)> <./imagenes/DISCO_
+map/Dataset FusionadoMidHighGrades.png (PNG copy)> <./imagenes/DISCO_map/Datase
+t FusionadoHighGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/WorstGrades.png, id=572, 1150.2975pt x 913.4125pt>
+File: imagenes/DISCO_compound/WorstGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/WorstGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/WorstGrades.png  used on input
+ line 138.
+(pdftex.def)             Requested size: 450.0pt x 357.3305pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 138--139
+ [][] 
+ []
+
+<imagenes/DISCO_compound/MidLowGrades.png, id=573, 1787.67876pt x 913.4125pt>
+File: imagenes/DISCO_compound/MidLowGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/MidLowGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/MidLowGrades.png  used on inpu
+t line 145.
+(pdftex.def)             Requested size: 450.0pt x 229.9275pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 145--146
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
+ [28 <./imagenes/DISCO_compound/WorstGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/MidHighGrades.png, id=578, 2052.66875pt x 1372.12625pt
+>
+File: imagenes/DISCO_compound/MidHighGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/MidHighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/MidHighGrades.png  used on inp
+ut line 152.
+(pdftex.def)             Requested size: 450.0pt x 300.80093pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 152--153
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 156.
+LaTeX Info: Redefining \% on input line 156.
+ [29 <./imagenes/DISCO_compound/MidLowGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/BestGrades.png, id=583, 1269.74374pt x 922.44624pt>
+File: imagenes/DISCO_compound/BestGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/BestGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/BestGrades.png  used on input 
+line 159.
+(pdftex.def)             Requested size: 450.0pt x 326.91472pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 159--160
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 163.
+LaTeX Info: Redefining \% on input line 163.
+ [30 <./imagenes/DISCO_compound/MidHighGrades.png (PNG copy)>]
+<imagenes/DISCO_map/Dataset FusionadoYear1617WorstGrades.png, id=592, 835.12pt 
+x 447.6725pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1617WorstGrades.png Graphic file 
+(type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1617WorstGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1617WorstGrade
+s.png  used on input line 170.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 170--171
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoYear1718WorstGrades.png, id=593, 835.12pt 
+x 447.6725pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1718WorstGrades.png Graphic file 
+(type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1718WorstGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1718WorstGrade
+s.png  used on input line 176.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 176--177
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoYear1920WorstGrades.png, id=594, 835.12pt 
+x 447.6725pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1920WorstGrades.png Graphic file 
+(type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1920WorstGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1920WorstGrade
+s.png  used on input line 182.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 182--183
+[][] 
+ []
+
+
+Overfull \hbox (74.43773pt too wide) in paragraph at lines 169--186
+[][]  []
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 188.
+LaTeX Info: Redefining \% on input line 188.
+ [31 <./imagenes/DISCO_compound/BestGrades.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 190.
+LaTeX Info: Redefining \% on input line 190.
+ [32 <./imagenes/DISCO_map/Dataset FusionadoYear1617WorstGrades.png (PNG copy)>
+ <./imagenes/DISCO_map/Dataset FusionadoYear1718WorstGrades.png (PNG copy)> <./
+imagenes/DISCO_map/Dataset FusionadoYear1920WorstGrades.png (PNG copy)>]
+<imagenes/DISCO_map/Dataset FusionadoYear1516MidLowGrades.png, id=604, 835.12pt
+ x 447.6725pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1516MidLowGrades.png Graphic file
+ (type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1516MidLowGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1516MidLowGrad
+es.png  used on input line 193.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 193--194
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoYear1718MidLowGrades.png, id=605, 835.12pt
+ x 447.6725pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1718MidLowGrades.png Graphic file
+ (type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1718MidLowGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1718MidLowGrad
+es.png  used on input line 199.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 199--200
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoYear1920MidLowGrades.png, id=606, 835.12pt
+ x 447.6725pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1920MidLowGrades.png Graphic file
+ (type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1920MidLowGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1920MidLowGrad
+es.png  used on input line 205.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 205--206
+[][] 
+ []
+
+
+Overfull \hbox (74.43773pt too wide) in paragraph at lines 192--209
+[][]  []
+ []
+
+
+Underfull \vbox (badness 3701) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 213.
+LaTeX Info: Redefining \% on input line 213.
+ [33 <./imagenes/DISCO_map/Dataset FusionadoYear1516MidLowGrades.png (PNG copy)
+> <./imagenes/DISCO_map/Dataset FusionadoYear1718MidLowGrades.png (PNG copy)> <
+./imagenes/DISCO_map/Dataset FusionadoYear1920MidLowGrades.png (PNG copy)>]
+<imagenes/DISCO_map/Dataset FusionadoYear1516MidHighGrades.png, id=611, 835.12p
+t x 447.6725pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1516MidHighGrades.png Graphic fil
+e (type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1516MidHighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1516MidHighGra
+des.png  used on input line 216.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 216--217
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoYear1617MidHighGrades.png, id=612, 835.12p
+t x 447.6725pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1617MidHighGrades.png Graphic fil
+e (type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1617MidHighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1617MidHighGra
+des.png  used on input line 222.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 222--223
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoYear1718MidHighGrades.png, id=613, 835.12p
+t x 447.6725pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1718MidHighGrades.png Graphic fil
+e (type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1718MidHighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1718MidHighGra
+des.png  used on input line 228.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 228--229
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoYear1920MidHighGrades.png, id=614, 622.325
+pt x 536.0025pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1920MidHighGrades.png Graphic fil
+e (type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1920MidHighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1920MidHighGra
+des.png  used on input line 234.
+(pdftex.def)             Requested size: 237.60646pt x 237.60025pt.
+
+Overfull \hbox (21.60426pt too wide) in paragraph at lines 234--235
+[][] 
+ []
+
+
+Overfull \hbox (74.43773pt too wide) in paragraph at lines 215--238
+[][]  []
+ []
+
+
+Overfull \hbox (74.43773pt too wide) in paragraph at lines 215--238
+[]  [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 240.
+LaTeX Info: Redefining \% on input line 240.
+ [34]
+Underfull \vbox (badness 1960) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 242.
+LaTeX Info: Redefining \% on input line 242.
+ [35 <./imagenes/DISCO_map/Dataset FusionadoYear1516MidHighGrades.png (PNG copy
+)> <./imagenes/DISCO_map/Dataset FusionadoYear1617MidHighGrades.png (PNG copy)>
+ <./imagenes/DISCO_map/Dataset FusionadoYear1718MidHighGrades.png (PNG copy)> <
+./imagenes/DISCO_map/Dataset FusionadoYear1920MidHighGrades.png (PNG copy)>]
+<imagenes/DISCO_map/Dataset FusionadoYear1516HighGrades.png, id=623, 835.12pt x
+ 447.6725pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1516HighGrades.png Graphic file (
+type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1516HighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1516HighGrades
+.png  used on input line 245.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 245--246
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoYear1617HighGrades.png, id=624, 835.12pt x
+ 447.6725pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1617HighGrades.png Graphic file (
+type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1617HighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1617HighGrades
+.png  used on input line 251.
+(pdftex.def)             Requested size: 237.6039pt x 172.80186pt.
+
+Overfull \hbox (21.6017pt too wide) in paragraph at lines 251--252
+[][] 
+ []
+
+<imagenes/DISCO_map/Dataset FusionadoYear1920HighGrades.png, id=625, 702.625pt 
+x 447.6725pt>
+File: imagenes/DISCO_map/Dataset FusionadoYear1920HighGrades.png Graphic file (
+type png)
+<use imagenes/DISCO_map/Dataset FusionadoYear1920HighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_map/Dataset FusionadoYear1920HighGrades
+.png  used on input line 257.
+(pdftex.def)             Requested size: 237.6028pt x 172.80186pt.
+
+Overfull \hbox (21.6006pt too wide) in paragraph at lines 257--258
+[][] 
+ []
+
+
+Overfull \hbox (74.43773pt too wide) in paragraph at lines 244--261
+[][]  []
+ []
+
+LaTeX Info: Redefining \. on input line 265.
+LaTeX Info: Redefining \% on input line 265.
+[36 <./imagenes/DISCO_map/Dataset FusionadoYear1516HighGrades.png (PNG copy)> <
+./imagenes/DISCO_map/Dataset FusionadoYear1617HighGrades.png (PNG copy)> <./ima
+genes/DISCO_map/Dataset FusionadoYear1920HighGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1617WorstGrades.png, id=630, 1192.455pt x 974.6412
+5pt>
+File: imagenes/DISCO_compound/Year1617WorstGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1617WorstGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1617WorstGrades.png  used 
+on input line 268.
+(pdftex.def)             Requested size: 450.0pt x 367.7947pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 268--269
+ [][] 
+ []
+
+<imagenes/DISCO_compound/Year1718WorstGrades.png, id=631, 1116.17pt x 948.54375
+pt>
+File: imagenes/DISCO_compound/Year1718WorstGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1718WorstGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1718WorstGrades.png  used 
+on input line 275.
+(pdftex.def)             Requested size: 450.0pt x 382.42128pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 275--276
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 279.
+LaTeX Info: Redefining \% on input line 279.
+ [37 <./imagenes/DISCO_compound/Year1617WorstGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1920WorstGrades.png, id=637, 1056.94875pt x 922.44
+624pt>
+File: imagenes/DISCO_compound/Year1920WorstGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1920WorstGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1920WorstGrades.png  used 
+on input line 282.
+(pdftex.def)             Requested size: 450.0pt x 392.7312pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 282--283
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 286.
+LaTeX Info: Redefining \% on input line 286.
+ [38 <./imagenes/DISCO_compound/Year1718WorstGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1516MidLowGrades.png, id=642, 1292.83pt x 984.6787
+6pt>
+File: imagenes/DISCO_compound/Year1516MidLowGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1516MidLowGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1516MidLowGrades.png  used
+ on input line 289.
+(pdftex.def)             Requested size: 450.0pt x 342.73456pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 289--290
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 293.
+LaTeX Info: Redefining \% on input line 293.
+ [39 <./imagenes/DISCO_compound/Year1920WorstGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1718MidLowGrades.png, id=647, 1109.14375pt x 861.2
+175pt>
+File: imagenes/DISCO_compound/Year1718MidLowGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1718MidLowGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1718MidLowGrades.png  used
+ on input line 296.
+(pdftex.def)             Requested size: 450.0pt x 349.40881pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 296--297
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 300.
+LaTeX Info: Redefining \% on input line 300.
+ [40 <./imagenes/DISCO_compound/Year1516MidLowGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1920MidLowGrades.png, id=652, 2233.34375pt x 1098.
+1025pt>
+File: imagenes/DISCO_compound/Year1920MidLowGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1920MidLowGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1920MidLowGrades.png  used
+ on input line 303.
+(pdftex.def)             Requested size: 450.0pt x 221.25865pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 303--304
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 307.
+LaTeX Info: Redefining \% on input line 307.
+ [41 <./imagenes/DISCO_compound/Year1718MidLowGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1516MidHighGrades.png, id=657, 1909.1325pt x 1283.
+79625pt>
+File: imagenes/DISCO_compound/Year1516MidHighGrades.png Graphic file (type png)
+
+<use imagenes/DISCO_compound/Year1516MidHighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1516MidHighGrades.png  use
+d on input line 310.
+(pdftex.def)             Requested size: 450.0pt x 302.59326pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 310--311
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 314.
+LaTeX Info: Redefining \% on input line 314.
+ [42 <./imagenes/DISCO_compound/Year1920MidLowGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1617MidHighGrades.png, id=662, 1332.98pt x 922.446
+24pt>
+File: imagenes/DISCO_compound/Year1617MidHighGrades.png Graphic file (type png)
+
+<use imagenes/DISCO_compound/Year1617MidHighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1617MidHighGrades.png  use
+d on input line 317.
+(pdftex.def)             Requested size: 450.0pt x 311.40366pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 317--318
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 321.
+LaTeX Info: Redefining \% on input line 321.
+ [43 <./imagenes/DISCO_compound/Year1516MidHighGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1718MidHighGrades.png, id=668, 1374.13374pt x 922.
+44624pt>
+File: imagenes/DISCO_compound/Year1718MidHighGrades.png Graphic file (type png)
+
+<use imagenes/DISCO_compound/Year1718MidHighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1718MidHighGrades.png  use
+d on input line 324.
+(pdftex.def)             Requested size: 450.0pt x 302.07169pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 324--325
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 328.
+LaTeX Info: Redefining \% on input line 328.
+ [44 <./imagenes/DISCO_compound/Year1617MidHighGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1920MidHighGrades.png, id=673, 1723.43875pt x 1247
+.66125pt>
+File: imagenes/DISCO_compound/Year1920MidHighGrades.png Graphic file (type png)
+
+<use imagenes/DISCO_compound/Year1920MidHighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1920MidHighGrades.png  use
+d on input line 331.
+(pdftex.def)             Requested size: 450.0pt x 325.77403pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 331--332
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 335.
+LaTeX Info: Redefining \% on input line 335.
+ [45 <./imagenes/DISCO_compound/Year1718MidHighGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1516HighGrades.png, id=678, 1284.8pt x 922.44624pt
+>
+File: imagenes/DISCO_compound/Year1516HighGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1516HighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1516HighGrades.png  used o
+n input line 338.
+(pdftex.def)             Requested size: 450.0pt x 323.08623pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 338--339
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 342.
+LaTeX Info: Redefining \% on input line 342.
+ [46 <./imagenes/DISCO_compound/Year1920MidHighGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1617HighGrades.png, id=683, 1402.23875pt x 1010.77
+625pt>
+File: imagenes/DISCO_compound/Year1617HighGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1617HighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1617HighGrades.png  used o
+n input line 345.
+(pdftex.def)             Requested size: 450.0pt x 324.36497pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 345--346
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 349.
+LaTeX Info: Redefining \% on input line 349.
+ [47 <./imagenes/DISCO_compound/Year1516HighGrades.png (PNG copy)>]
+<imagenes/DISCO_compound/Year1920HighGrades.png, id=688, 1523.6925pt x 798.985p
+t>
+File: imagenes/DISCO_compound/Year1920HighGrades.png Graphic file (type png)
+<use imagenes/DISCO_compound/Year1920HighGrades.png>
+Package pdftex.def Info: imagenes/DISCO_compound/Year1920HighGrades.png  used o
+n input line 352.
+(pdftex.def)             Requested size: 450.0pt x 235.96674pt.
+
+Overfull \hbox (90.0pt too wide) in paragraph at lines 352--353
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 356.
+LaTeX Info: Redefining \% on input line 356.
+ [48 <./imagenes/DISCO_compound/Year1617HighGrades.png (PNG copy)>]
+Overfull \hbox (7.46344pt too wide) in paragraph at lines 361--362
+[]\OT1/cmr/m/n/10.95 El a~no 1920 pre-sen-ta di-fe-ren-cias. El no-do m^^Sas vi
+-si-ta-do es el \OT1/cmtt/m/n/10.95 PROBLEM9-20
+ []
+
+
+Overfull \hbox (39.79489pt too wide) in paragraph at lines 361--362
+\OT1/cmr/m/n/10.95 (fre-cuen-cia $50$), se-gui-do de los no-dos \OT1/cmtt/m/n/1
+0.95 PROBLEM6-20\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 PROBLEM1-20\OT1/cmr/m/
+n/10.95 , \OT1/cmtt/m/n/10.95 PROBLEM3-20
+ []
+
+) (./capitulos/capitulo_06/iteracion_2.tex)
+(./capitulos/capitulo_06/iteracion_3.tex))
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 225.
+LaTeX Info: Redefining \% on input line 225.
+ [49 <./imagenes/DISCO_compound/Year1920HighGrades.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 225.
+LaTeX Info: Redefining \% on input line 225.
+ [50] [51
+
+]
+(./proyecto.aux
+LaTeX Info: Redefining \. on input line 21.
+LaTeX Info: Redefining \% on input line 21.
+)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package rerunfilecheck Info: File `proyecto.out' has not changed.
+(rerunfilecheck)             Checksum: 9CA436AE9A7A3753D20B6ECAC399EC1D;4729.
+ ) 
+Here is how much of TeX's memory you used:
+ 25078 strings out of 480144
+ 477338 string characters out of 5893199
+ 757891 words of memory out of 5000000
+ 42371 multiletter control sequences out of 15000+600000
+ 476858 words of font info for 53 fonts, out of 8000000 for 9000
+ 62 hyphenation exceptions out of 8191
+ 84i,14n,80p,950b,760s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmtt10.pfb>
+Output written on proyecto.pdf (75 pages, 3919895 bytes).
+PDF statistics:
+ 799 PDF objects out of 1000 (max. 8388607)
+ 628 compressed objects within 7 object streams
+ 150 named destinations out of 1000 (max. 500000)
+ 482 words of extra memory for PDF output out of 10000 (max. 10000000)
+

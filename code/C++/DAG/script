@@ -2,15 +2,19 @@
 
 # Crear una tabla vacía
 echo "Directorio Archivo  Salida" > outputComplete.csv
+echo "Directorio Archivo  Salida" > outputCompleteSegmentated.csv
+echo "Directorio Archivo  Salida" > outputCompleteSegmentatedYears.csv
 echo "Directorio Archivo  Salida" > outputGrade.csv
 echo "Directorio Archivo  Salida" > outputYear.csv
 echo "Directorio Archivo  Salida" > outputYearGrade.csv
 
 # Definir una lista de argumentos
 argumentos1=("1 CompleteWorstGrades.csv" "1 CompleteMidLowGrades.csv" "1 CompleteMidHighGrades.csv" "1 CompleteHighGrades.csv")
-argumentos2=("2 WorstGrades.csv" "2 MidLowGrades.csv" "2 MidHighGrades.csv" "2 BestGrades.csv")
-argumentos3=("2 Year1516.csv" "2 Year1617.csv" "2 Year1718.csv" "2 Year1920.csv")
-argumentos4=("2 Year1617WorstGrades.csv" "2 Year1718WorstGrades.csv" "2 Year1920WorstGrades.csv" "2 Year1516MidLowGrades.csv" "2 Year1718MidLowGrades.csv" "2 Year1920MidLowGrades.csv" "2 Year1516MidHighGrades.csv" "2 Year1617MidHighGrades.csv" "2 Year1718MidHighGrades.csv" "2 Year1920MidHighGrades.csv" "2 Year1516HighGrades.csv" "2 Year1617HighGrades.csv" "2 Year1920HighGrades.csv")
+argumentos2=("2 Complete6.csv" "2 Complete7.csv" "2 Complete8.csv" "2 Complete9.csv" "2 Complete10.csv")
+argumentos3=("2 1516Complete7.csv" "2 1516Complete8.csv" "2 1516Complete9.csv" "2 1516Complete10.csv" "2 1617Complete7.csv" "2 1617Complete8.csv" "2 1617Complete9.csv" "2 1617Complete10.csv" "2 1718Complete6.csv" "2 1718Complete7.csv" "2 1718Complete8.csv" "2 1718Complete9.csv" "2 1920Complete7.csv" "2 1920Complete8.csv" "2 1920Complete9.csv" "2 1920Complete10.csv")
+argumentos4=("3 WorstGrades.csv" "3 MidLowGrades.csv" "3 MidHighGrades.csv" "3 BestGrades.csv")
+argumentos5=("3 Year1516.csv" "3 Year1617.csv" "3 Year1718.csv" "3 Year1920.csv")
+argumentos6=("3 Year1516MidLowGrades.csv" "3 Year1516MidHighGrades.csv" "3 Year1516HighGrades.csv" "3 Year1617WorstGrades.csv" "3 Year1617MidHighGrades.csv" "3 Year1617HighGrades.csv" "3 Year1718WorstGrades.csv" "3 Year1718MidLowGrades.csv" "3 Year1718MidHighGrades.csv" "3 Year1920WorstGrades.csv" "3 Year1920MidLowGrades.csv" "3 Year1920MidHighGrades.csv" "3 Year1920HighGrades.csv")
 
 # Bucle a través de la lista de argumentos 1
 for argumento in "${argumentos1[@]}"
@@ -29,7 +33,7 @@ do
     salida=$(./pruebaDAG $argumento)
 
     # Agregar el argumento y la salida a la tabla
-    echo "$argumento  $salida" >> outputGrade.csv
+    echo "$argumento  $salida" >> outputCompleteSegmentated.csv
 done
 
 # Bucle a través de la lista de argumentos 3
@@ -39,11 +43,31 @@ do
     salida=$(./pruebaDAG $argumento)
 
     # Agregar el argumento y la salida a la tabla
-    echo "$argumento  $salida" >> outputYear.csv
+    echo "$argumento  $salida" >> outputCompleteSegmentatedYears.csv
 done
 
 # Bucle a través de la lista de argumentos 4
 for argumento in "${argumentos4[@]}"
+do
+    # Ejecutar el programa con el argumento actual
+    salida=$(./pruebaDAG $argumento)
+
+    # Agregar el argumento y la salida a la tabla
+    echo "$argumento  $salida" >> outputGrade.csv
+done
+
+# Bucle a través de la lista de argumentos 5
+for argumento in "${argumentos5[@]}"
+do
+    # Ejecutar el programa con el argumento actual
+    salida=$(./pruebaDAG $argumento)
+
+    # Agregar el argumento y la salida a la tabla
+    echo "$argumento  $salida" >> outputYear.csv
+done
+
+# Bucle a través de la lista de argumentos 6
+for argumento in "${argumentos6[@]}"
 do
     # Ejecutar el programa con el argumento actual
     salida=$(./pruebaDAG $argumento)
