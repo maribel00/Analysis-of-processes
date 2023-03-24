@@ -102,6 +102,11 @@ class DAG {
          */
         bool duplicates(vector<int> v);
 
+        /**
+         * @brief Implements the floyd warshall algorithm
+         * 
+         * @return int 
+         */
         int floyd_warshall();
     public:
         /**

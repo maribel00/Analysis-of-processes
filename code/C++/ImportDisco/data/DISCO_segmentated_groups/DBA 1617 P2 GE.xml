@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Process Map data exported from Fluxicon Disco (fluxicon.com/disco).  -->
+<!--  (c) 2023 Fluxicon, All Rights Reserved  -->
+<!--  Note: All durations are given in milliseconds.  -->
+<ProcessMap numNodes="46" nodeThreshold="1.0" edgeThreshold="0.1" discoVersion="3.3.7">
+	<Log numCases="574"/>
+	<Layout width="9.74106" height="3.5639"/>
+	<Nodes size="46">
+		<Node index="0" activity="PROBLEM1-20">
+			<Frequency total="304" case="304" start="304" end="81" maxRepetitions="1" caseCoverage="0.5296167247386759"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.081613176" y="0.30086282" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="1" activity="PROBLEM1-40">
+			<Frequency total="223" case="223" start="0" end="11" maxRepetitions="1" caseCoverage="0.3885017421602787"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.006158881" y="0.4668888" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="2" activity="PROBLEM1-80">
+			<Frequency total="212" case="212" start="0" end="6" maxRepetitions="1" caseCoverage="0.3693379790940767"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.0" y="0.6328867" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="3" activity="PROBLEM1-100">
+			<Frequency total="206" case="206" start="0" end="206" maxRepetitions="1" caseCoverage="0.3588850174216028"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.009238873" y="0.7989099" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="4" activity="PROBLEM2-20">
+			<Frequency total="47" case="47" start="47" end="3" maxRepetitions="1" caseCoverage="0.08188153310104529"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.18170741" y="0.13483682" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="5" activity="PROBLEM2-40">
+			<Frequency total="44" case="44" start="0" end="4" maxRepetitions="1" caseCoverage="0.07665505226480836"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.18170741" y="0.30086282" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="6" activity="PROBLEM2-60">
+			<Frequency total="40" case="40" start="0" end="16" maxRepetitions="1" caseCoverage="0.06968641114982578"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.18170741" y="0.4668888" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="7" activity="PROBLEM3-20">
+			<Frequency total="15" case="15" start="15" end="0" maxRepetitions="1" caseCoverage="0.02613240418118467"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.28180167" y="0.13483682" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="8" activity="PROBLEM3-40">
+			<Frequency total="15" case="15" start="0" end="3" maxRepetitions="1" caseCoverage="0.02613240418118467"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.28180167" y="0.30086282" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="9" activity="PROBLEM4-20">
+			<Frequency total="61" case="61" start="61" end="2" maxRepetitions="1" caseCoverage="0.10627177700348432"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.38188484" y="0.13483682" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="10" activity="PROBLEM4-40">
+			<Frequency total="59" case="59" start="0" end="2" maxRepetitions="1" caseCoverage="0.10278745644599303"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.38188484" y="0.30086282" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="11" activity="PROBLEM4-60">
+			<Frequency total="57" case="57" start="0" end="19" maxRepetitions="1" caseCoverage="0.09930313588850175"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.38188484" y="0.4668888" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="12" activity="PROBLEM5-20">
+			<Frequency total="41" case="41" start="41" end="0" maxRepetitions="1" caseCoverage="0.07142857142857142"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.4819791" y="0.13483682" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="13" activity="PROBLEM5-40">
+			<Frequency total="41" case="41" start="0" end="4" maxRepetitions="1" caseCoverage="0.07142857142857142"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.4819791" y="0.30086282" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="14" activity="PROBLEM5-60">
+			<Frequency total="37" case="37" start="0" end="12" maxRepetitions="1" caseCoverage="0.06445993031358885"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.4819791" y="0.4668888" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="15" activity="PROBLEM2-80">
+			<Frequency total="24" case="24" start="0" end="0" maxRepetitions="1" caseCoverage="0.041811846689895474"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.18170741" y="0.6328867" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="16" activity="PROBLEM2-100">
+			<Frequency total="24" case="24" start="0" end="24" maxRepetitions="1" caseCoverage="0.041811846689895474"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.18170741" y="0.7989099" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="17" activity="PROBLEM3-60">
+			<Frequency total="12" case="12" start="0" end="1" maxRepetitions="1" caseCoverage="0.020905923344947737"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.28180167" y="0.4668888" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="18" activity="PROBLEM3-80">
+			<Frequency total="11" case="11" start="0" end="0" maxRepetitions="1" caseCoverage="0.01916376306620209"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.28180167" y="0.6328867" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="19" activity="PROBLEM3-100">
+			<Frequency total="11" case="11" start="0" end="11" maxRepetitions="1" caseCoverage="0.01916376306620209"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.28180167" y="0.7989099" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="20" activity="PROBLEM4-80">
+			<Frequency total="38" case="38" start="0" end="0" maxRepetitions="1" caseCoverage="0.06620209059233449"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.38188484" y="0.6328867" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="21" activity="PROBLEM4-100">
+			<Frequency total="38" case="38" start="0" end="38" maxRepetitions="1" caseCoverage="0.06620209059233449"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.38188484" y="0.7989099" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="22" activity="PROBLEM5-80">
+			<Frequency total="25" case="25" start="0" end="1" maxRepetitions="1" caseCoverage="0.04355400696864112"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.4819791" y="0.6328867" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="23" activity="PROBLEM5-100">
+			<Frequency total="24" case="24" start="0" end="24" maxRepetitions="1" caseCoverage="0.041811846689895474"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.4819791" y="0.7989099" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="24" activity="PROBLEM6-20">
+			<Frequency total="11" case="11" start="11" end="0" maxRepetitions="1" caseCoverage="0.01916376306620209"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.5820733" y="0.13483682" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="25" activity="PROBLEM6-40">
+			<Frequency total="11" case="11" start="0" end="0" maxRepetitions="1" caseCoverage="0.01916376306620209"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.5820733" y="0.30086282" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="26" activity="PROBLEM6-60">
+			<Frequency total="11" case="11" start="0" end="1" maxRepetitions="1" caseCoverage="0.01916376306620209"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.5820733" y="0.4668888" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="27" activity="PROBLEM6-80">
+			<Frequency total="10" case="10" start="0" end="0" maxRepetitions="1" caseCoverage="0.017421602787456445"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.5820733" y="0.6328867" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="28" activity="PROBLEM6-100">
+			<Frequency total="10" case="10" start="0" end="10" maxRepetitions="1" caseCoverage="0.017421602787456445"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.5820733" y="0.7989099" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="29" activity="PROBLEM7-20">
+			<Frequency total="41" case="41" start="41" end="0" maxRepetitions="1" caseCoverage="0.07142857142857142"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.68216753" y="0.13483682" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="30" activity="PROBLEM7-40">
+			<Frequency total="41" case="41" start="0" end="2" maxRepetitions="1" caseCoverage="0.07142857142857142"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.68216753" y="0.30086282" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="31" activity="PROBLEM7-60">
+			<Frequency total="39" case="39" start="0" end="19" maxRepetitions="1" caseCoverage="0.06794425087108014"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.68216753" y="0.4668888" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="32" activity="PROBLEM8-20">
+			<Frequency total="14" case="14" start="14" end="0" maxRepetitions="1" caseCoverage="0.024390243902439025"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.78225064" y="0.13483682" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="33" activity="PROBLEM8-40">
+			<Frequency total="14" case="14" start="0" end="1" maxRepetitions="1" caseCoverage="0.024390243902439025"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.78225064" y="0.30086282" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="34" activity="PROBLEM8-60">
+			<Frequency total="13" case="13" start="0" end="1" maxRepetitions="1" caseCoverage="0.02264808362369338"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.78225064" y="0.4668888" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="35" activity="PROBLEM8-80">
+			<Frequency total="12" case="12" start="0" end="0" maxRepetitions="1" caseCoverage="0.020905923344947737"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.78225064" y="0.6328867" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="36" activity="PROBLEM8-100">
+			<Frequency total="12" case="12" start="0" end="12" maxRepetitions="1" caseCoverage="0.020905923344947737"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.78225064" y="0.7989099" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="37" activity="PROBLEM9-20">
+			<Frequency total="40" case="40" start="40" end="1" maxRepetitions="1" caseCoverage="0.06968641114982578"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.88234496" y="0.13483682" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="38" activity="PROBLEM9-40">
+			<Frequency total="39" case="39" start="0" end="1" maxRepetitions="1" caseCoverage="0.06794425087108014"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.88234496" y="0.30086282" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="39" activity="PROBLEM9-60">
+			<Frequency total="38" case="38" start="0" end="1" maxRepetitions="1" caseCoverage="0.06620209059233449"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.88234496" y="0.4668888" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="40" activity="PROBLEM9-80">
+			<Frequency total="37" case="37" start="0" end="30" maxRepetitions="1" caseCoverage="0.06445993031358885"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.88234496" y="0.6328867" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="41" activity="PROBLEM9-100">
+			<Frequency total="7" case="7" start="0" end="7" maxRepetitions="1" caseCoverage="0.012195121951219513"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.88234496" y="0.7989099" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="42" activity="PROBLEM7-80">
+			<Frequency total="20" case="20" start="0" end="0" maxRepetitions="1" caseCoverage="0.03484320557491289"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.68216753" y="0.6328867" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<Node index="43" activity="PROBLEM7-100">
+			<Frequency total="20" case="20" start="0" end="20" maxRepetitions="1" caseCoverage="0.03484320557491289"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout x="0.68216753" y="0.7989099" width="0.0723743" height="0.06625046"/>
+		</Node>
+		<StartNode index="44">
+			<Layout x="0.5112368" y="0.0" width="0.013858861" height="0.035073936"/>
+		</StartNode>
+		<EndNode index="45">
+			<Layout x="0.5112368" y="0.9649261" width="0.013858861" height="0.035073936"/>
+		</EndNode>
+	</Nodes>
+	<Edges size="55">
+		<Edge sourceIndex="0" targetIndex="1" type="observed">
+			<Frequency total="223" case="223" maxRepetitions="1" caseCoverage="0.3885017421602787"/>
+			<Duration total="28000" min="0" max="2000" mean="125" median="0"/>
+			<Layout curve="0.09778259,0.36799577,0.09218028,0.37714303,0.086203225,0.38760912,0.08099341,0.39829963,0.0709618,0.41883895,0.060681857,0.44515842,0.053247962,0.46530488" labelX="0.095396645" labelY="0.416987"/>
+		</Edge>
+		<Edge sourceIndex="32" targetIndex="33" type="observed">
+			<Frequency total="14" case="14" maxRepetitions="1" caseCoverage="0.024390243902439025"/>
+			<Duration total="10000" min="0" max="2000" mean="714" median="1000"/>
+			<Layout curve="0.8184378,0.20236258,0.8184378,0.23075846,0.8184378,0.27273488,0.8184378,0.30073795" labelX="0.8314541" labelY="0.25098908"/>
+		</Edge>
+		<Edge sourceIndex="27" targetIndex="28" type="observed">
+			<Frequency total="10" case="10" maxRepetitions="1" caseCoverage="0.017421602787456445"/>
+			<Duration total="10000" min="1000" max="1000" mean="1000" median="1000"/>
+			<Layout curve="0.61826044,0.7004125,0.61826044,0.7287999,0.61826044,0.77079886,0.61826044,0.79879344" labelX="0.63127667" labelY="0.7490278"/>
+		</Edge>
+		<Edge sourceIndex="22" targetIndex="23" type="observed">
+			<Frequency total="24" case="24" maxRepetitions="1" caseCoverage="0.041811846689895474"/>
+			<Duration total="46000" min="1000" max="6000" mean="1916" median="2000"/>
+			<Layout curve="0.51816624,0.7004125,0.51816624,0.7287999,0.51816624,0.77079886,0.51816624,0.79879344" labelX="0.53118247" labelY="0.7490278"/>
+		</Edge>
+		<Edge sourceIndex="17" targetIndex="18" type="observed">
+			<Frequency total="11" case="11" maxRepetitions="1" caseCoverage="0.01916376306620209"/>
+			<Duration total="38000" min="3000" max="5000" mean="3454" median="3000"/>
+			<Layout curve="0.3179888,0.5344145,0.3179888,0.5627824,0.3179888,0.6047869,0.3179888,0.6327899" labelX="0.33099395" labelY="0.583013"/>
+		</Edge>
+		<Edge sourceIndex="12" targetIndex="13" type="observed">
+			<Frequency total="41" case="41" maxRepetitions="1" caseCoverage="0.07142857142857142"/>
+			<Duration total="10000" min="0" max="1000" mean="243" median="0"/>
+			<Layout curve="0.51816624,0.20236258,0.51816624,0.23075846,0.51816624,0.27273488,0.51816624,0.30073795" labelX="0.53118247" labelY="0.25098908"/>
+		</Edge>
+		<Edge sourceIndex="7" targetIndex="8" type="observed">
+			<Frequency total="15" case="15" maxRepetitions="1" caseCoverage="0.02613240418118467"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.3179888,0.20236258,0.3179888,0.23075846,0.3179888,0.27273488,0.3179888,0.30073795" labelX="0.33099395" labelY="0.25098908"/>
+		</Edge>
+		<Edge sourceIndex="39" targetIndex="40" type="observed">
+			<Frequency total="37" case="37" maxRepetitions="1" caseCoverage="0.06445993031358885"/>
+			<Duration total="541000" min="0" max="118000" mean="14621" median="2000"/>
+			<Layout curve="0.91853213,0.5344145,0.91853213,0.5627824,0.91853213,0.6047869,0.91853213,0.6327899" labelX="0.9315483" labelY="0.583013"/>
+		</Edge>
+		<Edge sourceIndex="2" targetIndex="3" type="observed">
+			<Frequency total="206" case="206" maxRepetitions="1" caseCoverage="0.3588850174216028"/>
+			<Duration total="207000" min="0" max="6000" mean="1004" median="1000"/>
+			<Layout curve="0.037968848,0.7004125,0.039625257,0.7287999,0.04207772,0.77079886,0.043713067,0.79879344" labelX="0.055360056" labelY="0.7490278"/>
+		</Edge>
+		<Edge sourceIndex="34" targetIndex="35" type="observed">
+			<Frequency total="12" case="12" maxRepetitions="1" caseCoverage="0.020905923344947737"/>
+			<Duration total="185000" min="5000" max="86000" mean="15416" median="8500"/>
+			<Layout curve="0.8184378,0.5344145,0.8184378,0.5627824,0.8184378,0.6047869,0.8184378,0.6327899" labelX="0.8314541" labelY="0.583013"/>
+		</Edge>
+		<Edge sourceIndex="29" targetIndex="30" type="observed">
+			<Frequency total="41" case="41" maxRepetitions="1" caseCoverage="0.07142857142857142"/>
+			<Duration total="16000" min="0" max="1000" mean="390" median="0"/>
+			<Layout curve="0.7183547,0.20236258,0.7183547,0.23075846,0.7183547,0.27273488,0.7183547,0.30073795" labelX="0.73135984" labelY="0.25098908"/>
+		</Edge>
+		<Edge sourceIndex="24" targetIndex="25" type="observed">
+			<Frequency total="11" case="11" maxRepetitions="1" caseCoverage="0.01916376306620209"/>
+			<Duration total="2000" min="0" max="1000" mean="181" median="0"/>
+			<Layout curve="0.61826044,0.20236258,0.61826044,0.23075846,0.61826044,0.27273488,0.61826044,0.30073795" labelX="0.63127667" labelY="0.25098908"/>
+		</Edge>
+		<Edge sourceIndex="9" targetIndex="10" type="observed">
+			<Frequency total="59" case="59" maxRepetitions="1" caseCoverage="0.10278745644599303"/>
+			<Duration total="17000" min="0" max="1000" mean="288" median="0"/>
+			<Layout curve="0.418072,0.20236258,0.418072,0.23075846,0.418072,0.27273488,0.418072,0.30073795" labelX="0.4310882" labelY="0.25098908"/>
+		</Edge>
+		<Edge sourceIndex="4" targetIndex="5" type="observed">
+			<Frequency total="44" case="44" maxRepetitions="1" caseCoverage="0.07665505226480836"/>
+			<Duration total="10000" min="0" max="2000" mean="227" median="0"/>
+			<Layout curve="0.21789457,0.20236258,0.21789457,0.23075846,0.21789457,0.27273488,0.21789457,0.30073795" labelX="0.23091081" labelY="0.25098908"/>
+		</Edge>
+		<Edge sourceIndex="14" targetIndex="22" type="observed">
+			<Frequency total="25" case="25" maxRepetitions="1" caseCoverage="0.04355400696864112"/>
+			<Duration total="483000" min="6000" max="86000" mean="19320" median="11000"/>
+			<Layout curve="0.51816624,0.5344145,0.51816624,0.5627824,0.51816624,0.6047869,0.51816624,0.6327899" labelX="0.53118247" labelY="0.583013"/>
+		</Edge>
+		<Edge sourceIndex="26" targetIndex="27" type="observed">
+			<Frequency total="10" case="10" maxRepetitions="1" caseCoverage="0.017421602787456445"/>
+			<Duration total="37000" min="2000" max="5000" mean="3700" median="4000"/>
+			<Layout curve="0.61826044,0.5344145,0.61826044,0.5627824,0.61826044,0.6047869,0.61826044,0.6327899" labelX="0.63127667" labelY="0.583013"/>
+		</Edge>
+		<Edge sourceIndex="31" targetIndex="42" type="observed">
+			<Frequency total="20" case="20" maxRepetitions="1" caseCoverage="0.03484320557491289"/>
+			<Duration total="606000" min="16000" max="79000" mean="30300" median="24000"/>
+			<Layout curve="0.7183547,0.5344145,0.7183547,0.5627824,0.7183547,0.6047869,0.7183547,0.6327899" labelX="0.73135984" labelY="0.583013"/>
+		</Edge>
+		<Edge sourceIndex="38" targetIndex="39" type="observed">
+			<Frequency total="38" case="38" maxRepetitions="1" caseCoverage="0.06620209059233449"/>
+			<Duration total="173000" min="2000" max="11000" mean="4552" median="4000"/>
+			<Layout curve="0.91853213,0.3683886,0.91853213,0.39675638,0.91853213,0.4387609,0.91853213,0.4667639" labelX="0.9315483" labelY="0.416987"/>
+		</Edge>
+		<Edge sourceIndex="1" targetIndex="2" type="observed">
+			<Frequency total="212" case="212" maxRepetitions="1" caseCoverage="0.3693379790940767"/>
+			<Duration total="582000" min="1000" max="32000" mean="2745" median="2000"/>
+			<Layout curve="0.0411586,0.5344145,0.04005433,0.5627824,0.038418982,0.6047869,0.037329122,0.6327899" labelX="0.05382006" labelY="0.583013"/>
+		</Edge>
+		<Edge sourceIndex="33" targetIndex="34" type="observed">
+			<Frequency total="13" case="13" maxRepetitions="1" caseCoverage="0.02264808362369338"/>
+			<Duration total="55000" min="2000" max="10000" mean="4230" median="3000"/>
+			<Layout curve="0.8184378,0.3683886,0.8184378,0.39675638,0.8184378,0.4387609,0.8184378,0.4667639" labelX="0.8314541" labelY="0.416987"/>
+		</Edge>
+		<Edge sourceIndex="11" targetIndex="20" type="observed">
+			<Frequency total="38" case="38" maxRepetitions="1" caseCoverage="0.06620209059233449"/>
+			<Duration total="933000" min="6000" max="84000" mean="24552" median="10500"/>
+			<Layout curve="0.418072,0.5344145,0.418072,0.5627824,0.418072,0.6047869,0.418072,0.6327899" labelX="0.4310882" labelY="0.583013"/>
+		</Edge>
+		<Edge sourceIndex="6" targetIndex="15" type="observed">
+			<Frequency total="24" case="24" maxRepetitions="1" caseCoverage="0.041811846689895474"/>
+			<Duration total="414000" min="0" max="157000" mean="17250" median="0"/>
+			<Layout curve="0.21789457,0.5344145,0.21789457,0.5627824,0.21789457,0.6047869,0.21789457,0.6327899" labelX="0.23091081" labelY="0.583013"/>
+		</Edge>
+		<Edge sourceIndex="18" targetIndex="19" type="observed">
+			<Frequency total="11" case="11" maxRepetitions="1" caseCoverage="0.01916376306620209"/>
+			<Duration total="12000" min="0" max="2000" mean="1090" median="1000"/>
+			<Layout curve="0.3179888,0.7004125,0.3179888,0.7287999,0.3179888,0.77079886,0.3179888,0.79879344" labelX="0.33099395" labelY="0.7490278"/>
+		</Edge>
+		<Edge sourceIndex="13" targetIndex="14" type="observed">
+			<Frequency total="37" case="37" maxRepetitions="1" caseCoverage="0.06445993031358885"/>
+			<Duration total="128000" min="0" max="6000" mean="3459" median="3000"/>
+			<Layout curve="0.51816624,0.3683886,0.51816624,0.39675638,0.51816624,0.4387609,0.51816624,0.4667639" labelX="0.53118247" labelY="0.416987"/>
+		</Edge>
+		<Edge sourceIndex="40" targetIndex="41" type="observed">
+			<Frequency total="7" case="7" maxRepetitions="1" caseCoverage="0.012195121951219513"/>
+			<Duration total="18000" min="1000" max="6000" mean="2571" median="2000"/>
+			<Layout curve="0.91853213,0.7004125,0.91853213,0.7287999,0.91853213,0.77079886,0.91853213,0.79879344" labelX="0.9315483" labelY="0.7490278"/>
+		</Edge>
+		<Edge sourceIndex="35" targetIndex="36" type="observed">
+			<Frequency total="12" case="12" maxRepetitions="1" caseCoverage="0.020905923344947737"/>
+			<Duration total="48000" min="1000" max="15000" mean="4000" median="3000"/>
+			<Layout curve="0.8184378,0.7004125,0.8184378,0.7287999,0.8184378,0.77079886,0.8184378,0.79879344" labelX="0.8314541" labelY="0.7490278"/>
+		</Edge>
+		<Edge sourceIndex="30" targetIndex="31" type="observed">
+			<Frequency total="39" case="39" maxRepetitions="1" caseCoverage="0.06794425087108014"/>
+			<Duration total="144000" min="1000" max="9000" mean="3692" median="3000"/>
+			<Layout curve="0.7183547,0.3683886,0.7183547,0.39675638,0.7183547,0.4387609,0.7183547,0.4667639" labelX="0.73135984" labelY="0.416987"/>
+		</Edge>
+		<Edge sourceIndex="25" targetIndex="26" type="observed">
+			<Frequency total="11" case="11" maxRepetitions="1" caseCoverage="0.01916376306620209"/>
+			<Duration total="37000" min="2000" max="7000" mean="3363" median="3000"/>
+			<Layout curve="0.61826044,0.3683886,0.61826044,0.39675638,0.61826044,0.4387609,0.61826044,0.4667639" labelX="0.63127667" labelY="0.416987"/>
+		</Edge>
+		<Edge sourceIndex="8" targetIndex="17" type="observed">
+			<Frequency total="12" case="12" maxRepetitions="1" caseCoverage="0.020905923344947737"/>
+			<Duration total="48000" min="3000" max="7000" mean="4000" median="4000"/>
+			<Layout curve="0.3179888,0.3683886,0.3179888,0.39675638,0.3179888,0.4387609,0.3179888,0.4667639" labelX="0.33099395" labelY="0.416987"/>
+		</Edge>
+		<Edge sourceIndex="20" targetIndex="21" type="observed">
+			<Frequency total="38" case="38" maxRepetitions="1" caseCoverage="0.06620209059233449"/>
+			<Duration total="104000" min="1000" max="6000" mean="2736" median="2500"/>
+			<Layout curve="0.418072,0.7004125,0.418072,0.7287999,0.418072,0.77079886,0.418072,0.79879344" labelX="0.4310882" labelY="0.7490278"/>
+		</Edge>
+		<Edge sourceIndex="15" targetIndex="16" type="observed">
+			<Frequency total="24" case="24" maxRepetitions="1" caseCoverage="0.041811846689895474"/>
+			<Duration total="71000" min="0" max="8000" mean="2958" median="2000"/>
+			<Layout curve="0.21789457,0.7004125,0.21789457,0.7287999,0.21789457,0.77079886,0.21789457,0.79879344" labelX="0.23091081" labelY="0.7490278"/>
+		</Edge>
+		<Edge sourceIndex="10" targetIndex="11" type="observed">
+			<Frequency total="57" case="57" maxRepetitions="1" caseCoverage="0.09930313588850175"/>
+			<Duration total="202000" min="2000" max="9000" mean="3543" median="4000"/>
+			<Layout curve="0.418072,0.3683886,0.418072,0.39675638,0.418072,0.4387609,0.418072,0.4667639" labelX="0.4310882" labelY="0.416987"/>
+		</Edge>
+		<Edge sourceIndex="42" targetIndex="43" type="observed">
+			<Frequency total="20" case="20" maxRepetitions="1" caseCoverage="0.03484320557491289"/>
+			<Duration total="35000" min="0" max="5000" mean="1750" median="2000"/>
+			<Layout curve="0.7183547,0.7004125,0.7183547,0.7287999,0.7183547,0.77079886,0.7183547,0.79879344" labelX="0.73135984" labelY="0.7490278"/>
+		</Edge>
+		<Edge sourceIndex="5" targetIndex="6" type="observed">
+			<Frequency total="40" case="40" maxRepetitions="1" caseCoverage="0.06968641114982578"/>
+			<Duration total="157000" min="2000" max="12000" mean="3925" median="3000"/>
+			<Layout curve="0.21789457,0.3683886,0.21789457,0.39675638,0.21789457,0.4387609,0.21789457,0.4667639" labelX="0.23091081" labelY="0.416987"/>
+		</Edge>
+		<Edge sourceIndex="37" targetIndex="38" type="observed">
+			<Frequency total="39" case="39" maxRepetitions="1" caseCoverage="0.06794425087108014"/>
+			<Duration total="11000" min="0" max="1000" mean="282" median="0"/>
+			<Layout curve="0.91853213,0.20236258,0.91853213,0.23075846,0.91853213,0.27273488,0.91853213,0.30073795" labelX="0.9315483" labelY="0.25098908"/>
+		</Edge>
+		<Edge sourceIndex="44" targetIndex="0" type="observed">
+			<Frequency total="304" case="304" maxRepetitions="1" caseCoverage="0.5296167247386759"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.51097065,0.020875992,0.4637286,0.017593095,0.19824825,0.005106743,0.14104995,0.13485223,0.122301675,0.1773619,0.1184212,0.25662893,0.117778145,0.29992428" labelX="0.15545207" labelY="0.16796204"/>
+		</Edge>
+		<Edge sourceIndex="44" targetIndex="32" type="observed">
+			<Frequency total="14" case="14" maxRepetitions="1" caseCoverage="0.024390243902439025"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.52533954,0.022138696,0.548822,0.024720097,0.62548923,0.035130065,0.6875547,0.06624764,0.72148126,0.08327953,0.75928825,0.11268551,0.78550917,0.13485223" labelX="0.75907755" labelY="0.08496308"/>
+		</Edge>
+		<Edge sourceIndex="44" targetIndex="4" type="observed">
+			<Frequency total="47" case="47" maxRepetitions="1" caseCoverage="0.08188153310104529"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.511137,0.022222854,0.4881091,0.025028767,0.41293862,0.036056,0.35201508,0.06624764,0.31753424,0.08333565,0.2790842,0.11246107,0.25222018,0.13448751" labelX="0.3664172" labelY="0.08496308"/>
+		</Edge>
+		<Edge sourceIndex="44" targetIndex="37" type="observed">
+			<Frequency total="40" case="40" maxRepetitions="1" caseCoverage="0.06968641114982578"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.5250624,0.021353044,0.55527467,0.02118466,0.67885137,0.023373235,0.7784024,0.06624764,0.81497866,0.081988856,0.855757,0.11192796,0.88385165,0.13454363" labelX="0.85455954" labelY="0.08496308"/>
+		</Edge>
+		<Edge sourceIndex="44" targetIndex="7" type="observed">
+			<Frequency total="15" case="15" maxRepetitions="1" caseCoverage="0.02613240418118467"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.51160264,0.023934444,0.49674597,0.029714651,0.45946008,0.04528749,0.42900383,0.06624764,0.4010422,0.085496195,0.3699429,0.11349926,0.3477909,0.13459976" labelX="0.44340596" labelY="0.08496308"/>
+		</Edge>
+		<Edge sourceIndex="44" targetIndex="24" type="observed">
+			<Frequency total="11" case="11" maxRepetitions="1" caseCoverage="0.01916376306620209"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.5236765,0.028985128,0.53012913,0.03782372,0.5411165,0.0529757,0.55050725,0.06624764,0.5665835,0.08900361,0.58469987,0.11518282,0.59814847,0.13474004" labelX="0.5897001" labelY="0.08496308"/>
+		</Edge>
+		<Edge sourceIndex="44" targetIndex="9" type="observed">
+			<Frequency total="61" case="61" maxRepetitions="1" caseCoverage="0.10627177700348432"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.5126892,0.028985128,0.50626975,0.037851818,0.4953268,0.05300373,0.48598036,0.06624764,0.46988195,0.08905973,0.45172125,0.11523895,0.43823937,0.13476808" labelX="0.5003825" labelY="0.08496308"/>
+		</Edge>
+		<Edge sourceIndex="44" targetIndex="12" type="observed">
+			<Frequency total="41" case="41" maxRepetitions="1" caseCoverage="0.07142857142857142"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.51816624,0.035635144,0.51816624,0.05847527,0.51816624,0.103846915,0.51816624,0.13406658" labelX="0.53118247" labelY="0.08496308"/>
+		</Edge>
+		<Edge sourceIndex="44" targetIndex="29" type="observed">
+			<Frequency total="41" case="41" maxRepetitions="1" caseCoverage="0.07142857142857142"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.52485174,0.023850286,0.5399967,0.02954627,0.5780143,0.044866566,0.60902494,0.06624764,0.63659847,0.08527175,0.66722107,0.11330285,0.6890294,0.13448751" labelX="0.66823" labelY="0.08496308"/>
+		</Edge>
+		<Edge sourceIndex="16" targetIndex="45" type="observed">
+			<Frequency total="24" case="24" maxRepetitions="1" caseCoverage="0.041811846689895474"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.25222018,0.8655153,0.2790842,0.8875474,0.31753424,0.91666156,0.35201508,0.93374956,0.41293862,0.963944,0.4881091,0.97497404,0.511137,0.9777808" labelX="0.3664172" labelY="0.9150425"/>
+		</Edge>
+		<Edge sourceIndex="0" targetIndex="45" type="observed">
+			<Frequency total="81" case="81" maxRepetitions="1" caseCoverage="0.14111498257839722"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.12109319,0.36793962,0.1242641,0.3995903,0.12857698,0.45093858,0.12857698,0.4961138,0.12857698,0.4961138,0.12857698,0.4961138,0.12857698,0.8359325,0.12857698,0.9379752,0.45967072,0.97309434,0.5114031,0.9779587" labelX="0.14159322" labelY="0.6660119"/>
+		</Edge>
+		<Edge sourceIndex="3" targetIndex="45" type="observed">
+			<Frequency total="206" case="206" maxRepetitions="1" caseCoverage="0.3588850174216028"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.05253728,0.8658071,0.05877266,0.8889447,0.06874661,0.9193945,0.08099341,0.93374956,0.12165864,0.98141277,0.45888352,0.9792842,0.5113255,0.97866076" labelX="0.095396645" labelY="0.9150425"/>
+		</Edge>
+		<Edge sourceIndex="19" targetIndex="45" type="observed">
+			<Frequency total="11" case="11" maxRepetitions="1" caseCoverage="0.01916376306620209"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.3477909,0.86539745,0.3699429,0.8865092,0.4010422,0.914501,0.42900383,0.93374956,0.45946008,0.9547125,0.49674597,0.9702741,0.51160264,0.9760799" labelX="0.44340596" labelY="0.9150425"/>
+		</Edge>
+		<Edge sourceIndex="36" targetIndex="45" type="observed">
+			<Frequency total="12" case="12" maxRepetitions="1" caseCoverage="0.020905923344947737"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.78550917,0.8651646,0.75928825,0.88730603,0.72148126,0.91672885,0.6875547,0.93374956,0.62548923,0.9648812,0.548822,0.9752816,0.52533954,0.9778566" labelX="0.75907755" labelY="0.9150425"/>
+		</Edge>
+		<Edge sourceIndex="21" targetIndex="45" type="observed">
+			<Frequency total="38" case="38" maxRepetitions="1" caseCoverage="0.06620209059233449"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.43823937,0.86523193,0.45172125,0.8847667,0.46988195,0.9109487,0.48598036,0.93374956,0.4953268,0.94699347,0.50626975,0.9621538,0.5126892,0.97101486" labelX="0.5003825" labelY="0.9150425"/>
+		</Edge>
+		<Edge sourceIndex="23" targetIndex="45" type="observed">
+			<Frequency total="24" case="24" maxRepetitions="1" caseCoverage="0.041811846689895474"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.51816624,0.8661803,0.51816624,0.8962738,0.51816624,0.94116557,0.51816624,0.9640394" labelX="0.53118247" labelY="0.9150425"/>
+		</Edge>
+		<Edge sourceIndex="40" targetIndex="45" type="observed">
+			<Frequency total="30" case="30" maxRepetitions="1" caseCoverage="0.05226480836236934"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.9373247,0.70032835,0.94203675,0.709195,0.94689286,0.7194338,0.95087314,0.7303207,0.9677476,0.77646965,0.9827485,0.8149078,0.96781427,0.8651589,0.941693,0.9530374,0.916736,0.9156514,0.8738733,0.93374956,0.734819,0.9924638,0.56130606,0.9821423,0.52500695,0.97918206" labelX="0.9869837" labelY="0.8320351"/>
+		</Edge>
+		<Edge sourceIndex="41" targetIndex="45" type="observed">
+			<Frequency total="7" case="7" maxRepetitions="1" caseCoverage="0.012195121951219513"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.88385165,0.8654648,0.855757,0.8880861,0.81497866,0.918,0.7784024,0.93374956,0.67885137,0.9766191,0.55527467,0.9788086,0.5250624,0.97866076" labelX="0.85455954" labelY="0.9150425"/>
+		</Edge>
+		<Edge sourceIndex="43" targetIndex="45" type="observed">
+			<Frequency total="20" case="20" maxRepetitions="1" caseCoverage="0.03484320557491289"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.6890294,0.86552656,0.66722107,0.8867056,0.63659847,0.9147198,0.60902494,0.93374956,0.5780143,0.9551447,0.5399967,0.97046214,0.52485174,0.97614187" labelX="0.66823" labelY="0.9150425"/>
+		</Edge>
+		<Edge sourceIndex="28" targetIndex="45" type="observed">
+			<Frequency total="10" case="10" maxRepetitions="1" caseCoverage="0.017421602787456445"/>
+			<Duration total="0" min="0" max="0" mean="0" median="0"/>
+			<Layout curve="0.59814847,0.8652712,0.58469987,0.88482,0.5665835,0.9110076,0.55050725,0.93374956,0.5411165,0.9470271,0.53012913,0.96217906,0.5236765,0.9710261" labelX="0.5897001" labelY="0.9150425"/>
+		</Edge>
+	</Edges>
+</ProcessMap>
