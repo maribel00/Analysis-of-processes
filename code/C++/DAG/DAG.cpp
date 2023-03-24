@@ -70,43 +70,46 @@ DAG::DAG(string filename) {
             }
         }
 
-        this->frequency.pop_back();
+        if (this->frequency.size() > 0){
 
-        this->size = frequency[0].size(); // Obtenemos el número de columnas
+            this->frequency.pop_back();
 
-        find_paths(this->size-2); // Obtenemos todos los caminos
+            this->size = frequency[0].size(); // Obtenemos el número de columnas
 
-        // Eliminar caminos con transiciones iniciales a un problema con un porcentaje > 20
-        int i = 0;
-        vector<int> good_paths;
-        for (const auto& name : names){
-            if (split(name.front()).back().compare("20") != 0){
-                frequency[size-2].at(paths[i].front()) = 0;
-                duration[size-2].at(paths[i].front()) = 0;
+            find_paths(this->size-2); // Obtenemos todos los caminos
+
+            // Eliminar caminos con transiciones iniciales a un problema con un porcentaje > 20
+            int i = 0;
+            vector<int> good_paths;
+            for (const auto& name : names){
+                if (split(name.front()).back().compare("20") != 0){
+                    frequency[size-2].at(paths[i].front()) = 0;
+                    duration[size-2].at(paths[i].front()) = 0;
+                }
+                else
+                    good_paths.push_back(i);
+                ++i;
             }
-            else
-                good_paths.push_back(i);
-            ++i;
+
+            vector<vector<int>> new_paths;
+            vector<vector<string>> new_names;
+
+            for (const auto& ele : good_paths){
+                new_paths.push_back(paths[ele]);
+                new_names.push_back(names[ele]);
+            }
+
+            paths.clear();
+            names.clear();
+
+            for (const auto& path : new_paths)
+                paths.push_back(path);
+
+            for (const auto& name : new_names)
+                names.push_back(name);
+
+            remove_duplicates(); // Eliminamos caminos repetidos
         }
-
-        vector<vector<int>> new_paths;
-        vector<vector<string>> new_names;
-
-        for (const auto& ele : good_paths){
-            new_paths.push_back(paths[ele]);
-            new_names.push_back(names[ele]);
-        }
-
-        paths.clear();
-        names.clear();
-
-        for (const auto& path : new_paths)
-            paths.push_back(path);
-
-        for (const auto& name : new_names)
-            names.push_back(name);
-
-        remove_duplicates(); // Eliminamos caminos repetidos
     }
 }
 
@@ -290,6 +293,48 @@ int DAG::find_paths(int row){
     }
 }
 
+int DAG::floyd_warshall() {
+    int n = frequency.size();
+    vector<vector<int>> D(n, vector<int>(n));
+    
+    // Inicialización de la matriz D
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            D[i][j] = frequency[i][j];
+        }
+    }
+    
+    // Cálculo de la matriz de caminos más cortos D
+    for (int k = 0; k < n; k++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (D[i][k] != numeric_limits<int>::max() && D[k][j] != numeric_limits<int>::max()) {
+                    D[i][j] = min(D[i][j], D[i][k] + D[k][j]);
+                }
+            }
+        }
+    }
+    
+    // Cálculo de la separación del grafo
+    int separation = numeric_limits<int>::max();
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (D[i][j] == numeric_limits<int>::max()) {
+                continue;
+            }
+            int s = 0;
+            for (int k = 0; k < n; k++) {
+                if (D[i][k] != numeric_limits<int>::max() && D[k][j] != numeric_limits<int>::max()) {
+                    s = max(s, D[i][k] + D[k][j]);
+                }
+            }
+            separation = min(separation, s);
+        }
+    }
+    
+    return separation;
+}
+
 float DAG::get_coefficient(){
 
     float coefficient = 0.0f;
@@ -338,6 +383,8 @@ float DAG::get_coefficient(){
     float standard_deviation = sqrt(variance);
 
     coefficient += 0.8f * (float)(standard_deviation/mean_frequency);
+
+    //coefficient += 0.2f * floyd_warshall();
 
     return coefficient;
 }

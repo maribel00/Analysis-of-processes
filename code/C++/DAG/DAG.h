@@ -101,6 +101,8 @@ class DAG {
          * @return false 
          */
         bool duplicates(vector<int> v);
+
+        int floyd_warshall();
     public:
         /**
          * @brief Construct a new DAG object

@@ -31,6 +31,8 @@ int main(int argc, char* argv[]) {
         path = path + "DISCO_complete_segmentated/";
     else if (strcmp(argv[1],"3") == 0)
         path = path + "DISCO_compound/";
+    else if (strcmp(argv[1],"4") == 0)
+        path = path + "DISCO_segmentated_groups/";
     else{
         cerr << "El directorio escogido es erróneo." << endl << endl;
         cerr << "Indique 1 para seleccionar el directorio DISCO_complete o" << endl;

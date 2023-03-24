@@ -7,6 +7,7 @@ echo "Directorio Archivo  Salida" > outputCompleteSegmentatedYears.csv
 echo "Directorio Archivo  Salida" > outputGrade.csv
 echo "Directorio Archivo  Salida" > outputYear.csv
 echo "Directorio Archivo  Salida" > outputYearGrade.csv
+echo "Directorio Archivo  Salida" > outputGroup.csv
 
 # Definir una lista de argumentos
 argumentos1=("1 CompleteWorstGrades.csv" "1 CompleteMidLowGrades.csv" "1 CompleteMidHighGrades.csv" "1 CompleteHighGrades.csv")
@@ -15,6 +16,10 @@ argumentos3=("2 1516Complete7.csv" "2 1516Complete8.csv" "2 1516Complete9.csv" "
 argumentos4=("3 WorstGrades.csv" "3 MidLowGrades.csv" "3 MidHighGrades.csv" "3 BestGrades.csv")
 argumentos5=("3 Year1516.csv" "3 Year1617.csv" "3 Year1718.csv" "3 Year1920.csv")
 argumentos6=("3 Year1516MidLowGrades.csv" "3 Year1516MidHighGrades.csv" "3 Year1516HighGrades.csv" "3 Year1617WorstGrades.csv" "3 Year1617MidHighGrades.csv" "3 Year1617HighGrades.csv" "3 Year1718WorstGrades.csv" "3 Year1718MidLowGrades.csv" "3 Year1718MidHighGrades.csv" "3 Year1920WorstGrades.csv" "3 Year1920MidLowGrades.csv" "3 Year1920MidHighGrades.csv" "3 Year1920HighGrades.csv")
+argumentos7=("4 DBA1516P2GA.csv" "4 DBA1516P2GB.csv" "4 DBA1516P2GC.csv" "4 DBA1516P2GD.csv" "4 DBA1516P2GE.csv" "4 DBA1516P2GF.csv" "4 DBA1516P2GH.csv" "4 DBA1516P2GI.csv")
+argumentos8=("4 DBA1617P2GA.csv" "4 DBA1617P2GB.csv" "4 DBA1617P2GE.csv" "4 DBA1617P2GF.csv" "4 DBA1617P2GG.csv" "4 DBA1617P2GI.csv" "4 DBA1617P2GJ.csv")
+argumentos9=("4 DBA1718P2GA.csv" "4 DBA1718P2GB.csv" "4 DBA1718P2GC.csv" "4 DBA1718P2GD.csv" "4 DBA1718P2GE.csv" "4 DBA1718P2GG.csv" "4 DBA1718P2GH.csv")
+argumentos10=("4 DBA1920P2GB.csv" "4 DBA1920P2GC.csv" "4 DBA1920P2GD.csv" "4 DBA1920P2GE.csv" "4 DBA1920P2GF.csv" "4 DBA1920P2GH.csv" "4 DBA1920P2GI.csv" "4 DBA1920P2GJ.csv" "4 DBA1920P2GK.csv" "4 DBA1920P2GL.csv" "4 DBA1920P2GM.csv" "4 DBA1920P2GN.csv")
 
 # Bucle a través de la lista de argumentos 1
 for argumento in "${argumentos1[@]}"
@@ -74,4 +79,44 @@ do
 
     # Agregar el argumento y la salida a la tabla
     echo "$argumento  $salida" >> outputYearGrade.csv
+done
+
+# Bucle a través de la lista de argumentos 7
+for argumento in "${argumentos7[@]}"
+do
+    # Ejecutar el programa con el argumento actual
+    salida=$(./pruebaDAG $argumento)
+
+    # Agregar el argumento y la salida a la tabla
+    echo "$argumento  $salida" >> outputGroup.csv
+done
+
+# Bucle a través de la lista de argumentos 8
+for argumento in "${argumentos8[@]}"
+do
+    # Ejecutar el programa con el argumento actual
+    salida=$(./pruebaDAG $argumento)
+
+    # Agregar el argumento y la salida a la tabla
+    echo "$argumento  $salida" >> outputGroup.csv
+done
+
+# Bucle a través de la lista de argumentos 9
+for argumento in "${argumentos9[@]}"
+do
+    # Ejecutar el programa con el argumento actual
+    salida=$(./pruebaDAG $argumento)
+
+    # Agregar el argumento y la salida a la tabla
+    echo "$argumento  $salida" >> outputGroup.csv
+done
+
+# Bucle a través de la lista de argumentos 10
+for argumento in "${argumentos10[@]}"
+do
+    # Ejecutar el programa con el argumento actual
+    salida=$(./pruebaDAG $argumento)
+
+    # Agregar el argumento y la salida a la tabla
+    echo "$argumento  $salida" >> outputGroup.csv
 done

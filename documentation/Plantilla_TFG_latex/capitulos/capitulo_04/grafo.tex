@@ -26,6 +26,8 @@ En la Figura \ref{fig:grafo1} se muestra un ejemplo de grafo.
 \label{fig:grafo1}
 \end{figure}
 
+Matemáticamente, un grafo $G = (V,E)$ es una tupla de vértices $V$ y aristas $E$ que relacionan dichos vértices. Denominaremos  \emph{orden} del grafo al número de vértices del mismo ($|V|$). Por supuesto, siempre tendremos que $V \neq \emptyset$.
+
 Asimismo, se denomina \emph{grafo dirigido} o \emph{digrafo} a aquellos grafos cuyas aristas tengan un sentido definido. Por el contrario, las aristas de los grafos no dirigidos representan relaciones simétricas.
 
 En la Figura \ref{fig:grafo2} se muestra un ejemplo de grafo dirigido.
@@ -54,6 +56,8 @@ En la Figura \ref{fig:grafo2} se muestra un ejemplo de grafo dirigido.
 \label{fig:grafo2}
 \end{figure}
 
+Mientras que en un grafo no dirigido se tiene que $E \subseteq \{x \in \mathcal{P}(V) : |x| = 2\}$ (es decir, $E$ es un conjunto de pares no ordenados de elementos de $V$), cuando el grafo es dirigido se tiene que $E$ es un conjunto de pares ordenados $(i,j) \in V \times V$.
+ 
 No obstante, en este trabajo fin de grado nos serán de gran utilidad los llamados \emph{grafos dirigidos acíclicos} o \emph{DAG} (\emph{Directed Acyclic Graphs}, en inglés) que no son más que grafos dirigidos desprovistos de ciclos.
 
 En la Figura \ref{fig:grafo3} se muestra un ejemplo de grafo acíclico dirigido. Por el contrario, el grafo que se muestra en la figura \ref{fig:grafo2} no es acíclico (tiene ciclos, por ejemplo, el $A$-$C$-$D$-$E$).
