@@ -1,5 +1,5 @@
-Directorio Archivo  Salida
-1 CompleteWorstGrades.csv  1.27771
-1 CompleteMidLowGrades.csv  1.0925
-1 CompleteMidHighGrades.csv  1.05927
-1 CompleteHighGrades.csv  0.994317
+Directorio Archivo  Salida  Entropía
+1 CompleteWorstGrades.csv  1.27771 0.19505
+1 CompleteMidLowGrades.csv  1.0925 0.213127
+1 CompleteMidHighGrades.csv  1.05927 0.203364
+1 CompleteHighGrades.csv  0.994317 0.19774

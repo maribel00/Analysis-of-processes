@@ -110,6 +110,20 @@ DAG::DAG(string filename) {
 
             remove_duplicates(); // Eliminamos caminos repetidos
         }
+
+        // Calculamos la matriz de probabilidades
+        float sum = 0.0f;
+        for (const auto& row : frequency){
+            for (const auto& ele : row)
+                sum += ele;
+        }
+
+        for (const auto& row : frequency){
+            vector<float> prob;
+            for (const auto& ele : row)
+                prob.push_back(ele/sum);
+            probabilities.push_back(prob);
+        }
     }
 }
 
@@ -387,6 +401,50 @@ float DAG::get_coefficient(){
     //coefficient += 0.2f * floyd_warshall();
 
     return coefficient;
+}
+
+float DAG::get_entropy(){
+    vector<float> entropy;
+    for (int i = 0; i < probabilities.size(); ++i){
+        float I = 0.0f;
+        for (int j = 0; j < probabilities[i].size(); ++j){
+            if (probabilities[i][j] != 0)
+                I -= probabilities[i][j]*log2(probabilities[i][j]);
+        }
+        entropy.push_back(I);
+    }
+
+    float mean = 0.0f;
+    for (const auto& ele : entropy)
+        mean += ele;
+    mean = mean / entropy.size();
+
+    float sum_squared_diff = 0.0;
+    for (int i = 0; i < entropy.size(); i++) {
+        float diff = entropy[i] - mean;
+        sum_squared_diff += diff * diff;
+    }
+
+    float variance = sum_squared_diff / entropy.size();
+    float stddev = sqrt(variance);
+
+    return stddev;
+
+    // return mean;
+    /*float sum = 0.0f;
+    for (const auto& ele : entropy){
+      sum += ele;  
+    }
+
+    return sum;*/
+
+    /*float min = std::numeric_limits<float>::infinity();
+    for (const auto& ele : entropy){
+        if (ele < min)
+            min = ele;  
+    }
+
+    return min;*/
 }
 
 ostream& operator<<(ostream& ostr, const DAG& dag) {

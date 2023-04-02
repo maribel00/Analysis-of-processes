@@ -1,5 +1,5 @@
-Directorio Archivo  Salida
-3 Year1516.csv  1.05091
-3 Year1617.csv  0.694583
-3 Year1718.csv  0.934108
-3 Year1920.csv  0.390959
+Directorio Archivo  Salida  Entropía
+3 Year1516.csv  1.05091 0.316966
+3 Year1617.csv  0.694583 0.270434
+3 Year1718.csv  0.934108 0.358433
+3 Year1920.csv  0.390959 0.366821

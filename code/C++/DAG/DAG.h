@@ -33,6 +33,7 @@ class DAG {
         bool file_correct; /**< if the file have been opened correctly */
         int size; /**< size of the matrices */
         vector<string> header; /**< header of the matrices */
+        vector<vector<float>> probabilities; /**< each entry (i,j) represents the probability of changing from node i to node j */
         vector<vector<int>> paths; /**< all the possible paths */
         vector<vector<string>> names; /**< all the paths with names */
 
@@ -173,6 +174,13 @@ class DAG {
          * @return float 
          */
         float get_coefficient();
+
+        /**
+         * @brief Get the entropy object
+         * 
+         * @return float 
+         */
+        float get_entropy();
 
         /**
          * @brief Output operator

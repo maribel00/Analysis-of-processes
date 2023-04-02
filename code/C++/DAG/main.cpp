@@ -12,13 +12,14 @@
 #include "DAG.h"
 #include <iostream>
 #include <cstring>
+#include <fstream>
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
 
     string path = "/home/maribel/Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/C++/ImportDisco/data/";
-
+    
     if (argc != 3){
         cerr << "Número de argumentos erróneo." << endl << endl;
         cerr << "El programa se ha de ejecutar de la siguiente manera: ./pruebaDAG path filename" << endl;
@@ -47,18 +48,26 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // cout << dag << endl;
+    ofstream file("test.txt");
+    vector<string> labels = dag.get_header();
 
-    /*cout << "Caminos posibles:" << endl;
-    for (const auto& element : dag.get_names()) {
-        for (const auto& ele : element)
-            cout << ele << " ";
-        cout << endl;
+    for (const auto& element : labels) {
+        file << element << " ";
+    }
+    file << std::endl;
+
+    vector<vector<int>> frequency = dag.get_frequency();
+
+    for (const auto& innerVector : frequency) {
+        for (const auto& element : innerVector) {
+            file << element << " ";
+        }
+        file << std::endl;
     }
 
-    cout << endl << "Coeficiente: " << dag.get_coefficient() << endl;*/
+    file.close();
 
-    cout << dag.get_coefficient();
+    cout << dag.get_coefficient() << " " << dag.get_entropy();
 
     return 0;
 }
