@@ -29,7 +29,7 @@ using namespace std;
 class DAG {
     private:
         vector<vector<int>> frequency; /**< matrix representing frequency of the nodes */
-        vector<vector<unsigned int>> duration; /**< matrix representing the time spent in each of the nodes */
+        //vector<vector<unsigned int>> duration; /**< matrix representing the time spent in each of the nodes */
         bool file_correct; /**< if the file have been opened correctly */
         int size; /**< size of the matrices */
         vector<string> header; /**< header of the matrices */
@@ -129,7 +129,7 @@ class DAG {
          * 
          * @return vector<vector<unsigned>> 
          */
-        vector<vector<unsigned>> get_duration(){ return duration; };
+        //vector<vector<unsigned>> get_duration(){ return duration; };
 
         /**
          * @brief Indicate whether the given file has been
@@ -181,6 +181,13 @@ class DAG {
          * @return float 
          */
         float get_entropy();
+
+        /**
+         * @brief Get the grade object
+         * 
+         * @return float 
+         */
+        float get_grade();
 
         /**
          * @brief Output operator

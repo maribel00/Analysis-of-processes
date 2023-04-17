@@ -18,56 +18,27 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
 
-    string path = "/home/maribel/Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/C++/ImportDisco/data/";
+    string path = "../../Python/matrices/";
     
-    if (argc != 3){
+    if (argc != 2){
         cerr << "Número de argumentos erróneo." << endl << endl;
-        cerr << "El programa se ha de ejecutar de la siguiente manera: ./pruebaDAG path filename" << endl;
+        cerr << "El programa se ha de ejecutar de la siguiente manera: ./pruebaDAG filename" << endl;
         return 1;
     }
 
-    if (strcmp(argv[1],"1") == 0)
-        path = path + "DISCO_complete/";
-    else if (strcmp(argv[1],"2") == 0)
-        path = path + "DISCO_complete_segmentated/";
-    else if (strcmp(argv[1],"3") == 0)
-        path = path + "DISCO_compound/";
-    else if (strcmp(argv[1],"4") == 0)
-        path = path + "DISCO_segmentated_groups/";
-    else{
-        cerr << "El directorio escogido es erróneo." << endl << endl;
-        cerr << "Indique 1 para seleccionar el directorio DISCO_complete o" << endl;
-        cerr << "2 para seleccionar el directorio DISCO_compound." << endl;
-        return 1; 
-    }
-
-    string filename = argv[2];
+    string filename = argv[1];
     DAG dag(path + filename);
 
     if (!dag.is_correct()){
         return 1;
     }
 
-    ofstream file("test.txt");
-    vector<string> labels = dag.get_header();
+    size_t last_bar = filename.find_last_of("/"); // Encontrar la última barra
+    string name = filename.substr(last_bar + 1); // Extraer subcadena a partir de la última barra
+    size_t extension = name.find_last_of("."); // Encontrar la última extensión
+    string name_without_extension = name.substr(0, extension); // Extraer subcadena sin extensión
 
-    for (const auto& element : labels) {
-        file << element << " ";
-    }
-    file << std::endl;
-
-    vector<vector<int>> frequency = dag.get_frequency();
-
-    for (const auto& innerVector : frequency) {
-        for (const auto& element : innerVector) {
-            file << element << " ";
-        }
-        file << std::endl;
-    }
-
-    file.close();
-
-    cout << dag.get_coefficient() << " " << dag.get_entropy();
+    cout << name_without_extension << " " << dag.get_coefficient();
 
     return 0;
 }

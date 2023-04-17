@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Ruta al directorio con los archivos
+directory_path="../../Python/matrices"
+
+# Ruta al programa a ejecutar
+program_path="./pruebaDAG"
+
+# Nombre del archivo de resultados
+output_file="resultados.txt"
+
+# Borrar archivo de resultados si ya existe
+if [ -f "$output_file" ]; then
+    rm "$output_file"
+fi
+
+echo "Grupo       DAG" >> "$output_file"
+
+# Iterar a través de todos los archivos en el directorio
+for file_path in "${directory_path}"/*; do
+    # Comprobar si el archivo es un archivo regular (no un directorio, enlace simbólico, etc.)
+    if [[ -f "${file_path}" ]]; then
+        # Ejecutar el programa con el archivo y guardar los resultados
+        "${program_path}" "${file_path}" >> "$output_file"
+        echo >> "$output_file"
+    fi
+done

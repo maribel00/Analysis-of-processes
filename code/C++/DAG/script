@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Crear una tabla vacía
-echo "Directorio Archivo  Salida  Entropía" > outputComplete.csv
-echo "Directorio Archivo  Salida  Entropía" > outputCompleteSegmentated.csv
-echo "Directorio Archivo  Salida  Entropía" > outputCompleteSegmentatedYears.csv
-echo "Directorio Archivo  Salida  Entropía" > outputGrade.csv
-echo "Directorio Archivo  Salida  Entropía" > outputYear.csv
-echo "Directorio Archivo  Salida  Entropía" > outputYearGrade.csv
-echo "Directorio Archivo  Salida  Entropía" > outputGroup.csv
+echo "Directorio Archivo  Salida  Entropía  Grado" > outputComplete.csv
+echo "Directorio Archivo  Salida  Entropía  Grado" > outputCompleteSegmentated.csv
+echo "Directorio Archivo  Salida  Entropía  Grado" > outputCompleteSegmentatedYears.csv
+echo "Directorio Archivo  Salida  Entropía  Grado" > outputGrade.csv
+echo "Directorio Archivo  Salida  Entropía  Grado" > outputYear.csv
+echo "Directorio Archivo  Salida  Entropía  Grado" > outputYearGrade.csv
+echo "Directorio Archivo  Salida  Entropía  Gradp" > outputGroup.csv
 
 # Definir una lista de argumentos
 argumentos1=("1 CompleteWorstGrades.csv" "1 CompleteMidLowGrades.csv" "1 CompleteMidHighGrades.csv" "1 CompleteHighGrades.csv")

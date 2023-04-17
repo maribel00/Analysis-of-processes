@@ -27,46 +27,23 @@ DAG::DAG(string filename) {
     }
     else {
         file_correct = true;
-        
-        // Omitir la primera línea del archivo
+        ifstream file(filename);
         string line;
-        getline(file, line);
-
-        bool found_frequency = false;
-        bool found_duration = false;
 
         while (getline(file, line)) {
-            if (!found_frequency && line.find("Total Frequency") != string::npos) {
-                getline(file, line);
-                found_frequency = true;
-                continue;
-            } else if (found_frequency && line.find("Total Duration ms") != string::npos) {
-                getline(file, line);
-                found_duration = true;
-                continue;
-            }
+            istringstream iss(line);
 
-            if (found_frequency && !found_duration) {
+            if (line.substr(0, 7) == "PROBLEM") { // Es una línea de encabezado
+                string elemento;
+                while (iss >> elemento)
+                    header.push_back(elemento);
+            } else { // Es una línea de datos
                 vector<int> row;
-                stringstream ss(line);
-                string cell;
-                getline(ss, cell, ','); // Ignorar el primer elemento de la fila
-                this->header.push_back(cell);
-                while (getline(ss, cell, ',')) {
-                    row.push_back(stoi(cell));
+                int num;
+                while (iss >> num) {
+                    row.push_back(num);
                 }
-
-                this->frequency.push_back(row);
-            } else if (found_duration) {
-                vector<unsigned> row;
-                stringstream ss(line);
-                string cell;
-                getline(ss, cell, ','); // Ignorar el primer elemento de la fila
-                while (getline(ss, cell, ',')) {
-                    row.push_back(stoi(cell));
-                }
-
-                this->duration.push_back(row);
+                frequency.push_back(row);
             }
         }
 
@@ -84,7 +61,7 @@ DAG::DAG(string filename) {
             for (const auto& name : names){
                 if (split(name.front()).back().compare("20") != 0){
                     frequency[size-2].at(paths[i].front()) = 0;
-                    duration[size-2].at(paths[i].front()) = 0;
+                    //duration[size-2].at(paths[i].front()) = 0;
                 }
                 else
                     good_paths.push_back(i);
@@ -271,7 +248,7 @@ int DAG::find_paths(int row){
                 }
                 else {
                     frequency[row].at(col) = 0;
-                    duration[row].at(col) = 0;
+                    //duration[row].at(col) = 0;
                 }
             }
 
@@ -298,7 +275,7 @@ int DAG::find_paths(int row){
                     }
                     else {
                         frequency[row].at(column) = 0;
-                        duration[row].at(column) = 0;
+                        //duration[row].at(column) = 0;
                     }
                 }
                 find_paths(column);
@@ -398,8 +375,6 @@ float DAG::get_coefficient(){
 
     coefficient += 0.8f * (float)(standard_deviation/mean_frequency);
 
-    //coefficient += 0.2f * floyd_warshall();
-
     return coefficient;
 }
 
@@ -429,22 +404,24 @@ float DAG::get_entropy(){
     float stddev = sqrt(variance);
 
     return stddev;
+}
 
-    // return mean;
-    /*float sum = 0.0f;
-    for (const auto& ele : entropy){
-      sum += ele;  
+float DAG::get_grade(){
+    int size = frequency.size();
+    int grade_2 = 0;
+
+    for (int i = 0; i < size-2; ++i){
+        int count = 0;
+        for (int j = 0; j < frequency[i].size(); ++j) {
+            if (frequency[i][j] != 0) {
+                count++;
+            }
+        }
+        if (count == 1)
+            grade_2++;
     }
 
-    return sum;*/
-
-    /*float min = std::numeric_limits<float>::infinity();
-    for (const auto& ele : entropy){
-        if (ele < min)
-            min = ele;  
-    }
-
-    return min;*/
+    return (float) grade_2/(size-2);
 }
 
 ostream& operator<<(ostream& ostr, const DAG& dag) {
@@ -464,7 +441,7 @@ ostream& operator<<(ostream& ostr, const DAG& dag) {
 
     ostr << endl;
 
-    ostr << "DURATION:" << endl;
+    /*ostr << "DURATION:" << endl;
     ostr << setfill('-') << setw(8 * dag.size + 1) << "" << endl;
     for (const auto& row : dag.duration) {
         ostr << "|";
@@ -473,7 +450,7 @@ ostream& operator<<(ostream& ostr, const DAG& dag) {
         }
         ostr << endl;
         ostr << setfill('-') << setw(8 * dag.size + 1) << "" << endl;
-    }
+    }*/
 
     ostr << endl;
 
