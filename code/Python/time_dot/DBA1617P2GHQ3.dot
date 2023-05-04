@@ -1,0 +1,18 @@
+digraph graphname {
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+"PROBLEM1-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM1-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>252</i></FONT></td></tr></table>>]
+"PROBLEM1-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM1-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>138</i></FONT></td></tr></table>>]
+"PROBLEM1-80" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM1-80</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>77</i></FONT></td></tr></table>>]
+"PROBLEM1-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM1-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>77</i></FONT></td></tr></table>>]
+"START" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>START</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>126</i></FONT></td></tr></table>>]
+"END" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>END</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>124</i></FONT></td></tr></table>>]
+"PROBLEM1-20" -> "PROBLEM1-40" [ label ="70" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM1-20" -> "END" [ style = dashed label ="56" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM1-40" -> "PROBLEM1-80" [ label ="38" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM1-40" -> "END" [ style = dashed label ="30" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM1-80" -> "PROBLEM1-100" [ label ="39" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM1-100" -> "END" [ style = dashed label ="38" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "PROBLEM1-20" [ style = dashed label ="126" labelfloat=false fontname="Arial" fontsize=8]
+}

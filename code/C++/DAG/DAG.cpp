@@ -61,7 +61,6 @@ DAG::DAG(string filename) {
             for (const auto& name : names){
                 if (split(name.front()).back().compare("20") != 0){
                     frequency[size-2].at(paths[i].front()) = 0;
-                    //duration[size-2].at(paths[i].front()) = 0;
                 }
                 else
                     good_paths.push_back(i);
@@ -193,12 +192,12 @@ int DAG::find_paths(int row){
 
     if (row == (size-1)){ // Hemos llegado a END
         vector<int> index = find_index(row);
-        
-        for (const auto& ele : index){
-            paths[ele].pop_back();
-            names[ele].pop_back();
+        if (index.size() > 0){
+            for (const auto& ele : index){
+                paths[ele].pop_back();
+                names[ele].pop_back();
+            }
         }
-
         return 0;
     }
     else if (row == (size-2)){ // Encontrar los nodos después de START
@@ -248,7 +247,6 @@ int DAG::find_paths(int row){
                 }
                 else {
                     frequency[row].at(col) = 0;
-                    //duration[row].at(col) = 0;
                 }
             }
 
@@ -275,7 +273,6 @@ int DAG::find_paths(int row){
                     }
                     else {
                         frequency[row].at(column) = 0;
-                        //duration[row].at(column) = 0;
                     }
                 }
                 find_paths(column);
@@ -335,45 +332,49 @@ float DAG::get_coefficient(){
     for (const auto& name : names)
         problems.push_back(num_problems(name));
 
-    // Calcular la media
-    float mean = static_cast<float>(std::accumulate(problems.begin(), problems.end(), 0)) / problems.size();
+    if (names.size() == 0)
+        coefficient = 3.0f;
+    else {
+        // Calcular la media
+        float mean = static_cast<float>(std::accumulate(problems.begin(), problems.end(), 0)) / problems.size();
 
-    // Normalizar
-    mean = (mean - 1.0f)/(9.0f - 1.0f);
+        // Normalizar
+        mean = (mean - 1.0f)/(9.0f - 1.0f);
 
-    coefficient += 0.2f * mean;
+        coefficient += 0.2f * mean;
 
-    // Cálculo de la desviación estándar de las frecuencias no nulas
-    vector<int> nonzero;
-    float mean_frequency = 0.0f;
-    int n = 0;
+        // Cálculo de la desviación estándar de las frecuencias no nulas
+        vector<int> nonzero;
+        float mean_frequency = 0.0f;
+        int n = 0;
 
-    // Calcular la media de las frecuencias no nulas
-    for (const auto& row : frequency){
-        for (const auto& ele : row) {
-            if (ele > 0){
-                nonzero.push_back(ele);
-                mean_frequency += ele;
-                n++;
+        // Calcular la media de las frecuencias no nulas
+        for (const auto& row : frequency){
+            for (const auto& ele : row) {
+                if (ele > 0){
+                    nonzero.push_back(ele);
+                    mean_frequency += ele;
+                    n++;
+                }
             }
         }
+
+        mean_frequency /= n;
+
+        // Calcular la suma de los cuadrados de las diferencias
+        float sum_squares = 0.0f;
+        
+        for (int i = 0; i < n; i++)
+            sum_squares += pow(nonzero[i]-mean_frequency, 2);
+
+        // Dividir la suma de los cuadrados por el número de valores menos 1
+        float variance = sum_squares / (n-1);
+
+        // Calcular la raíz cuadrada de la varianza para obtener la desviación estándar
+        float standard_deviation = sqrt(variance);
+
+        coefficient += 0.8f * (float)(standard_deviation/mean_frequency);
     }
-
-    mean_frequency /= n;
-
-    // Calcular la suma de los cuadrados de las diferencias
-    float sum_squares = 0.0f;
-    
-    for (int i = 0; i < n; i++)
-        sum_squares += pow(nonzero[i]-mean_frequency, 2);
-
-    // Dividir la suma de los cuadrados por el número de valores menos 1
-    float variance = sum_squares / (n-1);
-
-    // Calcular la raíz cuadrada de la varianza para obtener la desviación estándar
-    float standard_deviation = sqrt(variance);
-
-    coefficient += 0.8f * (float)(standard_deviation/mean_frequency);
 
     return coefficient;
 }

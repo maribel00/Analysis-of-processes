@@ -1,0 +1,13 @@
+digraph graphname {
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+"PROBLEM1-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM1-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>200</i></FONT></td></tr></table>>]
+"PROBLEM1-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM1-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>71</i></FONT></td></tr></table>>]
+"START" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>START</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>100</i></FONT></td></tr></table>>]
+"END" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>END</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>99</i></FONT></td></tr></table>>]
+"PROBLEM1-20" -> "PROBLEM1-40" [ label ="36" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM1-20" -> "END" [ style = dashed label ="64" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM1-40" -> "END" [ style = dashed label ="35" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "PROBLEM1-20" [ style = dashed label ="100" labelfloat=false fontname="Arial" fontsize=8]
+}

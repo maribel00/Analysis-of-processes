@@ -1,0 +1,27 @@
+digraph graphname {
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+"PROBLEM5-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM5-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>2</i></FONT></td></tr></table>>]
+"PROBLEM5-60" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM5-60</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>2</i></FONT></td></tr></table>>]
+"PROBLEM2-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM2-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>2</i></FONT></td></tr></table>>]
+"PROBLEM2-60" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM2-60</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>2</i></FONT></td></tr></table>>]
+"PROBLEM1-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM1-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>4</i></FONT></td></tr></table>>]
+"PROBLEM1-60" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM1-60</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>6</i></FONT></td></tr></table>>]
+"PROBLEM7-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM7-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>2</i></FONT></td></tr></table>>]
+"PROBLEM7-60" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>PROBLEM7-60</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>1</i></FONT></td></tr></table>>]
+"START" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>START</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>6</i></FONT></td></tr></table>>]
+"END" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>END</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>5</i></FONT></td></tr></table>>]
+"PROBLEM5-20" -> "PROBLEM5-60" [ label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM5-60" -> "END" [ style = dashed label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM2-20" -> "PROBLEM2-60" [ label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM2-60" -> "END" [ style = dashed label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM1-20" -> "PROBLEM1-60" [ label ="2" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM1-60" -> "END" [ style = dashed label ="3" labelfloat=false fontname="Arial" fontsize=8]
+"PROBLEM7-20" -> "PROBLEM7-60" [ label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "PROBLEM5-20" [ style = dashed label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "PROBLEM2-20" [ style = dashed label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "PROBLEM1-20" [ style = dashed label ="2" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "PROBLEM1-60" [ style = dashed label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "PROBLEM7-20" [ style = dashed label ="1" labelfloat=false fontname="Arial" fontsize=8]
+}
