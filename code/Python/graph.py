@@ -5,6 +5,76 @@ import numpy as np
 import os # Para cambiar de directorio
 import subprocess
 import csv
+from dot import *
+
+def remove(adj_matrix):
+    cycles = []
+ 
+    # Function to mark the vertex with
+    # different colors for different cycles
+    def dfs_cycle(u, p, color: list, par: list):
+        nonlocal cyclenumber
+
+        # already (completely) visited vertex.
+        if color[u] == 2:
+            return
+
+        # seen vertex, but was not
+        # completely visited -> cycle detected.
+        # backtrack based on parents to
+        # find the complete cycle.
+        if color[u] == 1:
+            v = []
+            cur = p
+            v.append(cur)
+
+            # backtrack the vertex which are
+            # in the current cycle thats found
+            while cur != u:
+                cur = par[cur]
+                v.append(cur)
+            cycles.append(v)
+            cyclenumber += 1
+
+            return
+
+        par[u] = p
+
+        # partially visited.
+        color[u] = 1
+
+        # simple dfs on graph
+        for index, v in enumerate(adj_matrix[u]):
+            if v > 0:
+                # if it has not been visited previously
+                if index == par[u]:
+                    continue
+                dfs_cycle(index, u, color, par)
+
+        # completely visited.
+        color[u] = 2
+        
+    
+    # arrays required to color the
+    # graph, store the parent of node
+    color = [0] * len(adj_matrix)
+    par = [0] * len(adj_matrix)
+
+    # store the numbers of cycle
+    cyclenumber = 0
+
+    # call DFS to mark the cycles
+    dfs_cycle(0, len(adj_matrix), color, par)
+
+    for cycle in cycles:
+        adj_matrix[cycle[0]][cycle[-1]] = 0
+        
+    for i in range(len(adj_matrix)):
+        for j in range(len(adj_matrix)):
+            if adj_matrix[i][j] > 0 and adj_matrix[j][i] > 0:
+                adj_matrix[j][i] = 0
+    
+    return adj_matrix
 
 def deleteZeros(matrix, labels):
     matrix = np.array(matrix)
@@ -55,51 +125,6 @@ def deleteZeros(matrix, labels):
     labels = labels[result]
     
     return matrix.tolist(), labels.tolist()
-
-def getDots(name, labels, edges):
-    
-    # Inicializar el diccionario de frecuencia de nodos
-    freq = []
-    for row in edges:
-        freq.append(0);
-
-    # Recorrer cada fila de la matriz
-    for i, row in enumerate(edges):
-        # Recorrer cada columna de la fila
-        for col in range(len(row)):
-            # Si hay una arista entre los nodos, aumentar la frecuencia de ambos nodos en 1
-            if row[col] >= 1:
-                # Aumentar la frecuencia del nodo actual en row[col]
-                freq[col] += row[col]
-                # Aumentar la frecuencia del nodo conectado en row[col]
-                freq[i] += row[col]
-    
-    with open(name+'.dot', 'w') as f:
-        f.write('digraph graphname {\n\tdpi = 150\n\tsize="16,11!";\n\tmargin = 0;\n')
-        for i in range(len(labels)):
-            color = 'aqua'
-            if freq[i] >= 10 and freq[i] < 20:
-                color = 'lightskyblue'
-            elif freq[i] >= 20 and freq[i] < 30:
-                color = 'deepskyblue'
-            elif freq[i] >= 30 and freq[i] < 40:
-                color = 'dodgerblue'
-            elif freq[i] >= 40:
-                color = 'royalblue'
-            if labels[i] == 'START' or labels[i] == 'END':
-                color = 'white'
-            
-            f.write('"' + labels[i] + '"' + ' [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="' + color + '"><FONT face="Arial" POINT-SIZE="10"><b>' + labels[i] + '</b></FONT></td></tr>')
-            f.write('<tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>' + str(freq[i]) + '</i></FONT></td></tr></table>>]\n')
-        # Agregar aristas al grafo
-        for i in range(len(edges)):
-            for j in range(len(edges)):
-                if edges[i][j] >= 1:
-                    if labels[i] == "START" or labels[j] ==  "END":
-                        f.write('"' + labels[i] + '" -> "' + labels[j] + '" [ style = dashed label ="' + str(edges[i][j]) + '" labelfloat=false fontname="Arial" fontsize=8]\n')
-                    else:
-                        f.write('"' + labels[i] + '" -> "' + labels[j] + '" [ label ="' + str(edges[i][j]) + '" labelfloat=false fontname="Arial" fontsize=8]\n')
-        f.write('}')
     
 def myFilter(adj_matrix):
     # Transformamos la lista a un numpy array
@@ -141,11 +166,9 @@ def removeCycles(matrix):
     
     return matrix
 
-def process(newdf, file_name, image_name, matrices, graphs, dot):
-    
-    
+def process(newdf, file_name, image_name, matrices, graphs, dot, activityId, caseId):
     # Cálculo del número de nodos
-    num = newdf['Compuesto'].nunique() + 2
+    num = newdf[activityId].nunique() + 2
     
     # Creamos una matriz de adyacencia vacía
     adj_matrix = []
@@ -156,7 +179,7 @@ def process(newdf, file_name, image_name, matrices, graphs, dot):
         adj_matrix.append(new_row)
 
     # Obtenemos todos los posibles valores de la columna Compuesto y los ordenamos
-    labels = newdf['Compuesto'].unique().tolist()
+    labels = newdf[activityId].unique().tolist()
     labels.append('START')
     labels.append('END')
 
@@ -172,8 +195,8 @@ def process(newdf, file_name, image_name, matrices, graphs, dot):
     last_session = -1
     last_label = 'last_label'
     for index, row in newdf.iterrows():
-        new_session = row['Session']
-        new_label = row['Compuesto']
+        new_session = row[caseId]
+        new_label = row[activityId]
         if new_session == last_session:
             # Añadir una transición del último label al label actual
             adj_matrix[diccionario[last_label]][diccionario[new_label]] += 1
@@ -186,11 +209,14 @@ def process(newdf, file_name, image_name, matrices, graphs, dot):
         last_session = new_session
         last_label = new_label
         
-    adj_matrix = myFilter(adj_matrix)    
-    
-    adj_matrix = removeCycles(adj_matrix)
-    
-    adj_matrix, labels = deleteZeros(adj_matrix,labels)
+    if activityId == 'Compuesto':
+        adj_matrix = myFilter(adj_matrix)    
+
+        adj_matrix = removeCycles(adj_matrix)
+
+        adj_matrix, labels = deleteZeros(adj_matrix,labels)
+    else:
+        adj_matrix[diccionario[last_label]][diccionario['END']] += 1
 
     # Escribir el vector y la matriz en el mismo archivo
     with open(file_name + '.txt', 'w') as f:
@@ -209,12 +235,48 @@ def process(newdf, file_name, image_name, matrices, graphs, dot):
     os.chdir('../' + dot)
     
     # Guardar la imagen
-    getDots(image_name,labels,adj_matrix)
+    if activityId == 'Compuesto':
+        getDotsCompound(image_name,labels,adj_matrix)
+    else:
+        getDotsProblem(image_name,labels,adj_matrix)
     comando = 'dot -Tpng ' + image_name + '.dot > ../' + graphs + '/' + image_name + '.png'
     subprocess.run(comando, shell=True)
     
+    if activityId == 'Estado':
+        # Cambiar de directorio
+        os.chdir('../matrices_states_wc') 
+        
+        adj_matrix = remove(adj_matrix)
+        
+        # Escribir el vector y la matriz en el mismo archivo
+        with open(file_name + '_wc' + '.txt', 'w') as f:
+            label_text = ''
+            for ele in labels:
+                label_text = label_text + ele + ' '
+            label_text = label_text + '\n'
+
+            # Escribir el vector de las cabeceras en un archivo CSV
+            f.write(label_text)
+
+            # Escribir la matriz de adyacencia en un archivo CSV
+            np.savetxt(f, adj_matrix, delimiter=' ', fmt='%d')
+            
+        # Cambiar de directorio
+        os.chdir('../' + dot)
+        
+        getDotsProblem(image_name,labels,adj_matrix)
+        comando = 'dot -Tpng ' + image_name + '.dot > ../' + graphs + '_wc' + '/' + image_name + '.png'
+        subprocess.run(comando, shell=True)
+        
     # Cambiamos de directorio
     os.chdir('../' + matrices)
+    
+# Función para determinar OK o FAIL
+def determinar_estado(row):
+    if row['Milestone'] > 80:
+        return row['Problem'] + ' OK'
+    else:
+        return row['Problem'] + ' FAIL'
 
 parser = argparse.ArgumentParser()
 parser.add_argument("archivo", help="Ruta del archivo a procesar")
@@ -230,8 +292,11 @@ df=df.dropna(axis=1)
 df.sort_values(by="Session")
 
 # Creamos los identificadores problema-milestone
-df['Problem'] = df['Problem'].replace({'P':''}, regex=True)
-df['Compuesto'] = 'PROBLEM' + df.Problem.apply(str) + '-' + df.Milestone.apply(str)
+df['Compuesto'] = 'PROBLEM' + df.Problem.apply(str).replace({'P':''}, regex=True) + '-' + df.Milestone.apply(str)
+
+# Creamos los identificadores Pn OK o Pn FAIL
+# Aplicar la función a cada fila del DataFrame y crear la nueva columna
+df['Estado'] = df.apply(lambda row: determinar_estado(row), axis=1)
 
 # Listado de grupos
 grupos = df['Grupo'].unique().tolist()
@@ -239,11 +304,14 @@ grupos = df['Grupo'].unique().tolist()
 # Convertir la columna 'sTime' en un objeto datetime
 df['sTime'] = pd.to_datetime(df['sTime'])
 
+# Convertir la columna 'sTime' en un número entero
+df['sTime'] = df['sTime'].astype(int)
+
 # Abrir el archivo donde se guardarán los resultados obtenidos
 with open('results.csv', mode='w', newline='') as file:
     # Escribo la cabecera
     writer = csv.writer(file, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    writer.writerow(['Grupo', 'DAG', 'Q1', 'Q2', 'Q3', 'Q4'])
+    writer.writerow(['Grupo', 'DAG', 'Q1', 'Q2', 'Q3', 'Q4', 'ST'])
     
     # Cambiamos de directorio
     os.chdir('matrices')
@@ -254,12 +322,25 @@ with open('results.csv', mode='w', newline='') as file:
         # Arreglar índice del dataframe
         newdf.reset_index(drop=True, inplace=True)
 
-        process(newdf, grupo.replace(" ",""), grupo.replace(" ",""), 'matrices', 'graphs', 'dot')
+        process(newdf, grupo.replace(" ",""), grupo.replace(" ",""), 'matrices', 'graphs', 'dot', 'Compuesto', 'Session')
         
-        dag = subprocess.run(["./../../C++/DAG/pruebaDAG", grupo.replace(" ","") + ".txt"], stdout=subprocess.PIPE)
+        
+        os.chdir('../matrices_problems')
+        
+        process(newdf, grupo.replace(" ",""), grupo.replace(" ",""), 'matrices', 'graphs_problems', 'dot_problems', 'Problem', 'Grupo')
+        
+        os.chdir('../matrices_states')
+        
+        process(newdf, grupo.replace(" ",""), grupo.replace(" ",""), 'matrices', 'graphs_states', 'dot_states', 'Estado', 'Grupo')
+        
+        dag = subprocess.run(["./../../C++/DAG/pruebaDAG", "1", grupo.replace(" ","") + ".txt"], stdout=subprocess.PIPE)
         output = dag.stdout.decode('utf-8')
         gr = output.split(' ')[0]
         coef = output.split(' ')[1]
+        
+        dag = subprocess.run(["./../../C++/DAG/pruebaDAG", "2", grupo.replace(" ","") + ".txt"], stdout=subprocess.PIPE)
+        output = dag.stdout.decode('utf-8')
+        ST = output.split(' ')[1]
 
         # Cuartiles de tiempo
         # Obtener el año de una fila específica
@@ -273,39 +354,53 @@ with open('results.csv', mode='w', newline='') as file:
         quartiles = df_year['quartiles'].unique().tolist()
         
         df_quartile_1 = newdf[newdf['sTime'] <= quartiles[0].right]
-        process(df_quartile_1, grupo.replace(" ","") + "Q1", grupo.replace(" ","") + "Q1", 'matrices', 'time_graphs', 'time_dot')
+        process(df_quartile_1, grupo.replace(" ","") + "Q1", grupo.replace(" ","") + "Q1", 'matrices', 'time_graphs', 'time_dot', 'Compuesto', 'Session')
         
-        dagQ1 = subprocess.run(["./../../C++/DAG/pruebaDAG", grupo.replace(" ","") + "Q1.txt"], stdout=subprocess.PIPE)
+        dagQ1 = subprocess.run(["./../../C++/DAG/pruebaDAG", "1", grupo.replace(" ","") + "Q1.txt"], stdout=subprocess.PIPE)
         outputQ1 = dagQ1.stdout.decode('utf-8')
         if len(outputQ1.split(' '))>1:
             coefQ1 = outputQ1.split(' ')[1]
             
+        df_2 = newdf[(newdf['sTime'] > quartiles[1].left) & (newdf['sTime'] <= quartiles[1].right)]
         
-        df_quartile_2 = newdf[newdf['sTime'] <= quartiles[1].right]
-        process(df_quartile_2, grupo.replace(" ","") + "Q2", grupo.replace(" ","") + "Q2", 'matrices', 'time_graphs', 'time_dot')
+        if df_2.size == 0:
+            coefQ2 = coefQ1
+        else:
+            df_quartile_2 = newdf[newdf['sTime'] <= quartiles[1].right]
+            process(df_quartile_2, grupo.replace(" ","") + "Q2", grupo.replace(" ","") + "Q2", 'matrices', 'time_graphs', 'time_dot', 'Compuesto', 'Session')
+
+            dagQ2 = subprocess.run(["./../../C++/DAG/pruebaDAG", "1", grupo.replace(" ","") + "Q2.txt"], stdout=subprocess.PIPE)
+            outputQ2 = dagQ2.stdout.decode('utf-8')
+            if len(outputQ2.split(' '))>1:
+                coefQ2 = outputQ2.split(' ')[1]
         
-        dagQ2 = subprocess.run(["./../../C++/DAG/pruebaDAG", grupo.replace(" ","") + "Q2.txt"], stdout=subprocess.PIPE)
-        outputQ2 = dagQ2.stdout.decode('utf-8')
-        if len(outputQ2.split(' '))>1:
-            coefQ2 = outputQ2.split(' ')[1]
+        df_3 = newdf[(newdf['sTime'] > quartiles[2].left) & (newdf['sTime'] <= quartiles[2].right)]
         
-        df_quartile_3 = newdf[newdf['sTime'] <= quartiles[2].right]
-        process(df_quartile_3, grupo.replace(" ","") + "Q3", grupo.replace(" ","") + "Q3", 'matrices', 'time_graphs', 'time_dot')
+        if df_3.size == 0:
+            coefQ3 = coefQ2
+        else:
+            df_quartile_3 = newdf[newdf['sTime'] <= quartiles[2].right]
+            process(df_quartile_3, grupo.replace(" ","") + "Q3", grupo.replace(" ","") + "Q3", 'matrices', 'time_graphs', 'time_dot', 'Compuesto', 'Session')
+
+            dagQ3 = subprocess.run(["./../../C++/DAG/pruebaDAG", "1", grupo.replace(" ","") + "Q3.txt"], stdout=subprocess.PIPE)
+            outputQ3 = dagQ3.stdout.decode('utf-8')
+            if len(outputQ3.split(' '))>1:
+                coefQ3 = outputQ3.split(' ')[1]
+                
+        df_4 = newdf[newdf['sTime'] > quartiles[3].left]
         
-        dagQ3 = subprocess.run(["./../../C++/DAG/pruebaDAG", grupo.replace(" ","") + "Q3.txt"], stdout=subprocess.PIPE)
-        outputQ3 = dagQ3.stdout.decode('utf-8')
-        if len(outputQ3.split(' '))>1:
-            coefQ3 = outputQ3.split(' ')[1]
+        if df_4.size == 0:
+            coefQ4 = coefQ3
+        else:
+            df_quartile_4 = newdf
+            process(df_quartile_4, grupo.replace(" ","") + "Q4", grupo.replace(" ","") + "Q4", 'matrices', 'time_graphs', 'time_dot', 'Compuesto', 'Session')
+
+            dagQ4 = subprocess.run(["./../../C++/DAG/pruebaDAG", "1", grupo.replace(" ","") + "Q4.txt"], stdout=subprocess.PIPE)
+            outputQ4 = dagQ4.stdout.decode('utf-8')
+            if len(outputQ4.split(' '))>1:
+                coefQ4 = outputQ4.split(' ')[1]
         
-        df_quartile_4 = newdf[newdf['sTime'] <= quartiles[3].right]
-        process(df_quartile_4, grupo.replace(" ","") + "Q4", grupo.replace(" ","") + "Q4", 'matrices', 'time_graphs', 'time_dot')
-        
-        dagQ4 = subprocess.run(["./../../C++/DAG/pruebaDAG", grupo.replace(" ","") + "Q4.txt"], stdout=subprocess.PIPE)
-        outputQ4 = dagQ4.stdout.decode('utf-8')
-        if len(outputQ4.split(' '))>1:
-            coefQ4 = outputQ4.split(' ')[1]
-        
-        writer.writerow([gr, coef, coefQ1, coefQ2, coefQ3, coefQ4])
+        writer.writerow([gr, coef, coefQ1, coefQ2, coefQ3, coefQ4, ST])
         
         # Cambiamos de directorio
         os.chdir('../matrices')

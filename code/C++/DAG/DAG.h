@@ -34,6 +34,7 @@ class DAG {
         int size; /**< size of the matrices */
         vector<string> header; /**< header of the matrices */
         vector<vector<float>> probabilities; /**< each entry (i,j) represents the probability of changing from node i to node j */
+        vector<vector<float>> degree_matrix;
         vector<vector<int>> paths; /**< all the possible paths */
         vector<vector<string>> names; /**< all the paths with names */
 
@@ -114,8 +115,9 @@ class DAG {
          * @brief Construct a new DAG object
          * 
          * @param filename 
+         * @param option
          */
-        DAG(string filename);
+        DAG(string filename, int option);
 
         /**
          * @brief Get the frequency object
@@ -174,6 +176,13 @@ class DAG {
          * @return float 
          */
         float get_coefficient();
+
+        /**
+         * @brief Get the spanning trees object
+         * 
+         * @return float 
+         */
+        float get_spanning_trees();
 
         /**
          * @brief Get the entropy object

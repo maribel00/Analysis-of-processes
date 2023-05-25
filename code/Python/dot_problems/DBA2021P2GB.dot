@@ -1,0 +1,20 @@
+digraph graphname {
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+"P1" [shape=circle, color=greenyellow, style=filled]"P2" [shape=circle, color=bisque, style=filled]"P3" [shape=circle, color=cadetblue, style=filled]"P4" [shape=circle, color=orange, style=filled]"P5" [shape=circle, color=deepskyblue, style=filled]"P6" [shape=circle, color=gold, style=filled]"P7" [shape=circle, color=hotpink, style=filled]"START" [shape=box, fillcolor=white, style=filled, color=black]"END" [shape=box, fillcolor=white, style=filled, color=black]"P1" -> "P1" [ label ="638" labelfloat=false fontname="Arial" fontsize=8]
+"P1" -> "P2" [ label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P2" -> "P2" [ label ="338" labelfloat=false fontname="Arial" fontsize=8]
+"P2" -> "P3" [ label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P3" -> "P3" [ label ="58" labelfloat=false fontname="Arial" fontsize=8]
+"P3" -> "P4" [ label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P4" -> "P4" [ label ="60" labelfloat=false fontname="Arial" fontsize=8]
+"P4" -> "P5" [ label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P5" -> "P5" [ label ="644" labelfloat=false fontname="Arial" fontsize=8]
+"P5" -> "P6" [ label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P6" -> "P6" [ label ="29" labelfloat=false fontname="Arial" fontsize=8]
+"P6" -> "P7" [ label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P7" -> "P7" [ label ="366" labelfloat=false fontname="Arial" fontsize=8]
+"P7" -> "END" [ style = dashed label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P1" [ style = dashed label ="1" labelfloat=false fontname="Arial" fontsize=8]
+}

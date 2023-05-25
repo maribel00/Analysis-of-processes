@@ -1,0 +1,27 @@
+A pesar de que el estudio descriptivo anterior muestra unos datos muy variados, éstos son, en casi todos ellos, homogéneos año tras año. Sin embargo el objetivo de este estudio es sentar las bases para conseguir una experiencia de aprendizaje óptima para todos los grupos de alumnos por lo que se va a poner el énfasis en detectar a los grupos que estén en riesgo de obtener un peor rendimiento o peores calificaciones. La detección temprana de estos grupos podría permitir al profesor su actuación para rescatar a esos grupos en riesgo de suspender. Para ello, se van a proponer una serie de métricas de calidad que se definirían sobre el registro de actividad de los alumnos, para intentar encontrar aquella que, con mayor certeza determine los alumnos que peor están progresando.
+
+\subsection{Métricas de calidad y correlaciones entre ellas}
+
+Para identificar aquellos grupos con más riesgo de fracaso cuanto antes para poder reaccionar y recuperarlos, se definen algunas métricas de calidad para aplicarlas a la detección de grupos de riesgo.
+
+\subsubsection{Medidas a posteriori del resultado de la práctica}
+
+\begin{itemize}
+\item \textbf{Achiever.} Se refiere a la nota (Grade) conseguida por el alumno. Cuanto mayor sea ésta, mejor.
+\item \textbf{Performer.} Número de problemas resueltos (Goals). Cuantos más mejor.
+\item \textbf{Terminator.} Punto de finalización de toda la práctica (Makespan). Cuanto antes, mejor (para disponer de más tiempo para repasar y corregir errores). Sin embargo, no es tan importante.
+\item \textbf{Timeburner.} Es el tiempo consumido por el alumno durante las prácticas (Duration). Este es un valor trampa, pues puede significar algo positivo (el alumno ha tardado poco en resolver la práctica porque la domina), o negativo porque no ha podido dedicarle más tiempo.
+\item \textbf{Perseverant.} Número de sesiones realizadas. También se ha visto antes.
+\end{itemize}
+
+\subsubsection{Medidas continuas durante la práctica}
+
+\begin{itemize}
+\item \textbf{SingleThreaded.} Comportamiento ordenado sin bifurcaciones, coge un problema y lo termina sin mirar a otros problemas (DAG).
+\item \textbf{EarlyBird.} (FirstOpen) Es duro empezar. Promedio de tiempo de la primera apertura de cada problema.
+\item \textbf{MessedUp.} Todo me sale mal (FailRatio). Número de fails consecutivos hasta resolver un problema/numero de sesiones de ese problema. La tasa de fallo, como la duración del tiempo dedicado a un mismo problema, depende de la dificultad del mismo.
+\item \textbf{Procastinator.} Es decir, alumnos que cuando intentan resolver un problema y no lo consiguen, saltan, curiosamente, a otros problemas más complejos, los cuales, obviamente, tampoco pueden resolver, perdiendo un tiempo precioso. Tiempo perdido explorando, sin éxito, problemas más complejos que el que no me sale.
+\item \textbf{Follower.} Siguen el orden esperado de las prácticas.
+\end{itemize}
+
+\textbf{Falta. Cuadrante de correlaciones entre las métricas.}

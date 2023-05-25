@@ -15,11 +15,12 @@
 #include <numeric> // Necesaria para utilizar accumulate
 #include <cmath> // Necesaria para utilizar sqrt
 #include <algorithm> // Necesaria para utilizar la función sort
+#include <eigen3/Eigen/Dense> // Necesaria para calcular determinantes
 #include "DAG.h"
 
 using namespace std;
 
-DAG::DAG(string filename) {
+DAG::DAG(string filename, int option) {
     ifstream file(filename);
     if (!file.is_open()) {
         cerr << "No se pudo abrir el archivo espeficado." << endl;
@@ -30,14 +31,12 @@ DAG::DAG(string filename) {
         ifstream file(filename);
         string line;
 
-        while (getline(file, line)) {
-            istringstream iss(line);
+        if (option == 2) {
+            getline(file, line);
 
-            if (line.substr(0, 7) == "PROBLEM") { // Es una línea de encabezado
-                string elemento;
-                while (iss >> elemento)
-                    header.push_back(elemento);
-            } else { // Es una línea de datos
+            while (getline(file, line)) {
+                istringstream iss(line);
+
                 vector<int> row;
                 int num;
                 while (iss >> num) {
@@ -46,45 +45,63 @@ DAG::DAG(string filename) {
                 frequency.push_back(row);
             }
         }
+        else {
+            while (getline(file, line)) {
+                istringstream iss(line);
 
-        if (this->frequency.size() > 0){
-
-            this->frequency.pop_back();
-
-            this->size = frequency[0].size(); // Obtenemos el número de columnas
-
-            find_paths(this->size-2); // Obtenemos todos los caminos
-
-            // Eliminar caminos con transiciones iniciales a un problema con un porcentaje > 20
-            int i = 0;
-            vector<int> good_paths;
-            for (const auto& name : names){
-                if (split(name.front()).back().compare("20") != 0){
-                    frequency[size-2].at(paths[i].front()) = 0;
+                if (line.substr(0, 7) == "PROBLEM") { // Es una línea de encabezado
+                    string elemento;
+                    while (iss >> elemento)
+                        header.push_back(elemento);
+                } else { // Es una línea de datos
+                    vector<int> row;
+                    int num;
+                    while (iss >> num) {
+                        row.push_back(num);
+                    }
+                    frequency.push_back(row);
                 }
-                else
-                    good_paths.push_back(i);
-                ++i;
             }
 
-            vector<vector<int>> new_paths;
-            vector<vector<string>> new_names;
+            if (this->frequency.size() > 0){
 
-            for (const auto& ele : good_paths){
-                new_paths.push_back(paths[ele]);
-                new_names.push_back(names[ele]);
+                this->frequency.pop_back();
+
+                this->size = frequency[0].size(); // Obtenemos el número de columnas
+
+                find_paths(this->size-2); // Obtenemos todos los caminos
+
+                // Eliminar caminos con transiciones iniciales a un problema con un porcentaje > 20
+                int i = 0;
+                vector<int> good_paths;
+                for (const auto& name : names){
+                    if (split(name.front()).back().compare("20") != 0){
+                        frequency[size-2].at(paths[i].front()) = 0;
+                    }
+                    else
+                        good_paths.push_back(i);
+                    ++i;
+                }
+
+                vector<vector<int>> new_paths;
+                vector<vector<string>> new_names;
+
+                for (const auto& ele : good_paths){
+                    new_paths.push_back(paths[ele]);
+                    new_names.push_back(names[ele]);
+                }
+
+                paths.clear();
+                names.clear();
+
+                for (const auto& path : new_paths)
+                    paths.push_back(path);
+
+                for (const auto& name : new_names)
+                    names.push_back(name);
+
+                remove_duplicates(); // Eliminamos caminos repetidos
             }
-
-            paths.clear();
-            names.clear();
-
-            for (const auto& path : new_paths)
-                paths.push_back(path);
-
-            for (const auto& name : new_names)
-                names.push_back(name);
-
-            remove_duplicates(); // Eliminamos caminos repetidos
         }
 
         // Calculamos la matriz de probabilidades
@@ -96,9 +113,24 @@ DAG::DAG(string filename) {
 
         for (const auto& row : frequency){
             vector<float> prob;
-            for (const auto& ele : row)
+            vector<float> zero;
+            for (const auto& ele : row){
                 prob.push_back(ele/sum);
+                zero.push_back(0.0f);
+            }
+            degree_matrix.push_back(zero);
             probabilities.push_back(prob);
+        }
+
+        for (int i = 0; i < frequency.size(); i++) {
+            int sum = 0;
+            for (int j = 0; j < frequency[0].size(); j++) {
+                if (j != i)
+                    sum += frequency[i][j] + frequency[j][i];
+                else
+                    sum += frequency[i][i];
+            }
+            degree_matrix[i][i] += sum;
         }
     }
 }
@@ -379,6 +411,17 @@ float DAG::get_coefficient(){
     return coefficient;
 }
 
+float DAG::get_spanning_trees(){
+    Eigen::MatrixXf laplacian_matrix(frequency.size()-1, frequency.size()-1);
+
+    for (int i = 1; i < frequency.size(); i++) {
+        for (int j = 1; j < frequency.size(); j++)
+            laplacian_matrix(i-1,j-1) = degree_matrix[i][j] - frequency[i][j];
+    }
+
+    return log10(laplacian_matrix.determinant());
+}
+
 float DAG::get_entropy(){
     vector<float> entropy;
     for (int i = 0; i < probabilities.size(); ++i){
@@ -441,18 +484,6 @@ ostream& operator<<(ostream& ostr, const DAG& dag) {
     }
 
     ostr << endl;
-
-    /*ostr << "DURATION:" << endl;
-    ostr << setfill('-') << setw(8 * dag.size + 1) << "" << endl;
-    for (const auto& row : dag.duration) {
-        ostr << "|";
-        for (const auto& cell : row) {
-            ostr << setfill(' ') << setw(6) << cell << " |";
-        }
-        ostr << endl;
-        ostr << setfill('-') << setw(8 * dag.size + 1) << "" << endl;
-    }*/
-
     ostr << endl;
 
     // Imprime la cabecera
