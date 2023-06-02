@@ -209,16 +209,6 @@ En el caso de los grafos dirigidos se distingue entre el \emph{grado de entrada}
 
 % Meter Lema del apetrón de manos?
 
-\begin{definition}
-Un grafo en el que todos sus vértices tienen el mismo grado (de entrada, en el caso de los grafos dirigidos) se denomina \emph{regular}. Además, un grafo con vértices de grado $k$ se llamará $k$-regular.
-\end{definition}
-
-\begin{definition}
-Un \emph{grafo completo} $G=(V,E)$ es un grafo no dirigido simple en el que para cada par de vértices $u, v\in V$ existe una arista $e \in E$ tal que $e = \left\lbrace u,v\right\rbrace$.
-
-El \emph{grafo completo de $n$ vértices} se denotará por $K_n$. Así pues, $K_n$ tendrá $frac{n\cdot (n-1)}{2}$ aristas y es un grafo regular de grado $n-1$.
-\end{definition}
-
 \begin{wrapfigure}{r}{0.4\textwidth}
 \begin{tikzpicture}
   \foreach \x in {1,...,8}{
@@ -236,6 +226,16 @@ El \emph{grafo completo de $n$ vértices} se denotará por $K_n$. Así pues, $K_
 \caption{Ejemplo de grafo completo.}
 	\label{fig:grafo5}
 \end{wrapfigure}
+
+\begin{definition}
+Un grafo en el que todos sus vértices tienen el mismo grado (de entrada, en el caso de los grafos dirigidos) se denomina \emph{regular}. Además, un grafo con vértices de grado $k$ se llamará $k$-regular.
+\end{definition}
+
+\begin{definition}
+Un \emph{grafo completo} $G=(V,E)$ es un grafo no dirigido simple en el que para cada par de vértices $u, v\in V$ existe una arista $e \in E$ tal que $e = \left\lbrace u,v\right\rbrace$.
+
+El \emph{grafo completo de $n$ vértices} se denotará por $K_n$. Así pues, $K_n$ tendrá $frac{n\cdot (n-1)}{2}$ aristas y es un grafo regular de grado $n-1$.
+\end{definition}
 
 \begin{figure}[H]
   \centering
@@ -333,5 +333,15 @@ En la Figura \ref{fig:grafo1} tenemos un grafo dirigido con ciclos o cíclico (c
 \end{exampleth}
 
 \begin{definition}
-Un árbol de expansión de un grafo conexo no dirigido $G$ 
+Un grafo conexo acíclico no dirigido se denominará \emph{árbol}. Por otro lado, un \emph{árbol orientado} o \emph{poliárbol} será un grafo dirigido acíclico cuyo grafo no dirigido subyacente es un árbol. De otra manera, si cambiamos sus aristas dirigidas por no diridas, se obtendía un grafo no dirigido conexo y acíclico.
 \end{definition}
+
+\begin{definition}
+Un \emph{árbol de expansión} de un grafo conexo no dirigido $G$ es un subgrafo suyo que es árbol y que contiene a todos sus vértices.
+
+El \emph{número de árboles de expansión} de un grafo conexo $G$, habitualmente denotado por $t(G)$, es un invariante importante en la teoría de grafos. Éste puede obtenerse mediante el denominado \emph{Teorema de Kirchhoff}. Este teorema demuestra que el número de árboles de expansión de un grafo puede obtenerse en tiempo polinómico a partir del determinante de una submatriz de la \emph{matriz Laplaciana} del grafo. Más aún, nos dice que éste número es igual a cualquier cofactor de la matriz Laplaciana. El Teorema de Kirchhoff es una generalización de la \emph{fórmula de Cayley}, que proporciona el número de árboles de expansión en el caso de un grafo completo y que veremos a continuación.
+\end{definition}
+
+\begin{proposition}
+Dado un grafo completo $K_n$, la fórmula de Cayley establece que el número de árboles de expansión del mismo es $t(K_n) = n^{n-2}$.
+\end{proposition}
