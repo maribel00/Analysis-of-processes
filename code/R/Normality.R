@@ -1,8 +1,4 @@
-#install.packages("xtable")
 library(xtable)
-install.packages("pbkrtest")
-install.packages("ggpubr")
-install.packages("ggplot2")
 library('ggpubr')
 
 # Normalidad de los datos
@@ -31,6 +27,15 @@ hist(ndataset.aov$residuals, main = paste("Residuals ",nValue))
 ggdensity(ndataset[[nValue]],xlab=nValue)
 ggqqplot(ndataset[[nValue]], xlab = nValue)
 
+grid(nx=16, ny=16)
+par(new = TRUE)
+boxplot(Allsessions~Year,
+        data=ndataset,
+        main="Number of sessions per year",
+        xlab="Year",
+        ylab="Number of sessions"
+)
+
 mdataset <- read.csv("MBSessionsProblems.csv", header = TRUE)
 
 grid(nx=16, ny=16)
@@ -42,25 +47,30 @@ boxplot(Session~Problem,
         ylab="Number of sessions"
 )
 
-grid(nx=16, ny=16)
-par(new = TRUE)
-boxplot(Session~Year,
-        data=mdataset,
-        main="Number of sessions per year",
-        xlab="Year",
-        ylab="Number of sessions"
-)
+ndataset <- read.csv("MBSessionsProblemExt.csv", header = TRUE)
+head(ndataset)
+names(ndataset) <- c("Year","Problem","Fail","Solved","Allsessions","FailRatio")
+head(ndataset)
 
-mVariable <- "Year"
-mValue <- "Session"
-mdsp <- mdataset[,c(mVariable,mValue)]
-mdataset.lm <- lm(mdsp[[mValue]]~mdsp[[mVariable]], mdsp)
-mdataset.aov <- aov(mdataset.lm)
-summary <- summary(mdataset.aov)
+nVariable <- "Problem"
+nValue <- "FailRatio"
+ndsp <- ndataset[,c(nVariable,nValue)]
+ndataset.lm <- lm(ndsp[[nValue]]~ndsp[[nVariable]], ndsp)
+ndataset.aov <- aov(ndataset.lm)
+summary <- summary(ndataset.aov)
 print(xtable(as.matrix(summary)), include.rownames = TRUE)
 
-mdataset.tukey<-TukeyHSD(mdataset.aov)
-mdataset.tukey
-print(xtable(as.matrix(mdataset.tukey$`mdsp[[mVariable]]`)), include.rownames = TRUE)
+ndataset.tukey<-TukeyHSD(ndataset.aov)
+ndataset.tukey
+print(xtable(as.matrix(ndataset.tukey$`ndsp[[nVariable]]`)), include.rownames = TRUE)
 
-plot(mdataset.tukey)
+plot(ndataset.tukey)
+
+grid(nx=16, ny=16)
+par(new = TRUE)
+boxplot(FailRatio~Problem,
+        data=ndataset,
+        main="Fail ratio per problem",
+        xlab="Problem",
+        ylab="Fail ratio"
+)

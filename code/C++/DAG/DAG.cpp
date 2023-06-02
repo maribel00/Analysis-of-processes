@@ -125,10 +125,7 @@ DAG::DAG(string filename, int option) {
         for (int i = 0; i < frequency.size(); i++) {
             int sum = 0;
             for (int j = 0; j < frequency[0].size(); j++) {
-                if (j != i)
-                    sum += frequency[i][j] + frequency[j][i];
-                else
-                    sum += frequency[i][i];
+                sum += frequency[j][i] + frequency[i][j];
             }
             degree_matrix[i][i] += sum;
         }
@@ -413,7 +410,6 @@ float DAG::get_coefficient(){
 
 float DAG::get_spanning_trees(){
     Eigen::MatrixXf laplacian_matrix(frequency.size()-1, frequency.size()-1);
-
     for (int i = 1; i < frequency.size(); i++) {
         for (int j = 1; j < frequency.size(); j++)
             laplacian_matrix(i-1,j-1) = degree_matrix[i][j] - frequency[i][j];

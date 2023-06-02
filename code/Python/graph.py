@@ -7,7 +7,7 @@ import subprocess
 import csv
 from dot import *
 
-def remove(adj_matrix):
+def removeCycles(adj_matrix):
     cycles = []
  
     # Function to mark the vertex with
@@ -154,18 +154,6 @@ def myFilter(adj_matrix):
     
     return adj_matrix
 
-def removeCycles(matrix):
-    # Recorrer la diagonal de la matriz y asignar un valor de cero en cada posición
-    for i in range(len(matrix)):
-        matrix[i][i] = 0
-        
-    for i in range(len(matrix)-2):
-        for j in range(len(matrix)-2):
-            if matrix[i][j] != 0:
-                matrix[j][i] = 0
-    
-    return matrix
-
 def process(newdf, file_name, image_name, matrices, graphs, dot, activityId, caseId):
     # Cálculo del número de nodos
     num = newdf[activityId].nunique() + 2
@@ -246,7 +234,7 @@ def process(newdf, file_name, image_name, matrices, graphs, dot, activityId, cas
         # Cambiar de directorio
         os.chdir('../matrices_states_wc') 
         
-        adj_matrix = remove(adj_matrix)
+        adj_matrix = removeCycles(adj_matrix)
         
         # Escribir el vector y la matriz en el mismo archivo
         with open(file_name + '_wc' + '.txt', 'w') as f:

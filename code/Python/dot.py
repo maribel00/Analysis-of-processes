@@ -1,3 +1,5 @@
+import math
+
 def getDotsCompound(name, labels, edges):
     # Inicializar el diccionario de frecuencia de nodos
     freq = []
@@ -12,8 +14,10 @@ def getDotsCompound(name, labels, edges):
             if row[col] >= 1:
                 # Aumentar la frecuencia del nodo actual en row[col]
                 freq[col] += row[col]
-                # Aumentar la frecuencia del nodo conectado en row[col]
-                freq[i] += row[col]
+    
+    # Recortar los labels
+    for i in range(len(labels)):
+        labels[i] = labels[i].replace('PROBLEM','P')
     
     with open(name+'.dot', 'w') as f:
         f.write('digraph graphname {\n\tdpi = 150\n\tsize="16,11!";\n\tmargin = 0;\n')
@@ -37,9 +41,9 @@ def getDotsCompound(name, labels, edges):
             for j in range(len(edges)):
                 if edges[i][j] >= 1:
                     if labels[i] == "START" or labels[j] ==  "END":
-                        f.write('"' + labels[i] + '" -> "' + labels[j] + '" [ style = dashed label ="' + str(edges[i][j]) + '" labelfloat=false fontname="Arial" fontsize=8]\n')
+                        f.write('"' + labels[i] + '" -> "' + labels[j] + '" [ style = dashed color=grey label ="' + str(edges[i][j]) + '" labelfloat=false fontname="Arial" fontsize=8]\n')
                     else:
-                        f.write('"' + labels[i] + '" -> "' + labels[j] + '" [ label ="' + str(edges[i][j]) + '" labelfloat=false fontname="Arial" fontsize=8]\n')
+                        f.write('"' + labels[i] + '" -> "' + labels[j] + '" [ color=grey16 penwidth = "' + str(max(1,math.log(edges[i][j]))) + '"label ="' + str(edges[i][j]) + '" labelfloat=false fontname="Arial" fontsize=8]\n')
         f.write('}')
         
 def getDotsProblem(name, labels, edges):
@@ -86,8 +90,6 @@ def getDotsProblem(name, labels, edges):
             if row[col] >= 1:
                 # Aumentar la frecuencia del nodo actual en row[col]
                 freq[col] += row[col]
-                # Aumentar la frecuencia del nodo conectado en row[col]
-                freq[i] += row[col]
     
     with open(name+'.dot', 'w') as f:
         f.write('digraph graphname {\n\tdpi = 150\n\tsize="16,11!";\n\tmargin = 0;\n')
@@ -95,13 +97,16 @@ def getDotsProblem(name, labels, edges):
             if labels[i] == 'START' or labels[i] == 'END':
                 f.write('"' + labels[i] + '"' + ' [shape=box, fillcolor=white, style=filled, color=black]')
             else:
-                f.write('"' + labels[i] + '"' + ' [shape=circle, color=' + color[labels[i]] + ', style=filled]')
+                if labels[i].endswith("FAIL"):
+                    f.write('"' + labels[i] + '"' + ' [shape=circle, color=' + color[labels[i]] + ', peripheries=2, style=filled]')
+                else:
+                    f.write('"' + labels[i] + '"' + ' [shape=circle, color=' + color[labels[i]] + ', style=filled]')
         # Agregar aristas al grafo
         for i in range(len(edges)):
             for j in range(len(edges)):
                 if edges[i][j] >= 1:
                     if labels[i] == "START" or labels[j] ==  "END":
-                        f.write('"' + labels[i] + '" -> "' + labels[j] + '" [ style = dashed label ="' + str(edges[i][j]) + '" labelfloat=false fontname="Arial" fontsize=8]\n')
+                        f.write('"' + labels[i] + '" -> "' + labels[j] + '" [ style = dashed color=grey label ="' + str(edges[i][j]) + '" labelfloat=false fontname="Arial" fontsize=8]\n')
                     else:
-                        f.write('"' + labels[i] + '" -> "' + labels[j] + '" [ label ="' + str(edges[i][j]) + '" labelfloat=false fontname="Arial" fontsize=8]\n')
+                        f.write('"' + labels[i] + '" -> "' + labels[j] + '" [ color=grey16 penwidth = "' + str(max(1,math.log(edges[i][j]))) + '"label ="' + str(edges[i][j]) + '" labelfloat=false fontname="Arial" fontsize=8]\n')
         f.write('}')
