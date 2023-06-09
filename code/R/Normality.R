@@ -27,25 +27,15 @@ hist(ndataset.aov$residuals, main = paste("Residuals ",nValue))
 ggdensity(ndataset[[nValue]],xlab=nValue)
 ggqqplot(ndataset[[nValue]], xlab = nValue)
 
-grid(nx=16, ny=16)
-par(new = TRUE)
-boxplot(Allsessions~Year,
-        data=ndataset,
-        main="Number of sessions per year",
-        xlab="Year",
-        ylab="Number of sessions"
-)
+boxplot <- boxplot(Allsessions~Year,ndataset)
+plot <- ggplot(data=ndataset,mapping=aes(x=Year,y=Allsessions))+geom_boxplot(fill = "olivedrab1")+theme_bw()
+plot
 
 mdataset <- read.csv("MBSessionsProblems.csv", header = TRUE)
 
-grid(nx=16, ny=16)
-par(new = TRUE)
-boxplot(Session~Problem,
-        data=mdataset,
-        main="Number of sessions per problem",
-        xlab="Problem",
-        ylab="Number of sessions"
-)
+boxplot <- boxplot(Session~Problem,mdataset)
+plot <- ggplot(data=mdataset,mapping=aes(x=Problem,y=Session))+geom_boxplot(fill = "olivedrab1")+theme_bw()
+plot
 
 ndataset <- read.csv("MBSessionsProblemExt.csv", header = TRUE)
 head(ndataset)
@@ -66,11 +56,6 @@ print(xtable(as.matrix(ndataset.tukey$`ndsp[[nVariable]]`)), include.rownames = 
 
 plot(ndataset.tukey)
 
-grid(nx=16, ny=16)
-par(new = TRUE)
-boxplot(FailRatio~Problem,
-        data=ndataset,
-        main="Fail ratio per problem",
-        xlab="Problem",
-        ylab="Fail ratio"
-)
+boxplot <- boxplot(FailRatio~Problem,ndataset)
+plot <- ggplot(data=ndataset,mapping=aes(x=Problem,y=FailRatio))+geom_boxplot(fill = "olivedrab1")+theme_bw()
+plot

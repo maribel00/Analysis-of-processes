@@ -46,7 +46,7 @@ def getDotsCompound(name, labels, edges):
                         f.write('"' + labels[i] + '" -> "' + labels[j] + '" [ color=grey16 penwidth = "' + str(max(1,math.log(edges[i][j]))) + '"label ="' + str(edges[i][j]) + '" labelfloat=false fontname="Arial" fontsize=8]\n')
         f.write('}')
         
-def getDotsProblem(name, labels, edges):
+def getDotsProblem(name, labels, edges,layoutCircular):
     color = {
         'P1': 'greenyellow',
         'P1 OK': 'greenyellow',
@@ -93,6 +93,8 @@ def getDotsProblem(name, labels, edges):
     
     with open(name+'.dot', 'w') as f:
         f.write('digraph graphname {\n\tdpi = 150\n\tsize="16,11!";\n\tmargin = 0;\n')
+        if layoutCircular:
+            f.write('layout=circo;\n')
         for i in range(len(labels)):
             if labels[i] == 'START' or labels[i] == 'END':
                 f.write('"' + labels[i] + '"' + ' [shape=box, fillcolor=white, style=filled, color=black]')

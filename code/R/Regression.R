@@ -1,0 +1,40 @@
+# install.packages("readr")
+library(readr)
+
+set.seed(54)
+rdataset<-read_tsv(file = "DBA1521.tsv")
+rdataset <- rdataset[(rdataset$DAG <=2),c(3,8:12,16,19,25,30:31,33:34,52,71)]
+head(rdataset)
+#rdataset$DAG <- sub(",",".",rdataset$DAG)
+#rdataset$DAG <- as.double(rdataset$DAG)
+rdataset$Newcomer <- sub(",",".",rdataset$Newcomer)
+rdataset$Newcomer <- as.double(rdataset$Newcomer)
+# rdataset$`Mins,Starter` <- sub(",",".",rdataset$`Mins,Starter`)
+# rdataset$`Mins,Starter` <- as.double(rdataset$`Mins,Starter`)
+# rdataset$`Mins,ReactionTime` <- sub(",",".",rdataset$`Mins,ReactionTime`)
+# rdataset$`Mins,ReactionTime` <- as.double(rdataset$`Mins,ReactionTime`)
+rdataset$`Mins,EarlyBird` <- sub(",",".",rdataset$`Mins,EarlyBird`)
+rdataset$`Mins,EarlyBird` <- as.double(rdataset$`Mins,EarlyBird`)
+# rdataset$`Mins,ClosingTime` <- sub(",",".",rdataset$`Mins,ClosingTime`)
+# rdataset$`Mins,ClosingTime` <- as.double(rdataset$`Mins,ClosingTime`)
+rdataset$RWSP <- sub(",",".",rdataset$RWSP)
+rdataset$RWSP <- as.double(rdataset$RWSP)
+rdataset$SIM <- sub(",",".",rdataset$SIM)
+rdataset$SIM <- as.double(rdataset$SIM)
+rdataset$MDN <- sub(",",".",rdataset$MDN)
+rdataset$MDN <- as.double(rdataset$MDN)
+head(rdataset)
+colnames(rdataset) <- c("Achiever","DAG","Perseverant","SessionsBefore","SessionsAfter","SolvedSessions","Newcomer","EarlyBird","Performer","RWSP","MAN","SIM","MDN","FDegree9","FLAP9")
+pairs(rdataset)
+x <- "DAG"
+y <- "Achiever"
+# Scatter plot and linear regression line
+plot(rdataset[[x]], rdataset[[y]], pch = 16,xlab = x, ylab =y)
+rdataset.lm <- lm(rdataset[[y]] ~ rdataset[[x]])
+abline(rdataset.lm, col = 4, lwd = 3)
+#boxplot(rdataset[[y]] ~ rdataset[[x]],rdataset, xlab = x, ylab = y)
+# Text
+coef <- round(coef(lm(rdataset[[y]] ~ rdataset[[x]])), 2)
+text(2, 70,  paste("Y = ", coef[1], "+", coef[2], "x"))
+cor.test(rdataset[[x]], rdataset[[y]], method=("pearson"))
+

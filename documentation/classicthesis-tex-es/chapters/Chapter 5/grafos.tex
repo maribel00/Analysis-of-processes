@@ -122,7 +122,7 @@ Mientras que en un grafo no dirigido se tiene que $E \subseteq \{x \in \mathcal{
 En la Figura \ref{fig:grafo3} se muestra un ejemplo de grafo dirigido mientras que en la Figura \ref{fig:grafo1} tenemos un ejemplo de grafo no dirigido.
 \end{exampleth}
 
-\begin{wrapfigure}{r}{0.4\textwidth} %this figure will be at the right
+\begin{figure}[H]
     \centering
 \begin{tikzpicture}
   \node[circle, draw] (1) at (0,0) {1};
@@ -147,7 +147,7 @@ En la Figura \ref{fig:grafo3} se muestra un ejemplo de grafo dirigido mientras q
 \end{tikzpicture}
 	\caption{Ejemplo de multigrafo.}
 	\label{fig:grafo4}
-\end{wrapfigure}
+\end{figure}
 
 \begin{definition}
 Un \emph{grafo conexo} es un grafo en que todos sus vértices están conectados por un camino o por un semicamino dependiendo de si el grafo es no dirigido o dirigido.
@@ -209,7 +209,8 @@ En el caso de los grafos dirigidos se distingue entre el \emph{grado de entrada}
 
 % Meter Lema del apetrón de manos?
 
-\begin{wrapfigure}{r}{0.4\textwidth}
+\begin{figure}[H]
+\centering
 \begin{tikzpicture}
   \foreach \x in {1,...,8}{
     \node[circle, draw] (\x) at ({45*(\x-1)}:2) {\x};
@@ -225,7 +226,7 @@ En el caso de los grafos dirigidos se distingue entre el \emph{grado de entrada}
 \end{tikzpicture}
 \caption{Ejemplo de grafo completo.}
 	\label{fig:grafo5}
-\end{wrapfigure}
+\end{figure}
 
 \begin{definition}
 Un grafo en el que todos sus vértices tienen el mismo grado (de entrada, en el caso de los grafos dirigidos) se denomina \emph{regular}. Además, un grafo con vértices de grado $k$ se llamará $k$-regular.
@@ -305,7 +306,7 @@ Diremos que un grafo es \emph{cíclico} si contiene al menos un grafo ciclo. Por
 No obstante, en este trabajo fin de grado nos centraremos en los llamados \emph{grafos dirigidos acíclicos} o \emph{DAG} (\emph{Directed Acyclic Graphs}, en inglés) que no son más que grafos dirigidos desprovistos de ciclos.
 \end{definition}
 
-\begin{wrapfigure}{l}{0.4\textwidth}
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}
 
@@ -326,7 +327,7 @@ No obstante, en este trabajo fin de grado nos centraremos en los llamados \emph{
 \end{tikzpicture}
 \caption{Ejemplo de grafo acíclico dirigido con $5$ nodos.}
 \label{fig:grafo8}
-\end{wrapfigure}
+\end{figure}
 
 \begin{exampleth}
 En la Figura \ref{fig:grafo1} tenemos un grafo dirigido con ciclos o cíclico (contiene, por ejemplo, el $1$-$3$-$4$-$5$). Sin embargo, eliminado una de las aristas del mismo obtenemos el grafo de la Figura \ref{fig:grafo8}, que es acíclico. 
@@ -342,6 +343,118 @@ Un \emph{árbol de expansión} de un grafo conexo no dirigido $G$ es un subgrafo
 El \emph{número de árboles de expansión} de un grafo conexo $G$, habitualmente denotado por $t(G)$, es un invariante importante en la teoría de grafos. Éste puede obtenerse mediante el denominado \emph{Teorema de Kirchhoff}. Este teorema demuestra que el número de árboles de expansión de un grafo puede obtenerse en tiempo polinómico a partir del determinante de una submatriz de la \emph{matriz Laplaciana} del grafo. Más aún, nos dice que éste número es igual a cualquier cofactor de la matriz Laplaciana. El Teorema de Kirchhoff es una generalización de la \emph{fórmula de Cayley}, que proporciona el número de árboles de expansión en el caso de un grafo completo y que veremos a continuación.
 \end{definition}
 
-\begin{proposition}
-Dado un grafo completo $K_n$, la fórmula de Cayley establece que el número de árboles de expansión del mismo es $t(K_n) = n^{n-2}$.
+\begin{proposition}\label{prop:1}
+Dado un grafo completo $K_n = (V,E)$ con $V=\left\lbrace v_1,v_2,\dots,v_n\right\rbrace$, la fórmula de Cayley establece que el número de árboles de expansión del mismo es $t(K_n) = n^{n-2}$.
 \end{proposition}
+
+En 1918, el alemán H. Prüfer obtuvo una elegante correspondencia biyectiva entre árboles etiquetados con $n$ vértices y sucesiones de longitud $n-2$, denominadas \emph{códigos de Prüfer}.
+
+\begin{definition}
+La definición del \emph{código de Prüfer} de un árbol $T = (V,E)$ no trivial, denotado por $P(T)$, es recursiva. Si $|V| = 2$ entonces $T$ consiste de una sola arista y $P(T) = \emptyset$. Supongamos ahora que el código de Prüfer de cualquier árbol con $n$ vértices está definido  y sea $T = (V = \left\lbrace v_1, v_2,\dots v_n, v_{n+1} \right\rbrace,E)$ un árbol con $n+1$ vértices. Sea
+\begin{equation}
+v = \min \left\lbrace i \in \left\lbrace 1,2,\dots,n,n+1 \right\rbrace | \text{ deg}(v_i) = 1\right\rbrace
+\end{equation}
+y sea $u$ el único vértice adyacente a $v$ en $T$. Por lo tanto, $T' = T - v$ es un árbol con $n$ vértices y $P(T-v)$ está bien definido por hipótesis de inducción. El código de Prüfer de $T$ se definirá de la siguiente forma:
+\begin{equation}
+P(T) = (u,P(T'))
+\end{equation}
+\end{definition}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \coordinate (A) at (90:2);
+  \coordinate (B) at (18:2);
+  \coordinate (C) at (-54:2);
+  \coordinate (D) at (-126:2);
+  \coordinate (E) at (162:2);
+
+  \foreach \x/\label in {A/1, B/2, C/3, D/4, E/5}{
+    \node[circle, draw] (\x) at (\x) {\label};
+  }
+
+  \draw[magenta, line width=1pt] (E) -- (B);
+  \draw[blue, line width=1pt] (B) -- (C);
+  \draw[cyan, line width=1pt] (D) -- (E);
+  \draw[orange, line width=1pt] (E) -- (A);
+\end{tikzpicture}
+\caption{Ejemplo de árbol con $5$ nodos.}
+\label{fig:arbol1}
+\end{figure}
+
+\begin{exampleth}
+Consideremos el árbol de la Figura \ref{fig:arbol1}. Tenemos que el vértice de grado uno con la numeración más pequeña es el vértice $1$. Este vértice únicamente es adayacente al vértice número $5$. Así pues, $P(T) = (5,P(T-1))$. Cuando eliminamos el primer vértice, obtenemos que el vértice de grado uno de menor numeración es el $3$, cuyo único vértice adyacentes es el $2$, lo que conduce a que $P(T) = (5,2,P(T-\left\lbrace 1,3 \right\rbrace))$. Eliminando ahora este tercer vértice, tenemos que el vértice $2$ es el de menor numeración cuyo grado es $1$ y su único nodo adyacente es el número $5$. Esto hace que $P(T) = (5,2,5,P(T-\left\lbrace 1,3,2 \right\rbrace))$. Como $T-\left\lbrace 1,3 \right\rbrace$ es un árbol con dos vértices, $P(T-\left\lbrace 1,3 \right\rbrace) = \emptyset$ y $P(T) = (5,2,5)$.
+
+Este ejemplo pone de manifiesto que no es necesario que todos los vértices aparezcan en el códgo de Prüfer y que pudiera ocurrir que un mismo vértice aparezca más de una vez en los mismos. De hecho, el número de veces que un vértice aparece en el código de Prüfer depende del grado de dicho vértice. Este resultado se verá en el siguiente Lema.
+\end{exampleth}
+
+\begin{proposition} % En realidad es un Lema
+Sea $c_i$ el número de veces que aparece el número $i$ en el código de Prüfer de un árbol $T = (V=\left\lbrace 1,\dots, n \right\rbrace, E)$ con $n \geq 3$ vértices. Entonces $\text{deg}(i) = c_i +1$.
+\end{proposition}
+
+\begin{proof}
+Si $n = 3$ entonces $P(T)$ consiste de un solo número, correspondiente al vértice de grado dos.
+
+Supongamos ahora que el resultado es cierto para todo árbol $T = (V=\left\lbrace 1,\dots, n \right\rbrace, E)$ con $n \geq 3$ vértices. Sea $T' = (V'=\left\lbrace 1,\dots, n,n+1 \right\rbrace, E')$, $v = \min \left\lbrace i \in V' | \text{ deg}(i) = 1 \right\rbrace$ y sea $u$ el único vértice adyacente a $v$ en $T'$. Así pues, $P(T') = (u,P(T'-v))$. Para cada $i \in V'$ sea $b_i$ el número de veces que aparece $i$ en $P(T'-v)$. Por hipótesis de inducción, $\text{deg}_{T'-v}(i) = b_i + 1$.
+
+Además, si $i \neq u$ entonces $c_i = b_i$ y $\text{deg}_{T'}(i) = \text{deg}_{T'-v}(i)$. Por lo tanto, en este primer caso, $\text{deg}_{T'}(i) = c_i + 1$. Por otra parte, si $i = u$ entonces $c_i = b_i + 1$ y $\text{deg}_{T'}(i) = \text{deg}_{T'-v}(i) +1$. Por lo tanto, $\text{deg}_{T'}(i) = b_i + 2 = c_i + 1$.
+\end{proof}
+
+El siguiente resultado muestra que el código de Prüfer define una función inyectiva del conjunto de árboles generadores con $n$ vértices al conjunto de palabras de longitud $n-2$ del alfabeto $\left\lbrace 1,2,\dots, n\right\rbrace$.
+
+\begin{proposition}\label{prop:2}
+Si $T$ y $T'$ son dos árboles con $n \geq 3$ vértices numerados tales que $P(T) = P(T')$, entonces $T = T'$.
+\end{proposition}
+
+\begin{proof}
+Si $n = 3$, entonces $P(T)$ consiste de un solo número, correspondiente al único vértice de grado dos de $T$. Como $P(T) = P(T')$, este vértice también es el único vértice de grado dos de $T'$ y tenemos que $T = T'$.
+
+Supongamos ahora que el resultado es cierto para cualesquiera dos árboles con $n$ vértices numerados. Sean ahora $T$ y $T'$ dos árboles con $n+1$ vértices numerados tales que $P(T) = P(T')$.  Sea $v$ el mínimo elemento de $\left \lbrace 1,\dots,n,n+1\right \rbrace$ que no aparece en $P(T)$. Por el lema anterior $\text{deg}_T (v) = 1$ y $\text{deg}_{T'} = 1$. Así pues, existe un único $u$ tal que $u$ es adyacente a $v$ en $T$ y existe un único $u'$ tal que $u'$ es adyacente a $v$ en $T'$. De ahí obtenemos que $P(T) = (u,P(T-v))$ y que $P(T') = (w,P(T-v'))$. Como $P(T) = P(T')$, se sigue que $u = u'$ y, por lo tanto, $P(T-v) = P(T'-v')$. Por lo que, por hipótesis de inducción, $T-v = T'-v$. Concluimos así que $T=T'$.
+\end{proof}
+
+A continuación veremos que a cada palabra de longitud $n-2$ del alfabeto $\left\lbrace 1,2,\dots,n \right\rbrace$ le corresponde un árbol cuyo código de Prüfer es esa palabra.
+
+\begin{proposition}\label{prop:3}
+Sea $n \geq 3$. Si $L = (u_1,u_2,\dots,u_{n-2})$ es una lista cuyos elementos pertenecen al conjunto $V = \left\lbrace 1,\dots,n\right\rbrace$, entonces existe un árbol con vértices numerados (o etiquetado) $T$ tal que $P(T) = L$.
+\end{proposition}
+
+\begin{proof}
+Si $n=3$ entonces $L = (u_1)$ y $T$ es la trayectoria de longitud dos cuyo vértice interno es $u_1$.
+
+Supongamos ahora que el resultado es cierto para toda lista de longitud $n-2$. Sea $L = (u_1,u_2,\dots,u_{n-1})$ una lista de longitud $n-1$. Sea $v$ el elemento más pequeño de $V$ que no aparece en $L$. Por hipótesis de inducción existe un árbol $T' = (V',E')$ con conjunto de vértices $V_{T'} = \left\lbrace 1,\dots,n+1 \right\rbrace - \left\lbrace v \right\rbrace$, tal que $P(T') = (u_2,u_3,\dots,u_{n-1})$. Sea $e$ la arista que une a $v$ con $u_1$ y sea $T = (V' + v, E' + e)$. Tenemos que $T$ es un árbol y que $P(T) = (u_1,P(T')) = L$ tal y como se quería demostrar.
+\end{proof}
+
+El siguiente ejemplo pone en práctica el procedimiento descrito en el lema anterior para construir un árbol generador cuyo código de Prüfer sea igual a una lista dada.
+
+\begin{exampleth}
+Consideremos la lista $(3,5,3,1)$. La longitud de esta lista es $4$, por lo que corresponde a un árbol con conjunto de vértices $V = \left\lbrace 1,2,3,4,5,6 \right\rbrace$. El primer vértice que no aparece en la lista es $2$, el cual deber ser adyacente al vértice $3$ (Figura \ref{fig:arbol2}). Consideremos ahora la sublista $(5,3,1)$, el primer vértice del conjunto $\left\lbrace 1,3,4,5,6 \right\rbrace$ (obtenido al eliminar el vértice $2$) que no aparece en la lista es el $4$, que debe ser adyacente al vértice $5$. Análogamente, el primer vértice del conjunto $\left\lbrace 1,3,5,6 \right\rbrace$ que no aparece en la sublista $(3,1)$ es el $5$, el cual debe ser adyacente al vértice $3$, y el primer vértice del conjunto $\left\lbrace 1,3,6 \right\rbrace$ que no aparece en la sublista $(1)$ es el $3$, el cual debe ser adyacente al vértice $1$. Finalmente, obtenemos la lista vacía y el conjunto $\left\lbrace 1,6 \right\rbrace$, lo cual indica que el vértice $1$ debe ser adyacente al vértice $6$. La Figura \ref{fig:graforesult} es el árbol asociado a la lista $(3,5,3,1)$.
+\end{exampleth}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \coordinate (A) at (90:2);
+  \coordinate (B) at (30:2);
+  \coordinate (C) at (-30:2);
+  \coordinate (D) at (-90:2);
+  \coordinate (E) at (-150:2);
+  \coordinate (F) at (150:2);
+
+  \foreach \x/\label in {A/1, B/2, C/3, D/4, E/5, F/6}{
+    \node[circle, draw] (\x) at (\x) {\label};
+  }
+
+  \draw[blue, line width=1pt] (B) -- (C);
+  \draw[green, line width=1pt] (C) -- (E);
+  \draw[magenta, line width=1pt] (D) -- (E);
+  \draw[orange, line width=1pt] (C) -- (A);
+  \draw[purple, line width=1pt] (F) -- (A);
+\end{tikzpicture}
+\caption{Ejemplo de árbol con $6$ nodos.}
+\label{fig:arbol2}
+\end{figure}
+
+Finalmente, se procederá a demostrar la fórmula de Cayley \ref{prop:1}:
+\begin{proof}
+Si $n = 1$ o $n = 2$ el resultado es trivialmente cierto. Si $n \geq 3$ de las Proposiones \ref{prop:2} y \ref{prop:3} se sigue que existe una correspondencia biyectiva entre el conjunto de árboles generadores con $n$ vértices y el conjunto de palabras de longitud $n-2$ del alfabeto $\left\lbrace 1,2,\dots,n \right\rbrace$. Como el número de palabras de longitud $n-2$ de un alfabeto con $n$ elementos es $n^{n-2}$, entonces hay $n^{n-2}$ árboles de expansión distintos de un grafo completo con $n$ vértices.
+\end{proof}
