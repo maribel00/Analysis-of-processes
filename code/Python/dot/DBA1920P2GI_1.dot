@@ -1,0 +1,17 @@
+digraph graphname {
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+"P2-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P2-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>1</i></FONT></td></tr></table>>]
+"P2-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P2-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>1</i></FONT></td></tr></table>>]
+"P2-60" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P2-60</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>1</i></FONT></td></tr></table>>]
+"P2-80" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P2-80</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>1</i></FONT></td></tr></table>>]
+"P2-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P2-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>1</i></FONT></td></tr></table>>]
+"START" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>START</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>0</i></FONT></td></tr></table>>]
+"END" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>END</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>0</i></FONT></td></tr></table>>]
+"P2-20" -> "P2-40" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P2-40" -> "P2-60" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P2-60" -> "P2-80" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P2-80" -> "P2-100" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P2-20" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+}

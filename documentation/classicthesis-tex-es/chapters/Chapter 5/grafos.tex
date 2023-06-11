@@ -458,3 +458,51 @@ Finalmente, se procederá a demostrar la fórmula de Cayley \ref{prop:1}:
 \begin{proof}
 Si $n = 1$ o $n = 2$ el resultado es trivialmente cierto. Si $n \geq 3$ de las Proposiones \ref{prop:2} y \ref{prop:3} se sigue que existe una correspondencia biyectiva entre el conjunto de árboles generadores con $n$ vértices y el conjunto de palabras de longitud $n-2$ del alfabeto $\left\lbrace 1,2,\dots,n \right\rbrace$. Como el número de palabras de longitud $n-2$ de un alfabeto con $n$ elementos es $n^{n-2}$, entonces hay $n^{n-2}$ árboles de expansión distintos de un grafo completo con $n$ vértices.
 \end{proof}
+
+A continuación, se introducirá el concepto de matriz laplaciana de un grafo que, junto con el Teorema de Kirchhoff nos permitirá calcular el número de árboles de expansión de un grafo arbitrario.
+
+\begin{definition}
+La matriz laplaciana (también conocida como matriz de admitancia o matriz de Kirchhoff) es una representación matricial de un grafo muy utilizada en la Teoría espectral de grafos, cuyo objetivo es el estudio de las propiedades de los grafos en relación de los polinomios caracterísicos, valores y vectores propios de las matrices asociadas a los mismos.
+
+Para un grafo simple $G$ con vértices $V = (v_1,\dots,v_n)$ los elementos de la matrix laplaciana $L_{n\times n}$ se definen como sigue:
+
+\begin{equation}
+L_{i,j} = 
+\begin{cases}
+    \text{deg}(v_i) & \text{si } i=j \\
+    -1 & \text{si } i\neq j \text{ y }v_i \text{ es adyacente a }v_j\\
+    0 & \text{en cualquier otro caso}
+\end{cases}
+\end{equation}
+
+Equivalentemente, se tiene que $L = D - A$ donde $D$ es la matriz de grados del grafo (matriz diagonal cuyos elementos no nulos son los grados de cada uno de los vértices) y $A$ es la matriz de adyacencia del grafo.
+\end{definition}
+
+\begin{exampleth}
+Se tiene que la matriz laplaciana del grafo simple de la Figura \ref{fig:grafo1} es la siguiente:
+
+\begin{equation}
+\begin{pmatrix}
+3 & -1 & -1 & 0 & -1\\
+-1 & 2 & -1 & 0 & 0\\
+-1 & -1 & 3 & -1 & 0\\
+0 & 0 & -1 & 2 & -1\\
+-1 & 0 & 0 & -1 & 2
+\end{pmatrix}
+\end{equation}
+\end{exampleth}
+
+Este concepto se puede generalizar al caso de grafos ponderados, donde las matrices de adyacencia pueden contener números naturales distintos de ceros y unos. Además, también se puede generalizar a grafos dirigidos, utilizando en vez de la matriz de grados del grafo la matriz de grados de entrada o la matriz de grados de salida dependiendo de la aplicación que se esté considerando.
+
+\begin{exampleth}
+\end{exampleth}
+
+\begin{theorem}
+El Teorema de Kirchhoff. Sea un grafo conexo $G$ con $n$ vértices numerados y sean $\lambda_1$, $\lambda_2$, \dots, $\lambda_{n-1}$ los valores propios no nulos de su matriz laplaciana. Se tiene entonces que el número de árboles de expansión del grafo $G$ es
+
+\begin{equation}
+t(G) = \frac{1}{n} \cdot \lambda_1 \cdots \lambda_{n-1}
+\end{equation}
+
+Como podemos ver, se trata de una generalización de la fórmula de Cayley que además de muestra que el número de árboles de expansión de cualquier grafo se puede calcular en tiempo polinómico a partir del determinante de una submatriz de la matriz laplaciana. Específicamente, el número de árboles de expansión de un grafo conexo coincide con cualquier cofactor de su matriz laplaciana.
+\end{theorem}

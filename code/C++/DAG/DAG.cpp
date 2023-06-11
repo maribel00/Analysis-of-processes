@@ -125,7 +125,7 @@ DAG::DAG(string filename, int option) {
         for (int i = 0; i < frequency.size(); i++) {
             int sum = 0;
             for (int j = 0; j < frequency[0].size(); j++) {
-                sum += frequency[j][i] + frequency[i][j];
+                sum += frequency[j][i];
             }
             degree_matrix[i][i] += sum;
         }
@@ -365,12 +365,12 @@ float DAG::get_coefficient(){
         coefficient = 3.0f;
     else {
         // Calcular la media
-        float mean = static_cast<float>(std::accumulate(problems.begin(), problems.end(), 0)) / problems.size();
+        /*float mean = static_cast<float>(std::accumulate(problems.begin(), problems.end(), 0)) / problems.size();
 
         // Normalizar
         mean = (mean - 1.0f)/(9.0f - 1.0f);
 
-        coefficient += 0.2f * mean;
+        coefficient += 0.2f * mean;*/
 
         // Cálculo de la desviación estándar de las frecuencias no nulas
         vector<int> nonzero;
@@ -402,20 +402,21 @@ float DAG::get_coefficient(){
         // Calcular la raíz cuadrada de la varianza para obtener la desviación estándar
         float standard_deviation = sqrt(variance);
 
-        coefficient += 0.8f * (float)(standard_deviation/mean_frequency);
+        //coefficient += 0.8f * (float)(standard_deviation/mean_frequency);
+        coefficient = (float)(standard_deviation/mean_frequency);
     }
 
     return coefficient;
 }
 
 float DAG::get_spanning_trees(){
-    Eigen::MatrixXf laplacian_matrix(frequency.size()-1, frequency.size()-1);
-    for (int i = 1; i < frequency.size(); i++) {
-        for (int j = 1; j < frequency.size(); j++)
-            laplacian_matrix(i-1,j-1) = degree_matrix[i][j] - frequency[i][j];
+    Eigen::MatrixXf laplacian_matrix(frequency.size()-2, frequency.size()-2);
+    for (int i = 0; i < frequency.size()-2; i++) {
+        for (int j = 0; j < frequency.size()-2; j++)
+            laplacian_matrix(i,j) = degree_matrix[i][j] - frequency[i][j];
     }
 
-    return log10(laplacian_matrix.determinant());
+    return laplacian_matrix.determinant();
 }
 
 float DAG::get_entropy(){

@@ -175,7 +175,12 @@ df['sTime'] = df['sTime'].astype(int)
 with open('results.csv', mode='w', newline='') as file:
     # Escribo la cabecera
     writer = csv.writer(file, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    writer.writerow(['Grupo', 'DAG', 'Q1', 'Q2', 'Q3', 'Q4', 'ST'])
+    header = ['Grupo', 'DAG', 'Q1', 'Q2', 'Q3', 'Q4', 'ST']
+    for i in range(1,10):
+        header.append('DAG_' + str(i))
+    for i in range(1,10):
+        header.append('ST_' + str(i))
+    writer.writerow(header)
     
     # Cambiamos de directorio
     os.chdir('matrices')
@@ -189,9 +194,25 @@ with open('results.csv', mode='w', newline='') as file:
         # Aplicar el filtro y encontrar el valor máximo en la columna "N,ProblemsSolved"
         valor_maximo = df_problems.loc[df_problems['Group'] == grupo, 'N,ProblemsSolved'].max()
         
+        # Crear una lista con valores "-1"
+        dag_list = [-1] * 9
+
+        # Crear otra lista con valores "-1"
+        st_list = [-1] * 9
+        
         for i in range(1,valor_maximo+1):
-            df_obj = filterSolved(df, i)
+            df_obj = filterSolved(newdf, i)
             process(df_obj, grupo.replace(" ","") + "_" + str(i), grupo.replace(" ","") + "_" + str(i), 'matrices', 'graphs_states', 'dot_states', 'Estado', 'Grupo',True)
+            
+            dag = subprocess.run(["./../../C++/DAG/pruebaDAG", "2", grupo.replace(" ","") + "_" + str(i) + ".txt"], stdout=subprocess.PIPE)
+            output = dag.stdout.decode('utf-8')
+            st_list[i-1] = output.split(' ')[1]
+            
+            process(df_obj, grupo.replace(" ","") + "_" + str(i), grupo.replace(" ","") + "_" + str(i), 'matrices', 'graphs', 'dot', 'Compuesto', 'Session')
+            
+            dag = subprocess.run(["./../../C++/DAG/pruebaDAG", "1", grupo.replace(" ","") + "_" + str(i) + ".txt"], stdout=subprocess.PIPE)
+            output = dag.stdout.decode('utf-8')
+            dag_list[i-1] = output.split(' ')[1]
 
         process(newdf, grupo.replace(" ",""), grupo.replace(" ",""), 'matrices', 'graphs', 'dot', 'Compuesto', 'Session')
         
@@ -271,7 +292,10 @@ with open('results.csv', mode='w', newline='') as file:
             if len(outputQ4.split(' '))>1:
                 coefQ4 = outputQ4.split(' ')[1]
         
-        writer.writerow([gr, coef, coefQ1, coefQ2, coefQ3, coefQ4, ST])
+        row = [gr, coef, coefQ1, coefQ2, coefQ3, coefQ4, ST]
+        row = row + dag_list
+        row = row + st_list
+        writer.writerow(row)
         
         # Cambiamos de directorio
         os.chdir('../matrices')

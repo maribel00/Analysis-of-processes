@@ -1,0 +1,23 @@
+digraph graphname {
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+"P1-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P1-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>86</i></FONT></td></tr></table>>]
+"P1-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="deepskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P1-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>20</i></FONT></td></tr></table>>]
+"P1-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P1-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>49</i></FONT></td></tr></table>>]
+"P2-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="deepskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P2-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>23</i></FONT></td></tr></table>>]
+"P2-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P2-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>18</i></FONT></td></tr></table>>]
+"START" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>START</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>0</i></FONT></td></tr></table>>]
+"END" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>END</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>108</i></FONT></td></tr></table>>]
+"P1-20" -> "P1-100" [ color=grey16 penwidth = "2.70805020110221"label ="15" labelfloat=false fontname="Arial" fontsize=8]
+"P1-20" -> "P1-40" [ color=grey16 penwidth = "3.8918202981106265"label ="49" labelfloat=false fontname="Arial" fontsize=8]
+"P1-20" -> "END" [ style = dashed color=grey label ="22" labelfloat=false fontname="Arial" fontsize=8]
+"P1-100" -> "END" [ style = dashed color=grey label ="18" labelfloat=false fontname="Arial" fontsize=8]
+"P1-40" -> "P1-100" [ color=grey16 penwidth = "1.6094379124341003"label ="5" labelfloat=false fontname="Arial" fontsize=8]
+"P1-40" -> "END" [ style = dashed color=grey label ="46" labelfloat=false fontname="Arial" fontsize=8]
+"P2-20" -> "P2-40" [ color=grey16 penwidth = "2.8903717578961645"label ="18" labelfloat=false fontname="Arial" fontsize=8]
+"P2-20" -> "END" [ style = dashed color=grey label ="4" labelfloat=false fontname="Arial" fontsize=8]
+"P2-40" -> "END" [ style = dashed color=grey label ="18" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P1-20" [ style = dashed color=grey label ="86" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P2-20" [ style = dashed color=grey label ="23" labelfloat=false fontname="Arial" fontsize=8]
+}

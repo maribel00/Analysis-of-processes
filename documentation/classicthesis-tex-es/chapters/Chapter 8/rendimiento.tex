@@ -103,11 +103,104 @@ Y2016-Y2015 & 0.18 & -0.88 & 1.23 & 1.00 \\
 
 \section{Número de sesiones realiazadas (Perseverant)}
 
-Número de sesiones realizadas. También se ha visto antes.
+El número de sesiones realizadas por los diferentes grupos de prácticas se ha analizado con anterioridad. En la subsección \ref{sec:NormalityNumSessions} vimos que seguía una distribución casi-normal. Además, vimos que el número de sesiones sigue la misma distribución de probabilidad en cada uno de los cursos académicos considerados (subsección \ref{sec:ANOVANumSessions}).
 
 \section{Número de intentos para resolver cada problema (SessionsBefore)}
 
-Número de intentos: Número de veces que se abre un mismo problema sin resolver hasta que se resuelve por primera vez. Este valor está directamente relacionado con la tasa de fallo analizada anteriormente
+Número de veces que se abre un mismo problema sin resolver hasta que se resuelve por primera vez. Este valor está directamente relacionado con la tasa de fallo analizada anteriormente. Podemos ver que esta medida de rendimiento sigue una distribución casi normal, ligeramente inclinada a la izquierda tal y como puede verse en la Figura \ref{fig:densityplotsessionsbefore}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{NormalitySessionsBefore5.png}
+    \caption{Función de densidad de probabilidad del número de intentos necesarios para resolver un problema por los distintos grupos de prácticas.}
+    \label{fig:densityplotsessionsbefore}
+\end{figure}
+
+Sin embargo, podemos ver algunos grupos que emplean muy pocos intentos para resolver un problema o que, por el contrario, emplean más intentos que los demás (Figuras \ref{fig:boxplotresidualssessionsbefore} y \ref{fig:histogramresidualssessionsbefore}).
+
+\begin{figure}[H]
+\centering
+\subfloat[Boxplot de los residuos del número de intentos.]{\label{fig:boxplotresidualssessionsbefore}\includegraphics[width=0.47\textwidth]{NormalitySessionsBefore3.png}}\qquad
+\subfloat[Histograma de los residuos de las calificaciones.]{\label{fig:histogramresidualssessionsbefore}\includegraphics[width=0.47\textwidth]{NormalitySessionsBefore4.png}}
+\caption{Distribución de los residuos del número de intentos.}
+\label{fig:achiever}
+\end{figure}
+
+No obstante, podemos considerar que la regresión es aceptable (Figura \ref{fig:q-qsessionsbefore}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{NormalitySessionsBefore6.png}
+    \caption{Gráfico Q-Q del número de intentos.}
+    \label{fig:q-qsessionsbefore}
+\end{figure}
+
+A continuación, se realizará un estudio por años del número de intentos antes de resolver un problema realizados. Como podemos observar en la Figura \ref{fig:boxplotsessionsbefore}, hay una variación muy perceptible en el número de intentos realizados a lo largo de los años. La realización del test ANOVA de un factor (resultados en la Tabla \ref{tab:ANOVAsessionsbefore}) ratifica que hay diferencias significativas ($p = 0.0001 < 0.05$). Posteriormente, se ha realizado el test de Tukey por pares y se ha visto que hay diferencias entre las distribuciones de los años $2015$ y $2017$ son las que introducen diferencias (Tabla \ref{tab:Tukeysessionsbefore}). Esto mismo puede observarse en la Figura \ref{fig:confidencesessionsbefore}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{boxplotsessionsbefore.png}
+    \caption{Boxplot del número de intentos para resolver un problema por año.}
+    \label{fig:boxplotsessionsbefore}
+\end{figure}
+
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Fri Jun  9 10:44:07 2023
+\begin{table}[H]
+\centering
+\caption{Resultados del test ANOVA de un solo factor (calificaciones).}
+\label{tab:ANOVAsessionsbefore}
+\begin{tabular}{lrrrrr}
+  \hline
+ & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
+  \hline
+rdataset[[Variable]] & 6 & 516318.38 & 86053.06 & 5.83 & 0.0001 \\ 
+  Residuals            & 69 & 1018845.04 & 14765.87 &  &  \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Fri Jun  9 10:44:35 2023
+\begin{table}[H]
+\centering
+\caption{Test HSD de Tukey (Honestly-significance-difference) del número de intentos realizados para resolver un problema por años.}
+\label{tab:Tukeysessionsbefore}
+\begin{tabular}{rrrrr}
+  \hline
+ & diff & lwr & upr & p adj \\ 
+  \hline
+Y2016-Y2015 & -95.44 & -269.41 & 78.52 & 0.64 \\ 
+  Y2017-Y2015 & 52.30 & -133.68 & 238.28 & 0.98 \\ 
+  \textbf{Y2018-Y2015} & -164.56 & -330.43 & 1.32 & 0.05 \\ 
+  Y2019-Y2015 & -111.37 & -277.25 & 54.50 & 0.40 \\ 
+  \textbf{Y2020-Y2015} & -213.56 & -373.58 & -53.53 & 0.00 \\ 
+  \textbf{Y2021-Y2015} & -168.24 & -322.01 & -14.48 & 0.02 \\ 
+  Y2017-Y2016 & 147.75 & -38.23 & 333.73 & 0.21 \\ 
+  Y2018-Y2016 & -69.11 & -234.98 & 96.76 & 0.87 \\ 
+  Y2019-Y2016 & -15.93 & -181.80 & 149.94 & 1.00 \\ 
+  Y2020-Y2016 & -118.11 & -278.14 & 41.92 & 0.29 \\ 
+  Y2021-Y2016 & -72.80 & -226.57 & 80.97 & 0.78 \\ 
+  \textbf{Y2018-Y2017} & -216.86 & -395.29 & -38.43 & 0.01 \\ 
+  \textbf{Y2019-Y2017} & -163.68 & -342.10 & 14.75 & 0.09 \\ 
+  \textbf{Y2020-Y2017} & -265.86 & -438.87 & -92.85 & 0.00 \\ 
+  \textbf{Y2021-Y2017} & -220.54 & -387.78 & -53.31 & 0.00 \\ 
+  Y2019-Y2018 & 53.18 & -104.18 & 210.54 & 0.95 \\ 
+  Y2020-Y2018 & -49.00 & -200.19 & 102.19 & 0.96 \\ 
+  Y2021-Y2018 & -3.69 & -148.23 & 140.86 & 1.00 \\ 
+  Y2020-Y2019 & -102.18 & -253.37 & 49.00 & 0.39 \\ 
+  Y2021-Y2019 & -56.87 & -201.41 & 87.68 & 0.89 \\ 
+  Y2021-Y2020 & 45.31 & -92.49 & 183.11 & 0.95 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\textwidth]{NormalitySessionsBefore1.png}
+    \caption{Intervalos de confianza del número de intentos antes de resolver un problema por años.}
+    \label{fig:confidencesessionsbefore}
+\end{figure}
 
 \section{Sesiones perdidas durante un problema}
 
@@ -123,13 +216,109 @@ Este hábito es más frecuente de lo que parece y mantiene mucha variación en c
 
 \section{Abrir un problema por primera vez (Newcomer)}
 
-Momento exacto en el que se consigue abrir cada problema por primera vez en el servidor, normalizado para poder compararlo (normalizado porque cada año ha durado  un tiempo diferente)
+Momento exacto en el que se consigue abrir cada problema por primera vez en el servidor, normalizado para poder compararlo (normalizado porque cada año ha durado un tiempo diferente).
+
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Sun Jun 11 18:57:16 2023
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+  \hline
+ & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
+  \hline
+rdataset[[Variable]] & 6 & 0.71 & 0.12 & 3.82 & 0.0024 \\ 
+  Residuals            & 69 & 2.12 & 0.03 &  &  \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Sun Jun 11 18:57:48 2023
+\begin{table}[H]
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & diff & lwr & upr & p adj \\ 
+  \hline
+Y2016-Y2015 & 0.05 & -0.21 & 0.30 & 1.00 \\ 
+  Y2017-Y2015 & 0.03 & -0.24 & 0.29 & 1.00 \\ 
+  Y2018-Y2015 & -0.25 & -0.49 & -0.01 & 0.03 \\ 
+  Y2019-Y2015 & -0.17 & -0.41 & 0.07 & 0.30 \\ 
+  Y2020-Y2015 & -0.07 & -0.30 & 0.16 & 0.97 \\ 
+  Y2021-Y2015 & -0.08 & -0.31 & 0.14 & 0.91 \\ 
+  Y2017-Y2016 & -0.02 & -0.29 & 0.25 & 1.00 \\ 
+  Y2018-Y2016 & -0.30 & -0.54 & -0.06 & 0.01 \\ 
+  Y2019-Y2016 & -0.22 & -0.46 & 0.02 & 0.09 \\ 
+  Y2020-Y2016 & -0.11 & -0.35 & 0.12 & 0.74 \\ 
+  Y2021-Y2016 & -0.13 & -0.35 & 0.09 & 0.56 \\ 
+  Y2018-Y2017 & -0.28 & -0.54 & -0.02 & 0.03 \\ 
+  Y2019-Y2017 & -0.20 & -0.46 & 0.06 & 0.24 \\ 
+  Y2020-Y2017 & -0.09 & -0.34 & 0.16 & 0.91 \\ 
+  Y2021-Y2017 & -0.11 & -0.35 & 0.13 & 0.81 \\ 
+  Y2019-Y2018 & 0.08 & -0.15 & 0.31 & 0.94 \\ 
+  Y2020-Y2018 & 0.18 & -0.03 & 0.40 & 0.16 \\ 
+  Y2021-Y2018 & 0.17 & -0.04 & 0.38 & 0.19 \\ 
+  Y2020-Y2019 & 0.10 & -0.11 & 0.32 & 0.77 \\ 
+  Y2021-Y2019 & 0.09 & -0.12 & 0.30 & 0.85 \\ 
+  Y2021-Y2020 & -0.02 & -0.21 & 0.18 & 1.00 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
 
 \section{Resolver un problema por primera vez (EarlyBird)}
 
 Momento exacto en el que se consigue resolver cada problema por primera vez, normalizado para poder compararlo (normalizado porque cada año ha durado  un tiempo diferente)
 
 \textbf{Falta boxplot.}
+
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Sun Jun 11 19:03:22 2023
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+  \hline
+ & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
+  \hline
+rdataset[[Variable]] & 6 & 0.50 & 0.08 & 3.40 & 0.0053 \\ 
+  Residuals            & 69 & 1.70 & 0.02 &  &  \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Sun Jun 11 19:03:51 2023
+\begin{table}[H]
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & diff & lwr & upr & p adj \\ 
+  \hline
+Y2016-Y2015 & 0.04 & -0.19 & 0.26 & 1.00 \\ 
+  Y2017-Y2015 & 0.03 & -0.21 & 0.27 & 1.00 \\ 
+  Y2018-Y2015 & -0.13 & -0.35 & 0.08 & 0.51 \\ 
+  Y2019-Y2015 & -0.12 & -0.33 & 0.10 & 0.65 \\ 
+  Y2020-Y2015 & -0.18 & -0.39 & 0.02 & 0.12 \\ 
+  Y2021-Y2015 & -0.14 & -0.34 & 0.05 & 0.31 \\ 
+  Y2017-Y2016 & -0.01 & -0.25 & 0.24 & 1.00 \\ 
+  Y2018-Y2016 & -0.17 & -0.38 & 0.05 & 0.22 \\ 
+  Y2019-Y2016 & -0.15 & -0.37 & 0.06 & 0.33 \\ 
+  Y2020-Y2016 & -0.22 & -0.43 & -0.01 & 0.03 \\ 
+  Y2021-Y2016 & -0.18 & -0.38 & 0.02 & 0.10 \\ 
+  Y2018-Y2017 & -0.16 & -0.39 & 0.07 & 0.34 \\ 
+  Y2019-Y2017 & -0.15 & -0.38 & 0.08 & 0.46 \\ 
+  Y2020-Y2017 & -0.21 & -0.44 & 0.01 & 0.07 \\ 
+  Y2021-Y2017 & -0.17 & -0.39 & 0.04 & 0.19 \\ 
+  Y2019-Y2018 & 0.02 & -0.19 & 0.22 & 1.00 \\ 
+  Y2020-Y2018 & -0.05 & -0.25 & 0.14 & 0.99 \\ 
+  Y2021-Y2018 & -0.01 & -0.20 & 0.17 & 1.00 \\ 
+  Y2020-Y2019 & -0.07 & -0.26 & 0.13 & 0.95 \\ 
+  Y2021-Y2019 & -0.03 & -0.21 & 0.16 & 1.00 \\ 
+  Y2021-Y2020 & 0.04 & -0.14 & 0.22 & 0.99 \\ 
+   \hline
+\end{tabular}
+\end{table}
 
 Parece que, aunque los problemas están ordenados en orden creciente de dificultad, no siempre se resuelven en el mismo orden que se espera (ANOVA p=6.01e-7, KW p=1.18e-6), es decir P1 P2 P3 P4 P5 P6 P7 P8 P9. De hecho, se ha analizado este patrón y se han encontrado las siguientes variaciones en el que la más frecuente es la esperada por el profesor.
 
