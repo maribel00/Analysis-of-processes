@@ -121,9 +121,9 @@ Sin embargo, podemos ver algunos grupos que emplean muy pocos intentos para reso
 \begin{figure}[H]
 \centering
 \subfloat[Boxplot de los residuos del número de intentos.]{\label{fig:boxplotresidualssessionsbefore}\includegraphics[width=0.47\textwidth]{NormalitySessionsBefore3.png}}\qquad
-\subfloat[Histograma de los residuos de las calificaciones.]{\label{fig:histogramresidualssessionsbefore}\includegraphics[width=0.47\textwidth]{NormalitySessionsBefore4.png}}
+\subfloat[Histograma de los residuos del número de intentos.]{\label{fig:histogramresidualssessionsbefore}\includegraphics[width=0.47\textwidth]{NormalitySessionsBefore4.png}}
 \caption{Distribución de los residuos del número de intentos.}
-\label{fig:achiever}
+\label{fig:sessionsbefore}
 \end{figure}
 
 No obstante, podemos considerar que la regresión es aceptable (Figura \ref{fig:q-qsessionsbefore}).
@@ -216,12 +216,36 @@ Este hábito es más frecuente de lo que parece y mantiene mucha variación en c
 
 \section{Abrir un problema por primera vez (Newcomer)}
 
-Momento exacto en el que se consigue abrir cada problema por primera vez en el servidor, normalizado para poder compararlo (normalizado porque cada año ha durado un tiempo diferente).
+Momento exacto en el que se consigue abrir cada problema por primera vez en el servidor, normalizado para poder compararlo (normalizado porque la duración de la práctica no es la misma todos los años). Como podemos ver en su función de densidad (Figura \ref{fig:densityplotnewcomer}), se aproxima a una distribución normal, un poco ladeada hacia la derecha. Esto puede deberse a que los distintos equipos tienen a abrir los problemas cuando se va aproximando la fecha de entrega de la práctica.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{NormalityNewcomer5.png}
+    \caption{Función de densidad de probabilidad del momento en el que los distintos grupos de prácticas abren por primera vez un problema.}
+    \label{fig:densityplotnewcomer}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfloat[Boxplot de los residuos del número de intentos.]{\label{fig:boxplotresidualsnewcomer}\includegraphics[width=0.47\textwidth]{NormalityNewcomer3.png}}\qquad
+\subfloat[Histograma de los residuos del momento en el que se abren los problemas por primera vez.]{\label{fig:histogramresidualsnewcomer}\includegraphics[width=0.47\textwidth]{NormalityNewcomer4.png}}
+\caption{Distribución de los residuos del momento en el que se abren los problemas por primera vez.}
+\label{fig:newcomer}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{boxplotnewcomer.png}
+    \caption{Boxplot del número del momento en el que se abre un problema por primera vez por años.}
+    \label{fig:boxplotnewcomer}
+\end{figure}
 
 % latex table generated in R 4.3.0 by xtable 1.8-4 package
 % Sun Jun 11 18:57:16 2023
 \begin{table}[H]
 \centering
+\caption{Resultados del test ANOVA de un solo factor (momento en el que se abre un problema por primera vez).}
+\label{tab:ANOVAnewcomer}
 \begin{tabular}{lrrrrr}
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
@@ -236,6 +260,8 @@ rdataset[[Variable]] & 6 & 0.71 & 0.12 & 3.82 & 0.0024 \\
 % Sun Jun 11 18:57:48 2023
 \begin{table}[H]
 \centering
+\caption{Test HSD de Tukey (Honestly-significance-difference) del momento exacto en el que se abre un problema por primera por años.}
+\label{tab:Tukeynewcomer}
 \begin{tabular}{rrrrr}
   \hline
  & diff & lwr & upr & p adj \\ 
@@ -265,18 +291,50 @@ Y2016-Y2015 & 0.05 & -0.21 & 0.30 & 1.00 \\
 \end{tabular}
 \end{table}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\textwidth]{NormalityNewcomer1.png}
+    \caption{Intervalos de confianza del momento en el que se abre un problema por años.}
+    \label{fig:confidencenewcomer}
+\end{figure}
 
 
 \section{Resolver un problema por primera vez (EarlyBird)}
 
-Momento exacto en el que se consigue resolver cada problema por primera vez, normalizado para poder compararlo (normalizado porque cada año ha durado  un tiempo diferente)
+Momento exacto en el que se consigue resolver cada problema por primera vez, normalizado para poder compararlo (porque la duración de la práctica no es la misma todos los años). Como podemos ver en la Figura \ref{fig:densityplotearlybird}, sigue una distribución casi normal, ladeada hacia la derecha ya que los distintos grupos tienden a resolver los problemas por primera vez al final de la práctica.
 
-\textbf{Falta boxplot.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{NormalityEarlyBird5.png}
+    \caption{Función de densidad de probabilidad del momento en el que los distintos grupos de prácticas resuelven por primera vez un problema.}
+    \label{fig:densityplotearlybird}
+\end{figure}
+
+Sin embargo, podemos observar la presencia de algunos outliers (Figuras \ref{fig:boxplotresidualsearlybird} y \ref{fig:histogramresidualsearlybird}).
+
+\begin{figure}[H]
+\centering
+\subfloat[Boxplot de los residuos del número de intentos.]{\label{fig:boxplotresidualsearlybird}\includegraphics[width=0.47\textwidth]{NormalityEarlyBird3.png}}\qquad
+\subfloat[Histograma de los residuos del momento en el que se resuelven los problemas por primera vez.]{\label{fig:histogramresidualsearlybird}\includegraphics[width=0.47\textwidth]{NormalityEarlyBird4.png}}
+\caption{Distribución de los residuos del momento en el que se resuelven los problemas por primera vez.}
+\label{fig:earlybird}
+\end{figure}
+
+Si se realiza una segmentación por años, intuimos que esta medida de rendimiento no sigue la misma distribución de probabilidad todos los cursos académicos estudiados (Figura \ref{fig:boxplotearlybird}). Esto se confirma tras la realización del Test ANOVA de un solo factor (Tabla \ref{tab:ANOVAearlybird}) en el que obtenemos $p = 0.0053 < 0.05$. Además, el Test de Tukey muestra las diferencias entre los años considerados (Tabla \ref{tab:Tukeyearlybird}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{boxplotearlybird.png}
+    \caption{Boxplot del momento en el que se resuelve un problema por primera vez por años.}
+    \label{fig:boxplotearlybird}
+\end{figure}
 
 % latex table generated in R 4.3.0 by xtable 1.8-4 package
 % Sun Jun 11 19:03:22 2023
 \begin{table}[H]
 \centering
+\caption{Resultados del test ANOVA de un solo factor (momento en el que se resuelve un problema por primera vez).}
+\label{tab:ANOVAearlybird}
 \begin{tabular}{lrrrrr}
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
@@ -291,6 +349,8 @@ rdataset[[Variable]] & 6 & 0.50 & 0.08 & 3.40 & 0.0053 \\
 % Sun Jun 11 19:03:51 2023
 \begin{table}[H]
 \centering
+\caption{Test HSD de Tukey (Honestly-significance-difference) del momento en el que se resuelve un problema por primera vez, por años.}
+\label{tab:Tukeyearlybird}
 \begin{tabular}{rrrrr}
   \hline
  & diff & lwr & upr & p adj \\ 
@@ -320,7 +380,14 @@ Y2016-Y2015 & 0.04 & -0.19 & 0.26 & 1.00 \\
 \end{tabular}
 \end{table}
 
-Parece que, aunque los problemas están ordenados en orden creciente de dificultad, no siempre se resuelven en el mismo orden que se espera (ANOVA p=6.01e-7, KW p=1.18e-6), es decir P1 P2 P3 P4 P5 P6 P7 P8 P9. De hecho, se ha analizado este patrón y se han encontrado las siguientes variaciones en el que la más frecuente es la esperada por el profesor.
+Por último, el análisis de los intervalos de confianza se muestra en la Figura \ref{fig:confidenceearlybird}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\textwidth]{NormalityEarlyBird1.png}
+    \caption{Intervalos de confianza del momento en el que se resuelve un problema por primera vez, por años.}
+    \label{fig:confidenceearlybird}
+\end{figure}
 
 \section{Número total de problemas resueltos (Performer)}
 
