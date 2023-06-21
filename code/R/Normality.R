@@ -1,6 +1,11 @@
 library(xtable)
 library('ggpubr')
 
+source("LCV_Theme.R")
+source("LCV_Bayes.R")
+source("LCV_plotting.R")
+source("LCV_Hipothesis_Tests.R")
+
 # Normalidad de los datos
 setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
 ndataset <- read.csv("MBSessionsExt.csv", header = TRUE)
@@ -27,14 +32,28 @@ hist(ndataset.aov$residuals, main = paste("Residuals ",nValue))
 ggdensity(ndataset[[nValue]],xlab=nValue)
 ggqqplot(ndataset[[nValue]], xlab = nValue)
 
+LCV_Tomato_Theme()
+LCV_confidence_intervals(ndataset, nVariable, nValue)
+
+LCV_Lime_Theme()
+LCV_boxplot(ndataset, nVariable, nValue)
+
 boxplot <- boxplot(Allsessions~Year,ndataset)
 plot <- ggplot(data=ndataset,mapping=aes(x=Year,y=Allsessions))+geom_boxplot(fill = "olivedrab1")+theme_bw()
 plot
 
-mdataset <- read.csv("MBSessionsProblems.csv", header = TRUE)
+LCV_Heaven_Theme()
+LCV_density(ndataset, nValue, showall = TRUE)
 
-boxplot <- boxplot(Session~Problem,mdataset)
-plot <- ggplot(data=mdataset,mapping=aes(x=Problem,y=Session))+geom_boxplot(fill = "olivedrab1")+theme_bw()
+mdataset <- read.csv("MBSessionsProblems.csv", header = TRUE)
+head(mdataset)
+names(mdataset) <- c("Year","Problem","Sessions")
+
+LCV_Lime_Theme()
+LCV_boxplot(mdataset, "Problem", "Sessions")
+
+boxplot <- boxplot(Sessions~Problem,mdataset)
+plot <- ggplot(data=mdataset,mapping=aes(x=Problem,y=Sessions))+geom_boxplot(fill = "olivedrab1")+theme_bw()
 plot
 
 ndataset <- read.csv("MBSessionsProblemExt.csv", header = TRUE)
@@ -56,6 +75,12 @@ print(xtable(as.matrix(ndataset.tukey$`ndsp[[nVariable]]`)), include.rownames = 
 
 plot(ndataset.tukey)
 
+LCV_Tomato_Theme()
+LCV_confidence_intervals(ndataset, nVariable, nValue)
+
 boxplot <- boxplot(FailRatio~Problem,ndataset)
 plot <- ggplot(data=ndataset,mapping=aes(x=Problem,y=FailRatio))+geom_boxplot(fill = "olivedrab1")+theme_bw()
 plot
+
+LCV_Lime_Theme()
+LCV_boxplot(ndataset, "Problem", "FailRatio")

@@ -5,6 +5,7 @@ library('ggpubr')
 source("LCV_Theme.R")
 source("LCV_Bayes.R")
 source("LCV_plotting.R")
+source("LCV_Hipothesis_Tests.R")
 
 rdataset<-read.csv(file = "DBA1521.tsv", sep = "\t", dec = ",")
 rdataset <- rdataset[(rdataset$DAG <=2),c(3,7:12,16,19,25,30:31,33:34,52,71)]
@@ -38,3 +39,6 @@ boxplot(rdataset.aov$residuals, main=paste("Residuals ",Value))
 hist(rdataset.aov$residuals, main = paste("Residuals ",Value))
 ggdensity(rdataset[[Value]],xlab=Value)
 ggqqplot(rdataset[[Value]], xlab =Value)
+
+LCV_Tomato_Theme()
+LCV_confidence_intervals(rdataset, Variable, Value)
