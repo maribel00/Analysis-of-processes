@@ -30,5 +30,5 @@ digraph graphname {
 "P9 OK" -> "P6 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P7 OK" -> "P8 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P3 FAIL" -> "P3 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-"START" -> "P1 FAIL" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P1 FAIL" [ style = dashed color=grey label ="30" labelfloat=false fontname="Arial" fontsize=8]
 }

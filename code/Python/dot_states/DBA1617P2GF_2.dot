@@ -8,5 +8,5 @@ layout=circo;
 "P2 FAIL" -> "P2 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P1 OK" -> "P2 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P2 OK" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
-"START" -> "P1 FAIL" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P1 FAIL" [ style = dashed color=grey label ="6" labelfloat=false fontname="Arial" fontsize=8]
 }

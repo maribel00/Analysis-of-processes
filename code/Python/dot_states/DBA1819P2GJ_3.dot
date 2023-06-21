@@ -9,10 +9,10 @@ layout=circo;
 "P1 FAIL" -> "P2 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P1 FAIL" -> "P1 OK" [ color=grey16 penwidth = "1.0986122886681098"label ="3" labelfloat=false fontname="Arial" fontsize=8]
 "P3 FAIL" -> "P9 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-"P1 OK" -> "P6 FAIL" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+"P1 OK" -> "P6 FAIL" [ color=grey16 penwidth = "1.0986122886681098"label ="3" labelfloat=false fontname="Arial" fontsize=8]
 "P1 OK" -> "P7 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P6 FAIL" -> "P6 OK" [ color=grey16 penwidth = "1.0986122886681098"label ="3" labelfloat=false fontname="Arial" fontsize=8]
 "P7 FAIL" -> "P7 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P7 OK" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
-"START" -> "P1 FAIL" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P1 FAIL" [ style = dashed color=grey label ="4" labelfloat=false fontname="Arial" fontsize=8]
 }

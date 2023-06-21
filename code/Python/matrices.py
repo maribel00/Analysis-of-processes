@@ -5,7 +5,7 @@ def removeCycles(adj_matrix):
  
     # Function to mark the vertex with
     # different colors for different cycles
-    def dfs_cycle(u, p, color: list, par: list):
+    def dfs_cycle(cycles, u, p, color: list, par: list):
         nonlocal cyclenumber
 
         # already (completely) visited vertex.
@@ -42,7 +42,7 @@ def removeCycles(adj_matrix):
                 # if it has not been visited previously
                 if index == par[u]:
                     continue
-                dfs_cycle(index, u, color, par)
+                dfs_cycle(cycles, index, u, color, par)
 
         # completely visited.
         color[u] = 2
@@ -57,14 +57,33 @@ def removeCycles(adj_matrix):
     cyclenumber = 0
 
     # call DFS to mark the cycles
-    dfs_cycle(0, len(adj_matrix), color, par)
+    dfs_cycle(cycles, 0, len(adj_matrix), color, par)
 
     for cycle in cycles:
-        adj_matrix[cycle[0]][cycle[-1]] = 0
-        
+        new_cycles = []
+        # arrays required to color the
+        # graph, store the parent of node
+        colors = [0] * len(adj_matrix)
+        pars = [0] * len(adj_matrix)
+        for i in range(len(adj_matrix)):
+            value = adj_matrix[cycle[0]][cycle[-1]]
+            adj_matrix[cycle[0]][cycle[-1]] = 0
+            if i != cycle[0] and adj_matrix[i][cycle[-1]] > 0: # es un padre del nodo
+                adj_matrix[i][cycle[-1]] += value
+                # call DFS to mark the cycles
+                dfs_cycle(new_cycles, 0, len(adj_matrix), colors, pars)
+                if len(new_cycles) == len(cycles)-1:
+                    break
+                else:
+                    adj_matrix[i][cycle[-1]] -= value
+                    
     for i in range(len(adj_matrix)):
         for j in range(len(adj_matrix)):
             if adj_matrix[i][j] > 0 and adj_matrix[j][i] > 0:
+                for k in range(len(adj_matrix)):
+                    if adj_matrix[k][i] > 0 and k != j and adj_matrix[i][k] == 0:
+                        adj_matrix[k][i] += adj_matrix[j][i]
+                        break
                 adj_matrix[j][i] = 0
     
     return adj_matrix
@@ -72,21 +91,7 @@ def removeCycles(adj_matrix):
 def deleteZeros(matrix, labels):
     matrix = np.array(matrix)
     labels = np.array(labels)
-    
-    columns = ~np.all(matrix == 0, axis=0)
-    if not columns[len(matrix)-2]:
-        columns[len(matrix)-2] = True
-    if not columns[len(matrix)-1]:
-        columns[len(matrix)-1] = True
         
-    rows = ~np.all(matrix == 0, axis=1)
-    
-    for i in range(len(columns)):
-        if not columns[i] and len(labels[i].split('-')) > 1:
-            if labels[i].split('-')[1] != '20':
-                for j in range(len(columns)):
-                    matrix[i][j] = 0
-                
     for i in range(len(matrix)-2):
         erase = True
         for j in range(len(matrix)-2):
@@ -102,20 +107,22 @@ def deleteZeros(matrix, labels):
             matrix[len(matrix)-1][i] = 0;
             matrix[len(matrix)-2][i] = 0;
             
-    columns2 = ~np.all(matrix == 0, axis=0)
-    if not columns2[len(matrix)-2]:
-        columns2[len(matrix)-2] = True
-    if not columns2[len(matrix)-1]:
-        columns2[len(matrix)-1] = True
-        
-    rows2 = ~np.all(matrix == 0, axis=1)
+    columns = ~np.all(matrix == 0, axis=0)
+    if not columns[len(matrix)-2]:
+        columns[len(matrix)-2] = True
 
-    result = [columns2[i] or rows2[i] for i in range(len(columns))]
+    result = [columns[i] for i in range(len(columns))]
     
     matrix_without_zero_columns = matrix[:, result]
     matrix = matrix_without_zero_columns[result, :]
     
     labels = labels[result]
+    
+    rows = ~np.all(matrix == 0, axis=1)
+    
+    for i in range(len(rows)):
+        if not rows[i] and i != len(rows) - 1:
+            matrix[i,len(rows)-1] = 1
     
     return matrix.tolist(), labels.tolist()
     

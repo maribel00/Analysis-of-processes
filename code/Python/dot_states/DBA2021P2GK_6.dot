@@ -4,13 +4,13 @@ digraph graphname {
 	margin = 0;
 layout=circo;
 "P1 FAIL" [shape=circle, color=greenyellow, peripheries=2, style=filled]"P1 OK" [shape=circle, color=greenyellow, style=filled]"P3 FAIL" [shape=circle, color=cadetblue, peripheries=2, style=filled]"P3 OK" [shape=circle, color=cadetblue, style=filled]"P7 FAIL" [shape=circle, color=hotpink, peripheries=2, style=filled]"P7 OK" [shape=circle, color=hotpink, style=filled]"P8 FAIL" [shape=circle, color=indianred1, peripheries=2, style=filled]"P8 OK" [shape=circle, color=indianred1, style=filled]"P2 FAIL" [shape=circle, color=bisque, peripheries=2, style=filled]"P2 OK" [shape=circle, color=bisque, style=filled]"P9 FAIL" [shape=circle, color=mediumpurple1, peripheries=2, style=filled]"P9 OK" [shape=circle, color=mediumpurple1, style=filled]"START" [shape=box, fillcolor=white, style=filled, color=black]"END" [shape=box, fillcolor=white, style=filled, color=black]"P1 FAIL" -> "P1 OK" [ color=grey16 penwidth = "4.219507705176107"label ="68" labelfloat=false fontname="Arial" fontsize=8]
-"P1 FAIL" -> "P8 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-"P1 OK" -> "P3 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P1 FAIL" -> "P8 FAIL" [ color=grey16 penwidth = "3.367295829986474"label ="29" labelfloat=false fontname="Arial" fontsize=8]
+"P1 OK" -> "P3 FAIL" [ color=grey16 penwidth = "2.0794415416798357"label ="8" labelfloat=false fontname="Arial" fontsize=8]
 "P3 FAIL" -> "P3 OK" [ color=grey16 penwidth = "1.791759469228055"label ="6" labelfloat=false fontname="Arial" fontsize=8]
-"P3 FAIL" -> "P7 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P3 FAIL" -> "P7 FAIL" [ color=grey16 penwidth = "2.8903717578961645"label ="18" labelfloat=false fontname="Arial" fontsize=8]
 "P3 FAIL" -> "P8 FAIL" [ color=grey16 penwidth = "1.6094379124341003"label ="5" labelfloat=false fontname="Arial" fontsize=8]
 "P3 FAIL" -> "P8 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-"P3 FAIL" -> "P2 FAIL" [ color=grey16 penwidth = "1.3862943611198906"label ="4" labelfloat=false fontname="Arial" fontsize=8]
+"P3 FAIL" -> "P2 FAIL" [ color=grey16 penwidth = "3.1780538303479458"label ="24" labelfloat=false fontname="Arial" fontsize=8]
 "P3 OK" -> "P2 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P7 FAIL" -> "P7 OK" [ color=grey16 penwidth = "2.8903717578961645"label ="18" labelfloat=false fontname="Arial" fontsize=8]
 "P8 FAIL" -> "P8 OK" [ color=grey16 penwidth = "3.4965075614664802"label ="33" labelfloat=false fontname="Arial" fontsize=8]
@@ -20,5 +20,5 @@ layout=circo;
 "P2 FAIL" -> "P9 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P9 FAIL" -> "P9 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P9 OK" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
-"START" -> "P1 FAIL" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P1 FAIL" [ style = dashed color=grey label ="68" labelfloat=false fontname="Arial" fontsize=8]
 }

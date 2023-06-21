@@ -7,7 +7,7 @@ La primera medida de rendimiento que tendremos en cuenta son las calificaciones 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{NormalityAchiever5.png}
+    \includegraphics[width=0.70\textwidth]{densityachiever.png}
     \caption{Función de densidad de probabilidad de las calificaciones obtenidas por los distintos grupos de prácticas.}
     \label{fig:densityplotachiever}
 \end{figure}
@@ -35,7 +35,7 @@ A continuación se realizará un estudio por años de las calificaciones obtenid
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{boxplotachieveryear.png}
+    \includegraphics[width=0.6\textwidth]{boxplotachiever.png}
     \caption{Boxplot de las calificaciones por año.}
     \label{fig:boxplotachieveryear}
 \end{figure}
@@ -111,7 +111,7 @@ Número de veces que se abre un mismo problema sin resolver hasta que se resuelv
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{NormalitySessionsBefore5.png}
+    \includegraphics[width=0.70\textwidth]{densitysessionsbefore.png}
     \caption{Función de densidad de probabilidad del número de intentos necesarios para resolver un problema por los distintos grupos de prácticas.}
     \label{fig:densityplotsessionsbefore}
 \end{figure}
@@ -220,10 +220,12 @@ Momento exacto en el que se consigue abrir cada problema por primera vez en el s
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.70\textwidth]{NormalityNewcomer5.png}
+    \includegraphics[width=0.70\textwidth]{densitynewcomer.png}
     \caption{Función de densidad de probabilidad del momento en el que los distintos grupos de prácticas abren por primera vez un problema.}
     \label{fig:densityplotnewcomer}
 \end{figure}
+
+En las Figuras \ref{fig:boxplotresidualsnewcomer} y \ref{fig:histogramresidualsnewcomer} pueden verse el boxplot de los residuos y el histograma de los mismos respectivamente.
 
 \begin{figure}[H]
 \centering
@@ -232,6 +234,8 @@ Momento exacto en el que se consigue abrir cada problema por primera vez en el s
 \caption{Distribución de los residuos del momento en el que se abren los problemas por primera vez.}
 \label{fig:newcomer}
 \end{figure}
+
+Si realizamos una segmentación por años, podemos ver que la media de esta medida de rendimiento puede variar según el año que estemos considerando (Figura \ref{fig:boxplotnewcomer}). El Test ANOVA de un sólo factor ha confirma lo observado (se ha obtenido $p = 0.0024 < 0.05$ como puede verse en la Tabla \ref{tab:ANOVAnewcomer}).
 
 \begin{figure}[H]
     \centering
@@ -255,6 +259,8 @@ rdataset[[Variable]] & 6 & 0.71 & 0.12 & 3.82 & 0.0024 \\
    \hline
 \end{tabular}
 \end{table}
+
+Tras realizar el Test de Tukey por pares se ha visto que claramente hay años con distribuciones diferentes de esta variable (Tabla \ref{tab:Tukeynewcomer} y Figura \ref{fig:confidencenewcomer}).
 
 % latex table generated in R 4.3.0 by xtable 1.8-4 package
 % Sun Jun 11 18:57:48 2023
@@ -305,7 +311,7 @@ Momento exacto en el que se consigue resolver cada problema por primera vez, nor
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.70\textwidth]{NormalityEarlyBird5.png}
+    \includegraphics[width=0.70\textwidth]{densityearlybird.png}
     \caption{Función de densidad de probabilidad del momento en el que los distintos grupos de prácticas resuelven por primera vez un problema.}
     \label{fig:densityplotearlybird}
 \end{figure}

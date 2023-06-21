@@ -4,10 +4,10 @@ digraph graphname {
 	margin = 0;
 layout=circo;
 "P1 FAIL" [shape=circle, color=greenyellow, peripheries=2, style=filled]"P1 OK" [shape=circle, color=greenyellow, style=filled]"P2 FAIL" [shape=circle, color=bisque, peripheries=2, style=filled]"P3 FAIL" [shape=circle, color=cadetblue, peripheries=2, style=filled]"P4 FAIL" [shape=circle, color=orange, peripheries=2, style=filled]"P2 OK" [shape=circle, color=bisque, style=filled]"START" [shape=box, fillcolor=white, style=filled, color=black]"END" [shape=box, fillcolor=white, style=filled, color=black]"P1 FAIL" -> "P1 OK" [ color=grey16 penwidth = "2.8903717578961645"label ="18" labelfloat=false fontname="Arial" fontsize=8]
-"P1 FAIL" -> "P2 FAIL" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+"P1 FAIL" -> "P2 FAIL" [ color=grey16 penwidth = "1.3862943611198906"label ="4" labelfloat=false fontname="Arial" fontsize=8]
 "P2 FAIL" -> "P3 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P2 FAIL" -> "P4 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P2 FAIL" -> "P2 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P2 OK" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
-"START" -> "P1 FAIL" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P1 FAIL" [ style = dashed color=grey label ="20" labelfloat=false fontname="Arial" fontsize=8]
 }

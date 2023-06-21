@@ -4,8 +4,8 @@ digraph graphname {
 	margin = 0;
 layout=circo;
 "P1 FAIL" [shape=circle, color=greenyellow, peripheries=2, style=filled]"P1 OK" [shape=circle, color=greenyellow, style=filled]"P2 FAIL" [shape=circle, color=bisque, peripheries=2, style=filled]"P2 OK" [shape=circle, color=bisque, style=filled]"P3 FAIL" [shape=circle, color=cadetblue, peripheries=2, style=filled]"P3 OK" [shape=circle, color=cadetblue, style=filled]"P4 FAIL" [shape=circle, color=orange, peripheries=2, style=filled]"P4 OK" [shape=circle, color=orange, style=filled]"P5 FAIL" [shape=circle, color=deepskyblue, peripheries=2, style=filled]"P5 OK" [shape=circle, color=deepskyblue, style=filled]"P6 FAIL" [shape=circle, color=gold, peripheries=2, style=filled]"P6 OK" [shape=circle, color=gold, style=filled]"P7 FAIL" [shape=circle, color=hotpink, peripheries=2, style=filled]"P7 OK" [shape=circle, color=hotpink, style=filled]"START" [shape=box, fillcolor=white, style=filled, color=black]"END" [shape=box, fillcolor=white, style=filled, color=black]"P1 FAIL" -> "P1 OK" [ color=grey16 penwidth = "2.0794415416798357"label ="8" labelfloat=false fontname="Arial" fontsize=8]
-"P1 FAIL" -> "P3 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-"P1 FAIL" -> "P5 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P1 FAIL" -> "P3 FAIL" [ color=grey16 penwidth = "1.791759469228055"label ="6" labelfloat=false fontname="Arial" fontsize=8]
+"P1 FAIL" -> "P5 FAIL" [ color=grey16 penwidth = "1.791759469228055"label ="6" labelfloat=false fontname="Arial" fontsize=8]
 "P1 OK" -> "P2 FAIL" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
 "P1 OK" -> "P3 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P1 OK" -> "P5 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
@@ -25,5 +25,5 @@ layout=circo;
 "P6 OK" -> "P7 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P7 FAIL" -> "P7 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 "P7 OK" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
-"START" -> "P1 FAIL" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P1 FAIL" [ style = dashed color=grey label ="5" labelfloat=false fontname="Arial" fontsize=8]
 }
