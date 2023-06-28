@@ -2,26 +2,29 @@ library(readr)
 library(xtable)
 library('ggpubr')
 
+setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
+
 source("LCV_Theme.R")
 source("LCV_Bayes.R")
 source("LCV_plotting.R")
 source("LCV_Hipothesis_Tests.R")
+source("SIIE2023.R")
 
-rdataset<-read.csv(file = "DBA1521.tsv", sep = "\t", dec = ",")
-rdataset <- rdataset[(rdataset$DAG <=2),c(3,7:12,16,19,25,30:31,33:34,52,71)]
-colnames(rdataset) <- c("Achiever","Year","DAG","Perseverant","SessionsBefore","SessionsAfter","SolvedSessions","Newcomer","EarlyBird","Performer","RWSP","MAN","SIM","MDN","FDegree9","FLAP9")
-head(rdataset)
+rdataset <- doLoadData()
+rdataset <- data
 
 boxplot <- boxplot(Achiever~Year,rdataset)
 plot <- ggplot(data=rdataset,mapping=aes(x=Year,y=Achiever))+geom_boxplot(fill = "olivedrab1")+theme_bw()
 plot
 
 Variable <- "Year"
-Value <- "Achiever"
+Value <- "Grade"
 rdataset.lm <- lm(rdataset[[Value]]~rdataset[[Variable]], rdataset)
 rdataset.aov <- aov(rdataset.lm)
 summary <- summary(rdataset.aov)
 print(xtable(as.matrix(summary)), include.rownames = TRUE)
+
+LCV_ANOVA(rdataset,"Year","Grade")
 
 LCV_Lime_Theme()
 LCV_boxplot(rdataset, Variable, Value)

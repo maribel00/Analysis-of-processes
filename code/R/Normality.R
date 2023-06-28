@@ -1,20 +1,21 @@
 library(xtable)
 library('ggpubr')
 
+setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
+
 source("LCV_Theme.R")
 source("LCV_Bayes.R")
 source("LCV_plotting.R")
 source("LCV_Hipothesis_Tests.R")
+source("SIIE2023.R")
 
 # Normalidad de los datos
-setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
-ndataset <- read.csv("MBSessionsExt.csv", header = TRUE)
-head(ndataset)
-names(ndataset) <- c("Year","Group","Fail","Solved","Allsessions")
-head(ndataset)
+
+ndataset <- doLoadData()
+nrow(ndataset)
 
 nVariable <- "Year"
-nValue <- "Allsessions"
+nValue <- "s"
 ndsp <- ndataset[,c(nVariable,nValue)]
 ndataset.lm <- lm(ndsp[[nValue]]~ndsp[[nVariable]], ndsp)
 ndataset.aov <- aov(ndataset.lm)

@@ -1,41 +1,48 @@
 \chapter{Rendimiento observado de los alumnos}
 \addcontentsline{toc}{chapter}{Rendimiento observado de los alumnos}
 
-\section{Calificaciones obtenidas (Achiever)}
+\section{Calificaciones obtenidas (Grade)}
 
 La primera medida de rendimiento que tendremos en cuenta son las calificaciones de los grupos de prácticas. Hay que tener en cuenta que estas calificaciones no son la evaluación final de cada grupo, sino la nota de la práctica cuya evolución se está analizando. Esta es la parte más subjetiva de la evaluación del rendimiento de cada alumno pues implica la participación del profesor y la toma en consideración de otros factores, además de los registrados en el servidor como puede ser la calidad de la memoria de la práctica. Las calificaciones muestran una distribución normal a lo largo de estos siete años de registros, ligeramente inclinada a la derecha porque las notas medias de esta asignatura suelen ser altas tal y como puede verse en la Figura \ref{fig:densityplotachiever}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.70\textwidth]{densityachiever.png}
+    \includegraphics[width=0.70\textwidth]{rendimiento/densitygrade.png}
     \caption{Función de densidad de probabilidad de las calificaciones obtenidas por los distintos grupos de prácticas.}
     \label{fig:densityplotachiever}
 \end{figure}
 
-Además, la media está bastante balanceada (Figuras \ref{fig:boxplotresidualsachiever} y \ref{fig:histogramresidualsachiever}).
+Además, la media está bastante balanceada (Figuras \ref{fig:boxplotresidualsachiever} y \ref{fig:histogramresidualsachiever}) y no se detecta la presencia de outliers (Figura \ref{fig:outliersgrade}).
 
 \begin{figure}[H]
 \centering
-\subfloat[Boxplot de los residuos de las calificaciones.]{\label{fig:boxplotresidualsachiever}\includegraphics[width=0.47\textwidth]{NormalityAchiever3.png}}\qquad
-\subfloat[Histograma de los residuos de las calificaciones.]{\label{fig:histogramresidualsachiever}\includegraphics[width=0.47\textwidth]{NormalityAchiever4.png}}
+\subfloat[Boxplot de los residuos de las calificaciones.]{\label{fig:boxplotresidualsachiever}\includegraphics[width=0.47\textwidth]{rendimiento/residualsgrade.png}}\qquad
+\subfloat[Histograma de los residuos de las calificaciones.]{\label{fig:histogramresidualsachiever}\includegraphics[width=0.47\textwidth]{rendimiento/histogramgrade.png}}
 \caption{Distribución de los residuos de las calificaciones.}
 \label{fig:achiever}
 \end{figure}
 
-Además, la regresión es muy aceptable (Figura \ref{fig:q-qsessionsachiever}).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.60\textwidth]{rendimiento/outliersgrade.png}
+    \caption{Distribución de las calificaciones obtenidas por los distintos grupos de alumnos inicial.}
+    \label{fig:outliersgrade}
+\end{figure}
+
+Más aún, la regresión es muy aceptable (Figura \ref{fig:q-qsessionsachiever}).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{NormalityAchiever6.png}
+    \includegraphics[width=0.75\textwidth]{rendimiento/qqplotgrade.png}
     \caption{Gráfico Q-Q de las calificaciones.}
     \label{fig:q-qsessionsachiever}
 \end{figure}
 
-A continuación se realizará un estudio por años de las calificaciones obtenidas. El boxplot de las calificaciones por años puede verse en la Figura \ref{fig:boxplotachieveryear}. Como puede verse, los datos recogidos muestran una variación muy perceptible en las notas a lo largo de los años. De hecho, los test estadísticos ratifican que hay diferentes significativas entre ellas. Tras realizar el test ANOVA de un factor (resultados en la Tabla \ref{tab:ANOVAachiever}) obtenemos $p = 0.0008 < 0.05$. Un análisis posterior por pares de Tukey muestra las diferencias entre los años (resultados en la Tabla \ref{tab:Tukeyachiever}). Podemos ver que el año 2017 es el principal elemento de disrupción, pero por poco margen. Lo mismo indica el análisis de los intervalos de confianza de la Figura \ref{fig:confidenceachiever}.
+A continuación se realizará un estudio por años de las calificaciones obtenidas. El boxplot de las calificaciones por años puede verse en la Figura \ref{fig:boxplotachieveryear}. Como puede verse, los datos recogidos muestran una variación muy perceptible en las notas a lo largo de los años. De hecho, los test estadísticos ratifican que hay diferentes significativas entre ellas. Tras realizar el test ANOVA de un factor (resultados en la Tabla \ref{tab:ANOVAachiever}) obtenemos $p = 0.00143 < 0.05$. Además, tras realizar el test de Kruskal-Wallis se obtiene $p-value = 0.01534$. Un análisis posterior por pares de Tukey muestra las diferencias entre los años (resultados en la Tabla \ref{tab:Tukeyachiever}). Podemos ver que el año 2017 es el principal elemento de disrupción, pero por poco margen. Lo mismo indica el análisis de los intervalos de confianza de la Figura \ref{fig:confidenceachiever}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{boxplotachiever.png}
+    \includegraphics[width=0.6\textwidth]{rendimiento/boxplotgrade.png}
     \caption{Boxplot de las calificaciones por año.}
     \label{fig:boxplotachieveryear}
 \end{figure}
@@ -53,8 +60,8 @@ A continuación se realizará un estudio por años de las calificaciones obtenid
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-rdataset[[Variable]] & 6 & 14.18 & 2.36 & 4.37 & 0.0008 \\ 
-  Residuals            & 69 & 37.29 & 0.54 &  &  \\ 
+rdataset[[Variable]] & 6 & 13.05 & 2.18 & 4.11 & 0.0014 \\ 
+  Residuals            & 67 & 35.47 & 0.53 &  &  \\ 
    \hline
 \end{tabular}
 \end{table}
@@ -69,34 +76,34 @@ rdataset[[Variable]] & 6 & 14.18 & 2.36 & 4.37 & 0.0008 \\
   \hline
  & diff & lwr & upr & p adj \\ 
   \hline
-Y2016-Y2015 & 0.18 & -0.88 & 1.23 & 1.00 \\ 
-  \textbf{Y2017-Y2015} & -1.37 & -2.50 & -0.25 & 0.01 \\ 
-  Y2018-Y2015 & -0.32 & -1.32 & 0.68 & 0.96 \\ 
-  Y2019-Y2015 & -0.21 & -1.21 & 0.80 & 1.00 \\ 
-  Y2020-Y2015 & -0.10 & -1.07 & 0.86 & 1.00 \\ 
-  Y2021-Y2015 & 0.22 & -0.71 & 1.15 & 0.99 \\ 
-  \textbf{Y2017-Y2016} & -1.55 & -2.67 & -0.42 & 0.00 \\ 
-  Y2018-Y2016 & -0.50 & -1.50 & 0.51 & 0.74 \\ 
-  Y2019-Y2016 & -0.38 & -1.39 & 0.62 & 0.91 \\ 
-  Y2020-Y2016 & -0.28 & -1.25 & 0.69 & 0.97 \\ 
-  Y2021-Y2016 & 0.05 & -0.89 & 0.98 & 1.00 \\ 
-  \textbf{Y2018-Y2017} & 1.05 & -0.03 & 2.13 & 0.06 \\ 
-  \textbf{Y2019-Y2017} & 1.16 & 0.08 & 2.24 & 0.03 \\ 
-  \textbf{Y2020-Y2017} & 1.27 & 0.22 & 2.31 & 0.01 \\ 
-  \textbf{Y2021-Y2017} & 1.59 & 0.58 & 2.60 & 0.00 \\ 
-  Y2019-Y2018 & 0.11 & -0.84 & 1.06 & 1.00 \\ 
-  Y2020-Y2018 & 0.22 & -0.70 & 1.13 & 0.99 \\ 
-  Y2021-Y2018 & 0.54 & -0.33 & 1.42 & 0.50 \\ 
-  Y2020-Y2019 & 0.10 & -0.81 & 1.02 & 1.00 \\ 
-  Y2021-Y2019 & 0.43 & -0.45 & 1.30 & 0.75 \\ 
-  Y2021-Y2020 & 0.33 & -0.51 & 1.16 & 0.90 \\ 
+Y2016-Y2015 & 0.18 & -0.87 & 1.22 & 1.00 \\ 
+  Y2017-Y2015 & -1.35 & -2.52 & -0.19 & 0.01 \\ 
+  Y2018-Y2015 & -0.45 & -1.47 & 0.57 & 0.83 \\ 
+  Y2019-Y2015 & -0.24 & -1.23 & 0.76 & 0.99 \\ 
+  Y2020-Y2015 & -0.10 & -1.06 & 0.85 & 1.00 \\ 
+  Y2021-Y2015 & 0.22 & -0.70 & 1.14 & 0.99 \\ 
+  Y2017-Y2016 & -1.53 & -2.70 & -0.36 & 0.00 \\ 
+  Y2018-Y2016 & -0.63 & -1.64 & 0.39 & 0.51 \\ 
+  Y2019-Y2016 & -0.41 & -1.41 & 0.58 & 0.87 \\ 
+  Y2020-Y2016 & -0.28 & -1.24 & 0.68 & 0.97 \\ 
+  Y2021-Y2016 & 0.05 & -0.88 & 0.97 & 1.00 \\ 
+  Y2018-Y2017 & 0.90 & -0.24 & 2.05 & 0.21 \\ 
+  Y2019-Y2017 & 1.12 & -0.00 & 2.24 & 0.05 \\ 
+  Y2020-Y2017 & 1.25 & 0.16 & 2.34 & 0.01 \\ 
+  Y2021-Y2017 & 1.57 & 0.52 & 2.63 & 0.00 \\ 
+  Y2019-Y2018 & 0.21 & -0.75 & 1.18 & 0.99 \\ 
+  Y2020-Y2018 & 0.34 & -0.59 & 1.28 & 0.92 \\ 
+  Y2021-Y2018 & 0.67 & -0.22 & 1.56 & 0.27 \\ 
+  Y2020-Y2019 & 0.13 & -0.78 & 1.04 & 1.00 \\ 
+  Y2021-Y2019 & 0.46 & -0.41 & 1.32 & 0.68 \\ 
+  Y2021-Y2020 & 0.33 & -0.50 & 1.15 & 0.89 \\ 
    \hline
 \end{tabular}
 \end{table}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\textwidth]{confidenceachiever.png}
+    \includegraphics[width=0.80\textwidth]{rendimiento/confidencegrade.png}
     \caption{Intervalos de confianza de las calificaciones por años.}
     \label{fig:confidenceachiever}
 \end{figure}
@@ -395,18 +402,18 @@ Por último, el análisis de los intervalos de confianza se muestra en la Figura
     \label{fig:confidenceearlybird}
 \end{figure}
 
-\section{Número total de problemas resueltos (Performer)}
+\section{Número total de problemas resueltos (p)}
 
 Podemos observar que ha habido variaciones perceptibles durante los distintos años, con un caso especial en 2018 en el que hubo muchos grupos que no resolvieron todos los problemas (Figura \ref{fig:boxplotperformer}).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{boxplotperformer.png}
+    \includegraphics[width=0.6\textwidth]{rendimiento/boxplotp.png}
     \caption{Boxplot del número de problemas resueltos por año.}
     \label{fig:boxplotperformer}
 \end{figure}
 
-Sin embargo, las diferencias entre las medias no son estadísticamente significativas (considerando un nivel de significancia de $0.05$) tal y como puede verse en la Tabla \ref{tab:ANOVAperformer}.
+Sin embargo, las diferencias entre las medias no son estadísticamente significativas (considerando un nivel de significancia de $0.05$) tal y como puede verse en la Tabla \ref{tab:ANOVAperformer}. Además, si consideramos el test estadístico de Kruskal-Wallis llegamos a la misma conclusión ($p-value = 0.365 > 0.05$). Así pues, se concluye que el número de problemas resueltos por años son uniformes (cualquier variación es debida al azar).
 
 Además, realizando un test de Tukey por pares de años (Tabla \ref{tab:Tukeyperformer}) se observa que todos los pares pueden considerarse estadísticamente iguales. La Figura \ref{fig:confidenceperformer} muestra los intervalos de confianza de todas las diferencias entre las distintas parejas de años.
 
@@ -420,8 +427,8 @@ Además, realizando un test de Tukey por pares de años (Tabla \ref{tab:Tukeyper
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-rdataset[[Variable]] & 6 & 4.63 & 0.77 & 1.76 & 0.1214 \\ 
-  Residuals            & 69 & 30.37 & 0.44 &  &  \\ 
+rdataset[[Variable]] & 6 & 2.91 & 0.48 & 1.27 & 0.2835 \\ 
+  Residuals            & 67 & 25.58 & 0.38 &  &  \\ 
    \hline
 \end{tabular}
 \end{table}
@@ -436,36 +443,46 @@ rdataset[[Variable]] & 6 & 4.63 & 0.77 & 1.76 & 0.1214 \\
   \hline
  & diff & lwr & upr & p adj \\ 
   \hline
-Y2016-Y2015 & 0.22 & -0.73 & 1.17 & 0.99 \\ 
-  Y2017-Y2015 & 0.27 & -0.75 & 1.29 & 0.98 \\ 
-  Y2018-Y2015 & -0.26 & -1.17 & 0.64 & 0.97 \\ 
-  Y2019-Y2015 & 0.37 & -0.53 & 1.28 & 0.87 \\ 
-  Y2020-Y2015 & -0.29 & -1.16 & 0.58 & 0.95 \\ 
-  Y2021-Y2015 & 0.18 & -0.66 & 1.02 & 0.99 \\ 
-  Y2017-Y2016 & 0.05 & -0.97 & 1.06 & 1.00 \\ 
-  Y2018-Y2016 & -0.48 & -1.39 & 0.42 & 0.67 \\ 
-  Y2019-Y2016 & 0.15 & -0.75 & 1.06 & 1.00 \\ 
-  Y2020-Y2016 & -0.51 & -1.39 & 0.36 & 0.56 \\ 
-  Y2021-Y2016 & -0.04 & -0.88 & 0.80 & 1.00 \\ 
-  Y2018-Y2017 & -0.53 & -1.51 & 0.44 & 0.64 \\ 
-  Y2019-Y2017 & 0.10 & -0.87 & 1.08 & 1.00 \\ 
-  Y2020-Y2017 & -0.56 & -1.50 & 0.38 & 0.55 \\ 
-  Y2021-Y2017 & -0.09 & -1.00 & 0.82 & 1.00 \\ 
-  Y2019-Y2018 & 0.64 & -0.22 & 1.50 & 0.28 \\ 
-  Y2020-Y2018 & -0.03 & -0.85 & 0.80 & 1.00 \\ 
-  Y2021-Y2018 & 0.44 & -0.35 & 1.23 & 0.61 \\ 
-  Y2020-Y2019 & -0.66 & -1.49 & 0.16 & 0.20 \\ 
-  Y2021-Y2019 & -0.19 & -0.98 & 0.60 & 0.99 \\ 
-  Y2021-Y2020 & 0.47 & -0.28 & 1.22 & 0.49 \\ 
+Y2016-Y2015 & 0.22 & -0.66 & 1.11 & 0.99 \\ 
+  Y2017-Y2015 & 0.22 & -0.77 & 1.21 & 0.99 \\ 
+  Y2018-Y2015 & -0.04 & -0.91 & 0.82 & 1.00 \\ 
+  Y2019-Y2015 & 0.28 & -0.56 & 1.13 & 0.95 \\ 
+  Y2020-Y2015 & -0.29 & -1.11 & 0.52 & 0.93 \\ 
+  Y2021-Y2015 & 0.18 & -0.60 & 0.96 & 0.99 \\ 
+  Y2017-Y2016 & 0.00 & -0.99 & 0.99 & 1.00 \\ 
+  Y2018-Y2016 & -0.27 & -1.13 & 0.60 & 0.96 \\ 
+  Y2019-Y2016 & 0.06 & -0.78 & 0.90 & 1.00 \\ 
+  Y2020-Y2016 & -0.51 & -1.33 & 0.30 & 0.48 \\ 
+  Y2021-Y2016 & -0.04 & -0.82 & 0.74 & 1.00 \\ 
+  Y2018-Y2017 & -0.27 & -1.24 & 0.70 & 0.98 \\ 
+  Y2019-Y2017 & 0.06 & -0.89 & 1.01 & 1.00 \\ 
+  Y2020-Y2017 & -0.51 & -1.44 & 0.41 & 0.63 \\ 
+  Y2021-Y2017 & -0.04 & -0.94 & 0.86 & 1.00 \\ 
+  Y2019-Y2018 & 0.33 & -0.49 & 1.15 & 0.89 \\ 
+  Y2020-Y2018 & -0.25 & -1.04 & 0.54 & 0.96 \\ 
+  Y2021-Y2018 & 0.22 & -0.53 & 0.98 & 0.97 \\ 
+  Y2020-Y2019 & -0.57 & -1.34 & 0.20 & 0.28 \\ 
+  Y2021-Y2019 & -0.10 & -0.84 & 0.63 & 1.00 \\ 
+  Y2021-Y2020 & 0.47 & -0.23 & 1.17 & 0.40 \\ 
    \hline
 \end{tabular}
 \end{table}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\textwidth]{confidenceperformer.png}
+    \includegraphics[width=0.80\textwidth]{rendimiento/confidencep.png}
     \caption{Intervalos de confianza del número de problemas resueltos por año.}
     \label{fig:confidenceperformer}
+\end{figure}
+
+Por último, podemos concluir que la variable número de problemas resueltos por año (\emph{p}) no es muy normal en tanto que varía muy poco y es discreta (Figuras \ref{fig:countp} y \ref{fig:densityp}).
+
+\begin{figure}[H]
+\centering
+\subfloat[Número de grupos que han resuelto una determinada cantidad de problemas.]{\label{fig:countp}\includegraphics[width=0.47\textwidth]{rendimiento/countp.png}}\qquad
+\subfloat[Función de densidad de probabilidad del número de problemas resueltos.]{\label{fig:densityp}\includegraphics[width=0.47\textwidth]{rendimiento/densityp.png}}
+\caption{Distribución del número de problemas resueltos por cada grupo de alumnos.}
+\label{fig:normalityp}
 \end{figure}
 
 \section{Siguiendo el plan del profesor (Follower)}

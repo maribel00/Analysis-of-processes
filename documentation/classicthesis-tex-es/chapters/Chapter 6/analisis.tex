@@ -23,7 +23,14 @@ En el laboratorio remoto se ha registrado la actividad de $7$ años consecutivos
 
 \section{Número de grupos cada año}
 
-El número de grupos puede variar en cada curso en función del número de alumnos matriculados en la asignatura ese año. Así pues, se muestran a continuación en las Tablas \ref{tab:groups1} y \ref{tab:groups2} los grupos por curso académico.
+El número de grupos puede variar en cada curso en función del número de alumnos matriculados en la asignatura ese año. Así pues, se muestran a continuación en las Tablas \ref{tab:groups1} y \ref{tab:groups2} los grupos por curso académico. El número de grupos por año puede consultarse también en la Figura \ref{fig:groupsperyear}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{análisis/numregistersyear.png}
+    \caption{Número de grupos por curso académico estudiado.}
+    \label{fig:groupsperyear}
+\end{figure}
 
 \section{El periodo de tiempo analizado cada año}
 
@@ -151,8 +158,8 @@ En las Figuras \ref{fig:boxplotresiduals} y \ref{fig:histogramresiduals} podemos
 
 \begin{figure}[H]
 \centering
-\subfloat[Boxplot de los residuos del número de sesiones.]{\label{fig:boxplotresiduals}\includegraphics[width=0.47\textwidth]{Rplot02.png}}\qquad
-\subfloat[Histograma de los residuos del número de sesiones.]{\label{fig:histogramresiduals}\includegraphics[width=0.47\textwidth]{Rplot03.png}}
+\subfloat[Boxplot de los residuos del número de sesiones.]{\label{fig:boxplotresiduals}\includegraphics[width=0.47\textwidth]{análisis/residualss.png}}\qquad
+\subfloat[Histograma de los residuos del número de sesiones.]{\label{fig:histogramresiduals}\includegraphics[width=0.47\textwidth]{análisis/histograms.png}}
 \caption{Distribución de los residuos del número de sesiones.}
 \label{fig:activity}
 \end{figure}
@@ -161,7 +168,7 @@ A continuación, en las Figuras \ref{fig:densitysessions} y \ref{fig:q-qsessions
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.70\textwidth]{densityallsessions.png}
+    \includegraphics[width=0.70\textwidth]{análisis/densitys.png}
     \caption{Función de densidad de probabilidad del número de sesiones.}
     \label{fig:densitysessions}
 \end{figure}
@@ -169,10 +176,45 @@ A continuación, en las Figuras \ref{fig:densitysessions} y \ref{fig:q-qsessions
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{Rplot05.png}
+    \includegraphics[width=0.75\textwidth]{análisis/qqplots.png}
     \caption{Gráfico Q-Q del número de sesiones.}
     \label{fig:q-qsessions}
 \end{figure}
+
+Además, podemos ver en la Figura \ref{fig:outlierss} que hay algunos outliers ($867$, $883$, $1421$ y $1111$) considerando la distribución del número total de sesiones por grupo de alumnos. Segmentando por años, obtenemos los boxplots que se muestran en la Figura \ref{fig:boxplotsessionsyear}. Así pues, eliminaremos aquellos registros que sean outliers en todos los años. Tras realizar la acción anterior, obtenemos la distribución del número de sesiones que se muestra en la Figura \ref{fig:outlierss2}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.60\textwidth]{análisis/outlierss.png}
+    \caption{Distribución del número de sesiones inicial.}
+    \label{fig:outlierss}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.60\textwidth]{análisis/outlierss2.png}
+    \caption{Distribución del número de sesiones tras la eliminación de algunos outliers.}
+    \label{fig:outlierss2}
+\end{figure}
+
+Examinamos ahora los bloques significativos entre ellos agrupando los datos en ocho particiones mediante el algoritmo de las K-medias, tal y como se muestra en la Figura \ref{fig:KMeans8}. Los resultados obtenidos pueden verse en las Figuras \ref{fig:KMeans8boxplot} y \ref{fig:KMeans8count}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{análisis/KMeanss8.png}
+    \caption{Particiones obtenidas con $K = 8$.}
+    \label{fig:KMeans8}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfloat[Boxplot de cada una de las particiones.]{\label{fig:KMeans8boxplot}\includegraphics[width=0.47\textwidth]{análisis/KMeanssboxplot.png}}\qquad
+\subfloat[Número de grupos por partición.]{\label{fig:KMeans8count}\includegraphics[width=0.47\textwidth]{análisis/KMeansscount.png}}%
+\caption{Resultados obtenidos tras aplicar el algoritmo de las $K$-Medias con $K = 8$.}
+\label{fig:KMeans8details}
+\end{figure}
+
+Nótese que como hemos una obtenido una precisión del $0.9802671\% > 95\%$, no eliminaremos más outliers.
 
 \subsection{Sesiones por cada problema}
 
@@ -191,7 +233,7 @@ Como podemos ver en la Figura \ref{fig:boxplotsessionsyear}, las sesiones de tra
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.60\textwidth]{boxplotallsessions.png}
+    \includegraphics[width=0.60\textwidth]{análisis/boxplots.png}
     \caption{Boxplot del número de sesiones por año.}
     \label{fig:boxplotsessionsyear}
 \end{figure}
@@ -253,7 +295,7 @@ Y2016-Y2015 & 5.44 & -323.03 & 333.92 & 1.00 \\
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\textwidth]{confidenceallsessions.png}
+    \includegraphics[width=0.80\textwidth]{análisis/confidenceallsessions.png}
     \caption{Intervalos de confianza del número de sesiones por años.}
     \label{fig:confidencenumsessions}
 \end{figure}

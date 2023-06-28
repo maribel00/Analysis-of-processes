@@ -6,7 +6,6 @@ LCV_histogram <- function (data, variable, nintervals=0, mybreaks=c(), columnlab
     dorder<-data[[orderby]]
     dvariable <- data[[variable]]
   }else {
-    dorder<-dvariable
     dvariable <- data[[variable]]
   }
   if (force_factor) {
