@@ -38,3 +38,6 @@ nrow(data) # 74
 
 LCV_ListOutliers(data,"Grade","all")
 # Outliers: 
+
+summary(data$ns)
+summary(data$Grade)

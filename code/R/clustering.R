@@ -8,10 +8,10 @@ source("LCV_Bayes.R")
 source("LCV_Clustering.R")
 source("SIIE2023.R")
 
-data <- read.delim2("SIIE23.tsv")
-head(data)
-data$QuartileGrade <- as.character(data$QuartileGrade)
 data <- doLoadData()
+data <- data[data$s < 1000,]
+data <- data[data$p > 6,]
+data$QuartileGrade <- as.character(data$QuartileGrade)
 
 # Por clusters fijos de notas
 LCV_Orange_Theme()
@@ -36,6 +36,6 @@ LCV_ClusterColumn(data, "Grade")
 LCV_ClusterColumn(data, "Grade", nc = 2)
 # Partition:  6.99 8.79  Accuracy fit$betweenss/fit$totss=  0.6978412
 LCV_ClusterColumn(data, "Grade", nc = 3)
-# Partition:  6.99 8.1 9.12  Accuracy fit$betweenss/fit$totss=  0.8552877
+# Partition:  6.99 8.4 9.35  Accuracy fit$betweenss/fit$totss=  0.8585982
 LCV_ClusterColumn(data, "Grade", nc = 5)
 # Partition:  6.46 7.34 8.1 8.79 9.44  Accuracy fit$betweenss/fit$totss=  0.9474439
