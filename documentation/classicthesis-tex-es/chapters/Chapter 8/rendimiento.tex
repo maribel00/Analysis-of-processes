@@ -1,4 +1,4 @@
-\chapter{Rendimiento observado de los alumnos}
+\chapter{Rendimiento observado de los alumnos}\label{chapter:rendimiento}
 \addcontentsline{toc}{chapter}{Rendimiento observado de los alumnos}
 
 \section{Calificaciones obtenidas (Grade)}
@@ -108,7 +108,101 @@ Y2016-Y2015 & 0.18 & -0.87 & 1.22 & 1.00 \\
     \label{fig:confidenceachiever}
 \end{figure}
 
-\section{Número de sesiones realiazadas (Perseverant)}
+\section{Número total de problemas resueltos (p)}
+
+Podemos observar que ha habido variaciones perceptibles durante los distintos años, con un caso especial en 2018 en el que hubo muchos grupos que no resolvieron todos los problemas (Figura \ref{fig:boxplotperformer}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{rendimiento/boxplotp.png}
+    \caption{Boxplot del número de problemas resueltos por año.}
+    \label{fig:boxplotperformer}
+\end{figure}
+
+Sin embargo, las diferencias entre las medias no son estadísticamente significativas (considerando un nivel de significancia de $0.05$) tal y como puede verse en la Tabla \ref{tab:ANOVAperformer}. Además, si consideramos el test estadístico de Kruskal-Wallis llegamos a la misma conclusión ($p-value = 0.365 > 0.05$). Así pues, se concluye que el número de problemas resueltos por años son uniformes (cualquier variación es debida al azar).
+
+Además, realizando un test de Tukey por pares de años (Tabla \ref{tab:Tukeyperformer}) se observa que todos los pares pueden considerarse estadísticamente iguales. La Figura \ref{fig:confidenceperformer} muestra los intervalos de confianza de todas las diferencias entre las distintas parejas de años.
+
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Tue Jun  6 20:27:28 2023
+\begin{table}[H]
+\centering
+\caption{Resultados del test ANOVA de un solo factor (número de problemas resueltos).}
+\label{tab:ANOVAperformer}
+\begin{tabular}{lrrrrr}
+  \hline
+ & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
+  \hline
+rdataset[[Variable]] & 6 & 2.91 & 0.48 & 1.27 & 0.2835 \\ 
+  Residuals            & 67 & 25.58 & 0.38 &  &  \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Tue Jun  6 20:27:48 2023
+\begin{table}[ht]
+\centering
+\caption{Test HSD de Tukey (Honestly-significance-difference) del número de problemas resueltos por año.}
+\label{tab:Tukeyperformer}
+\begin{tabular}{rrrrr}
+  \hline
+ & diff & lwr & upr & p adj \\ 
+  \hline
+Y2016-Y2015 & 0.22 & -0.66 & 1.11 & 0.99 \\ 
+  Y2017-Y2015 & 0.22 & -0.77 & 1.21 & 0.99 \\ 
+  Y2018-Y2015 & -0.04 & -0.91 & 0.82 & 1.00 \\ 
+  Y2019-Y2015 & 0.28 & -0.56 & 1.13 & 0.95 \\ 
+  Y2020-Y2015 & -0.29 & -1.11 & 0.52 & 0.93 \\ 
+  Y2021-Y2015 & 0.18 & -0.60 & 0.96 & 0.99 \\ 
+  Y2017-Y2016 & 0.00 & -0.99 & 0.99 & 1.00 \\ 
+  Y2018-Y2016 & -0.27 & -1.13 & 0.60 & 0.96 \\ 
+  Y2019-Y2016 & 0.06 & -0.78 & 0.90 & 1.00 \\ 
+  Y2020-Y2016 & -0.51 & -1.33 & 0.30 & 0.48 \\ 
+  Y2021-Y2016 & -0.04 & -0.82 & 0.74 & 1.00 \\ 
+  Y2018-Y2017 & -0.27 & -1.24 & 0.70 & 0.98 \\ 
+  Y2019-Y2017 & 0.06 & -0.89 & 1.01 & 1.00 \\ 
+  Y2020-Y2017 & -0.51 & -1.44 & 0.41 & 0.63 \\ 
+  Y2021-Y2017 & -0.04 & -0.94 & 0.86 & 1.00 \\ 
+  Y2019-Y2018 & 0.33 & -0.49 & 1.15 & 0.89 \\ 
+  Y2020-Y2018 & -0.25 & -1.04 & 0.54 & 0.96 \\ 
+  Y2021-Y2018 & 0.22 & -0.53 & 0.98 & 0.97 \\ 
+  Y2020-Y2019 & -0.57 & -1.34 & 0.20 & 0.28 \\ 
+  Y2021-Y2019 & -0.10 & -0.84 & 0.63 & 1.00 \\ 
+  Y2021-Y2020 & 0.47 & -0.23 & 1.17 & 0.40 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\textwidth]{rendimiento/confidencep.png}
+    \caption{Intervalos de confianza del número de problemas resueltos por año.}
+    \label{fig:confidenceperformer}
+\end{figure}
+
+Por último, podemos concluir que la variable número de problemas resueltos por año (\emph{p}) no es muy normal en tanto que varía muy poco y es discreta (Figuras \ref{fig:countp} y \ref{fig:densityp}).
+
+\begin{figure}[H]
+\centering
+\subfloat[Número de grupos que han resuelto una determinada cantidad de problemas.]{\label{fig:countp}\includegraphics[width=0.47\textwidth]{rendimiento/countp.png}}\qquad
+\subfloat[Función de densidad de probabilidad del número de problemas resueltos.]{\label{fig:densityp}\includegraphics[width=0.47\textwidth]{rendimiento/densityp.png}}
+\caption{Distribución del número de problemas resueltos por cada grupo de alumnos.}
+\label{fig:normalityp}
+\end{figure}
+
+\section{Finalizar la práctica (ft)}
+
+Como vemos en la Figura \ref{fig:densityplotft}, el punto de finalización de la práctica normalizado tiende a estar cerca del final de la misma.
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{rendimiento/densityft.png}
+    \caption{Función de densidad de probabilidad del momento en el que los distintos grupos de prácticas finalizan la práctica.}
+    \label{fig:densityplotft}
+\end{figure}
+
+\section{Número de sesiones realiazadas (s)}
 
 El número de sesiones realizadas por los diferentes grupos de prácticas se ha analizado con anterioridad. En la subsección \ref{sec:NormalityNumSessions} vimos que seguía una distribución casi-normal. Además, vimos que el número de sesiones sigue la misma distribución de probabilidad en cada uno de los cursos académicos considerados (subsección \ref{sec:ANOVANumSessions}).
 
@@ -221,13 +315,13 @@ Este hábito es más frecuente de lo que parece y mantiene mucha variación en c
 
 \textbf{Falta gráfica.}
 
-\section{Abrir un problema por primera vez (Newcomer)}
+\section{Abrir un problema por primera vez (ot)}
 
 Momento exacto en el que se consigue abrir cada problema por primera vez en el servidor, normalizado para poder compararlo (normalizado porque la duración de la práctica no es la misma todos los años). Como podemos ver en su función de densidad (Figura \ref{fig:densityplotnewcomer}), se aproxima a una distribución normal, un poco ladeada hacia la derecha. Esto puede deberse a que los distintos equipos tienen a abrir los problemas cuando se va aproximando la fecha de entrega de la práctica.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.70\textwidth]{densitynewcomer.png}
+    \includegraphics[width=0.70\textwidth]{rendimiento/densityot.png}
     \caption{Función de densidad de probabilidad del momento en el que los distintos grupos de prácticas abren por primera vez un problema.}
     \label{fig:densityplotnewcomer}
 \end{figure}
@@ -236,17 +330,17 @@ En las Figuras \ref{fig:boxplotresidualsnewcomer} y \ref{fig:histogramresidualsn
 
 \begin{figure}[H]
 \centering
-\subfloat[Boxplot de los residuos del número de intentos.]{\label{fig:boxplotresidualsnewcomer}\includegraphics[width=0.47\textwidth]{NormalityNewcomer3.png}}\qquad
-\subfloat[Histograma de los residuos del momento en el que se abren los problemas por primera vez.]{\label{fig:histogramresidualsnewcomer}\includegraphics[width=0.47\textwidth]{NormalityNewcomer4.png}}
+\subfloat[Boxplot de los residuos del número de intentos.]{\label{fig:boxplotresidualsnewcomer}\includegraphics[width=0.47\textwidth]{rendimiento/residualsot.png}}\qquad
+\subfloat[Histograma de los residuos del momento en el que se abren los problemas por primera vez.]{\label{fig:histogramresidualsnewcomer}\includegraphics[width=0.47\textwidth]{rendimiento/histogramot.png}}
 \caption{Distribución de los residuos del momento en el que se abren los problemas por primera vez.}
 \label{fig:newcomer}
 \end{figure}
 
-Si realizamos una segmentación por años, podemos ver que la media de esta medida de rendimiento puede variar según el año que estemos considerando (Figura \ref{fig:boxplotnewcomer}). El Test ANOVA de un sólo factor ha confirma lo observado (se ha obtenido $p = 0.0024 < 0.05$ como puede verse en la Tabla \ref{tab:ANOVAnewcomer}).
+Si realizamos una segmentación por años, podemos ver que la media de esta medida de rendimiento puede variar según el año que estemos considerando (Figura \ref{fig:boxplotnewcomer}). El Test ANOVA de un sólo factor ha confirma lo observado (se ha obtenido $p = 4.05e-06 < 0.05$ como puede verse en la Tabla \ref{tab:ANOVAnewcomer}). Igualmente, el test de Kruskal-Wallis coincide con lo anteriormente visto ($p-value = 4.633e-05 < 0.05$).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{boxplotnewcomer.png}
+    \includegraphics[width=0.6\textwidth]{rendimiento/boxplotot.png}
     \caption{Boxplot del número del momento en el que se abre un problema por primera vez por años.}
     \label{fig:boxplotnewcomer}
 \end{figure}
@@ -261,8 +355,8 @@ Si realizamos una segmentación por años, podemos ver que la media de esta medi
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-rdataset[[Variable]] & 6 & 0.71 & 0.12 & 3.82 & 0.0024 \\ 
-  Residuals            & 69 & 2.12 & 0.03 &  &  \\ 
+rdataset[[Variable]] & 6 & 0.93 & 0.15 & 7.43 & 4.05e-06 \\ 
+  Residuals            & 67 & 1.40 & 0.02 &  &  \\ 
    \hline
 \end{tabular}
 \end{table}
@@ -279,46 +373,71 @@ Tras realizar el Test de Tukey por pares se ha visto que claramente hay años co
   \hline
  & diff & lwr & upr & p adj \\ 
   \hline
-Y2016-Y2015 & 0.05 & -0.21 & 0.30 & 1.00 \\ 
-  Y2017-Y2015 & 0.03 & -0.24 & 0.29 & 1.00 \\ 
-  Y2018-Y2015 & -0.25 & -0.49 & -0.01 & 0.03 \\ 
-  Y2019-Y2015 & -0.17 & -0.41 & 0.07 & 0.30 \\ 
-  Y2020-Y2015 & -0.07 & -0.30 & 0.16 & 0.97 \\ 
-  Y2021-Y2015 & -0.08 & -0.31 & 0.14 & 0.91 \\ 
-  Y2017-Y2016 & -0.02 & -0.29 & 0.25 & 1.00 \\ 
-  Y2018-Y2016 & -0.30 & -0.54 & -0.06 & 0.01 \\ 
-  Y2019-Y2016 & -0.22 & -0.46 & 0.02 & 0.09 \\ 
-  Y2020-Y2016 & -0.11 & -0.35 & 0.12 & 0.74 \\ 
-  Y2021-Y2016 & -0.13 & -0.35 & 0.09 & 0.56 \\ 
-  Y2018-Y2017 & -0.28 & -0.54 & -0.02 & 0.03 \\ 
-  Y2019-Y2017 & -0.20 & -0.46 & 0.06 & 0.24 \\ 
-  Y2020-Y2017 & -0.09 & -0.34 & 0.16 & 0.91 \\ 
-  Y2021-Y2017 & -0.11 & -0.35 & 0.13 & 0.81 \\ 
-  Y2019-Y2018 & 0.08 & -0.15 & 0.31 & 0.94 \\ 
-  Y2020-Y2018 & 0.18 & -0.03 & 0.40 & 0.16 \\ 
-  Y2021-Y2018 & 0.17 & -0.04 & 0.38 & 0.19 \\ 
-  Y2020-Y2019 & 0.10 & -0.11 & 0.32 & 0.77 \\ 
-  Y2021-Y2019 & 0.09 & -0.12 & 0.30 & 0.85 \\ 
-  Y2021-Y2020 & -0.02 & -0.21 & 0.18 & 1.00 \\ 
+Y2016-Y2015 & -0.02 & -0.23 & 0.18 & 1.00 \\ 
+  Y2017-Y2015 & 0.05 & -0.18 & 0.29 & 0.99 \\ 
+  Y2018-Y2015 & -0.26 & -0.46 & -0.06 & 0.00 \\ 
+  Y2019-Y2015 & -0.15 & -0.35 & 0.04 & 0.22 \\ 
+  Y2020-Y2015 & 0.09 & -0.10 & 0.28 & 0.74 \\ 
+  Y2021-Y2015 & -0.02 & -0.20 & 0.17 & 1.00 \\ 
+  Y2017-Y2016 & 0.08 & -0.15 & 0.31 & 0.94 \\ 
+  Y2018-Y2016 & -0.23 & -0.44 & -0.03 & 0.01 \\ 
+  Y2019-Y2016 & -0.13 & -0.33 & 0.07 & 0.42 \\ 
+  Y2020-Y2016 & 0.12 & -0.07 & 0.31 & 0.50 \\ 
+  Y2021-Y2016 & 0.01 & -0.18 & 0.19 & 1.00 \\ 
+  Y2018-Y2017 & -0.31 & -0.54 & -0.09 & 0.00 \\ 
+  Y2019-Y2017 & -0.21 & -0.43 & 0.01 & 0.08 \\ 
+  Y2020-Y2017 & 0.04 & -0.18 & 0.26 & 1.00 \\ 
+  Y2021-Y2017 & -0.07 & -0.28 & 0.14 & 0.94 \\ 
+  Y2019-Y2018 & 0.10 & -0.09 & 0.29 & 0.66 \\ 
+  Y2020-Y2018 & 0.35 & 0.17 & 0.54 & 0.00 \\ 
+  Y2021-Y2018 & 0.24 & 0.06 & 0.42 & 0.00 \\ 
+  Y2020-Y2019 & 0.25 & 0.07 & 0.43 & 0.00 \\ 
+  Y2021-Y2019 & 0.14 & -0.04 & 0.31 & 0.21 \\ 
+  Y2021-Y2020 & -0.11 & -0.28 & 0.05 & 0.38 \\ 
    \hline
 \end{tabular}
 \end{table}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\textwidth]{confidencenewcomer.png}
+    \includegraphics[width=0.80\textwidth]{rendimiento/confidenceot.png}
     \caption{Intervalos de confianza del momento en el que se abre un problema por años.}
     \label{fig:confidencenewcomer}
 \end{figure}
 
+\section{Tasa de fallo (fr)}
 
-\section{Resolver un problema por primera vez (EarlyBird)}
+Se ha estudiado con anterioridad en la sección .
+
+\section{Tiempo empelado en la resolución de un problema por primera vez (rt)}
+
+Como podemos ver en la Figura \ref{fig:densityplotrt}, los grupos suelen emplear poco tiempo en resolver un problema por primera vez.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{rendimiento/densityrt.png}
+    \caption{Función de densidad de probabilidad del tiempo que los distintos grupos de prácticas dedican a la resolución de problemas por primera vez.}
+    \label{fig:densityplotrt}
+\end{figure}
+
+\section{Exploración de nuevas vías y mejoras (ps)}
+
+Curiosamente, algunos grupos siguen trabajando en un problema que ya han resuelto (Figura \ref{fig:densityplotps}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{rendimiento/densityps.png}
+    \caption{Función de densidad de probabilidad del tiempo que los distintos grupos de prácticas emplean en un problema tras su resolución.}
+    \label{fig:densityplotps}
+\end{figure}
+
+\section{Resolver un problema por primera vez (st)}
 
 Momento exacto en el que se consigue resolver cada problema por primera vez, normalizado para poder compararlo (porque la duración de la práctica no es la misma todos los años). Como podemos ver en la Figura \ref{fig:densityplotearlybird}, sigue una distribución casi normal, ladeada hacia la derecha ya que los distintos grupos tienden a resolver los problemas por primera vez al final de la práctica.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.70\textwidth]{densityearlybird.png}
+    \includegraphics[width=0.70\textwidth]{rendimiento/densityst.png}
     \caption{Función de densidad de probabilidad del momento en el que los distintos grupos de prácticas resuelven por primera vez un problema.}
     \label{fig:densityplotearlybird}
 \end{figure}
@@ -327,17 +446,17 @@ Sin embargo, podemos observar la presencia de algunos outliers (Figuras \ref{fig
 
 \begin{figure}[H]
 \centering
-\subfloat[Boxplot de los residuos del número de intentos.]{\label{fig:boxplotresidualsearlybird}\includegraphics[width=0.47\textwidth]{NormalityEarlyBird3.png}}\qquad
-\subfloat[Histograma de los residuos del momento en el que se resuelven los problemas por primera vez.]{\label{fig:histogramresidualsearlybird}\includegraphics[width=0.47\textwidth]{NormalityEarlyBird4.png}}
+\subfloat[Boxplot de los residuos del número de intentos.]{\label{fig:boxplotresidualsearlybird}\includegraphics[width=0.47\textwidth]{rendimiento/residualsst.png}}\qquad
+\subfloat[Histograma de los residuos del momento en el que se resuelven los problemas por primera vez.]{\label{fig:histogramresidualsearlybird}\includegraphics[width=0.47\textwidth]{rendimiento/histogramst.png}}
 \caption{Distribución de los residuos del momento en el que se resuelven los problemas por primera vez.}
 \label{fig:earlybird}
 \end{figure}
 
-Si se realiza una segmentación por años, intuimos que esta medida de rendimiento no sigue la misma distribución de probabilidad todos los cursos académicos estudiados (Figura \ref{fig:boxplotearlybird}). Esto se confirma tras la realización del Test ANOVA de un solo factor (Tabla \ref{tab:ANOVAearlybird}) en el que obtenemos $p = 0.0053 < 0.05$. Además, el Test de Tukey muestra las diferencias entre los años considerados (Tabla \ref{tab:Tukeyearlybird}).
+Si se realiza una segmentación por años, intuimos que esta medida de rendimiento sigue la misma distribución de probabilidad todos los cursos académicos estudiados (Figura \ref{fig:boxplotearlybird}). Esto se confirma tras la realización del Test ANOVA de un solo factor (Tabla \ref{tab:ANOVAearlybird}) en el que obtenemos $p = 0.1387 > 0.05$. Realizando el Test de Kruskal-Wallis llegamos a la misma conclusión ($p-value = 0.2627$). Además, el Test de Tukey muestra que no hay diferencias entre los años considerados (Tabla \ref{tab:Tukeyearlybird}).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{boxplotearlybird.png}
+    \includegraphics[width=0.6\textwidth]{rendimiento/boxplotst.png}
     \caption{Boxplot del momento en el que se resuelve un problema por primera vez por años.}
     \label{fig:boxplotearlybird}
 \end{figure}
@@ -352,8 +471,8 @@ Si se realiza una segmentación por años, intuimos que esta medida de rendimien
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-rdataset[[Variable]] & 6 & 0.50 & 0.08 & 3.40 & 0.0053 \\ 
-  Residuals            & 69 & 1.70 & 0.02 &  &  \\ 
+rdataset[[Variable]] & 6 & 0.22 & 0.04 & 1.68 & 0.1387 \\ 
+  Residuals            & 67 & 1.46 & 0.02 &  &  \\ 
    \hline
 \end{tabular}
 \end{table}
@@ -368,27 +487,27 @@ rdataset[[Variable]] & 6 & 0.50 & 0.08 & 3.40 & 0.0053 \\
   \hline
  & diff & lwr & upr & p adj \\ 
   \hline
-Y2016-Y2015 & 0.04 & -0.19 & 0.26 & 1.00 \\ 
-  Y2017-Y2015 & 0.03 & -0.21 & 0.27 & 1.00 \\ 
-  Y2018-Y2015 & -0.13 & -0.35 & 0.08 & 0.51 \\ 
-  Y2019-Y2015 & -0.12 & -0.33 & 0.10 & 0.65 \\ 
-  Y2020-Y2015 & -0.18 & -0.39 & 0.02 & 0.12 \\ 
-  Y2021-Y2015 & -0.14 & -0.34 & 0.05 & 0.31 \\ 
-  Y2017-Y2016 & -0.01 & -0.25 & 0.24 & 1.00 \\ 
-  Y2018-Y2016 & -0.17 & -0.38 & 0.05 & 0.22 \\ 
-  Y2019-Y2016 & -0.15 & -0.37 & 0.06 & 0.33 \\ 
-  Y2020-Y2016 & -0.22 & -0.43 & -0.01 & 0.03 \\ 
-  Y2021-Y2016 & -0.18 & -0.38 & 0.02 & 0.10 \\ 
-  Y2018-Y2017 & -0.16 & -0.39 & 0.07 & 0.34 \\ 
-  Y2019-Y2017 & -0.15 & -0.38 & 0.08 & 0.46 \\ 
-  Y2020-Y2017 & -0.21 & -0.44 & 0.01 & 0.07 \\ 
-  Y2021-Y2017 & -0.17 & -0.39 & 0.04 & 0.19 \\ 
-  Y2019-Y2018 & 0.02 & -0.19 & 0.22 & 1.00 \\ 
-  Y2020-Y2018 & -0.05 & -0.25 & 0.14 & 0.99 \\ 
-  Y2021-Y2018 & -0.01 & -0.20 & 0.17 & 1.00 \\ 
-  Y2020-Y2019 & -0.07 & -0.26 & 0.13 & 0.95 \\ 
-  Y2021-Y2019 & -0.03 & -0.21 & 0.16 & 1.00 \\ 
-  Y2021-Y2020 & 0.04 & -0.14 & 0.22 & 0.99 \\ 
+Y2016-Y2015 & 0.02 & -0.19 & 0.23 & 1.00 \\ 
+  Y2017-Y2015 & 0.07 & -0.17 & 0.31 & 0.97 \\ 
+  Y2018-Y2015 & -0.09 & -0.29 & 0.12 & 0.86 \\ 
+  Y2019-Y2015 & -0.11 & -0.31 & 0.10 & 0.69 \\ 
+  Y2020-Y2015 & 0.01 & -0.19 & 0.20 & 1.00 \\ 
+  Y2021-Y2015 & -0.06 & -0.25 & 0.13 & 0.95 \\ 
+  Y2017-Y2016 & 0.05 & -0.19 & 0.28 & 1.00 \\ 
+  Y2018-Y2016 & -0.11 & -0.31 & 0.10 & 0.69 \\ 
+  Y2019-Y2016 & -0.13 & -0.33 & 0.08 & 0.48 \\ 
+  Y2020-Y2016 & -0.01 & -0.21 & 0.18 & 1.00 \\ 
+  Y2021-Y2016 & -0.08 & -0.27 & 0.10 & 0.82 \\ 
+  Y2018-Y2017 & -0.16 & -0.39 & 0.08 & 0.40 \\ 
+  Y2019-Y2017 & -0.17 & -0.40 & 0.05 & 0.25 \\ 
+  Y2020-Y2017 & -0.06 & -0.28 & 0.16 & 0.98 \\ 
+  Y2021-Y2017 & -0.13 & -0.35 & 0.08 & 0.51 \\ 
+  Y2019-Y2018 & -0.02 & -0.21 & 0.18 & 1.00 \\ 
+  Y2020-Y2018 & 0.09 & -0.09 & 0.28 & 0.73 \\ 
+  Y2021-Y2018 & 0.02 & -0.16 & 0.21 & 1.00 \\ 
+  Y2020-Y2019 & 0.11 & -0.07 & 0.30 & 0.51 \\ 
+  Y2021-Y2019 & 0.04 & -0.13 & 0.22 & 0.99 \\ 
+  Y2021-Y2020 & -0.07 & -0.24 & 0.10 & 0.86 \\ 
    \hline
 \end{tabular}
 \end{table}
@@ -397,96 +516,20 @@ Por último, el análisis de los intervalos de confianza se muestra en la Figura
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\textwidth]{confidenceearlybird.png}
+    \includegraphics[width=0.80\textwidth]{rendimiento/confidencest.png}
     \caption{Intervalos de confianza del momento en el que se resuelve un problema por primera vez, por años.}
     \label{fig:confidenceearlybird}
 \end{figure}
 
-\section{Número total de problemas resueltos (p)}
+\section{Siguiendo el plan del profesor (sq)}
 
-Podemos observar que ha habido variaciones perceptibles durante los distintos años, con un caso especial en 2018 en el que hubo muchos grupos que no resolvieron todos los problemas (Figura \ref{fig:boxplotperformer}).
+Se incorpora una medida de similaridad (\emph{sq}) que cuantifica cómo se parece el patrón encontrado con respecto al patrón esperado. En un principio, el profesor espera que los problemas se resuelvan en orden de dificultad creciente (\texttt{P1} \texttt{P2} \texttt{P3} \texttt{P4} \texttt{P5} \texttt{P6} \texttt{P7} \texttt{P8} \texttt{P9}). No obstante, tras el análisis detallado de los registros almacenados, encontramos que muchos grupos optan por resolver los problemas siguiendo un orden diferente al propuesto (por ejemplo, el orden \texttt{P1} \texttt{P3} \texttt{P4} \texttt{P5} \texttt{P7} \texttt{P2} \texttt{P6} \texttt{P8} \texttt{P9}).
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{rendimiento/boxplotp.png}
-    \caption{Boxplot del número de problemas resueltos por año.}
-    \label{fig:boxplotperformer}
-\end{figure}
-
-Sin embargo, las diferencias entre las medias no son estadísticamente significativas (considerando un nivel de significancia de $0.05$) tal y como puede verse en la Tabla \ref{tab:ANOVAperformer}. Además, si consideramos el test estadístico de Kruskal-Wallis llegamos a la misma conclusión ($p-value = 0.365 > 0.05$). Así pues, se concluye que el número de problemas resueltos por años son uniformes (cualquier variación es debida al azar).
-
-Además, realizando un test de Tukey por pares de años (Tabla \ref{tab:Tukeyperformer}) se observa que todos los pares pueden considerarse estadísticamente iguales. La Figura \ref{fig:confidenceperformer} muestra los intervalos de confianza de todas las diferencias entre las distintas parejas de años.
-
-% latex table generated in R 4.3.0 by xtable 1.8-4 package
-% Tue Jun  6 20:27:28 2023
-\begin{table}[H]
-\centering
-\caption{Resultados del test ANOVA de un solo factor (número de problemas resueltos).}
-\label{tab:ANOVAperformer}
-\begin{tabular}{lrrrrr}
-  \hline
- & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
-  \hline
-rdataset[[Variable]] & 6 & 2.91 & 0.48 & 1.27 & 0.2835 \\ 
-  Residuals            & 67 & 25.58 & 0.38 &  &  \\ 
-   \hline
-\end{tabular}
-\end{table}
-
-% latex table generated in R 4.3.0 by xtable 1.8-4 package
-% Tue Jun  6 20:27:48 2023
-\begin{table}[ht]
-\centering
-\caption{Test HSD de Tukey (Honestly-significance-difference) del número de problemas resueltos por año.}
-\label{tab:Tukeyperformer}
-\begin{tabular}{rrrrr}
-  \hline
- & diff & lwr & upr & p adj \\ 
-  \hline
-Y2016-Y2015 & 0.22 & -0.66 & 1.11 & 0.99 \\ 
-  Y2017-Y2015 & 0.22 & -0.77 & 1.21 & 0.99 \\ 
-  Y2018-Y2015 & -0.04 & -0.91 & 0.82 & 1.00 \\ 
-  Y2019-Y2015 & 0.28 & -0.56 & 1.13 & 0.95 \\ 
-  Y2020-Y2015 & -0.29 & -1.11 & 0.52 & 0.93 \\ 
-  Y2021-Y2015 & 0.18 & -0.60 & 0.96 & 0.99 \\ 
-  Y2017-Y2016 & 0.00 & -0.99 & 0.99 & 1.00 \\ 
-  Y2018-Y2016 & -0.27 & -1.13 & 0.60 & 0.96 \\ 
-  Y2019-Y2016 & 0.06 & -0.78 & 0.90 & 1.00 \\ 
-  Y2020-Y2016 & -0.51 & -1.33 & 0.30 & 0.48 \\ 
-  Y2021-Y2016 & -0.04 & -0.82 & 0.74 & 1.00 \\ 
-  Y2018-Y2017 & -0.27 & -1.24 & 0.70 & 0.98 \\ 
-  Y2019-Y2017 & 0.06 & -0.89 & 1.01 & 1.00 \\ 
-  Y2020-Y2017 & -0.51 & -1.44 & 0.41 & 0.63 \\ 
-  Y2021-Y2017 & -0.04 & -0.94 & 0.86 & 1.00 \\ 
-  Y2019-Y2018 & 0.33 & -0.49 & 1.15 & 0.89 \\ 
-  Y2020-Y2018 & -0.25 & -1.04 & 0.54 & 0.96 \\ 
-  Y2021-Y2018 & 0.22 & -0.53 & 0.98 & 0.97 \\ 
-  Y2020-Y2019 & -0.57 & -1.34 & 0.20 & 0.28 \\ 
-  Y2021-Y2019 & -0.10 & -0.84 & 0.63 & 1.00 \\ 
-  Y2021-Y2020 & 0.47 & -0.23 & 1.17 & 0.40 \\ 
-   \hline
-\end{tabular}
-\end{table}
+En la Figura \ref{fig:densityplotsq} podemos ver la función de densidad de probabilidad de la medida de rendimiento que estamos considerando.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\textwidth]{rendimiento/confidencep.png}
-    \caption{Intervalos de confianza del número de problemas resueltos por año.}
-    \label{fig:confidenceperformer}
+    \includegraphics[width=0.70\textwidth]{rendimiento/densitysq.png}
+    \caption{Función de densidad de probabilidad del seguimiento del orden de resolución previsto por el profesor que realizan los diferentes grupos de prácticas.}
+    \label{fig:densityplotsq}
 \end{figure}
-
-Por último, podemos concluir que la variable número de problemas resueltos por año (\emph{p}) no es muy normal en tanto que varía muy poco y es discreta (Figuras \ref{fig:countp} y \ref{fig:densityp}).
-
-\begin{figure}[H]
-\centering
-\subfloat[Número de grupos que han resuelto una determinada cantidad de problemas.]{\label{fig:countp}\includegraphics[width=0.47\textwidth]{rendimiento/countp.png}}\qquad
-\subfloat[Función de densidad de probabilidad del número de problemas resueltos.]{\label{fig:densityp}\includegraphics[width=0.47\textwidth]{rendimiento/densityp.png}}
-\caption{Distribución del número de problemas resueltos por cada grupo de alumnos.}
-\label{fig:normalityp}
-\end{figure}
-
-\section{Siguiendo el plan del profesor (Follower)}
-
-Se incorpora una medida de similaridad Follower en [0,1] que cuantifica cómo se parece el patrón encontrado con respecto al patrón esperado. \textbf{Falta footnote.}
-
-\textbf{Falta tabla.}

@@ -181,7 +181,14 @@ A continuación, en las Figuras \ref{fig:densitysessions} y \ref{fig:q-qsessions
     \label{fig:q-qsessions}
 \end{figure}
 
-Además, podemos ver en la Figura \ref{fig:outlierss} que hay algunos outliers ($867$, $883$, $1421$ y $1111$) considerando la distribución del número total de sesiones por grupo de alumnos. Segmentando por años, obtenemos los boxplots que se muestran en la Figura \ref{fig:boxplotsessionsyear}. Así pues, eliminaremos aquellos registros que sean outliers en todos los años. Tras realizar la acción anterior, obtenemos la distribución del número de sesiones que se muestra en la Figura \ref{fig:outlierss2}.
+Además, podemos ver en la Figura \ref{fig:outlierss} que hay algunos outliers ($867$, $883$, $1421$ y $1111$) considerando la distribución del número total de sesiones por grupo de alumnos. Segmentando por años, obtenemos los boxplots que se muestran en la Figura \ref{fig:boxplotsessionsyearinitial}. Así pues, eliminaremos aquellos registros que sean outliers en todos los años. Tras realizar la acción anterior, obtenemos la distribución del número de sesiones que se muestra en la Figura \ref{fig:outlierss2}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.60\textwidth]{análisis/boxplotinitials.png}
+    \caption{Boxplot del número de sesiones por año inicialmente.}
+    \label{fig:boxplotsessionsyearinitial}
+\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -214,7 +221,16 @@ Examinamos ahora los bloques significativos entre ellos agrupando los datos en o
 \label{fig:KMeans8details}
 \end{figure}
 
-Nótese que como hemos una obtenido una precisión del $0.9802671\% > 95\%$, no eliminaremos más outliers.
+Nótese que como hemos una obtenido una precisión del $0.9795579\% > 95\%$, no eliminaremos más outliers.
+
+Así pues, tras la eliminación de los outliers correspondientes tanto al número de sesiones como al número de problemas resueltos como veremos en la subsección \ref{sec:NumProblems} (podemos ver la nueva función de densidad en la Figura \ref{fig:normalitys}) se procede a aplicar el test de normalidad de Shapiro-Wilk. Como se obtiene $p-value = 0.003307 < 0.05$, podemos decir que estadísticamente no sigue una distribución normal. No obstante, teniendo en cuenta que el tamaño de la muestra es relativamente pequeño (tenemos un total de $77$ grupos de prácticas), podemos considerar que se trata de una distribución normal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{análisis/normalitys.png}
+    \caption{Función de densidad de probabilidad del número de sesiones tras eliminar algunos outliers.}
+    \label{fig:normalitys}
+\end{figure}
 
 \subsection{Sesiones por cada problema}
 
@@ -233,12 +249,12 @@ Como podemos ver en la Figura \ref{fig:boxplotsessionsyear}, las sesiones de tra
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.60\textwidth]{análisis/boxplots.png}
-    \caption{Boxplot del número de sesiones por año.}
+    \includegraphics[width=0.60\textwidth]{análisis/boxplotfinals.png}
+    \caption{Boxplot del número de sesiones por año tras la eliminación de algunos outliers.}
     \label{fig:boxplotsessionsyear}
 \end{figure}
 
-Un resumen de los resultados obtenidos al realizar el test ANOVA se muestra en la Tabla \ref{tab:ANOVAnumsessions}. La hipótesis nula establece que el número de sesiones medio de los siete cursos académicos estudiados es el mismo. Así pues, estableciendo un nivel de significancia de $0.05$, como tenemos que $p = 0.0630 > 0.05$, las diferencias entre las medias no son estadísticamente significativas.
+Un resumen de los resultados obtenidos al realizar el test ANOVA se muestra en la Tabla \ref{tab:ANOVAnumsessions}. La hipótesis nula establece que el número de sesiones medio de los siete cursos académicos estudiados es el mismo. Así pues, estableciendo un nivel de significancia de $0.05$, como tenemos que $p = 0.0412 < 0.05$, las diferencias entre las medias podrían ser estadísticamente significativas. Aplicando el test de Kruskal-Wallis, obtenemos un $p-value$ igual a $0.08798 > 0.05$.
 
 % latex table generated in R 4.3.0 by xtable 1.8-4 package
 % Sat May 27 18:26:28 2023
@@ -250,13 +266,15 @@ Un resumen de los resultados obtenidos al realizar el test ANOVA se muestra en l
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-ndsp[[nVariable]] & 6 & 666498.27 & 111083.05 & 2.11 & 0.0630 \\ 
-  Residuals         & 70 & 3688035.44 & 52686.22 &  &  \\ 
+ndsp[[nVariable]] & 6 & 460434.32 & 76739.05 & 2.34 & 0.0412 \\ 
+  Residuals         & 67 & 2197451.96 & 32797.79 &  &  \\ 
    \hline
 \end{tabular}
 \end{table}
 
-Además, se ha realizado un test de Tukey por pares de años (Tabla \ref{tab:Tukeynumsessions}). En él se observa que todos los pares pueden considerarse estadísticamente iguales ($\text{p adj} > 0.2$ en todos ellos). La Figura \ref{fig:confidencenumsessions} muestra los intervalos de confianza de todas las diferencias entre las distintas parejas de años.
+Además, se ha realizado un test de Tukey por pares de años (Tabla \ref{tab:Tukeynumsessions}). En él se observa que todos los pares pueden considerarse estadísticamente iguales ($\text{p adj} > 0.1$ en todos ellos). Así pues, podemos concluir que el número de sesiones abiertas en el servidor sigue la misma distribución de probabilidad año tras año.
+
+La Figura \ref{fig:confidencenumsessions} muestra los intervalos de confianza de todas las diferencias entre las distintas parejas de años. Así pues, consideraremos que el número de sesiones de cada grupo por año es equivalente (las variaciones son debidas al azar). Esto es importante porque indica que el comportamiento más basico de los alumnos, que viene dado por cuantas veces se conectan, es el mismo año tras año.
 
 % latex table generated in R 4.3.0 by xtable 1.8-4 package
 % Sat May 27 18:26:44 2023
@@ -268,34 +286,61 @@ Además, se ha realizado un test de Tukey por pares de años (Tabla \ref{tab:Tuk
   \hline
  & diff & lwr & upr & p adj \\ 
   \hline
-Y2016-Y2015 & 5.44 & -323.03 & 333.92 & 1.00 \\ 
-  Y2017-Y2015 & 24.22 & -326.93 & 375.38 & 1.00 \\ 
-  Y2018-Y2015 & -243.23 & -556.42 & 69.96 & 0.23 \\ 
-  Y2019-Y2015 & -69.11 & -376.37 & 238.15 & 0.99 \\ 
-  Y2020-Y2015 & -198.78 & -500.93 & 103.38 & 0.43 \\ 
-  Y2021-Y2015 & -116.72 & -407.05 & 173.62 & 0.88 \\ 
-  Y2017-Y2016 & 18.78 & -332.38 & 369.93 & 1.00 \\ 
-  Y2018-Y2016 & -248.68 & -561.87 & 64.51 & 0.21 \\ 
-  Y2019-Y2016 & -74.56 & -381.82 & 232.71 & 0.99 \\ 
-  Y2020-Y2016 & -204.22 & -506.38 & 97.93 & 0.39 \\ 
-  Y2021-Y2016 & -122.16 & -412.49 & 168.18 & 0.86 \\ 
-  Y2018-Y2017 & -267.45 & -604.35 & 69.45 & 0.21 \\ 
-  Y2019-Y2017 & -93.33 & -424.73 & 238.06 & 0.98 \\ 
-  Y2020-Y2017 & -223.00 & -549.67 & 103.67 & 0.38 \\ 
-  Y2021-Y2017 & -140.94 & -456.70 & 174.83 & 0.82 \\ 
-  Y2019-Y2018 & 174.12 & -116.74 & 464.98 & 0.54 \\ 
-  Y2020-Y2018 & 44.45 & -241.01 & 329.92 & 1.00 \\ 
-  Y2021-Y2018 & 126.52 & -146.40 & 399.44 & 0.80 \\ 
-  Y2020-Y2019 & -129.67 & -408.61 & 149.28 & 0.79 \\ 
-  Y2021-Y2019 & -47.60 & -313.70 & 218.49 & 1.00 \\ 
-  Y2021-Y2020 & 82.06 & -178.12 & 342.24 & 0.96 \\ 
+Y2016-Y2015 & 5.44 & -254.06 & 264.95 & 1.00 \\ 
+  Y2017-Y2015 & -125.44 & -415.58 & 164.69 & 0.84 \\ 
+  Y2018-Y2015 & -223.38 & -476.31 & 29.56 & 0.12 \\ 
+  Y2019-Y2015 & -131.05 & -378.48 & 116.38 & 0.68 \\ 
+  Y2020-Y2015 & -198.78 & -437.49 & 39.93 & 0.16 \\ 
+  Y2021-Y2015 & -116.72 & -346.09 & 112.66 & 0.72 \\ 
+  Y2017-Y2016 & -130.89 & -421.03 & 159.25 & 0.81 \\ 
+  Y2018-Y2016 & -228.82 & -481.76 & 24.11 & 0.10 \\ 
+  Y2019-Y2016 & -136.49 & -383.92 & 110.93 & 0.63 \\ 
+  Y2020-Y2016 & -204.22 & -442.93 & 34.49 & 0.14 \\ 
+  Y2021-Y2016 & -122.16 & -351.53 & 107.21 & 0.67 \\ 
+  Y2018-Y2017 & -97.93 & -382.21 & 186.34 & 0.94 \\ 
+  Y2019-Y2017 & -5.61 & -284.99 & 273.78 & 1.00 \\ 
+  Y2020-Y2017 & -73.33 & -345.03 & 198.36 & 0.98 \\ 
+  Y2021-Y2017 & 8.73 & -254.80 & 272.26 & 1.00 \\ 
+  Y2019-Y2018 & 92.33 & -148.20 & 332.86 & 0.90 \\ 
+  Y2020-Y2018 & 24.60 & -206.95 & 256.15 & 1.00 \\ 
+  Y2021-Y2018 & 106.66 & -115.25 & 328.57 & 0.77 \\ 
+  Y2020-Y2019 & -67.73 & -293.25 & 157.80 & 0.97 \\ 
+  Y2021-Y2019 & 14.34 & -201.28 & 229.95 & 1.00 \\ 
+  Y2021-Y2020 & 82.06 & -123.49 & 287.61 & 0.89 \\ 
    \hline
 \end{tabular}
 \end{table}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\textwidth]{análisis/confidenceallsessions.png}
+    \includegraphics[width=0.80\textwidth]{análisis/confidences.png}
     \caption{Intervalos de confianza del número de sesiones por años.}
     \label{fig:confidencenumsessions}
+\end{figure}
+
+\subsection{Análisis de la distribución del número de problemas resueltos}\label{sec:NumProblems}
+
+Además, a partir de los registros almacenados en el servidor se calcularán el número de problemas resueltos por cada grupo de prácticas. Como se puede intuir, se tratará de una variable discreta. En la Figura \ref{fig:initialp} podemos ver que el número de problemas resueltos oscila entre $6$ y $9$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{rendimiento/initialp.png}
+    \caption{Distribución del número de problemas resueltos.}
+    \label{fig:initialp}
+\end{figure}
+
+Además, podemos ver en la Figura \ref{fig:outliersp} que hay un elemento extremo ($6$) considerando la distribución del número de problemas resueltos por grupo de alumnos. Segmentando por años, obtenemos los boxplots que se muestran en la Figura \ref{fig:boxplotproblemsyear}. Así pues, eliminaremos el outlier encontrado puesto que se trata de un valor extremo en todos los años incluidos en este estudio.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.60\textwidth]{análisis/outliersp.png}
+    \caption{Distribución del número de problemas resueltos inicial.}
+    \label{fig:outliersp}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.60\textwidth]{análisis/boxplotinitialp.png}
+    \caption{Boxplot del número de problemas resueltos por año.}
+    \label{fig:boxplotproblemsyear}
 \end{figure}

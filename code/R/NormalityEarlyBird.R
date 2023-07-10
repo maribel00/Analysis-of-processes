@@ -2,14 +2,18 @@ library(readr)
 library(xtable)
 library('ggpubr')
 
+setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
+
 source("LCV_Theme.R")
 source("LCV_Bayes.R")
 source("LCV_plotting.R")
 source("LCV_Hipothesis_Tests.R")
+source("SIIE2023.R")
 
-rdataset<-read.csv(file = "DBA1521.tsv", sep = "\t", dec = ",")
-rdataset <- rdataset[(rdataset$DAG <=2),c(3,7:12,16,19,25,30:31,33:34,52,71)]
-colnames(rdataset) <- c("Achiever","Year","DAG","Perseverant","SessionsBefore","SessionsAfter","SolvedSessions","Newcomer","EarlyBird","Performer","RWSP","MAN","SIM","MDN","FDegree9","FLAP9")
+rdataset <- doLoadData()
+rdataset <- rdataset[rdataset$s < 1000,]
+rdataset <- rdataset[rdataset$p > 6,]
+nrow(rdataset)
 head(rdataset)
 
 boxplot <- boxplot(EarlyBird~Year,rdataset)
@@ -17,7 +21,7 @@ plot <- ggplot(data=rdataset,mapping=aes(x=Year,y=EarlyBird))+geom_boxplot(fill 
 plot
 
 Variable <- "Year"
-Value <- "EarlyBird"
+Value <- "st"
 rdataset.lm <- lm(rdataset[[Value]]~rdataset[[Variable]], rdataset)
 rdataset.aov <- aov(rdataset.lm)
 summary <- summary(rdataset.aov)
@@ -42,3 +46,10 @@ ggqqplot(rdataset[[Value]], xlab =Value)
 
 LCV_Tomato_Theme()
 LCV_confidence_intervals(rdataset, Variable, Value)
+
+LCV_ANOVA(rdataset, "Year", "st")
+# Kruskal-Wallis rank sum test
+
+# data:  dataset.melt[[Avalue]] by dataset.melt[[Avariable]]
+# Kruskal-Wallis chi-squared = 7.6781, df = 6, p-value =
+#  0.2627

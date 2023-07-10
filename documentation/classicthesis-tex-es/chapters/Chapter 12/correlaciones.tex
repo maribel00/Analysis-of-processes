@@ -1,0 +1,31 @@
+\chapter{Análisis de las correlaciones entre las distintas métricas}\label{chapter:correlations}
+\addcontentsline{toc}{chapter}{Análisis de las correlaciones entre las distintas métricas}
+
+En primer, las correlaciones que más nos interesan son las de las distintas métricas con la variable \emph{Grade}. En la Figura \ref{fig:correlations} podemos ver que no todas las métricas correlan con la misma.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{correlations.png}
+    \caption{Correlaciones existentes entre las distintas métricas y la variable \emph{Grade}.}
+    \label{fig:correlations}
+\end{figure}
+
+Así pues, vemos que las variables \emph{np} ($p = 0.0127 < 0.05$), \emph{fr} ($p = 0.0378 < 0.05$),    \emph{ps} ($p = 0.0031 < 0.05$) y \emph{sq} ($p = 0.0226 < 0.05$) correlan con la calificación obtenida y que la variable \emph{ns} podría correlar con la variable \emph{Grade} aunque con un grado de certeza menor que el resto ($p = 0.0712 < 0.1$).
+
+También estudiaremos las correlaciones entre las medidas basadas en el análisis espectral de grafos y la variable \emph{Grade}. Empezaremos estudiando la correlación entre la medida \emph{LOGLAP09} anteriormente presentada y la calificación obtenida por los distintos grupos de prácticas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.60\textwidth]{correlaciones/outliersLOGLAP09.png}
+    \caption{Distribución de los coeficientes \emph{LOGLAP09} obtenidos por los distintos grupos de alumnos inicial.}
+    \label{fig:outliersLOGLAP09}
+\end{figure}
+
+En primer lugar, observamos la presencia de outliers en la distribución de la msima (Figura \ref{fig:outliersLOGLAP09}). Tras la eliminación de los mismos, podemos ver en la Figura  \ref{fig:correlationLOGLAP09} que la medida de rendimiento espectral \emph{LOGLAP09} no correla con la variable \emph{Grade} ($p = 0.5698 > 0.05$).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{correlaciones/correlationLOGLAP09.png}
+    \caption{Correlación existente entre la métrica \emph{LOGLAP09} y la variable \emph{Grade}.}
+    \label{fig:correlationLOGLAP09}
+\end{figure}

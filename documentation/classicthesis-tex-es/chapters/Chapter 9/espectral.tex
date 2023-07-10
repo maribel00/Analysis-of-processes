@@ -17,6 +17,15 @@ En primer lugar, empezamos analizando el \emph{Learning Path} de los grupos para
 \label{fig:laplacian}
 \end{figure}
 
+En la Figura \ref{fig:densityplotlaplacian} podemos ver que el \emph{Laplaciano}, denotado por \emph{LOGLAP09}, no sigue una distribución perfectamente normal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{espectral/densityLOGLAP09.png}
+    \caption{Función de densidad de probabilidad del \emph{Laplaciano} obtenido por los distintos grupos de prácticas.}
+    \label{fig:densityplotlaplacian}
+\end{figure}
+
 \subsection{El coeficiente \emph{DAG}}
 
 El coeficiente DAG se calcula a partir de la matriz de adyacencia de un
@@ -89,6 +98,3 @@ El pseudocódigo del cálculo de este coeficiente puede verse en el Algoritmo
 \EndFunction
 \end{algorithmic}
 \end{algorithm}
-
-Otra cosa que podría probarse es cambiar las ponderaciones del coeficiente
-o ver qué pasa si se elimina la primera de las componentes del mismo ya que en la mayoría de las sesiones no es lo más frecuente saltar a otro problema.

@@ -495,6 +495,31 @@ Se tiene que la matriz laplaciana del grafo simple de la Figura \ref{fig:grafo1}
 Este concepto se puede generalizar al caso de grafos ponderados, donde las matrices de adyacencia pueden contener números naturales distintos de ceros y unos. Además, también se puede generalizar a grafos dirigidos, utilizando en vez de la matriz de grados del grafo la matriz de grados de entrada o la matriz de grados de salida dependiendo de la aplicación que se esté considerando.
 
 \begin{exampleth}
+La matriz laplaciana del grafo simple de la Figura \ref{fig:grafo2} será la siguiente:
+\begin{equation}
+\begin{pmatrix}
+3 & -2 & 0 & -1 & 0 & 0\\
+-2 & 7 & -1 & 0 & -4 & 0\\
+0 & -1 & 4 & 0 & 0 & -3\\
+0 & -4 & 0 & -4 & 10 & -2\\
+0 & 0 & -3 & 0 & -2 & 5
+\end{pmatrix}
+\end{equation}
+\end{exampleth}
+
+\begin{exampleth}
+Las matrices lapacianas del grafo dirigido de la Figura \ref{fig:grafo3} de entrada y de salida se muestran en las ecuaciones \ref{eq:inlaplacian} y \ref{eq:outlaplacian} teniendo en cuenta la matrices de adyacencia (Ecuación \ref{eq:adyacencia}), del grado de entrada y del grado de salida de dicho grafo.
+
+\begin{equation}
+\begin{pmatrix}
+0 & 1 & 1 & 0 & 0\\
+0 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 1\\
+1 & 0 & 0 & 0 & 0
+\end{pmatrix}
+\label{eq:adyacencia}
+\end{equation}
 \end{exampleth}
 
 \begin{theorem}
@@ -506,3 +531,47 @@ t(G) = \frac{1}{n} \cdot \lambda_1 \cdots \lambda_{n-1}
 
 Como podemos ver, se trata de una generalización de la fórmula de Cayley que además de muestra que el número de árboles de expansión de cualquier grafo se puede calcular en tiempo polinómico a partir del determinante de una submatriz de la matriz laplaciana. Específicamente, el número de árboles de expansión de un grafo conexo coincide con cualquier cofactor de su matriz laplaciana.
 \end{theorem}
+
+\section{Medidas de complejidad de propósito general}
+
+Esta sección es una recopilación de varias de las medidas de complejidad aplicadas a grafos dirigidos acíclicos ponderados $G = (V,E)$ a partir de sus matrices de adyacencia ponderadas. Se denotará a las matrices de adyacencia por $\mathcal{A}$ y se tendrá que el número de vértices es $v = |V| = 2\cdot n + 1$, $n \in \mathbb{N}$. Es decir, tendremos un número impar de vértices.
+
+Todas ellas tratan de medir la complejidad de un grafo en términos de la densidad de las conexiones entre los vértices utilizando diferentes perspectivas.
+
+\subsection{Peso del comportamiento}
+Detecta cuánto esfuerzo han dedicado los alumnos a sus tareas de laboratorio en términos del número total de sesiones abiertas en el servidor. Matemáticamente se define como sigue:
+\begin{equation}
+We(\mathcal{A}) = \sum_r \sum_c \mathcal{A}[r][c]
+\end{equation}
+\subsection{Eficacia}
+Detecta cuántos problemas se han resuelto. Se formula como sigue:
+\begin{equation}
+Ef(\mathcal{A}) = \left|\left\lbrace p_i \in P, \sum_r \mathcal{A}[r][p_i^s] > 0 \right\rbrace\right|
+\end{equation}
+\subsection{Densidad}
+Es el cociente entre el peso del grafo y el número máximo de aristas permitido:
+\begin{equation}
+De(\mathcal{A}) = \frac{W(\mathcal{A})}{v\cdot (v-1)}
+\end{equation}
+\subsection{Grado medio}
+El grado de un nodo es el número de aristas entrantes y salientes o, en el caso de los grafos ponderados, la suma de los pesos entrantes y salientes.
+\begin{equation}
+Dm(\mathcal{A}) = \frac{1}{v} \cdot \sum_i (\sum_r \mathcal{A}[r][i] + \sum_c \mathcal{A}[i][c]) \cdot f
+\end{equation}
+\subsection{Longitud del camino característico}
+Si interpretamos los pesos (frecuencias) como distancias, ya que ambos se refieren a una especie de esfuerzo para llegar a una solución, podríamos aplicar cualquier algoritmo de camino más corto como el de Dijkstra (\textbf{incluir referencia}) a la matriz característica $\mathcal{A}$ para propagar las frecuencias y obtener un cierre de la matriz original $\hat{\mathcal{A}}$. Es decir, obtendremos una aproximación de cuántas sesiones habría costado llegar desde cualquier nodo del grafo a cualquier otro nodo. Esto es,
+\begin{equation}
+Le(\mathcal{A}) = \frac{1}{E(\hat{\mathcal{A}})} \cdot \sum_r \sum_c \hat{\mathcal{A}}[r,c]
+\end{equation}
+\subsection{Diámetro del grafo}
+Sólo trata de medir el número de aristas entre los nodos más distantes del grafo.
+\begin{equation}
+Di(\mathcal{A}) = \max{\hat{\mathcal{A}}[r,c]}
+\end{equation}
+\subsection{Conectividad}
+Número medio de nodos conectados a un determinado nodo.
+\begin{equation}
+Co(\mathcal{A}) = \frac{1}{v} \cdot \sum_i (\sum_r \mathcal{A}'[r][i] + \sum_c \mathcal{A}'[i][c])
+\end{equation}
+\subsection{Betweenness}
+Es muy conocido en las redes sociales e identifica cuál de los problemas ha recibido más atención e influencia que los demás.

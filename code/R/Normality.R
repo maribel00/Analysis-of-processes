@@ -13,6 +13,8 @@ source("SIIE2023.R")
 
 ndataset <- doLoadData()
 nrow(ndataset)
+ndataset <- ndataset[ndataset$s < 1000,]
+ndataset <- ndataset[ndataset$p > 6,]
 
 nVariable <- "Year"
 nValue <- "s"
@@ -85,3 +87,25 @@ plot
 
 LCV_Lime_Theme()
 LCV_boxplot(ndataset, "Problem", "FailRatio")
+
+##### NORMALITY
+
+LCV_Heaven_Theme()
+LCV_Normality(ndataset,"s")
+# Shapiro-Wilk normality test
+
+# data:  dvariable
+# W = 0.94608, p-value = 0.003307
+
+
+# Asymptotic one-sample Kolmogorov-Smirnov test
+
+# data:  dvariable
+# D = 0.1121, p-value = 0.3102
+# alternative hypothesis: two-sided
+
+LCV_ANOVA(ndataset, "Year", "s")
+# Kruskal-Wallis rank sum test
+
+# data:  dataset.melt[[Avalue]] by dataset.melt[[Avariable]]
+# Kruskal-Wallis chi-squared = 11.013, df = 6, p-value = 0.08798

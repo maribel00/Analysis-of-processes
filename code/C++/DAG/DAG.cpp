@@ -402,8 +402,8 @@ float DAG::get_coefficient(){
         // Calcular la raíz cuadrada de la varianza para obtener la desviación estándar
         float standard_deviation = sqrt(variance);
 
-        //coefficient += 0.8f * (float)(standard_deviation/mean_frequency);
-        coefficient = (float)(standard_deviation/mean_frequency);
+        coefficient += 0.8f * (float)(standard_deviation/mean_frequency);
+        //coefficient = (float)(standard_deviation/mean_frequency);
     }
 
     return coefficient;

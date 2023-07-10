@@ -7,22 +7,35 @@ A pesar de que el estudio descriptivo anterior muestra unos datos muy variados, 
 
 Se definirán dos grandes grupos de métricas. El primer grupo consistirá en una colección de métricas de los grupos que solamente podrán calcularse tras la finalización de la práctica. Por el contrario, las métricas del segundo grupo podrán calcularse durante la realización de la práctica y, por tanto, serán más interesantes porque podrán facilitar la detección precoz de los grupos en riesgo.
 
+Gráficamente, las medidas se han representado en la Figura \ref{fig:measures}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{hipótesis/measures.png}
+    \caption{Representación gráfica de las medidas de rendimiento empleadas que se extraen directamente de los registros del servidor (no se incluyen las medidas derivadas del análisis espectral de grafos).}
+    \label{fig:measures}
+\end{figure}
+
 \subsection{Medidas a posteriori del resultado de la práctica}
 
 \begin{itemize}
-\item \textbf{Achiever.} Se refiere a la nota (Grade) conseguida por el alumno. Obviamente, cuanto mayor sea ésta, mejor.
-\item \textbf{Performer.} Número de problemas resueltos (Goals). Trivialmente, cuantos más objetivos haya resuelto un grupo, mejor.
-\item \textbf{Terminator.} Punto de finalización de toda la práctica (Makespan). Cuanto antes, mejor (para disponer de más tiempo para repasar y corregir errores). Sin embargo, no es una métrica muy relevante.
-\item \textbf{Timeburner.} Es el tiempo consumido por el alumno durante las prácticas (Duration). Este es un valor trampa, pues puede significar algo positivo (el alumno ha tardado poco en resolver la práctica porque la domina), o negativo (porque no ha podido dedicarle más tiempo).
-\item \textbf{Perseverant.} Número de sesiones realizadas. Ya se ha hecho un estudio de esta medida en la sección \ref{sec:activityrecorded}.
+\item La calificación conseguida por el alumno (\emph{Grade}). Obviamente, cuanto mayor sea ésta, mejor.
+\item Número de problemas resueltos u objetivos resueltos. Se denotará por \emph{p}. Trivialmente, cuantos más objetivos haya resuelto un grupo, mejor. El número de problemas normalizado se denotará por \emph{np} en los estudios que se realizarán a continuación.
+\item Punto de finalización de toda la práctica. En la Figura \ref{fig:measures}  se representa esta medida de rendimiento normalizada por \emph{ft}. Cuanto antes, mejor (para disponer de más tiempo para repasar y corregir errores). Sin embargo, no es una métrica muy relevante.
+\item Tiempo consumido por el alumno durante las prácticas. Este es un valor trampa, pues puede significar algo positivo (el alumno ha tardado poco en resolver la práctica porque la domina), o negativo (porque no ha podido dedicarle más tiempo). En la Figura \ref{fig:measures}, el tiempo consumido normalizado se representa por \emph{all}.
+\item Número de sesiones realizadas (\emph{s}). Ya se ha hecho un estudio de esta medida en la sección \ref{sec:activityrecorded}. En la Figura \ref{fig:measures}, se representa el número de sesiones normalizado (\emph{ns}).
 \end{itemize}
 
 \subsection{Medidas continuas durante la práctica}
 
 \begin{itemize}
-\item \textbf{SingleThreaded.} Cuantifica como de balanceado están los grafos que describen la actividad de un grupo en la plataforma. Además, se valora negativamente que los grupos vayan saltando de problema en problema (DAG).
-\item \textbf{EarlyBird.} (FirstOpen) Como los comienzos son siempre costosos, se define  la medida EarlyBird como el promedio de tiempo de la primera apertura de cada problema.
-\item \textbf{MessedUp.} Número de fails consecutivos (FailRatio) hasta resolver un problema dividido entre el numero de sesiones de ese problema. La tasa de fallo así como el tiempo dedicado a un mismo problema dependerá de la dificultad del mismo.
-\item \textbf{Procastinator.} Esta medida cuantifica las posposición de tareas de los grupos. Es decir, pretende identificar a aquellos alumnos que, cuando intentan resolver un problema y no lo consiguen, saltan, curiosamente, a otros problemas más complejos (los cuales, obviamente, tampoco pueden resolver) perdiendo así un tiempo precioso.
-\item \textbf{Follower.} Medida que refleja si los grupos de prácticas siguen el orden esperado de las mismas.
+\item Como los comienzos son siempre costosos, se definirá una nueva métrica correspondiente al promedio de tiempo de la primera apertura de cada problema. Se representa por \emph{ot} en la Figura \ref{fig:measures}.
+\item Número de fails consecutivos (\emph{fail ratio} o \emph{fr}) hasta resolver un problema dividido entre el numero de sesiones de ese problema. La tasa de fallo así como el tiempo dedicado a un mismo problema dependerá de la dificultad del mismo.
+\item \emph{También se definirá una medida que cuantificará la posposición de tareas de los grupos. Es decir, pretende identificar a aquellos alumnos que, cuando intentan resolver un problema y no lo consiguen, saltan, curiosamente, a otros problemas más complejos (los cuales, obviamente, tampoco pueden resolver) perdiendo así un tiempo precioso.}
+\item Tiempo promedio empleado en resolver los problemas (representado por \emph{rt}).
+\item Tiempo promedio empleado en los problemas tras su resolución. Se representa por \emph{ps} en la Figura \ref{fig:measures} y trata de evidenciar el interés de los alumnos en la materia. En general, será positivo que los grupos no sólo resuelvan los problemas sino que traten de encontrar mejores soluciones para los mismos como se podrá ver en el Capítulo \ref{chapter:correlations}.
+\item Tiempo de promedio de resolución de los problemas por primera vez. Se representará por \emph{st} en la Figura \ref{fig:measures}.
+\item Se tendrá igualmente una medida que refleja si los grupos de prácticas siguen el orden esperado de las mismas. Se le denotará por \emph{sq} en los análisis que se realizarán posteriormente.
+\item El coeficiente \emph{DAG}, que cuantificará como de balanceado están los grafos que describen la actividad de un grupo en la plataforma. Se trata una medida de rendimiento basada en el análisis espectral de grafos que se verá más adelante.
+\item El coeficiente de \emph{Laplace}.
 \end{itemize}
