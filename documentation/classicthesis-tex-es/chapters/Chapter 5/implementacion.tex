@@ -1,0 +1,27 @@
+\chapter{Implementación de la herramienta de Minería de Procesos \emph{Graph Miner}}
+\addcontentsline{toc}{chapter}{Implementación de la herramienta de Minería de Procesos \emph{Graph Miner}}
+
+Para dar una estructura de orden mínimo al comportamiento $B^g$, suponemos que es cierto lo siguiente: el resultado de la sesión $i$ depende en su mayor parte de lo ocurrido en la sesión $i-1$
+o, como mucho, de cualquiera de las sesiones inmediatamente anteriores. Si aceptamos esta suposición, entonces $B^g$ tiene una estructura de orden parcial en la que cada sesión aparece conectada a la anterior.
+
+Además, podríamos etiquetar estas relaciones con un número natural que indica el número de veces que esta relación se ha dado en $B^g$. De este modo se, obtiene el gráfico de la Figura \textbf{referencia}, un grafo totalmente conectado \textbf{revisar} que describe el camino seguido por los estudiantes con un sentido claro de las transiciones de un estado a otro. Esta Figura también cumple el factor in-degree mencionado al principio: la suma de las aristas entrantes a un nodo coincide con el número de veces que el nodo aparece en el registro.
+
+Comparando las Figuras \ref{fig:DBA1516P2GA1} y \ref{fig:problemsDBA1516P2GA} vemos que el diagrama de la implementación propia y el original obtenido con Disco coinciden.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{DBA1516P2GA1.png}
+    \caption{Análisis de procesos del grupo \texttt{DBA 1516 P2 GA} (\texttt{Activity} problema y \texttt{CaseId} grupo) obtenido con la implementación propia.}
+    \label{fig:DBA1516P2GA1}
+\end{figure}
+
+Además, como podemos ver en la Figura \ref{fig:DBA1516P2GA2}, hemos obtenido el mismo diagrama que en el de la Figura \ref{fig:compoundDBA1516P2GA} con la salvedad de que hemos impedido el retorno a un estado anterior (el motivo se verá más adelante). Es decir, se han eliminado ciclos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{DBA1516P2GA2.png}
+    \caption{Análisis de procesos del grupo \texttt{DBA 1516 P2 GA} (\texttt{Activity} problema-milestone y \texttt{CaseId} sesión) obtenido con la implementación propia.}
+    \label{fig:DBA1516P2GA2}
+\end{figure}
+
+A partir de ahora, estos diagramos tendrán la consideración de grafos. En particular, serán grafos dirigidos y operaremos con ellos como tales. En el siguiente capítulo se expondrán los conceptos básicos de grafos y principales resultados matemáticos que se usarán en este trabajo fin de grado.

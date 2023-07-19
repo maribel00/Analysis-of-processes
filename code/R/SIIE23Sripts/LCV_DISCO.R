@@ -1,0 +1,4 @@
+
+GraphMiner<-function(data,options) {
+  
+}
