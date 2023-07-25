@@ -1,4 +1,4 @@
-\chapter{Introducción a la Minería de Procesos y trabajos previos}
+\chapter{Introducción a la Minería de Procesos y trabajos previos}\label{sec:chapterII}
 \addcontentsline{toc}{chapter}{Introducción a la Minería de Procesos y trabajos previos}
 
 Las transacciones de los agentes en estos mundos virtuales registradas en el servidor no sólo son importantes desde el punto de vista de la evaluación del alumnado, sino que también nos proporcionan información de cómo se han resuelto los problemas propuesto, hito por hito, y son un reflejo de la estrategia seguida por cada uno de los equipos para intentar resolver todos los mundos.
@@ -8,4 +8,166 @@ Para tratar de desvelar estas estrategias ocultas se usarán técnicas de miner�
 Actualmente, con el desarrollo y el creciente interés de las plataformas educativas y de toda la tecnología relacionada con las mismas, los sistemas de información nos permiten recoger todo tipo de información. Esto puede incluir desde información de bajo nivel (clicks del ratón) hasta información de alto nivel (realización de una actividad en particular dentro de la plataforma). Es decir, estos sistemas tienen la capacidad de almacenar datos temporales de diversa índole, como cadenas de clicks, registros de chats, históricos de modificación de documentos, registros de uso de los diferentes recursos educativos, etc. \cite{bogarin2018survey}. La minería de procesos puede usar todos estos logs para descubrir, monitorear y mejorar los procesos educativos. Surge así la denominada minería de procesos educacional (en inglés, \emph{educational process mining}). No obstante, cabe destacar que, aunque en este trabajo fin de grado nos centraremos en la minería de procesos en el ámbito educativo, ésta también tiene númerosas aplicaciones en el área sanitaria, en el ámbito empresarial, institucional etc.
 
 Como se ha mencionado anteriormente, el uso de técnicas de Minería de Procesos está suscitando un enorme interés y hay cantidades ingentes de artículos y trabajos relacionados que podrían referenciarse, especialmente cuando los profesores crean laboratorios virtuales \cite{Elmoazen_2023} o servicios \emph{online} como Coursera \cite{mukala2015learning}. También hay algunas revisiones excelentes de la Minería de Proceesos en el contexto educativo como \cite{dos2019process}, donde se recalca que la educación es la cuarta área más importante en la que se están aplicando técnicas de Minería de Procesos para detectar estilos de aprendizaje (o, en inglés, \emph{learning styles}), o incluso mejor, en \cite{bogarin2018survey} donde los autores también ponen el énfasis en el análisis de grafos como estructura subyacente del comportamiento (concepto de \emph{graph mining}). Además, en dicho artículo se presentará lo que se denomina \emph{intention mining} que hace referencia a la minería de procesos aplicada con el objetivo de anticipar el comportamiento. Los mismos autores en \cite{bogarin2018discovering} también apuntan a una cuestión muy interesante e intimamente relacionada con este trabajo: cómo utilizar técnicas de Minería de Procesos para detectar a los que más necesitan la ayuda del profesor, simplemente observando el patrón de interacción de los alumnos con el \emph{LMS} (\emph{Learning Management System}). Esta relación del alumno con los recursos disponibles, normalmente en línea, también se explora en \cite{mukala2015learning}, en el que el uso de la Minería de Procesos no es realmente descubrimiento, sino el cumplimiento, para detectar si los alumnos se comportan como se espera de ellos o en la forma en que utilizan los recursos disponibles \cite{juhavnak2019using}. En \cite{sedrakyan2016process} los autores analizan el potencial del
-feedback que el PM (\emph{Process Mining}) puede dar a los alumnos, muy en la línea de \citep{Keller_1968} para fomentar la autorregulación de los alumnos. En todos ellos las principales métricas utilizadas para orientar el estudio son las "clásicas" relacionadas con los recursos, las personas o el material de aprendizaje a través de un enfoque cuantitativo para puntuar el comportamiento de los estudiantes. Este trabajo fin de grado adoptará un enfoque diferente e intenta analizar puramente la topología del grafo dirigido que describe el comportamiento de un determinado grupo de prácticas.
+feedback que el PM (\emph{Process Mining}) puede dar a los alumnos, muy en la línea de \citep{Keller_1968} para fomentar la autorregulación de los alumnos. En todos ellos las principales métricas utilizadas para orientar el estudio son las ``clásicas'' relacionadas con los recursos, las personas o el material de aprendizaje a través de un enfoque cuantitativo para puntuar el comportamiento de los estudiantes. Este trabajo fin de grado adoptará un enfoque diferente e intenta analizar puramente la topología del grafo dirigido que describe el comportamiento de un determinado grupo de prácticas.
+
+\begin{table}[H]
+\centering
+\caption{Clasificación de los trabajos realizados en el campo de la Minería de Procesos.}
+\label{tab:classification}
+\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{5cm}|>{\centering\arraybackslash}m{5cm}|>{\centering\arraybackslash}m{5cm}|}
+\hline
+\rowcolor{orange!20}
+\backslashbox{\scriptsize{\textbf{Nodos}}}{\scriptsize{\textbf{Aristas}}} & \small{\textbf{Energía} (Conteo)} & \small{\textbf{Cercanía} (Clustering)} & \small{\textbf{Orden} (Precedencia)} \\ 
+\hline 
+\cellcolor{orange!20}\footnotesize{Recursos (vídeos, texto) y \textbf{Herramientas}} &
+
+\begin{tabular}[t]{
+    | >{\scriptsize\centering\arraybackslash}m{1cm}
+    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
+    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+  }
+  \hline
+  \rowcolor{gray!20}
+  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \hline
+  \rowcolor{white}
+  Coursera. Validación del curso. Uso de recursos. & Patrones de uso. Seguimiento. & Cuellos de botella. Posibles problemas. Recomendaciones. \\
+  \hline
+  \end{tabular}
+  
+  &
+
+\begin{tabular}[t]{
+    | >{\scriptsize\centering\arraybackslash}m{1cm}
+    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
+    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+  }
+  \hline
+  \rowcolor{gray!20}
+  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \hline
+  \rowcolor{white}
+   &  &  \\
+  \hline
+  \end{tabular} 
+  
+   &
+
+\begin{tabular}[t]{
+    | >{\scriptsize\centering\arraybackslash}m{1cm}
+    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
+    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+  }
+  \hline
+  \rowcolor{gray!20}
+  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \hline
+  \rowcolor{white}
+   &  &  \\
+  \hline
+  \end{tabular}   
+  
+    \\ 
+\hline 
+\cellcolor{orange!20}\footnotesize{\textbf{Personas} e \textbf{Instituciones}} &
+
+\begin{tabular}[t]{
+    | >{\scriptsize\centering\arraybackslash}m{1cm}
+    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
+    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+  }
+  \hline
+  \rowcolor{gray!20}
+  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \hline
+  \rowcolor{white}
+  Trabajo en grupo bien estructurado. & Medidas intragrupos e intergrupos. Redes sociales. & Liderazgo. Dominancia. Personas influyentes. \\
+  \hline
+  \end{tabular}
+
+&
+
+\begin{tabular}[t]{
+    | >{\scriptsize\centering\arraybackslash}m{1cm}
+    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
+    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+  }
+  \hline
+  \rowcolor{gray!20}
+  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \hline
+  \rowcolor{white}
+   &  &  \\
+  \hline
+  \end{tabular} 
+
+& 
+
+\begin{tabular}[t]{
+    | >{\scriptsize\centering\arraybackslash}m{1cm}
+    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
+    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+  }
+  \hline
+  \rowcolor{gray!20}
+  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \hline
+  \rowcolor{white}
+   &  &  \\
+  \hline
+  \end{tabular} 
+
+\\ 
+\hline 
+\cellcolor{orange!20}\footnotesize{\textbf{Temáticas} (unidades temáticas de un curso), \textbf{Productos} o \textbf{bienes}} & 
+
+\begin{tabular}[t]{
+    | >{\scriptsize\centering\arraybackslash}m{1cm}
+    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
+    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+  }
+  \hline
+  \rowcolor{gray!20}
+  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \hline
+  \rowcolor{white}
+  Validación del curso. Concienciación del profesorado. & Relaciones intergrupos. Redes sociales. &  \\
+  \hline
+  \end{tabular} 
+
+& 
+
+\begin{tabular}[t]{
+    | >{\scriptsize\centering\arraybackslash}m{1cm}
+    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
+    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+  }
+  \hline
+  \rowcolor{gray!20}
+  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \hline
+  \rowcolor{white}
+   &  &  \\
+  \hline
+  \end{tabular}  
+
+& 
+
+\begin{tabular}[t]{
+    | >{\scriptsize\centering\arraybackslash}m{1cm}
+    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
+    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+  }
+  \hline
+  \rowcolor{gray!20}
+  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \hline
+  \rowcolor{white}
+   &  &  \\
+  \hline
+  \end{tabular} 
+
+\\
+\hline 
+\end{tabular} 
+\end{table}

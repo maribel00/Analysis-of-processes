@@ -1,3 +1,5 @@
+library(NbClust)
+
 LCV_ListOutliers<-function(data, variable, value) {
   bp <- LCV_boxplot(data,variable, value)
   show(bp)
@@ -32,7 +34,7 @@ LCV_RemoveOutliers<-function(data, bplot) {
 }
 
 
-LCV_AlphaCutClusters <- function(data, cutx, cuty, clustering="red", radius="", xpartition=c()) {
+LCV_AlphaCutClusters <- function(data, cutx, cuty, clustering="red", radius="", xpartition=c(), ypartition=c()) {
   # Build its own data frame based on rx and ry to gain independence from original dataset
   cteradius=10
   rvariable<- data[[cutx]]
@@ -54,7 +56,7 @@ LCV_AlphaCutClusters <- function(data, cutx, cuty, clustering="red", radius="", 
   }
   rplot <-ggplot(data,mapping=aes(x=rvariable,y=rvalue, colour=data[[cluster]]))+
     geom_point(aes(size=cradius),alpha=0.5)+
-    scale_color_manual(values=c("red","blue","green","purple","orange","brown"))+
+    scale_color_manual(values=c("red","blue","green","purple","orange","brown", "gray"))+
     labs(caption=rcaption)+
     xlab(cutx)+
     ylab(cuty)
@@ -63,20 +65,26 @@ LCV_AlphaCutClusters <- function(data, cutx, cuty, clustering="red", radius="", 
     rplot <- rplot+
       geom_vline(xintercept = xpartition)
   }
+  if (length(ypartition)>0) {
+    rplot <- rplot+
+      geom_hline(yintercept = ypartition)
+  }
 
   rplot <- rplot+
     LCV_theme2
   rplot
 }
 
-
+dsKMEANS <- data.frame()
 LCV_KMeans<-function(data, id_column=c("Group"),main_kpi="np", other_kpi=c(), compare_to=c(), force_nc=-1, sort_clusters=FALSE) {
   idclus <- paste("KMEANS_",main_kpi,sep="")
   idclusord <-paste(idclus,"_ord",sep="")
+  idclusmin <-paste(idclus,"_min",sep="")
+  idclusmax <-paste(idclus,"_max",sep="")
+  idclusmed <-paste(idclus,"_med",sep="")
   # KM.data <<- data[,c(ids,metrics)]
   # NbClust(data[,metrics],distance="euclidean",min.nc=2, max.nc = 10, method="kmeans")
-  all_metrics <-c(main_kpi, other_kpi)
-  data_clust<-data.frame(data[,all_metrics])
+  data_clust<-data.frame(data[,c(main_kpi,other_kpi)])
   if (force_nc<0) {
     nbc<-NbClust(data_clust,distance="euclidean", min.nc=2, max.nc=10, method="kmeans")
     fnc<-length(unique(nbc$Best.partition))
@@ -92,25 +100,31 @@ LCV_KMeans<-function(data, id_column=c("Group"),main_kpi="np", other_kpi=c(), co
   # Sort clusters by main_kpi
   pdf <- data.frame(id=data[[id_column]],idvalues=data_clust[,1], clustid=as.factor(nc))
   show(pdf)
-  cldf<-data.frame(clustername=character(0),clusterid=numeric(0), minvalue=numeric(0))
+  dsKMEANS<<-data.frame(clustername=character(0),clusterid=numeric(0), minvalue=numeric(0), medvalue=numeric(0), maxvalue=numeric(0))
   for (ic in (nclist)) {
     dclus <- pdf[pdf$clustid==ic,]
     cmin <- round(min(dclus$idvalues),2)
     cmax <- round(max(dclus$idvalues),2)
     cmed<- round(median(dclus$idvalues),2)
-    cldf[nrow(cldf)+1,]<-c(clustername=paste("[",cmin,",",cmax,"]",sep=""), clusterid=ic,minvalue=cmin)
+    dsKMEANS[nrow(dsKMEANS)+1,]<<-c(clustername=paste("[",cmin,",",cmax,"]",sep=""), clusterid=ic,minvalue=cmin, medvalue=cmed, maxvalue=cmax)
   }
-  cldf <- cldf[order(cldf$minvalue),]
-  show(cldf)
+  dsKMEANS <- dsKMEANS[order(dsKMEANS$minvalue),]
+  show(dsKMEANS)
   ordernc <- c()
   orderncorder<-c()
+  ordermin<-c()
+  ordermax<-c()
   for (i in (nc)) {
-    ordernc <- append(ordernc,cldf[cldf$clusterid==i,"clustername"])
-    orderncorder<- append(orderncorder,cldf[cldf$clusterid==i,"minvalue"])
+    ordernc <- append(ordernc,dsKMEANS[dsKMEANS$clusterid==i,"clustername"])
+    orderncorder<- append(orderncorder,as.numeric(dsKMEANS[dsKMEANS$clusterid==i,"minvalue"]))
+    ordermin<- append(ordermin,as.numeric(dsKMEANS[dsKMEANS$clusterid==i,"minvalue"]))
+    ordermax<- append(ordermax,as.numeric(dsKMEANS[dsKMEANS$clusterid==i,"maxvalue"]))
   }
   show(ordernc)
   data[[idclus]] <- ordernc
   data[[idclusord]] <- orderncorder
+  data[[idclusmin]] <- ordermin
+  data[[idclusmax]] <- ordermax
   cat("SUMMARY: ", fnc, " partitions, Accuracy fit$betweenss/fit$totss= ",LCV_Kmeans$betweenss/LCV_Kmeans$totss)
 
   # data[["nKM"]] <- 0
@@ -124,6 +138,50 @@ LCV_KMeans<-function(data, id_column=c("Group"),main_kpi="np", other_kpi=c(), co
   }
   return(data)
 }
+
+
+LCV_ClusterColumn<- function(data, col, nc=-1, remove_outliers=FALSE) {
+  #\\readline("Pulse para ver Sesiones originales")
+  show(LCV_SelfValues(data, col))
+  data <- LCV_KMeans(data, main_kpi = col, force_nc = nc)
+  newcol<-paste("KMEANS_",col, sep="")
+  show(LCV_histogram(data,paste(newcol,sep=""),orderby=paste(newcol,"_ord",sep="")))
+  bp <- LCV_boxplot(data, newcol, col, order=TRUE)
+  # if (remove_outliers) {
+  #   cat("\nRemoving outliers")
+  #   outl<-layer_data(bp)$outliers
+  #   if (length(outl)>0){
+  #     for (i in (1:length(outl))) {
+  #       if (length(outl[[i]])>0){
+  #         for (iout in (1:length(outl[[i]]))) {
+  #           cat("Removing outlier ",outl[[i]][iout]," ")
+  #           data<-data[data[[col]]!=outl[[i]][iout],]
+  #         }
+  #       }
+  #     }
+  #   }
+  #   data <- LCV_KMeans(data, main_kpi = col, force_nc = nc)
+  #   show(LCV_histogram(data,paste(newcol,sep=""),orderby=paste(newcol,"_ord",sep="")))
+  #   bp <- LCV_boxplot(data, newcol, col, order=TRUE)
+  # }
+  xpartition_s <- layer_data(bp)$ymin
+  show(LCV_SelfValues(data, col, xpartition = xpartition_s))
+  cat("\n\nPartition: ",xpartition_s," Accuracy fit$betweenss/fit$totss= ",LCV_Kmeans$betweenss/LCV_Kmeans$totss)
+  cat("\nOutliers: ")
+  outl<-layer_data(bp)$outliers
+  if (length(outl)>0){
+    for (i in (1:length(outl))) {
+      if (length(outl[[i]])>0){
+        for (iout in (1:length(outl[[i]]))) {
+          cat(outl[[i]][iout]," ")
+        }
+      }
+    }
+  }
+  return (data)
+}
+
+
 
 ############################################
 
@@ -171,47 +229,6 @@ doSIIEClusterQuartile<-function(data, id_column=c("Group"),main_kpi="np", other_
   data
 }
 
-
-LCV_ClusterColumn<- function(data, col, nc=-1, remove_outliers=FALSE) {
-  readline("Pulse para ver Sesiones originales")
-  show(LCV_SelfValues(data, col))
-  data <- LCV_KMeans(data, main_kpi = col, force_nc = nc)
-  newcol<-paste("KMEANS_",col, sep="")
-  show(LCV_histogram(data,paste(newcol,sep=""),orderby=paste(newcol,"_ord",sep="")))
-  bp <- LCV_boxplot(data, newcol, col, order=TRUE)
-  if (remove_outliers) {
-    cat("\nRemoving outliers")
-    outl<-layer_data(bp)$outliers
-    if (length(outl)>0){
-      for (i in (1:length(outl))) {
-        if (length(outl[[i]])>0){
-          for (iout in (1:length(outl[[i]]))) {
-            cat("Removing outlier ",outl[[i]][iout]," ")
-            data<-data[data[[col]]!=outl[[i]][iout],]
-          }
-        }
-      }
-    }
-    data <- LCV_KMeans(data, main_kpi = col, force_nc = nc)
-    show(LCV_histogram(data,paste(newcol,sep=""),orderby=paste(newcol,"_ord",sep="")))
-    bp <- LCV_boxplot(data, newcol, col, order=TRUE)
-  }
-  xpartition_s <- layer_data(bp)$ymin
-  show(LCV_SelfValues(data, col, xpartition = xpartition_s))
-  cat("\n\nPartition: ",xpartition_s," Accuracy fit$betweenss/fit$totss= ",LCV_Kmeans$betweenss/LCV_Kmeans$totss)
-  cat("\nOutliers: ")
-  outl<-layer_data(bp)$outliers
-  if (length(outl)>0){
-    for (i in (1:length(outl))) {
-      if (length(outl[[i]])>0){
-        for (iout in (1:length(outl[[i]]))) {
-          cat(outl[[i]][iout]," ")
-        }
-      }
-    }
-  }
-  return (data)
-}
 
 
 # LCV_Tomato_Theme()

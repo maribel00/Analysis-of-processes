@@ -1,11 +1,12 @@
-#source("/home/lcv/Dropbox/Research/DBA/MB/Scripts/LCV_Theme.R")
+source("LCV_Theme.R")
 library(dplyr)
-
+library(scales)
 LCV_histogram <- function (data, variable, nintervals=0, mybreaks=c(), columnlabels=c(),force_factor=FALSE, orderby="") {
   if (orderby != "") {
     dorder<-data[[orderby]]
     dvariable <- data[[variable]]
   }else {
+    dorder<-dvariable
     dvariable <- data[[variable]]
   }
   if (force_factor) {
@@ -15,9 +16,10 @@ LCV_histogram <- function (data, variable, nintervals=0, mybreaks=c(), columnlab
     if (length(mybreaks)==0) {
       res<-ggplot(data)+
         geom_bar(stat="count",aes(x=dvariable),fill=fillcolor, color=textcolor,alpha=alphafill)+
-        geom_text(stat="count", aes(x=dvariable,label=..count..),color=textcolor,vjust=-0.75,size=3 )+
+        geom_text(stat="count", aes(x=dvariable,label=..count..),color=textcolor,vjust=1.75,size=3 )+
         xlab(variable)+
         LCV_theme2
+          LCV_theme2
     }  else {
       # res<-ggplot(data, mapping=aes(x=dvariable))+
       #   geom_text(stat="count", aes(label=..count..),color=textcolor,vjust=-0.5)+
@@ -27,19 +29,19 @@ LCV_histogram <- function (data, variable, nintervals=0, mybreaks=c(), columnlab
       #   LCV_theme2
     }
   } else {
-    # maxVar <-max(dvariable)
-    # minVar <-min(dvariable)
-    # fvariable <- as.factor(dvariable)
-    # dhisto <- hist(dvariable, breaks=nintervals)
-    # maxVal <- max(dhisto$counts)
-    # minVal <-min(dhisto$counts)
-    # nticks<-nintervals
-    # res <- ggplot(ddataset,aes(x=dvariable))+
-    #   geom_histogram(binwidth=(maxVar-minVar)/nintervals,aes(y=after_stat(count)),fill = fillcolor, color=textcolor,alpha=alphafill)+
-    #   xlab(variable)+
-    #   scale_x_continuous(n.breaks=nticks)+
-    #   ylab("Frequency")+
-    #   LCV_theme2
+    maxVar <-max(dvariable)
+    minVar <-min(dvariable)
+    fvariable <- as.factor(dvariable)
+    dhisto <- hist(dvariable, breaks=nintervals)
+    maxVal <- max(dhisto$counts)
+    minVal <-min(dhisto$counts)
+    nticks<-nintervals
+    res <- ggplot(ddataset,aes(x=dvariable))+
+      geom_histogram(binwidth=(maxVar-minVar)/nintervals,aes(y=after_stat(count)),fill = fillcolor, color=textcolor,alpha=alphafill)+
+      xlab(variable)+
+      scale_x_continuous(n.breaks=nticks)+
+      ylab("Frequency")+
+      LCV_theme2
   }
   # theme_classic()
   res

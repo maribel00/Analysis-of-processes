@@ -1,33 +1,13 @@
-library(xtable)
-library('ggpubr')
-
-setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
-
-source("LCV_Theme.R")
-source("LCV_Bayes.R")
-source("LCV_plotting.R")
-source("LCV_Hipothesis_Tests.R")
-source("SIIE2023.R")
-
-# Normalidad de los datos
-
-ndataset <- doLoadData()
-nrow(ndataset)
-ndataset <- ndataset[ndataset$s < 1000,]
-ndataset <- ndataset[ndataset$p > 6,]
-
+# Nrmalidad de los datos
+ndataset <- DBAProblems15.21
 nVariable <- "Year"
-nValue <- "s"
+nValue <- "All.trials"
 ndsp <- ndataset[,c(nVariable,nValue)]
 ndataset.lm <- lm(ndsp[[nValue]]~ndsp[[nVariable]], ndsp)
 ndataset.aov <- aov(ndataset.lm)
-summary <- summary(ndataset.aov)
-print(xtable(as.matrix(summary)), include.rownames = TRUE)
-
+summary(ndataset.aov)
 ndataset.tukey<-TukeyHSD(ndataset.aov)
 ndataset.tukey
-print(xtable(as.matrix(ndataset.tukey$`ndsp[[nVariable]]`)), include.rownames = TRUE)
-
 plot(ndataset.tukey)
 plot(ndataset.aov$residuals)
 boxplot(ndataset.aov$residuals, main=paste("Residuals ",nValue))
@@ -35,77 +15,29 @@ hist(ndataset.aov$residuals, main = paste("Residuals ",nValue))
 ggdensity(ndataset[[nValue]],xlab=nValue)
 ggqqplot(ndataset[[nValue]], xlab = nValue)
 
-LCV_Tomato_Theme()
-LCV_confidence_intervals(ndataset, nVariable, nValue)
 
-LCV_Lime_Theme()
-LCV_boxplot(ndataset, nVariable, nValue)
-
-boxplot <- boxplot(Allsessions~Year,ndataset)
-plot <- ggplot(data=ndataset,mapping=aes(x=Year,y=Allsessions))+geom_boxplot(fill = "olivedrab1")+theme_bw()
-plot
-
-LCV_Heaven_Theme()
-LCV_density(ndataset, nValue, showall = TRUE)
-
-mdataset <- read.csv("MBSessionsProblems.csv", header = TRUE)
-head(mdataset)
-names(mdataset) <- c("Year","Problem","Sessions")
-
-LCV_Lime_Theme()
-LCV_boxplot(mdataset, "Problem", "Sessions")
-
-boxplot <- boxplot(Sessions~Problem,mdataset)
-plot <- ggplot(data=mdataset,mapping=aes(x=Problem,y=Sessions))+geom_boxplot(fill = "olivedrab1")+theme_bw()
-plot
-
-ndataset <- read.csv("MBSessionsProblemExt.csv", header = TRUE)
-head(ndataset)
-names(ndataset) <- c("Year","Problem","Fail","Solved","Allsessions","FailRatio")
-head(ndataset)
-
-nVariable <- "Problem"
-nValue <- "FailRatio"
-ndsp <- ndataset[,c(nVariable,nValue)]
-ndataset.lm <- lm(ndsp[[nValue]]~ndsp[[nVariable]], ndsp)
-ndataset.aov <- aov(ndataset.lm)
-summary <- summary(ndataset.aov)
-print(xtable(as.matrix(summary)), include.rownames = TRUE)
-
-ndataset.tukey<-TukeyHSD(ndataset.aov)
-ndataset.tukey
-print(xtable(as.matrix(ndataset.tukey$`ndsp[[nVariable]]`)), include.rownames = TRUE)
-
-plot(ndataset.tukey)
-
-LCV_Tomato_Theme()
-LCV_confidence_intervals(ndataset, nVariable, nValue)
-
-boxplot <- boxplot(FailRatio~Problem,ndataset)
-plot <- ggplot(data=ndataset,mapping=aes(x=Problem,y=FailRatio))+geom_boxplot(fill = "olivedrab1")+theme_bw()
-plot
-
-LCV_Lime_Theme()
-LCV_boxplot(ndataset, "Problem", "FailRatio")
-
-##### NORMALITY
-
-LCV_Heaven_Theme()
-LCV_Normality(ndataset,"s")
-# Shapiro-Wilk normality test
-
-# data:  dvariable
-# W = 0.94608, p-value = 0.003307
-
-
-# Asymptotic one-sample Kolmogorov-Smirnov test
-
-# data:  dvariable
-# D = 0.1121, p-value = 0.3102
-# alternative hypothesis: two-sided
-
-LCV_ANOVA(ndataset, "Year", "s")
-# Kruskal-Wallis rank sum test
-
-# data:  dataset.melt[[Avalue]] by dataset.melt[[Avariable]]
-# Kruskal-Wallis chi-squared = 11.013, df = 6, p-value = 0.08798
+# ddata <- data.frame(ddataset$Hour)
+# ggplot(data=ddata, mapping=aes(x=ddataset$Hour))+
+#   geom_bar()+
+#   #  scale_x_discrete(labels =c("Sunday", "Monday","Tuesday","Wednesday", "Thursday","Friday", "Saturday"))+
+#   geom_text(stat="count", aes(label=..count..),vjust=-1)+
+#   xlab("Time of the day")+
+#   #scale_x_discrete(xmin=0,xmax=23)
+#   scale_x_continuous(n.breaks=24, limits=c(-1,24))+
+#   ylab("Number of work sessions")+
+#   theme_classic()
+#
+#
+#
+# ndataset <- DBAGroups15.21
+# nVariable <- "Group"
+# nValue <- "Newcomer.RelTime"
+# hValue<-ndataset[[nValue]]
+# ggplot(ndataset, mapping=aes(x=hValue))+
+#   geom_bar()+
+#   # geom_histogram(binwidth=0.1)+
+#   xlab(nValue)+ylab("Frequency")+
+#   # scale_x_discrete()+
+#   geom_text(stat="count", aes(x=hValue,label=..count..), vjust=-1)+
+#   # labs(title=nValue)+
+#   theme_classic()

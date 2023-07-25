@@ -5,7 +5,7 @@ library(ggplot2)
 LCV_colors <- c("lightgreen", "orange", "lightskyblue", "red", "purple", "yellow","black","brown")
 textcolor<-"black"
 linecolor <- "black"
-fillcolor <- "gray"
+fillcolor <- "lightgray"
 backgroundcolor <- "white"
 mainline <- "solid"
 secondline <- "dashed"
@@ -62,18 +62,6 @@ LCV_Orange_Theme <- function() {
 LCV_Apple_Theme <- function() {
   linecolor <<- "gray"
   fillcolor <<- "lightgreen"
-  backgroundcolor <<- "white"
-  mainline <<- "solid"
-  secondline <<- "solid"
-  thirdline <<- "solid"
-  alphafill <<- 0.5
-  textcolor<<- "black"
-  linethick<<-0.5
-}
-
-LCV_Lime_Theme <- function() {
-  linecolor <<- "gray"
-  fillcolor <<- "olivedrab1"
   backgroundcolor <<- "white"
   mainline <<- "solid"
   secondline <<- "solid"

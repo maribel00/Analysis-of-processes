@@ -1,11 +1,11 @@
-\chapter*{Motivación}
+\chapter*{Motivación}\label{sec:motivation}
 \addcontentsline{toc}{chapter}{Motivación}
 
 \section{Introducción}
 
 La necesidad de comprender el proceso de aprendizaje y de personalizar la enseñanza para realizar una mejor adaptación a las necesidades del individuo ha motivado la \emph{Analítica de Aprendizaje} o \emph{Learning Analytics}, disciplina que consiste en la recogida de datos de un entorno de aprendizaje y el análisis de los mismos cuyo objetivo es asistir en el proceso de aprendizaje del alumnado.
 
-Además, el uso de laboratorios virtuales y remotos en la enseñanza está en auge. Entre muchas de sus ventajas tenemos una mayor privacidad para el alumnado, accesos planficados a los mismos o soporte para reportar la actividad de los alumnos y la calificación de los mismos.
+Además, el uso de laboratorios virtuales y remotos en la enseñanza está en auge. Entre muchas de sus ventajas tenemos una mayor privacidad para el alumnado, accesos planificados a los mismos o soporte para reportar la actividad de los alumnos y la calificación de los mismos.
 
 En este trabajo fin de grado se usarán datos de siete cursos académicos obtenidos en el laboratorio virtual para sistemas multiagente de la asignatura del cuarto curso académico Desarrollo Basado en Agentes del grado de Ingeniería Informática de la Universidad de Granada (España).
 
@@ -29,38 +29,43 @@ Los objetivos principales del proyecto serán:
 
 \section{Estructura del Trabajo Fin de Grado}
 
-Este trabajo fin de grado consta de cuatro partes, siete capítulos y otros elementos como la portada, la autorización para su ubicación en la biblioteca de la escuela, sendos resúmenes tanto en español como en inglés (con sus respectivas palabras clave), la sección de agradecimientos, los índices general, de figuras y de cuadros así como una bibliografía, un glosario de términos y un glosario de acrónimos.
+Este trabajo fin de grado consta de seis partes, $16$ capítulos y otros elementos como la portada, la declaración de originalidad, la autorización para su ubicación en la biblioteca de la escuela, sendos resúmenes tanto en español como en inglés (con sus respectivas palabras clave), la sección de agradecimientos, el índice general así como de una bibliografía y un apéndice.
 
 A continuación se expone un breve esquema general del contenido de las partes y capítulos de este trabajo fin de grado:
 
 \begin{itemize}
-\item Parte I: Motivaciones.
+\item \hyperref[sec:parteI]{Parte I}: Motivaciones.
 \begin{itemize}
-\item
+\item \hyperref[sec:motivation]{\emph{Motivación}}: Se trata de un capítulo inicial en el que se expone una introducción en el contexto del proyecto junto con las motivaciones existentes, los objetivos que se pretenden conseguir con la realización del mismo y la estructuración de la memoria.
 \end{itemize}
-\item Parte II: Estado del arte.
+\item \hyperref[sec:parteII]{Parte II}: Estado del arte.
 \begin{itemize}
-\item Capítulo 1:
-\item Capítulo 2:
-\item Capítulo 3:
-\item Capítulo 4:
+\item \hyperref[sec:chapterI]{Capítulo 1}: Planteamiento del problema. Describe el funcionamiento de la plataforma educativa que recoge los datos que se usarán en este trabajo fin de grado y la clase de tareas que se le platean al alumnado que hace uso de la misma. Igualmente, se presenta un ejemplo fictio que refleja el tipo de información recogida de la actividad de los alumnos.
+\item \hyperref[sec:chapterII]{Capítulo 2}: Introducción a la Minería de Procesos y trabajos previos. Introducción al concepto clave de minería de procesos en relación a los objetivos que se plantean en este proyecto. Adicionalmente, se realiza una breve presentación de los estudios en este área previos a este trabajo y se realiza una clasificación de los trabajos realizados en el campo de la Minería de Procesos.
+\item \hyperref[sec:chapterIII]{Capítulo 3}: Minería de Procesos. Breve descripción de la suite de minería de procesos Disco \cite{gunther2012disco} y de su algoritmo subyacente (\emph{Fuzzy Miner} \cite{gunther2007fuzzy}). Igualmente, se muestran algunos diagramas extraídos con dicha herramienta y se exponen sus principales limitaciones.
+\item \hyperref[sec:chapterIV]{Capítulo 4}: Implementación de la herramienta de Minería de Procesos \emph{Graph Miner}. Breve introducción a la manera en la que se representarán los grupos de prácticas en la herramienta de minería de procesos de creación propia \emph{Graph Miner}: la matriz característica de un grupo. Finalmente, se muestran los distintos gráficos que pueden obtenerse a partir de esta nueva herramienta.
+\item \hyperref[sec:chapterV]{Capítulo 5}: Teoría de grafos. Definiciones básicas relativas a la teoría de grafos entre las que se encuentra el concepto de \emph{Grafo Dirigido Acíclico}, concepto clave en el desarrollo de este trabajo. Además, se incluye la exposición y demostración del Teorema de Kirchhoff, generalización de la fórmula de Cayley que será de gran utilidad en el cálculo del número de árboles de expansión de grafos conexos. El capítulo finaliza con la presentación de algunas medidas de propósito general que se usarán para realizar una clasificación de los distintos grupos de prácticas.
 \end{itemize}
-\item Parte III: Análisis descriptivo.
+\item \hyperref[sec:parteIII]{Parte III}: Análisis descriptivo.
 \begin{itemize}
-\item Capítulo 5:
-\item Capítulo 6:
-\item Capítulo 7:
-\item Capítulo 8:
+\item \hyperref[sec:chapterVI]{Capítulo 6}: Los registros existentes.  Incluye una descripción de los registros existentes en el servidor. Se muestra el número de grupos estudiados cada año, el periodo de tiempo analizado cada año y el conjunto de problemas analizados cada año, estudiando la dificultad de los mismos. Por último, se realiza un análisis de la actividad registrada en el servidor.
+\item \hyperref[sec:chapterVII]{Capítulo 7}: Hipótesis de estudio. Exposición de las principales métricas de calidad definidas sobre los registros de actividad de los alumnos que podrían permitir discernir qué grupos presentan una mayor dificultad para resolver los problemas de prácticas propuestos. Se realiza una subdivisión de las mismas en continuas y a posteriori.
+\item \hyperref[chapter:rendimiento]{Capítulo 8}: Rendimiento observado de los alumnos. Descripción detallada y estudio estadístico de las medidas de rendimiento de los alumnos clásicas. Se estudiarán las variaciones de las distintas variables a lo largo de los años y la normalidad de las mismas. El objetivo de este capítulo es la familiarización del lector con algunas de las métricas de calidad que serán determinantes en la predicción de grupos en riesgo.
 \end{itemize}
-\item Parte IV: Planificación del proyecto.
+\item \hyperref[sec:parteIV]{Parte IV}: Planificación del proyecto.
 \begin{itemize}
-\item Capítulo 9:
-\item Capítulo 10:
+\item \hyperref[chapter:objetivos]{Capítulo 9}: Etapas del proyecto: división en objetivos. Se describen las iteraciones en las que se divide el proyecto siguiendo la metodología \emph{Scrum}.
+\item \hyperref[chapter:sprints]{Capítulo 10}: Etapas del proyecto: división en sprints y seguimiento de los mismos. Se muestra la organización temporal del proyecto y el seguimiento del mismo mediante \emph{burndown charts}.
 \end{itemize}
-\item Parte V: Resultados obtenidos.
+\item \hyperref[sec:parteV]{Parte V}: Resultados obtenidos.
 \begin{itemize}
-\item Capítulo 11:
-\item Capítulo 12:
-\item Capítulo 13:
+\item \hyperref[chapter:correlations]{Capítulo 11}: Análisis de las correlaciones entre las distintas métricas. Análisis de la correlación existente entre las métricas clásicas para cuantificar el rendimiento de los alumnos y la nota obtenida por los mismos. Además, se estudiarán las correlaciones entre las medidas de complejidad (características topológicas de los grafos que representan el proceso de resolución de los problemas) y la nota alcanzada por los alumnos al final de la práctica.
+\item \hyperref[sec:chapterXII]{Capítulo 12}: Perfiles de estudiantes según su rendimiento. Aplicación de técnicas de clustering para agrupar a los alumnos en diferentes intervalos de calificaciones empleando diferentes métricas (medidas clásicas de rendimiento y topológicas).
+\item \hyperref[sec:chapterXIII]{Capítulo 13}: Clasificación de los grupos de alumnos según su rendimiento. Utilización del clasificador estadístico C5.0 para generar un conjunto de reglas que se emplearán para poder decidir si el rendimiento de una determinada agrupación de estudiantes es más bajo de lo que debería. Además, se utilizará otro clasificador del mismo tipo para predecir el intervalo de notas en el que se encontraría un determinado grupo de alumnos.
+\end{itemize}
+\item \hyperref[sec:parteVI]{Parte VI}: Conclusiones y vías futuras.
+\begin{itemize}
+\item \hyperref[sec:chapterXIV]{Capítulo 14}: Conclusiones. Repaso de los logros alcanzados a lo largo del proyecto y recapitulación de la principal motivación del desarrollo de este trabajo.
+\item \hyperref[sec:chapterXV]{Capítulo 15}: Vías futuras. Exposición de un conjunto de propuestas para ampliar el trabajo aquí realizado.
 \end{itemize}
 \end{itemize}

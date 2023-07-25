@@ -195,11 +195,16 @@ LCV_densitiesFactor <- function (data, variable, factor, showmax=FALSE, annotati
   res<-res+LCV_theme2
   res
 }
-
-LCV_SelfValues <- function(data, variable, xpartition=c()) {
+LCV_SelfValues <- function(data, variable, xpartition=c(), clustering="red") {
   v <- data[[variable]]
-  res<-ggplot()+geom_point(mapping=aes(x=v, y=0),size=3,color="red", alpha=0.25)+
-    xlab(variable)
+  if (clustering %in% colnames(data)) {
+    res<-ggplot()+geom_point(mapping=aes(x=v, y=0),size=3,colour=as.factor(data[[clustering]]), alpha=0.25)+
+      # scale_color_manual(values=c("red","blue","green","purple","orange","brown", "gray"))+
+      xlab(variable)
+  }else{
+    res<-ggplot()+geom_point(mapping=aes(x=v, y=0),size=3,colour="red", alpha=0.25)+
+      xlab(variable)
+  }
   if (length(xpartition)>0) {
     res <- res+
       geom_vline(xintercept = xpartition)
@@ -208,6 +213,19 @@ LCV_SelfValues <- function(data, variable, xpartition=c()) {
     LCV_theme2
   res
 }
+# LCV_SelfValues <- function(data, variable, xpartition=c()) {
+#   v <- data[[variable]]
+#   res<-ggplot()+
+#    geom_point(mapping=aes(x=v, y=0),size=3,color="red", alpha=0.25)+
+#     xlab(variable)
+#   if (length(xpartition)>0) {
+#     res <- res+
+#       geom_vline(xintercept = xpartition)
+#   }
+#   res<-res+
+#     LCV_theme2
+#   res
+# }
 
 LCV_getFDensity<-function(data, variable){
   ddataset <- data

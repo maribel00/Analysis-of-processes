@@ -1,13 +1,13 @@
-\chapter{Minería de Procesos}
+\chapter{Minería de Procesos}\label{sec:chapterIII}
 \addcontentsline{toc}{chapter}{Minería de Procesos}
 
 Como se ha comentado antes, cualquier posible evaluación de los alumnos basada meramente en los objetivos alcanzados es sólo una visión estática, sin muchas pistas sobre la dinámica que les ha llevado hasta ese punto, no sabemos muy bien cómo han llegado los alumnos hasta ahí y esta información es la clave para identificar a los grupos con dificultades que podrían necesitar la ayuda del profesor. Por lo tanto, vamos a emplear técnicas de Minería de Procesos \cite{aalst2016} para extraer las diferentes secuencias de eventos correlacionados del conjunto de datos original.
 
 \section{Extracción de los procesos con DISCO}
 
-Para la extracción de los procesos ocultos se empleará la muy conocida suite de minería de procesos Disco \cite{gunther2012disco}. Disco es una herramita que permite crear mapas visuales a partir de los registros en cuestión de minutos.
+Para la extracción de los procesos ocultos se empleará la muy conocida suite de minería de procesos Disco \cite{gunther2012disco}. Disco es una herramienta que permite crear mapas visuales a partir de los registros en cuestión de minutos.
 
-Fuzzy miner \cite{gunther2007fuzzy} es un algoritmo de minería de procesos muy flexible y sólido que está detrás de Disco. En un proceso típico minado con Disco, cada actividad del proceso se etiqueta como en la Tabla \ref{tab:sequence} e incluye las frecuencias tanto de las actividades como de las transiciones entre actividades. Por lo tanto, la frecuencia de cada actividad representa el número de veces que esta actividad aparece en $B^g$. Por otro lado, la frecuencia de cada transición entre las actividades $x$ e $y$ representa el número de veces que la actividad $x$ aparece inmediatamente antes de la actividad $y$ en $B^g$.
+\emph{Fuzzy Miner} \cite{gunther2007fuzzy} es un algoritmo de minería de procesos muy flexible y sólido que está detrás de Disco. En un proceso típico minado con Disco, cada actividad del proceso se etiqueta como en la Tabla \ref{tab:sequence} e incluye las frecuencias tanto de las actividades como de las transiciones entre actividades. Por lo tanto, la frecuencia de cada actividad representa el número de veces que esta actividad aparece en $B^g$. Por otro lado, la frecuencia de cada transición entre las actividades $x$ e $y$ representa el número de veces que la actividad $x$ aparece inmediatamente antes de la actividad $y$ en $B^g$.
 
 Para crear los diagramas de Disco, se extraerán los campos de información más importantes del dataset:
 \begin{enumerate}

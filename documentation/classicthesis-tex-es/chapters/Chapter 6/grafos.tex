@@ -1,4 +1,4 @@
-\chapter{Teoría de grafos}
+\chapter{Teoría de grafos}\label{sec:chapterV}
 \addcontentsline{toc}{chapter}{Teoría de grafos}
 
 En el ámbito de las matemáticas y las ciencias de la computación, se emplea el término \emph{grafo} (del griego \emph{grafos} que significa \emph{dibujo} o \emph{imagen}) para referirse a un conjunto de objetos llamados \emph{vértices} o \emph{nodos}, los cuales están unidos por enlaces conocidos como \emph{aristas} o \emph{arcos}. Estas conexiones representan las relaciones binarias que existen entre los elementos de un conjunto, y son objeto de estudio de la teoría de grafos.
@@ -171,7 +171,7 @@ En la Figura \ref{fig:grafo2} tenemos un ejemplo de grafo ponderado.
 En la Figura \ref{fig:grafo1} se muestra un ejemplo de grafo simple. Por otro lado, en la Figura \ref{fig:grafo4} podemos ver un multigrafo.
 \end{exampleth}
 
-\begin{definition}
+\begin{definition}\label{def:adjacency}
 En un grafo $G=(V,E)$ dos vértices se dirán \emph{adyacentes} (o \emph{vecinos}) si están relacionados por al menos una arista. Es decir, dos vértices $u,v \in V$ son adjacentes si $\exists e \in E$ tal que $e = (u,v)$.
 
 La \emph{matriz de adyacencia} de un grafo es una matriz cuadrada de dimensión $|V| \times |V|$ que se utiliza como forma de representar las relaciones binarias entre los nodos del mismo. La denotaremos por $A = (a_{ij})_{1\leq i,j\leq |V|}$.
@@ -194,7 +194,7 @@ Tenemos que la matriz de adyacencia del grafo de la Figura \ref{fig:grafo1} es:
 \end{equation}
 \end{exampleth}
 
-\begin{definition}
+\begin{definition}\label{def:neighborhood}
 Sea $G=(V,E)$ un grafo no dirigido y sea $v \in V$ un vértice suyo. Se denomina grado del vértice $v$ al número de aristas incidentes al vértice y se denotará de ahora en adelante por $\text{deg}(v)$.
 
 Al conjunto de todos los vértices adyacentes a un vértice dado se le denominará \emph{vecindad} del vértice en cuestión. Formalmente, la vecindad de un vértice $v \in V$ es el conjunto
@@ -235,7 +235,7 @@ Un grafo en el que todos sus vértices tienen el mismo grado (de entrada, en el 
 \begin{definition}
 Un \emph{grafo completo} $G=(V,E)$ es un grafo no dirigido simple en el que para cada par de vértices $u, v\in V$ existe una arista $e \in E$ tal que $e = \left\lbrace u,v\right\rbrace$.
 
-El \emph{grafo completo de $n$ vértices} se denotará por $K_n$. Así pues, $K_n$ tendrá $frac{n\cdot (n-1)}{2}$ aristas y es un grafo regular de grado $n-1$.
+El \emph{grafo completo de $n$ vértices} se denotará por $K_n$. Así pues, $K_n$ tendrá $\frac{n\cdot (n-1)}{2}$ aristas y es un grafo regular de grado $n-1$.
 \end{definition}
 
 \begin{figure}[H]
@@ -300,7 +300,7 @@ Un grafo rueda es un grafo de $n$ vértices (denotado usualmente por $W_n$) es u
 En las Figuras \ref{fig:grafo5}, \ref{fig:grafo6} y \ref{fig:grafo7} podemos ver un grafo completo, un grado ciclo y un grafo rueda respectivamente.
 \end{exampleth}
 
-\begin{definition}
+\begin{definition}\label{def:cyclic}
 Diremos que un grafo es \emph{cíclico} si contiene al menos un grafo ciclo. Por el contrario, se dirá que un grafo es \emph{acíclico} si no contiene ningún ciclo.
 
 No obstante, en este trabajo fin de grado nos centraremos en los llamados \emph{grafos dirigidos acíclicos} o \emph{DAG} (\emph{Directed Acyclic Graphs}, en inglés) que no son más que grafos dirigidos desprovistos de ciclos.
@@ -427,7 +427,7 @@ Supongamos ahora que el resultado es cierto para toda lista de longitud $n-2$. S
 El siguiente ejemplo pone en práctica el procedimiento descrito en el lema anterior para construir un árbol generador cuyo código de Prüfer sea igual a una lista dada.
 
 \begin{exampleth}
-Consideremos la lista $(3,5,3,1)$. La longitud de esta lista es $4$, por lo que corresponde a un árbol con conjunto de vértices $V = \left\lbrace 1,2,3,4,5,6 \right\rbrace$. El primer vértice que no aparece en la lista es $2$, el cual deber ser adyacente al vértice $3$ (Figura \ref{fig:arbol2}). Consideremos ahora la sublista $(5,3,1)$, el primer vértice del conjunto $\left\lbrace 1,3,4,5,6 \right\rbrace$ (obtenido al eliminar el vértice $2$) que no aparece en la lista es el $4$, que debe ser adyacente al vértice $5$. Análogamente, el primer vértice del conjunto $\left\lbrace 1,3,5,6 \right\rbrace$ que no aparece en la sublista $(3,1)$ es el $5$, el cual debe ser adyacente al vértice $3$, y el primer vértice del conjunto $\left\lbrace 1,3,6 \right\rbrace$ que no aparece en la sublista $(1)$ es el $3$, el cual debe ser adyacente al vértice $1$. Finalmente, obtenemos la lista vacía y el conjunto $\left\lbrace 1,6 \right\rbrace$, lo cual indica que el vértice $1$ debe ser adyacente al vértice $6$. La Figura \ref{fig:graforesult} es el árbol asociado a la lista $(3,5,3,1)$.
+Consideremos la lista $(3,5,3,1)$. La longitud de esta lista es $4$, por lo que corresponde a un árbol con conjunto de vértices $V = \left\lbrace 1,2,3,4,5,6 \right\rbrace$. El primer vértice que no aparece en la lista es $2$, el cual deber ser adyacente al vértice $3$ (Figura \ref{fig:arbol2}). Consideremos ahora la sublista $(5,3,1)$, el primer vértice del conjunto $\left\lbrace 1,3,4,5,6 \right\rbrace$ (obtenido al eliminar el vértice $2$) que no aparece en la lista es el $4$, que debe ser adyacente al vértice $5$. Análogamente, el primer vértice del conjunto $\left\lbrace 1,3,5,6 \right\rbrace$ que no aparece en la sublista $(3,1)$ es el $5$, el cual debe ser adyacente al vértice $3$, y el primer vértice del conjunto $\left\lbrace 1,3,6 \right\rbrace$ que no aparece en la sublista $(1)$ es el $3$, el cual debe ser adyacente al vértice $1$. Finalmente, obtenemos la lista vacía y el conjunto $\left\lbrace 1,6 \right\rbrace$, lo cual indica que el vértice $1$ debe ser adyacente al vértice $6$. La Figura \ref{fig:arbol2} es el árbol asociado a la lista $(3,5,3,1)$.
 \end{exampleth}
 
 \begin{figure}[H]
@@ -508,7 +508,7 @@ La matriz laplaciana del grafo simple de la Figura \ref{fig:grafo2} será la sig
 \end{exampleth}
 
 \begin{exampleth}
-Las matrices lapacianas del grafo dirigido de la Figura \ref{fig:grafo3} de entrada y de salida se muestran en las ecuaciones \ref{eq:inlaplacian} y \ref{eq:outlaplacian} teniendo en cuenta la matrices de adyacencia (Ecuación \ref{eq:adyacencia}), del grado de entrada y del grado de salida de dicho grafo.
+Las matrices lapacianas del grafo dirigido de la Figura \ref{fig:grafo3} de entrada y de salida se muestran en las ecuaciones \ref{eq:inlaplacian} y \ref{eq:outlaplacian} teniendo en cuenta las matrices de adyacencia (Ecuación \ref{eq:adyacencia}), del grado de entrada (Ecuación \ref{eq:entrada}) y del grado de salida (Ecuación \ref{eq:salida}) de dicho grafo.
 
 \begin{equation}
 \begin{pmatrix}
@@ -519,6 +519,50 @@ Las matrices lapacianas del grafo dirigido de la Figura \ref{fig:grafo3} de entr
 1 & 0 & 0 & 0 & 0
 \end{pmatrix}
 \label{eq:adyacencia}
+\end{equation}
+
+\begin{equation}
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & 0\\
+0 & 0 & 2 & 0 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 1
+\end{pmatrix}
+\label{eq:entrada}
+\end{equation}
+
+\begin{equation}
+\begin{pmatrix}
+2 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & 0\\
+0 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 1
+\end{pmatrix}
+\label{eq:salida}
+\end{equation}
+
+\begin{equation}
+\begin{pmatrix}
+1 & -1 & -1 & 0 & 0\\
+0 & 1 & -1 & 0 & 0\\
+0 & 0 & 2 & -1 & 0\\
+0 & 0 & 0 & 1 & -1\\
+-1 & 0 & 0 & 0 & 1
+\end{pmatrix}
+\label{eq:inlaplacian}
+\end{equation}
+
+\begin{equation}
+\begin{pmatrix}
+2 & -1 & -1 & 0 & 0\\
+0 & 1 & -1 & 0 & 0\\
+0 & 0 & 1 & -1 & 0\\
+0 & 0 & 0 & 1 & -1\\
+-1 & 0 & 0 & 0 & 1
+\end{pmatrix}
+\label{eq:outlaplacian}
 \end{equation}
 \end{exampleth}
 
@@ -534,44 +578,154 @@ Como podemos ver, se trata de una generalización de la fórmula de Cayley que a
 
 \section{Medidas de complejidad de propósito general}
 
-Esta sección es una recopilación de varias de las medidas de complejidad aplicadas a grafos dirigidos acíclicos ponderados $G = (V,E)$ a partir de sus matrices de adyacencia ponderadas. Se denotará a las matrices de adyacencia por $\mathcal{A}$ y se tendrá que el número de vértices es $v = |V| = 2\cdot n + 1$, $n \in \mathbb{N}$. Es decir, tendremos un número impar de vértices.
+Esta sección es una recopilación de varias de las medidas de complejidad \cite{cormen2022introduction} aplicadas a grafos dirigidos acíclicos ponderados $G = (V,E)$ a partir de sus matrices de adyacencia ponderadas. Se denotará a las matrices de adyacencia por $\mathcal{A}_{v\times v}$ y se tendrá que el número de vértices es $v = |V| = 2\cdot n + 1$, $n \in \mathbb{N}$. Es decir, tendremos un número impar de vértices.
 
 Todas ellas tratan de medir la complejidad de un grafo en términos de la densidad de las conexiones entre los vértices utilizando diferentes perspectivas.
 
+\subsection{Densidad}
+Es el cociente entre el número de aristas del grafo y el número máximo de aristas permitidas $v \cdot (v-1)$:
+\begin{equation}
+De(\mathcal{A}) = \frac{|E^{\mathcal{A}}|}{v^{\mathcal{A}}\cdot (v^{\mathcal{A}}-1)}
+\end{equation}
+\subsection{Grado medio}
+El grado de un nodo es el número de aristas entrantes y salientes o, en el caso de los grafos ponderados, la suma de los pesos entrantes y salientes. Así pues, en los grafos dirigidos se tiene que:
+\begin{equation}
+Dm(\mathcal{A}) = \frac{|E^{\mathcal{A}}|}{v^{\mathcal{A}}}
+\end{equation}
+\subsection{Longitud del camino característico}
+Es el número medio de aristas, no sus pesos, entre cualquier par de nodos, en promedio. Podríamos aplicar cualquier algoritmo de camino más corto como el de Dijkstra \cite{cormen2022introduction} a la matriz característica $\mathcal{A}'$ para propagar las frecuencias y obtener un cierre de la matriz original $\hat{\mathcal{A}}'$. Esto da una idea de la profundidad media del grafo, no en número de sesiones, sino en número de aristas. Esto es,
+\begin{equation}
+Le(\mathcal{A}) = \frac{1}{E(\hat{\mathcal{A}}')} \cdot \sum_r \sum_c \hat{\mathcal{A}}'[r,c]
+\end{equation}
+\subsection{Diámetro del grafo}
+Sólo trata de medir el número de aristas entre los nodos más distantes del grafo.
+\begin{equation}
+Di(\mathcal{A}) = \max{\hat{\mathcal{A}}'[r,c]}
+\end{equation}
+\subsection{Conectividad}
+En este caso, se ha elegido el coeficiente de agrupación \cite{cormen2022introduction}. La conectividad mide la densidad de los subgrafos alrededor de los nodos de una determinada arista, es decir, es una medida de densidad local. Para el cálculo de la conectividad se usará el concepto de vecindad de un nodo $v_i$, $N(v_i)$, anteriormente definido en la Definición \ref{def:neighborhood}.
+
+Así pues, el coeficiente de agrupación local mide el número de aristas existentes en la vecindad del nodo $v_i$, denotado por $e_i$, con respecto al máximo permitido de aristas en esta vecindad $|k_i| \cdot (|k_i| - 1)$:
+\begin{equation}
+Cl(\mathcal{A}) = \frac{e_i}{|k_i| \cdot (|k_i| - 1)}
+\end{equation}
+\subsection{Betweenness}
+Es muy conocido en las redes sociales e identifica cuál de los problemas ha recibido más atención e influencia que los demás. Ya está implementada en R y la llamaremos $Be(\mathcal{A})$.
+\subsection{Dag}
+Es la media de la longitud de todos los caminos diferentes que van del nodo raíz a cada uno de los nodos terminales del grafo. Trata de medir lo ``desordenado'' que es un grafo.
+\subsection{WDag}
+Se basa en Dag pero, en lugar de medir el número de pasos, recoge sus pesos.
+\subsection{St}
+Es el factor Laplaciano de la matriz característica. Este factor no es más que el número de árboles de expansión del grafo. Se trata también de una medida muy común de la entropía de un grafo.
 \subsection{Peso del comportamiento}
 Detecta cuánto esfuerzo han dedicado los alumnos a sus tareas de laboratorio en términos del número total de sesiones abiertas en el servidor. Matemáticamente se define como sigue:
 \begin{equation}
 We(\mathcal{A}) = \sum_r \sum_c \mathcal{A}[r][c]
 \end{equation}
 \subsection{Eficacia}
-Detecta cuántos problemas se han resuelto. Se formula como sigue:
+Detecta cuántos problemas se han resuelto, simplemente contado el número de nodos $p_k^s$ presentes el grafo. Se formula como sigue:
 \begin{equation}
 Ef(\mathcal{A}) = \left|\left\lbrace p_i \in P, \sum_r \mathcal{A}[r][p_i^s] > 0 \right\rbrace\right|
 \end{equation}
-\subsection{Densidad}
-Es el cociente entre el peso del grafo y el número máximo de aristas permitido:
-\begin{equation}
-De(\mathcal{A}) = \frac{W(\mathcal{A})}{v\cdot (v-1)}
-\end{equation}
-\subsection{Grado medio}
-El grado de un nodo es el número de aristas entrantes y salientes o, en el caso de los grafos ponderados, la suma de los pesos entrantes y salientes.
-\begin{equation}
-Dm(\mathcal{A}) = \frac{1}{v} \cdot \sum_i (\sum_r \mathcal{A}[r][i] + \sum_c \mathcal{A}[i][c]) \cdot f
-\end{equation}
-\subsection{Longitud del camino característico}
-Si interpretamos los pesos (frecuencias) como distancias, ya que ambos se refieren a una especie de esfuerzo para llegar a una solución, podríamos aplicar cualquier algoritmo de camino más corto como el de Dijkstra (\textbf{incluir referencia}) a la matriz característica $\mathcal{A}$ para propagar las frecuencias y obtener un cierre de la matriz original $\hat{\mathcal{A}}$. Es decir, obtendremos una aproximación de cuántas sesiones habría costado llegar desde cualquier nodo del grafo a cualquier otro nodo. Esto es,
-\begin{equation}
-Le(\mathcal{A}) = \frac{1}{E(\hat{\mathcal{A}})} \cdot \sum_r \sum_c \hat{\mathcal{A}}[r,c]
-\end{equation}
-\subsection{Diámetro del grafo}
-Sólo trata de medir el número de aristas entre los nodos más distantes del grafo.
-\begin{equation}
-Di(\mathcal{A}) = \max{\hat{\mathcal{A}}[r,c]}
-\end{equation}
-\subsection{Conectividad}
-Número medio de nodos conectados a un determinado nodo.
-\begin{equation}
-Co(\mathcal{A}) = \frac{1}{v} \cdot \sum_i (\sum_r \mathcal{A}'[r][i] + \sum_c \mathcal{A}'[i][c])
-\end{equation}
-\subsection{Betweenness}
-Es muy conocido en las redes sociales e identifica cuál de los problemas ha recibido más atención e influencia que los demás.
+
+Todas las métricas generales aquí presentadas se utilizarán para clasificar los grupos de estudiantes. Se ha de tener en cuenta que todas ellas se han definifido sobre grafos dirigidos ponderados y no tienen en cuenta absolutamente nada relacionado con el rendimiento de los alumnos ni con los registros temporales de su progreso excepto las funciones $We$ (número de sesiones) y $Ef$ (número de problemas resueltos) que se extraen únicamente de la matriz característica $\mathcal{A}$.
+
+\subsection{Características topológicas de los grafos de procesos}
+
+Teniendo en mente que la finalidad última de este trabajo es encontrar indicadores del progreso de los alumnos y la detección precoz de aquellos grupos con problemas para que el profesor pueda proporcionarles ayuda y orientación, se han obtenido medidas de rendimiento sobre los procesos minados. Se tratarán de funciones \emph{off-the-shelf} genéricas sobre grafos, lo que permitiría aplicar los resulados aquí obtenidos en otras plataformas educativas.
+
+Así pues, se han definido dos métricas distintas: el Laplaciano (\emph{Laplacian}), que usará el análisis espectral de grafos, y la heurística \emph{DAG}, que trata de determinar cómo de balanceados están los nodos de un grafo dirigido acíclico.
+
+\subsection{El Laplaciano (\emph{Laplacian})}
+
+En primer lugar, empezamos analizando el \emph{Learning Path} de los grupos para tener una idea de los problemas por los que ha ido navegando durante toda la práctica. En la Figura Figura \ref{fig:DBA1516P2GG} podemos ver el recorrido que hizo el grupo \texttt{DBA1920P2GG}. No obstante, para el cálculo de este coeficiente se usará un grafo de mayor complejidad, en el que se subdividen los estados en \texttt{Pi OK} o \texttt{Pi FAIL} dependiendo del milestone alcanzado (\texttt{OK} indica que se ha resuelto problema). En la Figura \ref{fig:DBA1516P2GG_states} se muestra este nuevo grupo para el grupo de prácticas que estamos considerando.
+
+\begin{figure}[H]
+\centering
+\subfloat[Grafo que muestra la exploración de los problemas que ha realizado.]{\label{fig:DBA1516P2GG}\includegraphics[width=0.47\textwidth]{DBA1516P2GG.png}}\qquad
+\subfloat[Grafo que muestra la exploración de los problemas, considerando si un problema ha sido resuelto (\texttt{OK}) o no (\texttt{FAIL}).]{\label{fig:DBA1516P2GG_states}\includegraphics[width=0.47\textwidth]{DBA1516P2GG_states.png}}
+\caption{Leaning Path del grupo de prácticas \texttt{DBA1516P2GG}.}
+\label{fig:laplacian}
+\end{figure}
+
+En la Figura \ref{fig:densityplotlaplacian} podemos ver que el \emph{Laplaciano}, denotado por \emph{LOGLAP09}, no sigue una distribución perfectamente normal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{espectral/densityLOGLAP09.png}
+    \caption{Función de densidad de probabilidad del \emph{Laplaciano} obtenido por los distintos grupos de prácticas.}
+    \label{fig:densityplotlaplacian}
+\end{figure}
+
+\subsection{El coeficiente \emph{DAG}}
+
+El coeficiente DAG se calcula a partir de la matriz de adyacencia de un
+grafo dirigido acíclico. Así pues, es la suma de dos componentes, ponderadas
+por $0.2$ y $0.8$ respectivamente.
+
+La primera de las componentes del coeficiente se calcula a partir de todos
+los caminos del nodo inicial (\texttt{START}) al nodo final (\texttt{END}) de un grafo dirigido
+acíclico dado. Así pues, se calcula la media de los problemas abiertos en
+este tipo de caminos. Por ejemplo, dado el grado de la Figura,
+un posible camino es \texttt{\{START,PROBLEM1-20,PROBLEM1-40,PROBLEM1-60,END\}}, en el que se abre un problema.
+
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=\textwidth]{DBA2021P2GH.png}
+%\caption{Grafo Dirigido Acíclico de ejemplo: grupo DBA2021GH}
+%\label{fig:1}
+%\end{figure}
+
+Esta primera componente intenta captar el comportamiento de algunos grupos
+que van saltando de problema en problema en la misma sesión, valorándolo
+de manera negativa.
+
+Por el contrario, la segunda componente no tiene ningún contenido semántico.
+Ésta simplemente consiste en cálcular la desviación estándar de las componentes
+de la matriz de adyacencia no nulas y dividirla por la media de dichas entradas.
+En resumen, ésta segunda componente trata de ver cómo de balanceados están
+los nodos de un grafo.
+
+El pseudocódigo del cálculo de este coeficiente puede verse en el Algoritmo
+\ref{alg:dag}.
+
+\begin{algorithm}
+\caption{Función encargada del cálculo del coeficiente DAG.}\label{alg:dag}
+\begin{algorithmic}[1]
+\Function{get\_coefficient}{}
+\State $\texttt{coefficient} \gets 0$
+\State $\texttt{problems} \gets \emptyset$ \Comment{Tiene el mismo tamaño que \texttt{paths}}
+\For{$ i = 0 $ \textbf{to} $\texttt{paths.size()}$}
+\State $\texttt{problems[i].add(num\_problems(paths[i]))}$
+\EndFor
+\If{$\texttt{paths.size()} == 0$}
+\State $\texttt{coefficient} \gets 3$
+\Else
+\State $\texttt{mean} \gets \texttt{calculate\_mean(problems)}$
+\State $\texttt{mean} \gets (\texttt{mean} - 1) / (9-1)$ \Comment{Normalización}
+\State $\texttt{coefficient} \gets \texttt{coefficient} + 0.2 \cdot \texttt{mean}$
+\State $\texttt{nonzero} \gets \emptyset$
+\State $\texttt{mean\_frequency} \gets 0$
+\State $\texttt{n} \gets 0$
+\For{$\texttt{row}$ \textbf{in} $\texttt{frequency}$}
+\For{$\texttt{element}$ \textbf{in} $\texttt{row}$}
+\If{$\texttt{element} > 0$}
+\State $\texttt{nonzero.add(element)}$
+\State $\texttt{mean\_frequency} \gets \texttt{mean\_frequency} + \texttt{element}$
+\State $\texttt{n} \gets \texttt{n}+1$
+\EndIf
+\EndFor
+\EndFor
+\State $\texttt{mean\_frequency} \gets \texttt{mean\_frequency}/\texttt{n}$
+\State $\texttt{sum\_squares} \gets 0$
+\For{$ i = 0 $ \textbf{to} $\texttt{n}$}
+\State $\texttt{sum\_squares} \gets \texttt{sum\_squares} + (\texttt{nonzero[i]}-\texttt{mean\_frequency})^2$
+\EndFor
+\State $\texttt{variance} \gets \texttt{sum\_squares}/(\texttt{n}-1)$
+\State $\texttt{std\_dev} \gets \texttt{sqrt(variance)}$
+\State $\texttt{coefficient} \gets \texttt{coefficient} + 0.8 \cdot \texttt{std\_dev}/\texttt{mean\_frequency}$
+\EndIf
+\State \Return \texttt{coefficient}
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

@@ -1,0 +1,36 @@
+digraph graphname {
+	// title
+	labelloc="t";
+	label="fictitious_group";
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+	layout=circo;
+"p1 f" [shape=circle, color=greenyellow, style=filled]
+"p1 s" [shape=circle, color=indianred1, peripheries=2, style=filled]
+"p2 f" [shape=circle, color=hotpink, style=filled]
+"p2 s" [shape=circle, color=orange, peripheries=2, style=filled]
+"p3 f" [shape=circle, color=deepskyblue, style=filled]
+"p3 s" [shape=circle, color=gold, peripheries=2, style=filled]
+"A" [shape=box, fillcolor=white, color=black, style=filled]
+"Z" [shape=box, fillcolor=white, color=black, style=filled]
+"A" -> "p1 f" [ style = dashed color=grey penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p1 f" -> "p1 f" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p1 f" -> "p1 s" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p1 s" -> "p1 s" [ color=grey16 penwidth = "1" label ="3" labelfloat=false fontname="Arial" fontsize=8]
+"p1 s" -> "p1 f" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p1 f" -> "p2 f" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p2 f" -> "p2 f" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p2 f" -> "p1 s" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p1 s" -> "p2 s" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p2 s" -> "p1 f" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p1 f" -> "p2 s" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p2 s" -> "p3 f" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p3 f" -> "p3 f" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p3 f" -> "p1 f" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p1 f" -> "p3 f" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p3 f" -> "p2 f" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p2 f" -> "p3 f" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p3 f" -> "p3 s" [ color=grey16 penwidth = "1" label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"p3 s" -> "Z" [ style = dashed color=grey penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+}

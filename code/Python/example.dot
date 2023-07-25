@@ -1,7 +1,7 @@
 digraph graphname {
 	// title
 	labelloc="t";
-	label="dummygroup";
+	label="dummy_group";
 	dpi = 150
 	size="16,11!";
 	margin = 0;

@@ -45,6 +45,8 @@ cleardoublepage=empty,abstractoff,BCOR=5mm,paper=a4,fontsize=12pt,main=spanish]{
 \usepackage{natbib}
 \usepackage{algorithm} % Algoritmos
 \usepackage{algpseudocode}
+\usepackage{slashbox}
+\usepackage{xcolor,colortbl}
 
 % Plantilla classicthesis
 \usepackage[beramono,eulerchapternumbers,linedheaders,parts,a5paper,dottedtoc,
@@ -122,14 +124,14 @@ manychapters,pdfspacing]{classicthesis}
     Introducción, Motivación, Objetivos y Estructura.
   \end{center}
 }
-\part{Motivaciones}
+\part{Motivaciones}\label{sec:parteI}
 
 \input{chapters/Chapter 1/motivacion}
 
 \ctparttext{\color{black}\begin{center}
 Planteamiento del problema y Minería de Procesos.
 \end{center}}
-\part{Estado del arte}
+\part{Estado del arte}\label{sec:parteII}
 
 \input{chapters/Chapter 2/estado}
 \input{chapters/Chapter 3/previo}
@@ -143,12 +145,11 @@ Planteamiento del problema y Minería de Procesos.
     Análisis estadístico de los datos.
   \end{center}
 }
-\part{Análisis Descriptivo}
+\part{Análisis Descriptivo}\label{sec:parteIII}
 
 \input{chapters/Chapter 7/analisis}
 \input{chapters/Chapter 8/hipotesis}
 \input{chapters/Chapter 9/rendimiento}
-\input{chapters/Chapter 10/espectral}
 
 \ctparttext{
   \color{black}
@@ -156,10 +157,10 @@ Planteamiento del problema y Minería de Procesos.
     Estructuración en objetivos, división en sprints y seguimiento.
   \end{center}
 }
-\part{Planificación del proyecto}
+\part{Planificación del proyecto}\label{sec:parteIV}
 
-\input{chapters/Chapter 11/objetivos}
-\input{chapters/Chapter 12/sprints}
+\input{chapters/Chapter 10/objetivos}
+\input{chapters/Chapter 11/sprints}
 
 \ctparttext{
   \color{black}
@@ -167,11 +168,11 @@ Planteamiento del problema y Minería de Procesos.
     Análisis de los resultados obtenidos.
   \end{center}
 }
-\part{Resultados obtenidos}
+\part{Resultados obtenidos}\label{sec:parteV}
 
-\input{chapters/Chapter 13/correlaciones}
-\input{chapters/Chapter 14/perfiles}
-\input{chapters/Chapter 15/clasificador}
+\input{chapters/Chapter 12/correlaciones}
+\input{chapters/Chapter 13/perfiles}
+\input{chapters/Chapter 14/clasificador}
 
 \ctparttext{
   \color{black}
@@ -179,13 +180,13 @@ Planteamiento del problema y Minería de Procesos.
     Logros y nuevas vías de investigación.
   \end{center}
 }
-\part{Conclusiones y vías futuras}
+\part{Conclusiones y vías futuras}\label{sec:parteVI}
 
-\input{chapters/Chapter 16/conclusiones}
-\input{chapters/Chapter 17/vias}
+\input{chapters/Chapter 15/conclusiones}
+\input{chapters/Chapter 16/vias}
 
 \begin{appendices}
-\chapter{Algunas tablas}
+\chapter{Tablas descriptivas}
 \input{chapters/Appendix/appendix}
 \end{appendices}
 
