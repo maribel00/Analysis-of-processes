@@ -1,7 +1,7 @@
 \chapter{Minería de Procesos}\label{sec:chapterIII}
 \addcontentsline{toc}{chapter}{Minería de Procesos}
 
-Como se ha comentado antes, cualquier posible evaluación de los alumnos basada meramente en los objetivos alcanzados es sólo una visión estática, sin muchas pistas sobre la dinámica que les ha llevado hasta ese punto, no sabemos muy bien cómo han llegado los alumnos hasta ahí y esta información es la clave para identificar a los grupos con dificultades que podrían necesitar la ayuda del profesor. Por lo tanto, vamos a emplear técnicas de Minería de Procesos \cite{aalst2016} para extraer las diferentes secuencias de eventos correlacionados del conjunto de datos original.
+Como se ha comentado antes, cualquier posible evaluación de los alumnos basada meramente en los objetivos alcanzados es sólo una visión estática, sin muchas pistas sobre la dinámica que les ha llevado hasta ese punto. No sabemos muy bien cómo han llegado los alumnos hasta ahí y esta información es la clave para identificar a los grupos con dificultades que podrían necesitar la ayuda del profesor. Por lo tanto, vamos a emplear técnicas de Minería de Procesos \cite{aalst2016} para extraer las diferentes secuencias de eventos correlacionados del conjunto de datos original.
 
 \section{Extracción de los procesos con DISCO}
 
@@ -11,14 +11,14 @@ Para la extracción de los procesos ocultos se empleará la muy conocida suite d
 
 Para crear los diagramas de Disco, se extraerán los campos de información más importantes del dataset:
 \begin{enumerate}
-\item El identificador del caso, extraído de una clave aleatoria generada al principio de cada operación \texttt{LOGIN} y que distingue de manera unívoca cada sesión de trabajo de los estudiantes.
-\item El agente, que se refiere al nombre del grupo de estudiantes.
-\item La fecha y hora a la que se registró la transacción.
-\item El campo actividad (\texttt{Activity}), que refleja la acción de los alumnos en el mundo virtual.
-\item Varios campos de tipo recurso (\texttt{Resource}) que proporcionan información adicional que puede sernos de utilidad a la hora de filtrar los registros.
+\item El \emph{identificador del caso}, extraído de una clave aleatoria generada al principio de cada operación \texttt{LOGIN} y que distingue de manera unívoca cada sesión de trabajo de los estudiantes.
+\item El \emph{agente}, que se refiere al nombre del grupo de estudiantes.
+\item La \emph{fecha} y \emph{hora} a la que se registró la transacción.
+\item El campo \emph{actividad} (\texttt{Activity}), que refleja la acción de los alumnos en el mundo virtual.
+\item Varios campos de tipo \emph{recurso} (\texttt{Resource}) que proporcionan información adicional que puede sernos de utilidad a la hora de filtrar los registros.
 \end{enumerate}
 
-Así pues, se importarán el dataset de dos maneras diferentes, con el objetivo de estudiar tanto la frecuencia con que cada problema o mapa ha sido visitado como las acciones compuestas mapa-porcentaje superado. En la primera importación la \texttt{Activity} es el problema y el identificador del caso es el grupo. En la segunda importancia, por el contrario, la \texttt{Activity} es la composición del problema y el milestione y el identificador del caso son las sesiones. Las Figuras \ref{fig:problems} y \ref{fig:compound} muestran los diagramas obtenidos en cada uno de los casos.
+Así pues, se importarán el dataset de dos maneras diferentes, con el objetivo de estudiar tanto la frecuencia con que cada problema o mapa ha sido visitado como las acciones compuestas mapa-porcentaje superado. En la primera importación la \texttt{Activity} es el problema y el identificador del caso es el grupo. En la segunda importancia, por el contrario, la \texttt{Activity} es la composición del problema y el milestone y el identificador del caso son las sesiones. Las Figuras \ref{fig:problems} y \ref{fig:compound} muestran los diagramas obtenidos en cada uno de los casos.
 
 \begin{figure}[H]
     \centering
@@ -34,7 +34,7 @@ Así pues, se importarán el dataset de dos maneras diferentes, con el objetivo 
     \label{fig:compound}
 \end{figure}
 
-No obstante, a pesar de que tener una visión global del comportamiento de todos los grupos puede ayudar, nuestro objetivo final es poder caracterizar los comportamientos de los grupos y poder discernir, usando los datos del diagrama, si. Es por esto que nos será más interesante segmentar por grupos. Así pues, filtrando por el grupo \texttt{DBA 1516 P2 GA}, obtenemos los diagramas de las Figuras \ref{fig:problemsDBA1516P2GA} y \ref{fig:compoundDBA1516P2GA}.
+No obstante, a pesar de que tener una visión global del comportamiento de todos los grupos puede ayudar, nuestro objetivo final es poder caracterizar los comportamientos de los grupos y poder discernir, usando los datos del diagrama, si un grupo está en riesgo de obtener un rendimiento peor del esperado. Es por esto que nos será más interesante segmentar por grupos. Así pues, filtrando por el grupo \texttt{DBA 1516 P2 GA}, obtenemos los diagramas de las Figuras \ref{fig:problemsDBA1516P2GA} y \ref{fig:compoundDBA1516P2GA}.
 
 \begin{figure}[H]
     \centering
@@ -50,6 +50,6 @@ No obstante, a pesar de que tener una visión global del comportamiento de todos
     \label{fig:compoundDBA1516P2GA}
 \end{figure}
 
-Aunque Disco tiene mucho éxito y se pueden personalizar métricas e interpretaciones del conjunto de datos fuente, no se ajusta completamente a nuestros requerimientos para desvelar la estructura del comportamiento. Tras una larga experimentación con el programa Disco, se empiezan a ver sus limitaciones. En primer lugar, aunque Disco permite el filtrado de datos, si se quiere segmentar por grupos y extraer los procesos ocultos de cada uno de los grupos, hay que seleccionar el correspondiente grupo en el filtro, extraer los diagramas correspondientes e ir cambiandolo manualmente. Dado que tenemos un total de $77$ grupos de alumnos en los siete cursos académicos que forman parte del estudio (que pueden consultarse en las Tablas \ref{tab:groups1} y \ref{tab:groups2}), es inviable seguir usando el programa.
+Aunque Disco tiene mucho éxito y se pueden personalizar métricas e interpretaciones del conjunto de datos fuente, no se ajusta completamente a nuestros requerimientos para desvelar la estructura del comportamiento. Tras una larga experimentación con el programa Disco, se empiezan a ver sus limitaciones. En primer lugar, aunque Disco permite el filtrado de datos, si se quiere segmentar por grupos y extraer los procesos ocultos de cada uno de los grupos, hay que seleccionar el correspondiente grupo en el filtro, extraer los diagramas correspondientes e ir cambiándolo manualmente. Dado que tenemos un total de $77$ grupos de alumnos en los siete cursos académicos que forman parte del estudio (que pueden consultarse en las Tablas \ref{tab:groups1} y \ref{tab:groups2}), es inviable seguir usando el programa.
 
 Así pues, en este trabajo fin de grado se ha implementado nuestra propia versión del programa, la herramienta de minería de procesos \emph{GraphMiner} en R, personalizada y adaptada a las necesidades del problema, basándose principalmente en la estructura principal de FuzzyMiner \cite{gunther2007fuzzy} con algunas adiciones menores.
