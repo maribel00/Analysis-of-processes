@@ -26,7 +26,7 @@ gRightUntil<-function(data, graphoptions, level) {
     nproblems <- length(unique(prev[endsWith(prev[[graphoptions$fieldactivity]],graphoptions$leafid),graphoptions$fieldproblem]))
     data[r,"psolved"] <- nproblems
   }
-  return (data[data$psolved<level,])
+  return (data[data$psolved<=level,])
 }
 
 GraphMiner<-function(data,graphoptions,graphpwd) {

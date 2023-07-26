@@ -10,28 +10,36 @@ Actualmente, con el desarrollo y el creciente interés de las plataformas educat
 Como se ha mencionado anteriormente, el uso de técnicas de Minería de Procesos está suscitando un enorme interés y hay cantidades ingentes de artículos y trabajos relacionados que podrían referenciarse, especialmente cuando los profesores crean laboratorios virtuales \cite{Elmoazen_2023} o servicios \emph{online} como Coursera \cite{mukala2015learning}. También hay algunas revisiones excelentes de la Minería de Proceesos en el contexto educativo como \cite{dos2019process}, donde se recalca que la educación es la cuarta área más importante en la que se están aplicando técnicas de Minería de Procesos para detectar estilos de aprendizaje (o, en inglés, \emph{learning styles}), o incluso mejor, en \cite{bogarin2018survey} donde los autores también ponen el énfasis en el análisis de grafos como estructura subyacente del comportamiento (concepto de \emph{graph mining}). Además, en dicho artículo se presentará lo que se denomina \emph{intention mining} que hace referencia a la minería de procesos aplicada con el objetivo de anticipar el comportamiento. Los mismos autores en \cite{bogarin2018discovering} también apuntan a una cuestión muy interesante e intimamente relacionada con este trabajo: cómo utilizar técnicas de Minería de Procesos para detectar a los que más necesitan la ayuda del profesor, simplemente observando el patrón de interacción de los alumnos con el \emph{LMS} (\emph{Learning Management System}). Esta relación del alumno con los recursos disponibles, normalmente en línea, también se explora en \cite{mukala2015learning}, en el que el uso de la Minería de Procesos no es realmente descubrimiento, sino el cumplimiento, para detectar si los alumnos se comportan como se espera de ellos o en la forma en que utilizan los recursos disponibles \cite{juhavnak2019using}. En \cite{sedrakyan2016process} los autores analizan el potencial del
 feedback que el PM (\emph{Process Mining}) puede dar a los alumnos, muy en la línea de \citep{Keller_1968} para fomentar la autorregulación de los alumnos. En todos ellos las principales métricas utilizadas para orientar el estudio son las ``clásicas'' relacionadas con los recursos, las personas o el material de aprendizaje a través de un enfoque cuantitativo para puntuar el comportamiento de los estudiantes. Este trabajo fin de grado adoptará un enfoque diferente e intenta analizar puramente la topología del grafo dirigido que describe el comportamiento de un determinado grupo de prácticas.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.40\textwidth]{previo/diagrama.png}
+    \caption{Los nodos de los grafos pueden representar recursos o herramientas, personas o instituciones e incluso unidades temáticas. Asimismo, las relaciones entre nodos también llevan asociadas un significado (energía o frecuencia, proximidad o distancia entre ambos o predecedencia u orden entre ambos).}
+    \label{fig:classification}
+\end{figure}
+
+Los trabajos anteriormente citados así como los que se realizarán en este trabajo fin de grado relacionados con la Minería de Procesos son susceptibles a ser clasificados. Así pues, dado un grafo $G = (V,E)$ donde $V$ y $E$ son sus respectivos conjuntos de vértices y aristas (Definición \ref{def:grafo}) siendo una parte del mismo la que se muestra en la Figura \ref{fig:classification}, se puede realizar una segmentación de los proyectos de minería de procesos atendiendo a qué representan sus nodos, qué significado tiene la relación entre éstos y el momento temporal al que nos estemos refiriendo. Así pues, atendiendo a todas estas características se ha realizado la clasificación de las técnicas de Minería de Procesos en el ámbito educativo que se muestra en la Tabla \ref{tab:classification}.
+
 \begin{table}[H]
 \centering
-\caption{Clasificación de los trabajos realizados en el campo de la Minería de Procesos.}
+\caption{Clasificación de las técnicas de Minería de Procesos aplicadas a la educación. Como podemos ver, pueden estar orientadas al pasado, al presente y al futuro.}
 \label{tab:classification}
-\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{5cm}|>{\centering\arraybackslash}m{5cm}|>{\centering\arraybackslash}m{5cm}|}
+\begin{tabular}{|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{4cm}|}
 \hline
 \rowcolor{orange!20}
-\backslashbox{\scriptsize{\textbf{Nodos}}}{\scriptsize{\textbf{Aristas}}} & \small{\textbf{Energía} (Conteo)} & \small{\textbf{Cercanía} (Clustering)} & \small{\textbf{Orden} (Precedencia)} \\ 
+\backslashbox{\footnotesize{\textbf{Nodos}}}{\footnotesize{\textbf{Aristas}}} & \footnotesize{\textbf{Energía} (Conteo)} & \footnotesize{\textbf{Cercanía} (Clustering)} & \footnotesize{\textbf{Orden} (Precedencia)} \\ 
 \hline 
 \cellcolor{orange!20}\footnotesize{Recursos (vídeos, texto) y \textbf{Herramientas}} &
 
 \begin{tabular}[t]{
     | >{\scriptsize\centering\arraybackslash}m{1cm}
-    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
-    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+    | >{\scriptsize\centering\arraybackslash}m{2cm}|
   }
   \hline
-  \rowcolor{gray!20}
-  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \cellcolor{cyan!25}\textbf{Pasado} & Coursera. Validación del curso. Uso de recursos (como podían ser los vídeos). \\
   \hline
-  \rowcolor{white}
-  Coursera. Validación del curso. Uso de recursos. & Patrones de uso. Seguimiento. & Cuellos de botella. Posibles problemas. Recomendaciones. \\
+  \cellcolor{lime!25}\textbf{Presente} & Patrones de uso. Seguimiento. Capacidad. \\
+  \hline
+  \cellcolor{pink!50}\textbf{Futuro} & Cuellos de botella (predicción de las necesidades del hardware). Posibles problemas. Recomendaciones. \\
   \hline
   \end{tabular}
   
@@ -39,33 +47,31 @@ feedback que el PM (\emph{Process Mining}) puede dar a los alumnos, muy en la l�
 
 \begin{tabular}[t]{
     | >{\scriptsize\centering\arraybackslash}m{1cm}
-    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
-    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+    | >{\scriptsize\centering\arraybackslash}m{2cm}|
   }
   \hline
-  \rowcolor{gray!20}
-  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \cellcolor{cyan!25}\textbf{Pasado} &  \\
   \hline
-  \rowcolor{white}
-   &  &  \\
+  \cellcolor{lime!25}\textbf{Presente} &  \\
   \hline
-  \end{tabular} 
+  \cellcolor{pink!50}\textbf{Futuro} &  \\
+  \hline
+  \end{tabular}
   
    &
 
 \begin{tabular}[t]{
     | >{\scriptsize\centering\arraybackslash}m{1cm}
-    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
-    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+    | >{\scriptsize\centering\arraybackslash}m{2cm}|
   }
   \hline
-  \rowcolor{gray!20}
-  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \cellcolor{cyan!25}\textbf{Pasado} &  \\
   \hline
-  \rowcolor{white}
-   &  &  \\
+  \cellcolor{lime!25}\textbf{Presente} &  \\
   \hline
-  \end{tabular}   
+  \cellcolor{pink!50}\textbf{Futuro} &  \\
+  \hline
+  \end{tabular}  
   
     \\ 
 \hline 
@@ -73,15 +79,14 @@ feedback que el PM (\emph{Process Mining}) puede dar a los alumnos, muy en la l�
 
 \begin{tabular}[t]{
     | >{\scriptsize\centering\arraybackslash}m{1cm}
-    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
-    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+    | >{\scriptsize\centering\arraybackslash}m{2cm}|
   }
   \hline
-  \rowcolor{gray!20}
-  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \cellcolor{cyan!25}\textbf{Pasado} & Trabajo en grupo bien estructurado. Análisis de los alumnos con mejor/peor rendimiento. \\
   \hline
-  \rowcolor{white}
-  Trabajo en grupo bien estructurado. & Medidas intragrupos e intergrupos. Redes sociales. & Liderazgo. Dominancia. Personas influyentes. \\
+  \cellcolor{lime!25}\textbf{Presente} & Medidas intragrupos e intergrupos. Redes sociales. Evaluación de los alumnos. \\
+  \hline
+  \cellcolor{pink!50}\textbf{Futuro} & Liderazgo. Dominancia. Personas influyentes. Predicciones del rendimiento de los alumnos. \\
   \hline
   \end{tabular}
 
@@ -89,65 +94,14 @@ feedback que el PM (\emph{Process Mining}) puede dar a los alumnos, muy en la l�
 
 \begin{tabular}[t]{
     | >{\scriptsize\centering\arraybackslash}m{1cm}
-    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
-    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+    | >{\scriptsize\centering\arraybackslash}m{2cm}|
   }
   \hline
-  \rowcolor{gray!20}
-  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \cellcolor{cyan!25}\textbf{Pasado} & Trabajo en equipo. \\
   \hline
-  \rowcolor{white}
-   &  &  \\
+  \cellcolor{lime!25}\textbf{Presente} &  \\
   \hline
-  \end{tabular} 
-
-& 
-
-\begin{tabular}[t]{
-    | >{\scriptsize\centering\arraybackslash}m{1cm}
-    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
-    | >{\scriptsize\centering\arraybackslash}m{1cm} |
-  }
-  \hline
-  \rowcolor{gray!20}
-  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
-  \hline
-  \rowcolor{white}
-   &  &  \\
-  \hline
-  \end{tabular} 
-
-\\ 
-\hline 
-\cellcolor{orange!20}\footnotesize{\textbf{Temáticas} (unidades temáticas de un curso), \textbf{Productos} o \textbf{bienes}} & 
-
-\begin{tabular}[t]{
-    | >{\scriptsize\centering\arraybackslash}m{1cm}
-    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
-    | >{\scriptsize\centering\arraybackslash}m{1cm} |
-  }
-  \hline
-  \rowcolor{gray!20}
-  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
-  \hline
-  \rowcolor{white}
-  Validación del curso. Concienciación del profesorado. & Relaciones intergrupos. Redes sociales. &  \\
-  \hline
-  \end{tabular} 
-
-& 
-
-\begin{tabular}[t]{
-    | >{\scriptsize\centering\arraybackslash}m{1cm}
-    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
-    | >{\scriptsize\centering\arraybackslash}m{1cm} |
-  }
-  \hline
-  \rowcolor{gray!20}
-  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
-  \hline
-  \rowcolor{white}
-   &  &  \\
+  \cellcolor{pink!50}\textbf{Futuro} & Redes sociales: personas influyentes y colaboradores. \\
   \hline
   \end{tabular}  
 
@@ -155,17 +109,63 @@ feedback que el PM (\emph{Process Mining}) puede dar a los alumnos, muy en la l�
 
 \begin{tabular}[t]{
     | >{\scriptsize\centering\arraybackslash}m{1cm}
-    | >{\scriptsize\centering\arraybackslash}m{1.2cm}
-    | >{\scriptsize\centering\arraybackslash}m{1cm} |
+    | >{\scriptsize\centering\arraybackslash}m{2cm}|
   }
   \hline
-  \rowcolor{gray!20}
-  \cellcolor{cyan!25}\textbf{Pasado} & \cellcolor{lime!25}\textbf{Presente} & \cellcolor{pink!50}\textbf{Futuro} \\
+  \cellcolor{cyan!25}\textbf{Pasado} &  \\
   \hline
-  \rowcolor{white}
-   &  &  \\
+  \cellcolor{lime!25}\textbf{Presente} &  \\
+  \hline
+  \cellcolor{pink!50}\textbf{Futuro} &  \\
+  \hline
+  \end{tabular}  
+
+\\ 
+\hline 
+\cellcolor{orange!20}\footnotesize{\textbf{Temáticas} (unidades temáticas de un curso), \textbf{Productos} o \textbf{bienes}} & 
+
+\begin{tabular}[t]{
+    | >{\scriptsize\centering\arraybackslash}m{1cm}
+    | >{\scriptsize\centering\arraybackslash}m{2cm}|
+  }
+  \hline
+  \cellcolor{cyan!25}\textbf{Pasado} & Validación del curso. Concienciación del profesorado. \\
+  \hline
+  \cellcolor{lime!25}\textbf{Presente} & Relaciones intergrupos. Redes sociales. \\
+  \hline
+  \cellcolor{pink!50}\textbf{Futuro} &  \\
   \hline
   \end{tabular} 
+
+& 
+
+\begin{tabular}[t]{
+    | >{\scriptsize\centering\arraybackslash}m{1cm}
+    | >{\scriptsize\centering\arraybackslash}m{2cm}|
+  }
+  \hline
+  \cellcolor{cyan!25}\textbf{Pasado} &  \\
+  \hline
+  \cellcolor{lime!25}\textbf{Presente} &  \\
+  \hline
+  \cellcolor{pink!50}\textbf{Futuro} &  \\
+  \hline
+  \end{tabular} 
+
+& 
+
+\begin{tabular}[t]{
+    | >{\scriptsize\centering\arraybackslash}m{1cm}
+    | >{\scriptsize\centering\arraybackslash}m{2cm}|
+  }
+  \hline
+  \cellcolor{cyan!25}\textbf{Pasado} & Similaridad del coseno. \\
+  \hline
+  \cellcolor{lime!25}\textbf{Presente} &  \\
+  \hline
+  \cellcolor{pink!50}\textbf{Futuro} & Planificación del curso. \\
+  \hline
+  \end{tabular}
 
 \\
 \hline 

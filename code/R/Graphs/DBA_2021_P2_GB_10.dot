@@ -1,0 +1,174 @@
+digraph DBA_2021_P2_GB_10 {
+	label=DBA_2021_P2_GB_10;
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+"START" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>START</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>0</i></FONT></td></tr></table>>]
+
+"P1-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P1-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>174</i></FONT></td></tr></table>>]
+
+"P1-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P1-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>177</i></FONT></td></tr></table>>]
+
+"P1-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P1-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>83</i></FONT></td></tr></table>>]
+
+"P1-60" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P1-60</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>196</i></FONT></td></tr></table>>]
+
+"P1-80" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P1-80</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>9</i></FONT></td></tr></table>>]
+
+"P2-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P2-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>45</i></FONT></td></tr></table>>]
+
+"P2-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P2-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>45</i></FONT></td></tr></table>>]
+
+"P2-60" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P2-60</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>94</i></FONT></td></tr></table>>]
+
+"P2-80" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P2-80</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>95</i></FONT></td></tr></table>>]
+
+"P2-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P2-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>60</i></FONT></td></tr></table>>]
+
+"P3-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P3-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>7</i></FONT></td></tr></table>>]
+
+"P3-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P3-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>7</i></FONT></td></tr></table>>]
+
+"P3-60" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P3-60</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>13</i></FONT></td></tr></table>>]
+
+"P3-80" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P3-80</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>16</i></FONT></td></tr></table>>]
+
+"P3-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P3-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>16</i></FONT></td></tr></table>>]
+
+"P4-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P4-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>8</i></FONT></td></tr></table>>]
+
+"P4-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P4-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>8</i></FONT></td></tr></table>>]
+
+"P4-60" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P4-60</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>17</i></FONT></td></tr></table>>]
+
+"P4-80" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P4-80</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>7</i></FONT></td></tr></table>>]
+
+"P4-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="deepskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P4-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>21</i></FONT></td></tr></table>>]
+
+"P5-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P5-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>88</i></FONT></td></tr></table>>]
+
+"P5-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P5-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>89</i></FONT></td></tr></table>>]
+
+"P5-60" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P5-60</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>196</i></FONT></td></tr></table>>]
+
+"P5-80" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P5-80</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>112</i></FONT></td></tr></table>>]
+
+"P5-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P5-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>160</i></FONT></td></tr></table>>]
+
+"P6-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P6-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>5</i></FONT></td></tr></table>>]
+
+"P6-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P6-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>5</i></FONT></td></tr></table>>]
+
+"P6-60" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P6-60</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>10</i></FONT></td></tr></table>>]
+
+"P6-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P6-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>10</i></FONT></td></tr></table>>]
+
+"P7-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P7-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>68</i></FONT></td></tr></table>>]
+
+"P7-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P7-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>68</i></FONT></td></tr></table>>]
+
+"P7-60" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P7-60</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>117</i></FONT></td></tr></table>>]
+
+"P7-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P7-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>114</i></FONT></td></tr></table>>]
+
+"END" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>END</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>344</i></FONT></td></tr></table>>]
+
+"START" -> "P1-20" [ style = dashed color=grey label ="174" labelfloat=false fontname="Arial" fontsize=8]
+
+"START" -> "P2-20" [ style = dashed color=grey label ="45" labelfloat=false fontname="Arial" fontsize=8]
+
+"START" -> "P3-20" [ style = dashed color=grey label ="7" labelfloat=false fontname="Arial" fontsize=8]
+
+"START" -> "P4-20" [ style = dashed color=grey label ="8" labelfloat=false fontname="Arial" fontsize=8]
+
+"START" -> "P5-20" [ style = dashed color=grey label ="88" labelfloat=false fontname="Arial" fontsize=8]
+
+"START" -> "P6-20" [ style = dashed color=grey label ="5" labelfloat=false fontname="Arial" fontsize=8]
+
+"START" -> "P7-20" [ style = dashed color=grey label ="68" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1-20" -> "P1-40" [ color=grey16 penwidth = "5.17614973257383"label ="177" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1-40" -> "P1-100" [ color=grey16 penwidth = "3.98898404656427"label ="54" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1-40" -> "P1-60" [ color=grey16 penwidth = "5.27811465923052"label ="196" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1-100" -> "P1-80" [ color=grey16 penwidth = "2.19722457733622"label ="9" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1-100" -> "END" [ style = dashed color=grey label ="24" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1-60" -> "P1-100" [ color=grey16 penwidth = "3.36729582998647"label ="29" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1-60" -> "END" [ style = dashed color=grey label ="21" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1-80" -> "END" [ style = dashed color=grey label ="9" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2-20" -> "P2-40" [ color=grey16 penwidth = "3.80666248977032"label ="45" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2-20" -> "P2-60" [ color=grey16 penwidth = "3.25809653802148"label ="26" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2-40" -> "P2-60" [ color=grey16 penwidth = "4.21950770517611"label ="68" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2-60" -> "P2-80" [ color=grey16 penwidth = "4.55387689160054"label ="95" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2-80" -> "P2-100" [ color=grey16 penwidth = "4.0943445622221"label ="60" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2-80" -> "END" [ style = dashed color=grey label ="61" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2-100" -> "END" [ style = dashed color=grey label ="7" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3-20" -> "P3-40" [ color=grey16 penwidth = "1.94591014905531"label ="7" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3-40" -> "P3-60" [ color=grey16 penwidth = "2.56494935746154"label ="13" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3-60" -> "P3-80" [ color=grey16 penwidth = "2.77258872223978"label ="16" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3-80" -> "P3-100" [ color=grey16 penwidth = "2.77258872223978"label ="16" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3-100" -> "END" [ style = dashed color=grey label ="8" labelfloat=false fontname="Arial" fontsize=8]
+
+"P4-20" -> "P4-40" [ color=grey16 penwidth = "2.07944154167984"label ="8" labelfloat=false fontname="Arial" fontsize=8]
+
+"P4-20" -> "P4-60" [ color=grey16 penwidth = "1.38629436111989"label ="4" labelfloat=false fontname="Arial" fontsize=8]
+
+"P4-40" -> "P4-60" [ color=grey16 penwidth = "2.56494935746154"label ="13" labelfloat=false fontname="Arial" fontsize=8]
+
+"P4-60" -> "P4-80" [ color=grey16 penwidth = "1.94591014905531"label ="7" labelfloat=false fontname="Arial" fontsize=8]
+
+"P4-60" -> "P4-100" [ color=grey16 penwidth = "1.38629436111989"label ="4" labelfloat=false fontname="Arial" fontsize=8]
+
+"P4-80" -> "P4-100" [ color=grey16 penwidth = "2.83321334405622"label ="17" labelfloat=false fontname="Arial" fontsize=8]
+
+"P4-100" -> "END" [ style = dashed color=grey label ="27" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5-20" -> "P5-40" [ color=grey16 penwidth = "4.48863636973214"label ="89" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5-20" -> "P5-60" [ color=grey16 penwidth = "4.65396035015752"label ="105" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5-40" -> "P5-60" [ color=grey16 penwidth = "4.51085950651685"label ="91" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5-60" -> "P5-80" [ color=grey16 penwidth = "4.71849887129509"label ="112" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5-60" -> "P5-100" [ color=grey16 penwidth = "3.04452243772342"label ="21" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5-80" -> "P5-100" [ color=grey16 penwidth = "4.93447393313069"label ="139" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5-100" -> "END" [ style = dashed color=grey label ="5" labelfloat=false fontname="Arial" fontsize=8]
+
+"P6-20" -> "P6-40" [ color=grey16 penwidth = "1.6094379124341"label ="5" labelfloat=false fontname="Arial" fontsize=8]
+
+"P6-40" -> "P6-60" [ color=grey16 penwidth = "2.30258509299405"label ="10" labelfloat=false fontname="Arial" fontsize=8]
+
+"P6-60" -> "P6-100" [ color=grey16 penwidth = "2.30258509299405"label ="10" labelfloat=false fontname="Arial" fontsize=8]
+
+"P6-100" -> "END" [ style = dashed color=grey label ="68" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7-20" -> "P7-40" [ color=grey16 penwidth = "4.21950770517611"label ="68" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7-40" -> "P7-60" [ color=grey16 penwidth = "4.76217393479776"label ="117" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7-60" -> "P7-100" [ color=grey16 penwidth = "4.7361984483945"label ="114" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7-100" -> "END" [ style = dashed color=grey label ="114" labelfloat=false fontname="Arial" fontsize=8]
+
+}

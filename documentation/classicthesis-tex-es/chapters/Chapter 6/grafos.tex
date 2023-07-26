@@ -31,7 +31,7 @@ En el ámbito de las matemáticas y las ciencias de la computación, se emplea e
 
 En esta sección se introducirán las deficiones básicas que forman parte de la teoría de grafos.
 
-\begin{definition}
+\begin{definition}\label{def:grafo}
 Matemáticamente, un \emph{grafo} $G = (V,E)$ es una tupla de vértices $V$ y aristas $E$ que relacionan dichos vértices. Denominaremos  \emph{orden} del grafo al número de vértices del mismo ($|V|$). Por supuesto, siempre tendremos que $V \neq \emptyset$.
 \end{definition}
 
@@ -575,6 +575,115 @@ t(G) = \frac{1}{n} \cdot \lambda_1 \cdots \lambda_{n-1}
 
 Como podemos ver, se trata de una generalización de la fórmula de Cayley que además de muestra que el número de árboles de expansión de cualquier grafo se puede calcular en tiempo polinómico a partir del determinante de una submatriz de la matriz laplaciana. Específicamente, el número de árboles de expansión de un grafo conexo coincide con cualquier cofactor de su matriz laplaciana.
 \end{theorem}
+
+\begin{proof}
+Sea $L_G[i]$ la matriz laplaciana del grafo $G$ a la que se le ha eliminado su fila y su columna $i$-ésimas. Demostraré que el número de árboles de expansión de un grafo $G$ viene dado por $\det(L_G[i])$, para cualquier $i \in \left\lbrace 1,\dots,n \right\rbrace$.
+
+Para ello, usaremos el siguiente hecho:
+
+\begin{proposition}\label{prop:fact}
+Sea $A \in \mathbb{R}^{n\times n}$ y tomemos $E_{ii}$ una matriz con un $1$ en su entrada $(i,i)^{th}$ y ceros en el resto de entradas. Así pues,
+
+\begin{equation}
+\det(A+E_{ii}) = \det(A)+\det(A[i])
+\end{equation}
+
+Este hecho es evidente si consideramos la suma de permutaciones de la definición del determinante de una matriz:
+
+\begin{equation}
+\det(A = (a_{ij})) = \sum_{\pi}{sgn(\pi) \cdot a_{1\pi(1)} \cdot a_{2\pi(2)} \dots a_{n\pi(n)}}
+\end{equation}
+
+y teniendo en cuenta que hemos aumentado la entrada $(i,i)^{th}$, $a_{ii}$, hasta $a_{ii}+1$. Así pues, hemos obtenido el determinante original más la suma de todas las permutaciones de $[n]\setminus \left\lbrace i \right\rbrace$, evitando la $i$-ésima fila y columna (es decir, $\det(A[i])$.
+\end{proposition}
+
+La prueba se realizará por inducción en el número de vértices y aristas del grafo $G$.
+
+\textbf{Caso base:} Si $G$ es un grafo vacío con dos vértices, entonces
+
+\begin{equation}
+L_G =
+\begin{pmatrix}
+0 & 0 \\
+0 & 0
+\end{pmatrix}
+\end{equation}
+
+Así pues, $L_G[i] = 0$ y $\det(L_G[i]) = 0$ tal y como se quería demostrar.
+
+\textbf{Paso inductivo:} Sea $G-e$ el grafo resultante de sustraerle la arista $e$ al grafo inicial y $G/e$ el grafo con la arista $e$ contraída. Véase a en la Figura \ref{fig:contraction} una ilustración de la contracción en grafos.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  % Grafo izquierdo
+  % Establecer los estilos de los nodos
+  \tikzset{every node/.style={draw, circle, minimum size=1cm}}
+
+  % Nodos en la primera columna
+  \node[fill=red!30] (I) at (0,0) {I};
+  \node[fill=blue!30] (J) at (0,-2) {J};
+
+  % Nodos en la segunda columna
+  \node[fill=green!30] (C) at (2,0) {C};
+  \node[fill=orange!30] (D) at (2,-1) {D};
+  \node[fill=purple!30] (E) at (2,-2) {E};
+
+  % Aristas entre los nodos
+  \draw (I) -- (C);
+  \draw (I) -- (D);
+  \draw (J) -- (D);
+  \draw (J) -- (E);
+
+  % Grafo derecho
+  % Establecer los estilos de los nodos
+  \tikzset{every node/.style={draw, circle, minimum size=1cm}}
+
+  % Nodos en la primera columna (solo 1 nodo)
+  \node[fill=red!30] (X) at (4,0) {I-J};
+
+  % Nodos en la segunda columna
+  \node[fill=green!30] (Y) at (6,0) {C};
+  \node[fill=orange!30] (Z) at (6,-1) {D};
+  \node[fill=purple!30] (W) at (6,-2) {E};
+
+  % Aristas entre los nodos
+  \draw (X) -- (Y);
+  \draw (X) -- (Z);
+  \draw (X) -- (W);
+\end{tikzpicture}
+\caption{Ejemplo de contracción de los nodos $I$ y $J$ en un único nodo.}
+\label{fig:contraction}
+\end{figure}
+
+Si $i$ es un vértice aislado, entonces $G$ no admite árboles de expansión y la fila y la columna $i$-ésima de $L_G$ están conformadas de ceros. Esto es, $\det(L_G[i]) = \det(L_{G-i}) = 0$ tal y como queríamos.
+
+Por el contrario, si $i$ no es un vértice aislado podemos suponer que existe una arista $e = (i,j)$ incidente a $i$. Para cualquier árbol de expansión, $T$, se tiene que o bien $e \in T$ o bien $e \notin T$. Así pues, tenemos $t(G/e)$ denota el número de árboles de expansión $T$ tal que $e \in T$ mientras que $t(G-e)$ proporcionará el número de árboles de expansión $T$ tal que $e \notin T$. Esto es,
+
+\begin{equation}
+t(G) = t(G/e) + t(G-e)
+\end{equation}
+
+Nótese que $G/e$ tiene un vértice menos que $G$ y que $G-e$ tiene una arista menos que $G$, lo cual servirá de base para realizar la inducción.
+
+En primer lugar, se relacionará $L_G$ con $L_{G-e}$. Observemos que $L_G[i] = L_{G-e}[i] + E_{jj}$ (esto es, si eliminamos la arista $e$ la matriz Laplaciana resultante solamente difiere de $L_G[i]$ en el grado del vértice $j$). Así pues, empleando la Proposición \ref{prop:fact}, tenemos que
+
+\begin{equation}
+\det(L_G[i]) = \det(L_{G-e}[i] + E_{jj}) = \det(L_{G-e}[i]) + \det(L_{G-e}[i,j]) = \det(L_{G-e}[i]) + \det(L_G[i,j])
+\end{equation} 
+
+donde $L_G[i,j]$ denota a la matriz $L_G$ a la que se le han sustraído las filas y columnas $i$-ésima y $j$-ésima. La última igualdad se deduce de que, una vez eliminadas las filas y columnas $i$-ésima y $j$-ésima, no hay diferencia entre $L_G$ y $L_{G-e}$ para $e = (i, j)$.
+
+Ahora relacionaremos $L_G$ con $L_{G/e}$ . Supongamos que contraemos $i$ en $j$ (entonces $L_{G/e}$ no tiene ninguna fila o columna correspondiente a $i$). Entonces, $L_{G/e}[j] = L_G[i,j]$.
+
+Así pues, tenemos que
+
+\begin{equation}
+\det(L_G[i]) = \det(L_{G-e}[i]) + \det(L_{G/e}[j]) = t(G-e)+t(G/e) = t(G)
+\end{equation}
+
+donde la segunda igual se deduce por inducción. Esto completa la prueba.
+\end{proof}
 
 \section{Medidas de complejidad de propósito general}
 

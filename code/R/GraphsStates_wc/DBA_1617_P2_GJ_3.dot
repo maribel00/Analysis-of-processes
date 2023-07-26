@@ -1,0 +1,21 @@
+digraph DBA_1617_P2_GJ_3 {
+	labelloc="t";
+	label=DBA_1617_P2_GJ_3;
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+layout=circo;
+"START" [shape=box, fillcolor=white, style=filled, color=black]
+"P1 FAIL" [shape=circle, color=greenyellow, style=filled]
+"P2 FAIL" [shape=circle, color=bisque, style=filled]
+"P1 OK" [shape=circle, color=greenyellow, peripheries=2, style=filled]
+"END" [shape=box, fillcolor=white, style=filled, color=black]
+"START" -> "P1 FAIL" [ style = dashed color=grey label ="137" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 FAIL" -> "P2 FAIL" [ color=grey16 penwidth = "2.89037175789616"label ="18" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 FAIL" -> "P1 OK" [ color=grey16 penwidth = "2.07944154167984"label ="8" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 FAIL" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+}

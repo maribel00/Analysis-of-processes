@@ -1,8 +1,9 @@
-# setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
+setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
 
 source("Load.R")
 source("Dot.R")
 source("GraphMiner.R")
+source("SIIE2023.R")
 library(stringr)
 library(dplyr)
 
