@@ -87,6 +87,7 @@ dotgetAllFreqs<-function(dot, node) {
   return (res)
 }
 
+
 dotgetAllAncestors<-function(dot, node) {
   # cat("ALl ancestors of ", node,"\n")
   direct<-dotgetDirectAncestors(dot,node)
@@ -168,5 +169,6 @@ clear_viewer_pane <- function() {
   writeLines("", con = TextFile)
   rstudioapi::viewer(TextFile)
 }
+
 
 

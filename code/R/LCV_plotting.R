@@ -6,8 +6,8 @@ LCV_histogram <- function (data, variable, nintervals=0, mybreaks=c(), columnlab
     dorder<-data[[orderby]]
     dvariable <- data[[variable]]
   }else {
-    dorder<-dvariable
     dvariable <- data[[variable]]
+    dorder<-dvariable
   }
   if (force_factor) {
     dvariable <- as.factor(dvariable)
@@ -18,8 +18,9 @@ LCV_histogram <- function (data, variable, nintervals=0, mybreaks=c(), columnlab
         geom_bar(stat="count",aes(x=dvariable),fill=fillcolor, color=textcolor,alpha=alphafill)+
         geom_text(stat="count", aes(x=dvariable,label=..count..),color=textcolor,vjust=1.75,size=3 )+
         xlab(variable)+
+        # coord_flip()+
         LCV_theme2
-          LCV_theme2
+
     }  else {
       # res<-ggplot(data, mapping=aes(x=dvariable))+
       #   geom_text(stat="count", aes(label=..count..),color=textcolor,vjust=-0.5)+

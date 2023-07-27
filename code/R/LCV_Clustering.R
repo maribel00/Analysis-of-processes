@@ -17,19 +17,24 @@ LCV_ListOutliers<-function(data, variable, value) {
 }
 
 
-LCV_RemoveOutliers<-function(data, bplot) {
+LCV_RemoveOutliers<-function(data, variable, value) {
   cat("\nRemoving outliers")
+  bp <- LCV_boxplot(data,variable, value)
+  show(bp);
   outl<-layer_data(bp)$outliers
   if (length(outl)>0){
     for (i in (1:length(outl))) {
       if (length(outl[[i]])>0){
         for (iout in (1:length(outl[[i]]))) {
-          cat("Removing outlier ",outl[[i]][iout]," ")
-          data<-data[data[[col]]!=outl[[i]][iout],]
+          lout <-outl[[i]][iout]
+          cat("Removing outlier ",lout," ")
+          data<-data[data[[variable]]!=lout,]
         }
       }
     }
   }
+  bp2 <- LCV_boxplot(data,variable, value)
+  show(bp2)
   return(data)
 }
 

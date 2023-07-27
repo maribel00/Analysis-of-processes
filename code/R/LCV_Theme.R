@@ -24,6 +24,17 @@ LCV_Graphite_Theme <- function() {
 }
 
 
+LCV_Dark_Theme <- function() {
+  linecolor <<- "black"
+  fillcolor <<- "black"
+  backgroundcolor <<- "white"
+  mainline <<- "solid"
+  secondline <<- "dashed"
+  thirdline <<- "dotted"
+  alphafill <<- 0.75
+  textcolor<<-"black"
+}
+
 
 LCV_Green_Theme <- function() {
   linecolor <<- "green"

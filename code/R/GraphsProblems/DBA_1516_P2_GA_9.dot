@@ -17,11 +17,11 @@ digraph DBA_1516_P2_GA_9 {
 "END" [shape=box, fillcolor=white, style=filled, color=black]
 "START" -> "P1" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
-"P1" -> "P1" [ color=grey16 penwidth = "6.98286275146894"label ="1078" labelfloat=false fontname="Arial" fontsize=8]
+"P1" -> "P1" [ color=grey16 penwidth = "6.39024066706535"label ="596" labelfloat=false fontname="Arial" fontsize=8]
 
-"P1" -> "P2" [ color=grey16 penwidth = "3.09104245335832"label ="22" labelfloat=false fontname="Arial" fontsize=8]
+"P1" -> "P2" [ color=grey16 penwidth = "3.04452243772342"label ="21" labelfloat=false fontname="Arial" fontsize=8]
 
-"P1" -> "P3" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P1" -> "P3" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
 
 "P1" -> "P4" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
 
@@ -31,31 +31,27 @@ digraph DBA_1516_P2_GA_9 {
 
 "P1" -> "P8" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
 
-"P1" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P1" -> "P9" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
-"P2" -> "P1" [ color=grey16 penwidth = "2.30258509299405"label ="10" labelfloat=false fontname="Arial" fontsize=8]
+"P2" -> "P1" [ color=grey16 penwidth = "2.19722457733622"label ="9" labelfloat=false fontname="Arial" fontsize=8]
 
-"P2" -> "P2" [ color=grey16 penwidth = "5.03043792139244"label ="153" labelfloat=false fontname="Arial" fontsize=8]
+"P2" -> "P2" [ color=grey16 penwidth = "3.40119738166216"label ="30" labelfloat=false fontname="Arial" fontsize=8]
 
 "P2" -> "P3" [ color=grey16 penwidth = "2.89037175789616"label ="18" labelfloat=false fontname="Arial" fontsize=8]
 
 "P2" -> "P8" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
-"P2" -> "P9" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
 "P3" -> "P1" [ color=grey16 penwidth = "1.79175946922805"label ="6" labelfloat=false fontname="Arial" fontsize=8]
 
-"P3" -> "P2" [ color=grey16 penwidth = "1.38629436111989"label ="4" labelfloat=false fontname="Arial" fontsize=8]
+"P3" -> "P2" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
 
-"P3" -> "P3" [ color=grey16 penwidth = "3.80666248977032"label ="45" labelfloat=false fontname="Arial" fontsize=8]
+"P3" -> "P3" [ color=grey16 penwidth = "2.07944154167984"label ="8" labelfloat=false fontname="Arial" fontsize=8]
 
 "P3" -> "P4" [ color=grey16 penwidth = "2.19722457733622"label ="9" labelfloat=false fontname="Arial" fontsize=8]
 
 "P3" -> "P5" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
 "P3" -> "P8" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"P4" -> "P4" [ color=grey16 penwidth = "2.94443897916644"label ="19" labelfloat=false fontname="Arial" fontsize=8]
 
 "P4" -> "P5" [ color=grey16 penwidth = "2.19722457733622"label ="9" labelfloat=false fontname="Arial" fontsize=8]
 
@@ -67,21 +63,17 @@ digraph DBA_1516_P2_GA_9 {
 
 "P5" -> "P2" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
-"P5" -> "P5" [ color=grey16 penwidth = "3.85014760171006"label ="47" labelfloat=false fontname="Arial" fontsize=8]
+"P5" -> "P5" [ color=grey16 penwidth = "1.6094379124341"label ="5" labelfloat=false fontname="Arial" fontsize=8]
 
 "P5" -> "P6" [ color=grey16 penwidth = "1.79175946922805"label ="6" labelfloat=false fontname="Arial" fontsize=8]
 
 "P6" -> "P1" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
-"P6" -> "P6" [ color=grey16 penwidth = "3.36729582998647"label ="29" labelfloat=false fontname="Arial" fontsize=8]
+"P6" -> "P6" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
 "P6" -> "P7" [ color=grey16 penwidth = "2.07944154167984"label ="8" labelfloat=false fontname="Arial" fontsize=8]
 
-"P7" -> "P1" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
-
-"P7" -> "P3" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"P7" -> "P7" [ color=grey16 penwidth = "2.94443897916644"label ="19" labelfloat=false fontname="Arial" fontsize=8]
+"P7" -> "P1" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
 
 "P7" -> "P8" [ color=grey16 penwidth = "1.6094379124341"label ="5" labelfloat=false fontname="Arial" fontsize=8]
 
@@ -91,18 +83,18 @@ digraph DBA_1516_P2_GA_9 {
 
 "P8" -> "P2" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
 
-"P8" -> "P8" [ color=grey16 penwidth = "3.80666248977032"label ="45" labelfloat=false fontname="Arial" fontsize=8]
+"P8" -> "P8" [ color=grey16 penwidth = "2.63905732961526"label ="14" labelfloat=false fontname="Arial" fontsize=8]
 
 "P8" -> "P9" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
 
 "P9" -> "P1" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
 
-"P9" -> "P3" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
 "P9" -> "P6" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
 "P9" -> "P8" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
-"P9" -> "P9" [ color=grey16 penwidth = "2.63905732961526"label ="14" labelfloat=false fontname="Arial" fontsize=8]
+"P9" -> "P9" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P9" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
 }

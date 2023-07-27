@@ -5,7 +5,7 @@ library(caret)
 
 source("LCV_Dot.R")
 
-graphpwd<-"/home/lcv/Dropbox/Research/DBA/MB/Graphs"
+graphpwd<-"../Graphs"
 
 graphoptions<-function(name) {
   return( list(problemname=name,maxproblems=9,minproblems=9,fieldcase="Session",

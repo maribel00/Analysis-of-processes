@@ -72,6 +72,22 @@ LCV_STUDENT <- function(data,variable, value, onetail=FALSE, paired=FALSE) {
 }
 
 
+LCV_STUDENT2 <- function(x,y, onetail=FALSE, paired=FALSE) {
+  dataset.wt <- wilcox.test(x=x,y=y)
+  if (onetail){
+    dataset.tt <- t.test(x=x, y=y, paired = paired)
+  }else{
+    dataset.tt <- t.test(x=x, y=y, alt="two.sided", paired = paired)
+  }
+  cat("%%% WILCOX")
+  show(dataset.wt)
+  cat("%%% STUDENT")
+  show(dataset.tt)
+
+  dataset.tt
+}
+
+
 LCV_TUKEY <- function(data,variable, value) {
   data.tukey <- TukeyHSD(LCV_ANOVA(data,variable,value))
   show(data.tukey)

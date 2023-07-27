@@ -1,3 +1,5 @@
+library(stringr)
+
 dotpwd<<-"/home/maribel/Descargas/SIIE23Sripts/Graphs/"
 
 dot<- function(name,directed=FALSE,engine="circo") {

@@ -1,22 +1,19 @@
 setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
 
-source("Load.R")
+source("SIIE2023.R")
+source("SIIE23master.R")
 source("Dot.R")
 source("GraphMiner.R")
-source("SIIE2023.R")
-library(stringr)
-library(dplyr)
 
 SIIE23doInitDatasets()
 SIIE23doLoadSessions()
-# Asignación de nuevos nombres a las columnas del data frame
-colnames(SIIE23RAW) <- c('Group','Year','Time','Session','Problem','Milestone','Composite','Grade','Size','relDays','relHours','X','X_')
+nrow(SIIE23RAW)
 head(SIIE23RAW)
 
 data <- SIIE23RAW
 # Crear la nueva columna "State"
 data <- data %>%
-  mutate(State = ifelse(Milestone > 4, paste(Problem, "OK"), paste(Problem, "FAIL")))
+  mutate(State = ifelse(OutCome == "fail", paste(Problem, "FAIL"), paste(Problem, "OK")))
 head(data)
 
 graphoptions1 <- graphoptions('SIIE2023_1',maxproblems=10)
@@ -24,18 +21,26 @@ graphoptions2 <- graphoptions('SIIE2023_2',fieldactivity='Problem')
 graphoptions3 <- graphoptions('SIEE2023_3',fieldactivity='State') 
 graphoptions4 <- graphoptions('SIIE2023_4',fieldactivity='State',minproblems=1,maxproblems=10)
 
-graphpwd1 <- "./Graphs"
-graph1 <- GraphMiner(data, graphoptions1, graphpwd1)
+graphpwd <- "./Graphs"
+graph <- GraphMiner(data, graphoptions1, graphpwd)
+graphpwd1 <- "./GraphsSummary"
+graph1 <- GraphMinerSummary(data, graphoptions1, graphpwd1)
 graphpwd2 <- "./GraphsProblems"
 graph2 <- GraphMinerProblems(data, graphoptions2, graphpwd2)
 graphpwd3 <- "./GraphsStates"
 graph3 <- GraphMinerProblems(data, graphoptions3, graphpwd3)
 graphpwd4 <- "./GraphsStates_wc"
-graph4 <- GraphMiner(data, graphoptions4, graphpwd4)
+graph4 <- GraphMinerSummary(data, graphoptions4, graphpwd4)
 
-#dsSIIE23RAW <- SIIE23RAW
-#dsList <- SIIE23doLoadGraphs(dsSIIE23RAW)
-#GraphList <- dsList
-#dsSIIE23RAW <- SIIE23addQuantiles(dsSIIE23RAW)
-#head(dsSIIE23RAW)
-#dataset <- SIIE23doGenerateDatasets(downto=1)
+#GraphList <- SIIE23doLoadGraphs(SIIE23RAW)
+
+#dsList <- list()
+#dsbase <- GenerateBaseDataset()
+
+#dsend <- dsbase[dsbase$Level >= 8,]
+#treeend <- C5.0(dsend[,allmetricsF()], as.factor(dsend$PERFORMANCE), trials = 100, rules=TRUE)
+#summary(treeend)
+
+#dsbegin <- dsbase[dsbase$Level <= 5,]
+#treebegin <- C5.0(dsbegin[,allmetricsF()], as.factor(dsbegin$PERFORMANCE), trials = 100, rules=TRUE)
+#summary(treebegin)

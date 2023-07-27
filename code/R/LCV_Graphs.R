@@ -550,12 +550,17 @@ gP<- function(m) {
 
 gToLatex <- function(m) {
   header<-"{c"
-  for (col in (2:ncol(m))) {
+  for (col in (1:ncol(m))) {
     header <- paste(header,"c")
   }
-  header <- paste (header,"}")
+  header <- paste (header,"}\n ")
+  for (col in (1:ncol(m))) {
+    header <- paste("&",colnames(m)[i])
+  }
+  header <- paste (header,"\\\\ \\hline\n ")
   res <- paste("{\\scriptsize $$\\left( \\begin{array}",header,"\n")
   for (row in (1:nrow(m))){
+    header <- paste(header, rownames(m)[row])
     for (col in (1:ncol(m))) {
       cell <- round(m[row,col], 3)
       if (row == col) {

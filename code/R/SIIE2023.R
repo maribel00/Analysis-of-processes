@@ -3,16 +3,7 @@ library(forcats)
 library(ggplot2)
 library(caret)
 
-#pwd<<-"/home/lcv/Dropbox/Research/DBA/MB/"
-#source(paste(pwd,"Scripts/LCV_Theme.R",sep=""))
-#source(paste(pwd,"Scripts/LCV_Bayes.R",sep=""))
-#source(paste(pwd,"Scripts/LCV_Clustering.R",sep=""))
-#source(paste(pwd,"Scripts/LCV_Graphs.R",sep=""))
-#source(paste(pwd,"Scripts/LCV_Hipothesis_Tests.R",sep=""))
-#source(paste(pwd,"Scripts/LCV_Regression.R",sep=""))
-#source(paste(pwd,"Scripts/LCV_plotting.R",sep=""))
-#source("/home/lcv/Dropbox/Research/DBA/MB/Scripts/LCV_GraphMiner.R")
-#source("/home/lcv/Dropbox/Research/DBA/MB/Scripts/LCV_Dot.R")
+pwd<<-"."
 source("LCV_Theme.R")
 source("LCV_Bayes.R")
 source("LCV_Clustering.R")
@@ -23,9 +14,50 @@ source("LCV_plotting.R")
 source("LCV_GraphMiner.R")
 source("LCV_Dot.R")
 
-MAXPROBLEMS<-9
+MAXPROBLEMS<-10
 METRICTIME<-FALSE
 REQUIREMINCLOSURE<-FALSE
+
+SIIE23BaseGraph <- function(name) {
+  res <- dot(name,TRUE)
+  columns <- c("A","p1_f","p1_s","p2_f","p2_s","p3_f","p3_s","p4_f","p4_s","p5_f","p5_s","p6_f","p6_s","p7_f","p7_s","p8_f","p8_s","p9_f","p9_s")
+  l <- length(columns)
+  m<-matrix(0,l,l)
+  colnames(m)<-columns
+  rownames(m)<-columns
+  res$adjacency<-m
+  return (res)
+}
+
+SIIE23AddGraph <- function(dot1,dot2) {
+  res <- dot1
+  for (c in colnames(dot2$adjacency)) {
+    for (r in rownames(dot2$adjacency)) {
+      res$adjacency[r,c] <- res$adjacency[r,c]+dot2$adjacency[r,c]
+    }
+  }
+  return (res)
+}
+
+SIIE23AddAllGraphs <- function(name, graphnames=c(),level,glist, percentile=0.95) {
+  res<-SIIE23BaseGraph(name)
+  for (n in graphnames) {
+    cat(n,"\n")
+    res<-SIIE23AddGraph(res,glist[[n]][[level]])
+  }
+  v <- c(res$adjacency)
+  v <- v[-which(v==0)]
+  cut <- quantile(v,percentile)
+  for (c in colnames(res$adjacency)) {
+    for (r in rownames(res$adjacency)) {
+      if (res$adjacency[r,c]>cut){
+        res$adjacency[r,c] <- 0
+      }
+    }
+  }
+  return (res)
+}
+
 
 SIIE23doLoadSessions<-function(){
   SIIE23RAW <<- read.delim2("~/Descargas/SIIE23RAW.tsv")
@@ -186,39 +218,12 @@ getC50Error<-function(c50tree) {
 
 SIIE23doTraining <- function(downto=MAXPROBLEMS, mtraining=70,mtest=30) {
   SIIE23doInitDatasets()
-  # #\\readline("Press to load full dataset and graphs")
-  # dsSIIE23ORIGINAL<<-SIIE23doLoadData()
-  # dsSIIE23ORIGINAL<<-SIIE23doPrepareScales(dsSIIE23ORIGINAL)
-  # cat("Training model with right ",MAXPROBLEMS," problems.\n")
-  #
-  # # LCV_ListOutliers(dsSIIE23FULL, "s", "all")
-  # #\\readline("Press to remove outliers by number of session")
-  # cat("Before: ",nrow(dsSIIE23FULL), " rows\n")
-  # dsSIIE23FULL<<-dsSIIE23ORIGINAL[dsSIIE23ORIGINAL$s<1000,]
-  # cat("After: ",nrow(dsSIIE23FULL), " rows\n")
-  #
-  # # LCV_ListOutliers(dsSIIE23FULL, "p", "all")
-  # #\\readline("Press to remove outliers by number of solved problems")
-  # cat("Before: ",nrow(dsSIIE23FULL), " rows\n")
-  # dsSIIE23FULL<<-dsSIIE23FULL[dsSIIE23FULL$p>6,]
-  # cat("After: ",nrow(dsSIIE23FULL), " rows\n")
-  #
-  # # LCV_ListOutliers(dsSIIE23FULL, "Grade", "all")
-  # #\\readline("Press to remove outliers by extremely low grades")
-  # cat("Before: ",nrow(dsSIIE23FULL), " rows\n")
-  # dsSIIE23FULL<<-dsSIIE23FULL[dsSIIE23FULL$Grade>6,]
-  # cat("After: ",nrow(dsSIIE23FULL), " rows\n")
-  # #\\readline("Press to cluster Grades into meaningful subpartitions")
-  # dsSIIE23FULL<<-LCV_ClusterColumn(dsSIIE23FULL,"Grade",nc=5)
-
-  # metrics<-c("NDAG", "NLAP", "np", "sq", "fr", "ps")
-  ## XTRA FILTERS
   dsSIIE23RAW <<-SIIE23doLoadSessions()
   GraphList <<- SIIE23doLoadGraphs(dsSIIE23RAW)
   ## XTRA FILTERS
 
 
-  cat("Press to generate all datasets for each level from ",downto,"to",9 )
+  cat("Press to generate all datasets for each level from ",downto,"to",MAXPROBLEMS )
   #\\readline()
   SIIE23doGenerateDatasets(downto)
   dsbase <<- data.frame(dsList[MAXPROBLEMS])
@@ -229,9 +234,7 @@ SIIE23doTraining <- function(downto=MAXPROBLEMS, mtraining=70,mtest=30) {
   }
   # dsbase<<-dsbase[dsbase$KMEANS_Grade != "XXX",]
 
-  SIIE23SplitDatasetAlpha(dsbase, 70);
-  SIIE23SplitDatasetBeta(dsbase, 70);
-  SIIE23SplitDatasetGamma(dsbase, 70);
+  dsbase <<- SIIE23SplitDataset(dsbase, 70);
   dstrain <<- dsbase[dsbase$split==FALSE,]
   dstest <<- dsbase[dsbase$split==TRUE,]
 
@@ -268,15 +271,25 @@ SIIE23doTraining <- function(downto=MAXPROBLEMS, mtraining=70,mtest=30) {
   return(0)
 }
 
+SIIE23SplitDataset<-function(data, percenttraining) {
+  # dsbase = SIIE23SplitDatasetAlpha(dsbase, percenttraining)
+  data = SIIE23SplitDatasetBeta(data, percenttraining)
+  # SIIE23SplitDatasesttreetGamma(dsbase, percenttraining)
+  return (data)
+}
+
+
+
 SIIE23SplitDatasetAlpha<-function(dsbase, percenttraining) {
-  dsbase$split<<-FALSE
+  dsbase$split=FALSE
   # dsbase$split <<- runif(nrow(dsbase),0,100)
-  dsbase$split <<- (runif(nrow(dsbase),0,100)>percenttraining)
+  dsbase$split = (runif(nrow(dsbase),0,100)>percenttraining)
+  return (dsbase)
 }
 
 
 SIIE23SplitDatasetBeta<-function(dsbase, percenttraining) {
-  dsbase$split<<-FALSE
+  dsbase$split=FALSE
   lowlevel=min(dsbase$Level)
   highlevel=max(dsbase$Level)
   mlevel=lowlevel
@@ -288,13 +301,14 @@ SIIE23SplitDatasetBeta<-function(dsbase, percenttraining) {
     while (dsbase[element,"Level"] != mlevel) {
       element <- sample(rows)[1]
     }
-    dsbase[element,"split"]<<-TRUE
+    dsbase[element,"split"]=TRUE
     mlevel <- mlevel+1
     ntest<- ntest-1
     rows <- setdiff(rows,c(element))
     if (mlevel >highlevel)
       mlevel <- lowlevel
   }
+  return (dsbase)
 }
 
 SIIE23SplitDatasetGamma<-function(dsbase, percenttraining) {
@@ -323,7 +337,7 @@ SIIE23doGenerateDatasets<-function(downto=MAXPROBLEMS) {
   dstop<-data.frame()
   for (np in (MAXPROBLEMS:downto)) {
     cat("\nGenerating data frame at level ", np,":")
-    ds <- myDataset(dsSIIE23RAW, np)
+    ds <- myDataset(SIIE23RAW, np)
     ds$OUTLIER <- "NO"
     if (np == MAXPROBLEMS) {
       #\\readline(paste("Removing outliers level ",np,"from ", nrow(ds),"rows \n"))
@@ -331,7 +345,7 @@ SIIE23doGenerateDatasets<-function(downto=MAXPROBLEMS) {
       ds[ds$p<=6,"OUTLIER"]<-"TOO.FEW.PROBLEMS"
       outliers<- union(outliers,ds[ds$s>=1000,"Group"])
       outliers<- union(outliers,ds[ds$p<=6,"Group"])
-      # ds <- ds[!ds$Group  %in% outliers,]
+      ds <- ds[!ds$Group  %in% outliers,]
       cat(paste("Removing outliers level ",np,"to ", nrow(ds),"rows \n"))
       #\\readline("Clustering grades to 5 groups")
       ds<-LCV_ClusterColumn(ds,"Grade",nc=5)
@@ -601,8 +615,7 @@ AccuracyMetrics2<-function(result,bylevels=FALSE) {
   # }
 }
 
-
-SIIE23SearchBestFit<-function(spectral=c(), basic=c(), target="", level=9) {
+FindBestTree<-function(spectral=c(), basic=c(), target="", level=MAXPROBLEMS) {
   nspectral<-length(spectral)
   nbasic=length(basic)-nspectral
   allcombinations =  do.call("c", lapply(seq_along(basic), function(i) combn(basic, i, FUN = list)))
@@ -615,22 +628,24 @@ SIIE23SearchBestFit<-function(spectral=c(), basic=c(), target="", level=9) {
   for (minos in (0:length(basic))) {
     change<-FALSE
     for(combo in allcombinations) {
+      cat ("-->",combo,"\n")
       if (length(combo) == nbasic) {
         combo <- c(combo,spectral)
         cat("Trying ",combo,"\n")
         cx <- dstrain[,combo]
         cy<-as.factor(dstrain[[target]])
-        tree<-C5.0(cx,cy,trials=100,rules=TRUE ,
+        cat("Calling C50\n")
+        tree<-C5.0(cx,cy,trials=100,rules=FALSE ,
                    control = C5.0Control(
                      # subset = TRUE, bands = 0, winnow = FALSE,
                      # noGlobalPruning = FALSE, CF = .95,
                      minCases = 4,
-                     fuzzyThreshold = TRUE,
                      # sample = 0,
                      # seed = sample.int(4096, size = 1) - 1L,
                      # earlyStopping = FALSE, label = "outcome"
                    ))
         if (getC50Error(tree)<besterror) {
+          cat("Error acceptable");
           besterror <- getC50Error(tree)
           cat("   Found candidate ", combo,"\n")
           miprediction <-predict(tree,dstest)
@@ -646,7 +661,7 @@ SIIE23SearchBestFit<-function(spectral=c(), basic=c(), target="", level=9) {
         }
       }
     }
-s  }
+  }
   cat("BEST ",bestcombo,"-->",target,"\n")
   cat("Error:",besterror,"\n")
   show(cm$table)
@@ -654,7 +669,72 @@ s  }
   result <- data.frame(metric=character(), prob=numeric(), target=character())
   result[1,] <- c(prob=bestaccuracy, metric=paste(bestcombo, collapse=";"),target=target)
 
-  saveRDS(combo,paste(pwd,"combo_",target,".RDS",sep=""))
+  saveRDS(bestcombo,paste(pwd,"combo_",target,".RDS",sep=""))
+  saveRDS(besttree ,paste(pwd,"besttree_",target,".RDS",sep=""))
+  saveRDS(bestcm ,paste(pwd,"bestcm_",target,".RDS",sep=""))
+  saveRDS(best ,paste(pwd,"best_",target,".RDS",sep=""))
+  saveRDS(result,paste(pwd,"result_",target,".RDS",sep=""))
+  show(result)
+  return(result)
+}
+
+
+
+SIIE23SearchBestFit<-function(spectral=c(), basic=c(), target="", level=MAXPROBLEMS) {
+  nspectral<-length(spectral)
+  nbasic=length(basic)-nspectral
+  allcombinations =  do.call("c", lapply(seq_along(basic), function(i) combn(basic, i, FUN = list)))
+  besterror<-1000
+  besttree<-0
+  bestaccuracy<-0
+  bestpvalue<-0
+  bestcm<-0
+  bestcombo<-c()
+  for (minos in (0:length(basic))) {
+    change<-FALSE
+    for(combo in allcombinations) {
+      cat ("-->",combo,"\n")
+      if (length(combo) == nbasic) {
+        combo <- c(combo,spectral)
+        cat("Trying ",combo,"\n")
+        cx <- dstrain[,combo]
+        cy<-as.factor(dstrain[[target]])
+        cat("Calling C50\n")
+        tree<-C5.0(cx,cy,trials=100,rules=FALSE ,
+                   control = C5.0Control(
+                     # subset = TRUE, bands = 0, winnow = FALSE,
+                     # noGlobalPruning = FALSE, CF = .95,
+                     minCases = 4,
+                     # sample = 0,
+                     # seed = sample.int(4096, size = 1) - 1L,
+                     # earlyStopping = FALSE, label = "outcome"
+                   ))
+        if (getC50Error(tree)<besterror) {
+          cat("Error acceptable");
+          besterror <- getC50Error(tree)
+          cat("   Found candidate ", combo,"\n")
+          miprediction <-predict(tree,dstest)
+          cm <- confusionMatrix(miprediction,as.factor(dstest[[target]]))
+          if(cm$overall["Accuracy"]> bestaccuracy) {
+            besttree <<- tree
+            bestcm <- cm
+            bestaccuracy<-cm$overall["Accuracy"]
+            bestpvalue<-cm$overall["AccuracyPValue"]
+            bestcombo <- combo
+            change <- TRUE
+          }
+        }
+      }
+    }
+  }
+  cat("BEST ",bestcombo,"-->",target,"\n")
+  cat("Error:",besterror,"\n")
+  show(cm$table)
+  cat("Accuracy ",bestaccuracy, " pvalue",bestpvalue,"\n")
+  result <- data.frame(metric=character(), prob=numeric(), target=character())
+  result[1,] <- c(prob=bestaccuracy, metric=paste(bestcombo, collapse=";"),target=target)
+
+  saveRDS(bestcombo,paste(pwd,"combo_",target,".RDS",sep=""))
   saveRDS(besttree ,paste(pwd,"besttree_",target,".RDS",sep=""))
   saveRDS(bestcm ,paste(pwd,"bestcm_",target,".RDS",sep=""))
   saveRDS(best ,paste(pwd,"best_",target,".RDS",sep=""))
@@ -724,7 +804,9 @@ maxS<-function(data,group, nproblems=MAXPROBLEMS) {
 }
 
 allmetricsF<-function() {
-  return (c("s", "p", "De", "Dm" ,"Le", "Di", "Co", "We", "Ef", "St","Pa","WPa", "Be"))
+  return (c("s", "p", "Cl","De", "Dm" ,"Le", "Di", "We", "Ef", "St","Dag", "WDag", "Be"))
+
+
   # return (c("D","G","L","Lmax","C","W", "E", "P"))
 
   # return(c("graph_LaplacianFactor", "graph_NSessions",
@@ -792,7 +874,6 @@ isSolvedProblem<-function(data, group, problem) {
 
 
 subdataset<-function(data,group, nproblems=MAXPROBLEMS, nsessions=10000) {
-  # return (data[data$Group==group & data$psolved <=nproblems & data$nID < nsessions,])
   predata <-data[data$Group==group,]
   realmax <- max(predata$psolved)
   if ( realmax >=nproblems)
@@ -801,10 +882,12 @@ subdataset<-function(data,group, nproblems=MAXPROBLEMS, nsessions=10000) {
     return (data[data$Group==group & data$psolved <=realmax & data$nID < nsessions,])
 }
 
+
 sp<-function(data,group,problem,nproblems=MAXPROBLEMS) {
   # ldata<-subdataset(data,group,nproblems)
   return (nrow(data[data$Group==group & data$Problem==problem & data$psolved <=nproblems,]))
 }
+
 
 presp<-function(data,group,problem,nproblems=MAXPROBLEMS) {
   # ldata<-subdataset(data,group,nproblems)
@@ -833,11 +916,11 @@ ng<-function(data,group,nproblems=MAXPROBLEMS) {
   return (data[data$Group == group,][1,"Grade"]/10)
 }
 
-ns<-function(data,group,nproblems=MAXPROBLEMS) {
+ns<-function(data,group,nproblems=MAXPROBLEMS, graphlist) {
   return (s(data,group,nproblems)/maxS(data,group))
 }
 
-cx<-function(data, group, nproblems, graphlist) {
+Cx<-function(data, group, nproblems, graphlist) {
   ldata<-subdataset(data,group,nproblems)
   ldata <- gpreProcess(ldata,groptions)
   graph <- GraphMinerCore(ldata,group,nproblems, groptions)
@@ -856,6 +939,39 @@ cx<-function(data, group, nproblems, graphlist) {
   # allFreqs<-dotgetAllFreqs(graph,lastproblem)
   return (0)
 }
+
+
+testColumn <- function(data,col, nproblems=9) {
+  maxg<-3
+  lowers <- sample(allGroupsF(data,"LOW"))
+  highers <- sample(allGroupsF(data,"GOOD"))
+  # df<- data.frame()
+  lowy<-c()
+  toppy<-c()
+  allwy<-data.frame(Group=character(), Perf=character(), fun=numeric(), KMG=character())
+  for (g in lowers) {
+    value <- data[data$Level==nproblems, col]
+    # cat ("LOW ", g, value , "\n")
+    lowy <- append(lowy,c(g=value))
+    # allwy[nrow(allwy)+1,] <- c(g,"LOW",as.numeric(value), dsSIIE23RAW[dsSIIE23RAW$Group==g,"KMEANS_Grade"][1])
+  }
+  cat("\n")
+  for (g in highers) {
+    value <- data[data$Level==nproblems, col]
+    # cat ("GOOD ", g, value , "\n")
+    toppy <- append(toppy, c(g=value))
+    # allwy[nrow(allwy)+1,] <- c(g,"GOOD",as.numeric(value), dsSIIE23RAW[dsSIIE23RAW$Group==g,"KMEANS_Grade"][1])
+  }
+  cat ("LOWY\n")
+  show(summary(lowy))
+  cat ("TOPPY\n")
+  show(summary(toppy))
+  # allwy$Perf <- as.factor(allwy$Perf)
+  # allwy$all <- 1
+  # LCV_boxplot(allwy,"Perf","fun")
+}
+
+
 
 testGraphFunction <- function(data, fun) {
   maxg<-3
@@ -888,69 +1004,155 @@ testGraphFunction <- function(data, fun) {
 }
 
 De<-function(data, group, nproblems, graphlist) {
-  ldata<-subdataset(data,group,nproblems)
   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
   m <- dotgetMatrix(graph)
-  return (We(data,group, nproblems, graphlist) * gE(m) / (nrow(m)*(nrow(m)-1)))
+  return (gDe(m))
+  # return (We(data,group, nproblems, graphlist) *gE(m) / (nrow(m)*(nrow(m)-1)))
+}
+
+gDe<-function(m) {
+  return (gE(m)/gEmax(m))
 }
 
 Dm<-function(data, group, nproblems, graphlist) {
-  ldata<-subdataset(data,group,nproblems)
   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
   m <- dotgetMatrix(graph)
-  return (gWAvrgDeg(m)/maxS(data,group,nproblems))
-  # return(graph_WAvrgDeg(data,group,nproblems,graphlist))
+  return (gDm(m))
 }
+
+gDm<-function(m) {
+  return (gE(m)/gN(m))
+}
+
 
 
 Le<-function(data, group, nproblems, graphlist) {
-  ldata<-subdataset(data,group,nproblems)
   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
   m <- dotgetMatrix(graph)
+ return (log(gLe(m)))
+ }
+
+
+gLe<-function(m) {
+  m<-gAdj(m)
   m<- gMinClosure(m)
-  return (mean(m)/sum(m))
-  # return(graph_meanEnergy(data,group,nproblems,graphlist))
-  # return(graph_Closeness(data,group,nproblems,graphlist))
+  vm<-c(m)
+  zvm<-vm[which(vm>0)]
+  return (mean(zvm)/(gE(m)*(gE(m)-1)))
 }
 
 Di<-function(data, group, nproblems, graphlist) {
-  ldata<-subdataset(data,group,nproblems)
   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
   m <- dotgetMatrix(graph)
+  return (gDi(m))
+}
+
+gDi<-function(m) {
+  m<- gAdj(m)
   m<- gMinClosure(m)
-  return (max(m)/sum(m))
+  vm<-c(m)
+  zvm<-vm[which(vm>0)]
+  return (max(zvm)/(gE(m)*(gE(m)-1)))  # return (max(m)/sum(m))
 }
 
 Co<-function(data, group, nproblems, graphlist) {
-  ldata<-subdataset(data,group,nproblems)
   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
   m <- dotgetMatrix(graph)
-  return (gAvrgDeg(m)/gEmax(m))
+   return (gCo(m))  # return (gAvrgDeg(m)/gEmax(m))
 }
+
+Coi<-function(m,i) {
+  m <- gAdj(m)
+  return (sum(m[,i])+sum(m[i,]))
+}
+
+gCo<-function(m) {
+  v<-c()
+  for (i in (1:nrow(m))) {
+    v <- append(v, Coi(m,i))
+  }
+  return (mean(v))  # return (gAvrgDeg(m)/gEmax(m))
+}
+
+Cl<-function(data, group, nproblems, graphlist) {
+  if (nproblems >=3) {
+    graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
+    m <- dotgetMatrix(graph)
+    return (gCl(m))
+  }  else
+    return (0);
+}
+
+gCl<-function(m) {
+    v<-c()
+    for (i in (1:nrow(m))) {
+      k <- length(ki(m,i))
+      c<- e(m,c(i,k))
+      v <- append(v, 2*c/((k*(k-1))))
+    }
+  return (mean(v))  # return (gAvrgDeg(m)/gEmax(m))
+}
+
+
+ki<-function(m,i) {
+  return (c(which(m[i,]>0),which(m[,i]>0),i))
+}
+
+e<-function(m,c=c()) {
+  n<-0
+  for (i in c) {
+    n <- n +
+      length( (c(intersect(which(m[i,]>0),c),intersect(c,which(m[,i]>0)))))
+  }
+  return (n)
+}
+
+Cli<-function(m,i) {
+  k<-length(ki(m,i))
+  e<-length(e(m,k))
+  return (2*e/(k*(k-1)))
+}
+
+# gCl <- function(m) {
+#   v <-c()
+#   for (i in (1:nrow(m))) {
+#     v <- append(v, Cli(m,i))
+#   }
+#   return (mean(v))
+# }
 
 We<-function(data, group, nproblems, graphlist) {
   ldata<-subdataset(data,group,nproblems)
   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
   m <- dotgetMatrix(graph)
   return (sum(m)/maxS(data,group,nproblems))
+  # return (sum(m)/maxS(data,group,nproblems))
 
   # return(graph_NSessions(data,group,nproblems,graphlist))
 }
 
 Ef<-function(data, group, nproblems, graphlist) {
-  return(graph_NProblemsSolved(data,group,nproblems,graphlist)/nproblems)
+  return(graph_NProblemsSolved(data,group,nproblems,graphlist))
+  # return(graph_NProblemsSolved(data,group,nproblems,graphlist)/nproblems)
 }
 
 St<-function(data, group, nproblems, graphlist) {
   ldata<-subdataset(data,group,nproblems)
   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
   m <- dotgetMatrix(graph)
-   return (log(gLaplacianFactor(m))/(log(gE(m)^(gE(m)-1))))
+   return (log(gLaplacianFactor(m)))
+  return (log(gLaplacianFactor(m))/(log(gE(m)^(gE(m)-1))))
   # return (log(gLaplacianFactor(m))/((n-1)/log(n)))
 }
 
 Be<-function(data, group, nproblems, graphlist) {
-  return(graph_Betweenness(data,group,nproblems,graphlist))
+  ldata<-subdataset(data,group,nproblems)
+  graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
+  m <- dotgetMatrix(graph)
+  # if (REQUIREMINCLOSURE)
+  #   m<- gMinClosure(m)
+  problem <-substr(colnames(m)[which.max(gBetweennes(m))],2,2)
+  return (problem) #(substr(problem,2,1))
 }
 
 # De<-function(data, group, nproblems, graphlist) {
@@ -964,17 +1166,17 @@ WDag<-function(data, group, nproblems, graphlist) {
   ldata<-subdataset(data,group,nproblems)
   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
   m <- dotgetMatrix(graph)
-  m <-gMinClosure(m)
   npaths <-0
   n <- 0
-  for (node in (1:nrow(mc))) {
-    if (sum(mc[node,])==0) { # Leaf
+  for (node in (1:nrow(m))) {
+    if (sum(m[node,])==0) { # Leaf
       ad <- dotgetAllDepths(graph,node)
       npaths <- npaths + sum(ad)
       n<-n+1
     }
   }
-  return(npaths/(n*sum(m)))
+  # return(npaths)
+  return(log(npaths/(sum(m)*gEmax(m))))
 }
 
 
@@ -984,15 +1186,121 @@ Dag<-function(data, group, nproblems, graphlist) {
   m <- dotgetMatrix(graph)
   npaths <-0
   n <- 0
-  for (node in (1:nrow(mc))) {
-    if (sum(mc[node,])==0) { # Leaf
+  for (node in (1:nrow(m))) {
+    if (sum(m[node,])==0) { # Leaf
       ad <- dotgetAllDepths(graph,node)
       npaths <- npaths + length(ad)
       n<-n+length(ad)
     }
   }
-  return(npaths/(n*gEmax(m)))
+  # return(npaths)
+  return(log(npaths/(n*gEmax(m))))
 }
+
+
+# -----------------
+# gDe<-function(graph) {
+#     m <- dotgetMatrix(graph)
+#     return (We(data,group, nproblems, graphlist) *gE(m) / (nrow(m)*(nrow(m)-1)))
+#   }
+#
+# gDm<-function(graph) {
+#   m <- dotgetMatrix(graph)
+#   return (gWAvrgDeg(m)/maxS(data,group,nproblems))
+#   # return(graph_WAvrgDeg(data,group,nproblems,graphlist))
+# }
+#
+#
+# gLe<-function(graph) {
+#   m <- dotgetMatrix(graph)
+#   m<- gMinClosure(m)
+#   return (mean(m)/sum(m))
+# }
+#
+# gDi<-function(graph) {
+#   m <- dotgetMatrix(graph)
+#   m<- gMinClosure(m)
+#   return (max(m)/sum(m))
+# }
+#
+# gCo<-function(graph) {
+#   m <- dotgetMatrix(graph)
+#   return (gAvrgDeg(m)/gEmax(m))
+# }
+#
+# We<-function(data, group, nproblems, graphlist) {
+#   ldata<-subdataset(data,group,nproblems)
+#   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
+#   m <- dotgetMatrix(graph)
+#   return (sum(m)/maxS(data,group,nproblems))
+#
+#   # return(graph_NSessions(data,group,nproblems,graphlist))
+# }
+#
+# Ef<-function(data, group, nproblems, graphlist) {
+#   return(graph_NProblemsSolved(data,group,nproblems,graphlist)/nproblems)
+# }
+#
+# St<-function(data, group, nproblems, graphlist) {
+#   ldata<-subdataset(data,group,nproblems)
+#   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
+#   m <- dotgetMatrix(graph)
+#   return (log(gLaplacianFactor(m))/(log(gE(m)^(gE(m)-1))))
+#   # return (log(gLaplacianFactor(m))/((n-1)/log(n)))
+# }
+#
+# Be<-function(data, group, nproblems, graphlist) {
+#   ldata<-subdataset(data,group,nproblems)
+#   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
+#   m <- dotgetMatrix(graph)
+#   # if (REQUIREMINCLOSURE)
+#   #   m<- gMinClosure(m)
+#   problem <-substr(colnames(m)[which.max(gBetweennes(m))],2,2)
+#   return (problem) #(substr(problem,2,1))
+# }
+#
+# # De<-function(data, group, nproblems, graphlist) {
+# #   ldata<-subdataset(data,group,nproblems)
+# #   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
+# #   return (gDAG(graph))
+# # }
+#
+#
+# WDag<-function(data, group, nproblems, graphlist) {
+#   ldata<-subdataset(data,group,nproblems)
+#   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
+#   m <- dotgetMatrix(graph)
+#   npaths <-0
+#   n <- 0
+#   for (node in (1:nrow(m))) {
+#     if (sum(m[node,])==0) { # Leaf
+#       ad <- dotgetAllDepths(graph,node)
+#       npaths <- npaths + sum(ad)
+#       n<-n+1
+#     }
+#   }
+#   return(npaths/(sum(m)*gEmax(m)))
+# }
+#
+#
+# Dag<-function(data, group, nproblems, graphlist) {
+#   ldata<-subdataset(data,group,nproblems)
+#   graph <- graphlist[[group]][[paste("L",nproblems, sep="")]]
+#   m <- dotgetMatrix(graph)
+#   npaths <-0
+#   n <- 0
+#   for (node in (1:nrow(m))) {
+#     if (sum(m[node,])==0) { # Leaf
+#       ad <- dotgetAllDepths(graph,node)
+#       npaths <- npaths + length(ad)
+#       n<-n+length(ad)
+#     }
+#   }
+#   return(npaths/(n*gEmax(m)))
+# }
+#
+#
+# -------------------
 
 graph_LaplacianFactor<-function(data, group, nproblems, graphlist) {
   ldata<-subdataset(data,group,nproblems)
@@ -1120,7 +1428,7 @@ p<-function(data,group,nproblems=MAXPROBLEMS,graphlist=c()) {
 }
 
 
-np<-function(data,group,nproblems=MAXPROBLEMS) {
+np<-function(data,group,nproblems=MAXPROBLEMS, GraphList=c()) {
   ldata<-subdataset(data,group,nproblems)
   return (p(ldata,group,nproblems)/nproblems)
 }
@@ -1182,7 +1490,7 @@ tftp<-function(data,group,problem,nproblems=MAXPROBLEMS) {
 
 
 
-ot<-function(data,group,nproblems=MAXPROBLEMS) {
+ot<-function(data,group,nproblems=MAXPROBLEMS, GraphList=c()) {
   ldata<-subdataset(data,group,nproblems)
   as<-0
   v<-c()
@@ -1200,7 +1508,7 @@ ot<-function(data,group,nproblems=MAXPROBLEMS) {
   return (as/(s(ldata,group,nproblems)*nproblems))
 }
 
-nt<-function(data,group,nproblems=MAXPROBLEMS) {
+nt<-function(data,group,nproblems=MAXPROBLEMS, GraphList=c()) {
   ldata<-subdataset(data,group,nproblems)
   as<-0
   subproblems <- mySolvedProblems(data, group, nproblems)
@@ -1212,7 +1520,7 @@ nt<-function(data,group,nproblems=MAXPROBLEMS) {
 }
 
 
-st<-function(data,group,nproblems=MAXPROBLEMS) {
+st<-function(data,group,nproblems=MAXPROBLEMS, GraphList=c()) {
   ldata<-subdataset(data,group,nproblems)
   as<-0
   subproblems <- mySolvedProblems(data, group, nproblems)
@@ -1269,7 +1577,7 @@ trtp<-function(data,group,problem,nproblems=MAXPROBLEMS) {
 
 
 
-rt<-function(data,group,nproblems=MAXPROBLEMS) {
+rt<-function(data,group,nproblems=MAXPROBLEMS, GraphList=c()) {
   ldata<-subdataset(data,group,nproblems)
   as<-0
   subproblems <- mySolvedProblems(ldata, group, nproblems)
@@ -1283,7 +1591,7 @@ rt<-function(data,group,nproblems=MAXPROBLEMS) {
   return (as/(s(ldata,group,nproblems)*nproblems))
 }
 
-ft<-function(data,group,nproblems=MAXPROBLEMS) {
+ft<-function(data,group,nproblems=MAXPROBLEMS, GraphList=c()) {
   ldata<-subdataset(data,group,nproblems)
   as<--Inf
   subproblems <- mySolvedProblems(ldata, group, nproblems)
@@ -1327,7 +1635,7 @@ frp<-function(data,group,problem,nproblems=MAXPROBLEMS) {
   return(length(ldata[ldata$nID>stp(ldata,group,problem,nproblems),"nID"]))
 }
 
-fr<-function(data,group,nproblems=MAXPROBLEMS) {
+fr<-function(data,group,nproblems=MAXPROBLEMS, GraphList=c()) {
   ldata<-subdataset(data,group,nproblems)
   return (nrow(ldata[ldata$OutCome=="fail",])/s(data,group,nproblems)/nproblems)
 }
@@ -1348,7 +1656,7 @@ psp<-function(data,group,problem,nproblems=MAXPROBLEMS) {
 }
 
 
-ps<-function(data,group,nproblems=MAXPROBLEMS) {
+ps<-function(data,group,nproblems=MAXPROBLEMS, GraphList=c()) {
   ldata<-subdataset(data,group,nproblems)
   as<-0
   subproblems <- mySolvedProblems(ldata, group, nproblems)
@@ -1359,7 +1667,7 @@ ps<-function(data,group,nproblems=MAXPROBLEMS) {
 }
 
 
-sq<-function(data,group,nproblems=MAXPROBLEMS) {
+sq<-function(data,group,nproblems=MAXPROBLEMS, GraphList=c()) {
   ldata<-subdataset(data,group,nproblems)
   ldata<-ldata[ldata$OutCome=="solved",]
   as <- 0
@@ -1422,9 +1730,9 @@ Group<-function(data, group, nproblems=MAXPROBLEMS) {
   return(group)
 }
 
-#QuartileGrade<-function(data, group, nproblems=MAXPROBLEMS) {
-#  return(data[data$Group==group,][1,"QuartileGrade"])
-#}
+QuartileGrade<-function(data, group, nproblems=MAXPROBLEMS) {
+  return(data[data$Group==group,][1,"QuartileGrade"])
+}
 
 
 NDAG<-function(data, group, nproblems=MAXPROBLEMS) {
@@ -1810,7 +2118,16 @@ SIIE23AnalyzeCluster<-function(data, cluster) {
 
 
 
+SIIE23ShowMetric <- function(data, metric, factor="PERFORMANCE", factorvalue="LOW") {
+  data$all <-1
+  show(LCV_boxplot(data,metric, "all"))
+  dsaux <- LCV_RemoveOutliers(data,metric,"all")
+  show(LCV_boxplot(dsaux,metric, "all"))
+  show(LCV_densitiesFactor(dsaux,metric,factor,showmax = TRUE))
+  dsaux$SEGMENT<- ifelse(dsaux[[factor]]==factorvalue,"YES","NO")
+  LCV_STUDENT(dsaux,"SEGMENT",metric,)
 
+}
 
 # SIIE23doBestC50Fit<-function(metrics=mastermetrics, target="KMEANS_Grade", size=3,downto=MAXPROBLEMS,seqmetrix=seq(1:length(allcombinationsmetrics))) {
 #   result <- list()

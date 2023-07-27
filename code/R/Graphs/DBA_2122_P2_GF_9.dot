@@ -1,174 +1,65 @@
 digraph DBA_2122_P2_GF_9 {
-	label=DBA_2122_P2_GF_9;
-	dpi = 150
-	size="16,11!";
-	margin = 0;
-"START" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>START</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>0</i></FONT></td></tr></table>>]
-
-"P7-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P7-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>72</i></FONT></td></tr></table>>]
-
-"P2-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P2-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>49</i></FONT></td></tr></table>>]
-
-"P2-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P2-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>44</i></FONT></td></tr></table>>]
-
-"P2-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P2-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>8</i></FONT></td></tr></table>>]
-
-"P3-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P3-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>14</i></FONT></td></tr></table>>]
-
-"P3-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P3-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>5</i></FONT></td></tr></table>>]
-
-"P4-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P4-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>2</i></FONT></td></tr></table>>]
-
-"P4-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P4-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>1</i></FONT></td></tr></table>>]
-
-"P5-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P5-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>4</i></FONT></td></tr></table>>]
-
-"P5-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P5-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>1</i></FONT></td></tr></table>>]
-
-"P5-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P5-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>3</i></FONT></td></tr></table>>]
-
-"P6-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P6-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>12</i></FONT></td></tr></table>>]
-
-"P6-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P6-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>4</i></FONT></td></tr></table>>]
-
-"P6-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P6-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>8</i></FONT></td></tr></table>>]
-
-"P1-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P1-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>115</i></FONT></td></tr></table>>]
-
-"P1-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="dodgerblue"><FONT face="Arial" POINT-SIZE="10"><b>P1-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>34</i></FONT></td></tr></table>>]
-
-"P3-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P3-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>9</i></FONT></td></tr></table>>]
-
-"P7-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P7-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>19</i></FONT></td></tr></table>>]
-
-"P8-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P8-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>152</i></FONT></td></tr></table>>]
-
-"P8-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P8-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>137</i></FONT></td></tr></table>>]
-
-"P8-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="deepskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P8-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>22</i></FONT></td></tr></table>>]
-
-"P7-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P7-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>53</i></FONT></td></tr></table>>]
-
-"P9-20" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P9-20</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>19</i></FONT></td></tr></table>>]
-
-"P9-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P9-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>15</i></FONT></td></tr></table>>]
-
-"P9-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P9-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>4</i></FONT></td></tr></table>>]
-
-"P1-40" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P1-40</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>80</i></FONT></td></tr></table>>]
-
-"P4-100" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P4-100</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>1</i></FONT></td></tr></table>>]
-
-"END" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>END</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>427</i></FONT></td></tr></table>>]
-
-"START" -> "P7-20" [ style = dashed color=grey label ="72" labelfloat=false fontname="Arial" fontsize=8]
-
-"START" -> "P2-20" [ style = dashed color=grey label ="49" labelfloat=false fontname="Arial" fontsize=8]
-
-"START" -> "P2-40" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"START" -> "P3-20" [ style = dashed color=grey label ="14" labelfloat=false fontname="Arial" fontsize=8]
-
-"START" -> "P4-20" [ style = dashed color=grey label ="2" labelfloat=false fontname="Arial" fontsize=8]
-
-"START" -> "P5-20" [ style = dashed color=grey label ="4" labelfloat=false fontname="Arial" fontsize=8]
-
-"START" -> "P6-20" [ style = dashed color=grey label ="12" labelfloat=false fontname="Arial" fontsize=8]
-
-"START" -> "P1-20" [ style = dashed color=grey label ="115" labelfloat=false fontname="Arial" fontsize=8]
-
-"START" -> "P8-20" [ style = dashed color=grey label ="152" labelfloat=false fontname="Arial" fontsize=8]
-
-"START" -> "P8-40" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"START" -> "P8-100" [ style = dashed color=grey label ="2" labelfloat=false fontname="Arial" fontsize=8]
-
-"START" -> "P9-20" [ style = dashed color=grey label ="19" labelfloat=false fontname="Arial" fontsize=8]
-
-"START" -> "P9-100" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"P7-20" -> "P7-100" [ color=grey16 penwidth = "2.94443897916644"label ="19" labelfloat=false fontname="Arial" fontsize=8]
-
-"P7-20" -> "P7-40" [ color=grey16 penwidth = "3.91202300542815"label ="50" labelfloat=false fontname="Arial" fontsize=8]
-
-"P7-20" -> "END" [ style = dashed color=grey label ="160" labelfloat=false fontname="Arial" fontsize=8]
-
-"P2-20" -> "P2-40" [ color=grey16 penwidth = "3.76120011569356"label ="43" labelfloat=false fontname="Arial" fontsize=8]
-
-"P2-20" -> "P2-100" [ color=grey16 penwidth = "1.79175946922805"label ="6" labelfloat=false fontname="Arial" fontsize=8]
-
-"P2-40" -> "P2-100" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
-
-"P2-40" -> "END" [ style = dashed color=grey label ="25" labelfloat=false fontname="Arial" fontsize=8]
-
-"P2-100" -> "END" [ style = dashed color=grey label ="5" labelfloat=false fontname="Arial" fontsize=8]
-
-"P3-20" -> "P3-100" [ color=grey16 penwidth = "1.6094379124341"label ="5" labelfloat=false fontname="Arial" fontsize=8]
-
-"P3-20" -> "P3-40" [ color=grey16 penwidth = "2.07944154167984"label ="8" labelfloat=false fontname="Arial" fontsize=8]
-
-"P3-20" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"P3-100" -> "P3-40" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"P3-100" -> "END" [ style = dashed color=grey label ="3" labelfloat=false fontname="Arial" fontsize=8]
-
-"P4-20" -> "P4-40" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"P4-20" -> "P4-100" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"P4-40" -> "END" [ style = dashed color=grey label ="3" labelfloat=false fontname="Arial" fontsize=8]
-
-"P5-20" -> "P5-40" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"P5-20" -> "P5-100" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
-
-"P5-40" -> "P5-100" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"P5-100" -> "END" [ style = dashed color=grey label ="6" labelfloat=false fontname="Arial" fontsize=8]
-
-"P6-20" -> "P6-100" [ color=grey16 penwidth = "1.38629436111989"label ="4" labelfloat=false fontname="Arial" fontsize=8]
-
-"P6-20" -> "P6-40" [ color=grey16 penwidth = "2.07944154167984"label ="8" labelfloat=false fontname="Arial" fontsize=8]
-
-"P6-100" -> "END" [ style = dashed color=grey label ="99" labelfloat=false fontname="Arial" fontsize=8]
-
-"P6-40" -> "END" [ style = dashed color=grey label ="8" labelfloat=false fontname="Arial" fontsize=8]
-
-"P1-20" -> "P1-100" [ color=grey16 penwidth = "3.40119738166216"label ="30" labelfloat=false fontname="Arial" fontsize=8]
-
-"P1-20" -> "P1-40" [ color=grey16 penwidth = "4.38202663467388"label ="80" labelfloat=false fontname="Arial" fontsize=8]
-
-"P1-100" -> "END" [ style = dashed color=grey label ="34" labelfloat=false fontname="Arial" fontsize=8]
-
-"P3-40" -> "END" [ style = dashed color=grey label ="9" labelfloat=false fontname="Arial" fontsize=8]
-
-"P7-100" -> "P7-40" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
-
-"P7-100" -> "END" [ style = dashed color=grey label ="42" labelfloat=false fontname="Arial" fontsize=8]
-
-"P8-20" -> "P8-40" [ color=grey16 penwidth = "4.88280192258637"label ="132" labelfloat=false fontname="Arial" fontsize=8]
-
-"P8-20" -> "P8-100" [ color=grey16 penwidth = "2.99573227355399"label ="20" labelfloat=false fontname="Arial" fontsize=8]
-
-"P8-40" -> "END" [ style = dashed color=grey label ="16" labelfloat=false fontname="Arial" fontsize=8]
-
-"P8-100" -> "P8-40" [ color=grey16 penwidth = "1.38629436111989"label ="4" labelfloat=false fontname="Arial" fontsize=8]
-
-"P8-100" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"P7-40" -> "END" [ style = dashed color=grey label ="10" labelfloat=false fontname="Arial" fontsize=8]
-
-"P9-20" -> "P9-40" [ color=grey16 penwidth = "2.70805020110221"label ="15" labelfloat=false fontname="Arial" fontsize=8]
-
-"P9-20" -> "P9-100" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
-
-"P9-40" -> "P9-100" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
-"P9-100" -> "END" [ style = dashed color=grey label ="4" labelfloat=false fontname="Arial" fontsize=8]
-
-"P1-40" -> "P1-100" [ color=grey16 penwidth = "1.38629436111989"label ="4" labelfloat=false fontname="Arial" fontsize=8]
-
-"P4-100" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
-
+labelloc="tl"
+label= " DBA 2122 P2 GF 9 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1.fail" [shape="circle" label="p1.fail"]
+"p1.solved" [shape="circle" label="p1.solved"]
+"p2.fail" [shape="circle" label="p2.fail"]
+"p3.fail" [shape="circle" label="p3.fail"]
+"p3.solved" [shape="circle" label="p3.solved"]
+"p2.solved" [shape="circle" label="p2.solved"]
+"p4.solved" [shape="circle" label="p4.solved"]
+"p5.solved" [shape="circle" label="p5.solved"]
+"p7.fail" [shape="circle" label="p7.fail"]
+"p4.fail" [shape="circle" label="p4.fail"]
+"p5.fail" [shape="circle" label="p5.fail"]
+"p6.solved" [shape="circle" label="p6.solved"]
+"p6.fail" [shape="circle" label="p6.fail"]
+"p7.solved" [shape="circle" label="p7.solved"]
+"p8.fail" [shape="circle" label="p8.fail"]
+"p8.solved" [shape="circle" label="p8.solved"]
+"p9.fail" [shape="circle" label="p9.fail"]
+"p9.solved" [shape="circle" label="p9.solved"]
+"A" -> "p1.fail" [ label=87]
+"p1.fail" -> "p1.solved" [ label=25]
+"p1.fail" -> "p2.fail" [ label=42]
+"p1.fail" -> "p3.fail" [ label=6]
+"p1.solved" -> "p3.solved" [ label=2]
+"p2.fail" -> "p3.fail" [ label=3]
+"p2.fail" -> "p2.solved" [ label=3]
+"p2.fail" -> "p6.fail" [ label=4]
+"p3.fail" -> "p1.solved" [ label=2]
+"p3.fail" -> "p3.solved" [ label=2]
+"p3.fail" -> "p2.solved" [ label=4]
+"p3.solved" -> "p4.solved" [ label=1]
+"p3.solved" -> "p7.fail" [ label=58]
+"p3.solved" -> "p4.fail" [ label=1]
+"p2.solved" -> "p1.solved" [ label=1]
+"p2.solved" -> "p3.solved" [ label=1]
+"p2.solved" -> "p7.fail" [ label=1]
+"p4.solved" -> "p5.solved" [ label=2]
+"p5.solved" -> "p7.fail" [ label=1]
+"p5.solved" -> "p5.fail" [ label=1]
+"p5.solved" -> "p6.solved" [ label=2]
+"p7.fail" -> "p6.solved" [ label=1]
+"p7.fail" -> "p7.solved" [ label=12]
+"p7.fail" -> "p8.fail" [ label=138]
+"p7.fail" -> "p8.solved" [ label=2]
+"p7.fail" -> "p9.fail" [ label=14]
+"p7.fail" -> "p9.solved" [ label=2]
+"p4.fail" -> "p5.solved" [ label=1]
+"p6.solved" -> "p6.fail" [ label=4]
+"p6.fail" -> "p7.solved" [ label=1]
+"p7.solved" -> "p8.solved" [ label=2]
+"p8.fail" -> "p6.fail" [ label=1]
+"p8.fail" -> "p7.solved" [ label=2]
+"p8.fail" -> "p8.solved" [ label=16]
+"p8.fail" -> "p9.fail" [ label=5]
+"p9.fail" -> "p7.solved" [ label=1]
+"p9.fail" -> "p8.solved" [ label=1]
+"p9.fail" -> "p9.solved" [ label=2]
+"p9.solved" -> "p8.solved" [ label=1]
 }

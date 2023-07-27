@@ -20,13 +20,13 @@ LCV_density <- function (data, variable, nintervals=0, showextremes=FALSE, showm
     res<-ggplot(ddataset,aes(x=dvariable))+
       geom_density(color=textcolor,fill=fillcolor,alpha=alphafill)
     if (showall  | showmax) {
-      res<- res+geom_segment(aes(x=bestx, xend=bestx, y=0, yend=fd(bestx)), linetype="dashed", lineend = "round", color =linecolor)
+      res<- res+geom_segment(aes(x=bestx, xend=bestx, y=0, yend=fd(bestx)), linetype="dashed", lineend = "round", color ="black")
       tmax<- paste("\nMAX prob: ",bestx)
     }else{
       tmax<-""
     }
     if (showall  | showmean) {
-      res <- res+geom_segment(aes(x=cogx, xend=cogx, y=0, yend=fd(cogx)), linetype="solid", lineend = "round", color =linecolor)
+      res <- res+geom_segment(aes(x=cogx, xend=cogx, y=0, yend=fd(cogx)), linetype="solid", lineend = "round", color ="black")
       tmean<- paste("\nCOM: ",cogx)
     }else{
       tmean<-""
@@ -98,12 +98,12 @@ LCV_MosaicDensitiesFactor<-function (d,v=c(),f) {
 
 LCV_MosaicDensities<-function (d,v=c(),f) {
   library(patchwork)
-  LCV_Mosaic<-LCV_density(d,v[1],showall=TRUE)
+  LCV_Mosaic<-LCV_density(d,v[1],showmax = TRUE)
   for (iv in v[2:length(v)]) {
-    lplot <- LCV_density(d,iv,showall=TRUE)
+    lplot <- LCV_density(d,iv,showmax = TRUE)
     LCV_Mosaic <- LCV_Mosaic + lplot
   }
-  LCV_Mosaic+plot_layout(nc=3)
+  LCV_Mosaic+plot_layout(nc=4)
 }
 
 

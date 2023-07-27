@@ -1,0 +1,134 @@
+digraph DBA_1920_P2_GL_10 {
+	label=DBA_1920_P2_GL_10;
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+"START" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>START</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>0</i></FONT></td></tr></table>>]
+
+"P1.fail" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="deepskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P1.fail</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>21</i></FONT></td></tr></table>>]
+
+"P2.fail" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P2.fail</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>8</i></FONT></td></tr></table>>]
+
+"P3.fail" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P3.fail</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>2</i></FONT></td></tr></table>>]
+
+"P1.solved" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="deepskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P1.solved</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>27</i></FONT></td></tr></table>>]
+
+"P2.solved" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P2.solved</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>5</i></FONT></td></tr></table>>]
+
+"P4.fail" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="lightskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P4.fail</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>16</i></FONT></td></tr></table>>]
+
+"P3.solved" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P3.solved</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>3</i></FONT></td></tr></table>>]
+
+"P4.solved" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P4.solved</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>3</i></FONT></td></tr></table>>]
+
+"P5.solved" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="deepskyblue"><FONT face="Arial" POINT-SIZE="10"><b>P5.solved</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>22</i></FONT></td></tr></table>>]
+
+"P6.solved" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P6.solved</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>3</i></FONT></td></tr></table>>]
+
+"P7.solved" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P7.solved</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>8</i></FONT></td></tr></table>>]
+
+"P5.fail" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P5.fail</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>144</i></FONT></td></tr></table>>]
+
+"P8.fail" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P8.fail</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>130</i></FONT></td></tr></table>>]
+
+"P9.fail" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P9.fail</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>4</i></FONT></td></tr></table>>]
+
+"P7.fail" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="royalblue"><FONT face="Arial" POINT-SIZE="10"><b>P7.fail</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>44</i></FONT></td></tr></table>>]
+
+"P8.solved" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P8.solved</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>3</i></FONT></td></tr></table>>]
+
+"P6.fail" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="aqua"><FONT face="Arial" POINT-SIZE="10"><b>P6.fail</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>1</i></FONT></td></tr></table>>]
+
+"END" [shape=plain, label=<<table border="0" cellborder="1" cellspacing="0"><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="10"><b>END</b></FONT></td></tr><tr><td bgcolor="white"><FONT face="Arial" POINT-SIZE="8"><i>48</i></FONT></td></tr></table>>]
+
+"START" -> "P1.fail" [ style = dashed color=grey label ="21" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.fail" -> "P2.fail" [ color=grey16 penwidth = "1.94591014905531"label ="7" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.fail" -> "P1.solved" [ color=grey16 penwidth = "3.29583686600433"label ="27" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.fail" -> "P2.solved" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.fail" -> "P4.solved" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.fail" -> "P5.solved" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.fail" -> "P5.fail" [ color=grey16 penwidth = "1.38629436111989"label ="4" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.fail" -> "P8.fail" [ color=grey16 penwidth = "4.51085950651685"label ="91" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.fail" -> "P8.solved" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2.fail" -> "P3.fail" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2.fail" -> "P2.solved" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2.fail" -> "P3.solved" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3.fail" -> "P4.fail" [ color=grey16 penwidth = "2.484906649788"label ="12" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.solved" -> "P2.fail" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.solved" -> "P2.solved" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.solved" -> "P4.fail" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.solved" -> "P3.solved" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.solved" -> "P5.solved" [ color=grey16 penwidth = "2.30258509299405"label ="10" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1.solved" -> "P5.fail" [ color=grey16 penwidth = "4.93447393313069"label ="139" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2.solved" -> "P3.solved" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2.solved" -> "P8.fail" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P4.fail" -> "P4.solved" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P4.fail" -> "P8.solved" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3.solved" -> "P4.fail" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
+
+"P4.solved" -> "P5.solved" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
+
+"P4.solved" -> "P8.fail" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5.solved" -> "P6.solved" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5.solved" -> "P7.solved" [ color=grey16 penwidth = "1.38629436111989"label ="4" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5.solved" -> "P8.fail" [ color=grey16 penwidth = "3.36729582998647"label ="29" labelfloat=false fontname="Arial" fontsize=8]
+
+"P6.solved" -> "P7.solved" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7.solved" -> "P8.fail" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7.solved" -> "P7.fail" [ color=grey16 penwidth = "3.63758615972639"label ="38" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5.fail" -> "P5.solved" [ color=grey16 penwidth = "1.79175946922805"label ="6" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5.fail" -> "P7.solved" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5.fail" -> "P8.fail" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5.fail" -> "P7.fail" [ color=grey16 penwidth = "1.79175946922805"label ="6" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5.fail" -> "P6.fail" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P8.fail" -> "P9.fail" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
+
+"P9.fail" -> "END" [ style = dashed color=grey label ="4" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7.fail" -> "END" [ style = dashed color=grey label ="44" labelfloat=false fontname="Arial" fontsize=8]
+
+"P8.solved" -> "P7.solved" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P8.solved" -> "P5.fail" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P8.solved" -> "P8.fail" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P6.fail" -> "P8.fail" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P6.fail" -> "P9.fail" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+}
