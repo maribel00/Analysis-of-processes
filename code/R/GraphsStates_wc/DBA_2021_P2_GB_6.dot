@@ -14,26 +14,35 @@ layout=circo;
 "P3 FAIL" [shape=circle, color=cadetblue, style=filled]
 "P4 OK" [shape=circle, color=orange, peripheries=2, style=filled]
 "P5 OK" [shape=circle, color=deepskyblue, peripheries=2, style=filled]
+"P6 OK" [shape=circle, color=gold, peripheries=2, style=filled]
+"P7 OK" [shape=circle, color=hotpink, peripheries=2, style=filled]
+"P7 FAIL" [shape=circle, color=hotpink, style=filled]
 "P9 OK" [shape=circle, color=mediumpurple1, peripheries=2, style=filled]
 "END" [shape=box, fillcolor=white, style=filled, color=black]
-"START" -> "P1 OK" [ style = dashed color=grey label ="59" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P1 OK" [ style = dashed color=grey label ="46" labelfloat=false fontname="Arial" fontsize=8]
 
-"P1 OK" -> "P1 FAIL" [ color=grey16 penwidth = "4.74493212836325"label ="115" labelfloat=false fontname="Arial" fontsize=8]
+"P1 OK" -> "P1 FAIL" [ color=grey16 penwidth = "4.51085950651685"label ="91" labelfloat=false fontname="Arial" fontsize=8]
 
-"P1 OK" -> "P2 OK" [ color=grey16 penwidth = "3.25809653802148"label ="26" labelfloat=false fontname="Arial" fontsize=8]
+"P1 OK" -> "P2 OK" [ color=grey16 penwidth = "3.04452243772342"label ="21" labelfloat=false fontname="Arial" fontsize=8]
 
-"P2 OK" -> "P2 FAIL" [ color=grey16 penwidth = "2.94443897916644"label ="19" labelfloat=false fontname="Arial" fontsize=8]
+"P2 OK" -> "P2 FAIL" [ color=grey16 penwidth = "2.77258872223978"label ="16" labelfloat=false fontname="Arial" fontsize=8]
 
-"P2 OK" -> "P3 OK" [ color=grey16 penwidth = "1.79175946922805"label ="6" labelfloat=false fontname="Arial" fontsize=8]
+"P2 OK" -> "P3 OK" [ color=grey16 penwidth = "1.38629436111989"label ="4" labelfloat=false fontname="Arial" fontsize=8]
 
 "P3 OK" -> "P3 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
-"P3 OK" -> "P4 OK" [ color=grey16 penwidth = "2.07944154167984"label ="8" labelfloat=false fontname="Arial" fontsize=8]
+"P3 OK" -> "P4 OK" [ color=grey16 penwidth = "1.6094379124341"label ="5" labelfloat=false fontname="Arial" fontsize=8]
 
-"P4 OK" -> "P5 OK" [ color=grey16 penwidth = "4.47733681447821"label ="88" labelfloat=false fontname="Arial" fontsize=8]
+"P4 OK" -> "P5 OK" [ color=grey16 penwidth = "4.33073334028633"label ="76" labelfloat=false fontname="Arial" fontsize=8]
 
-"P5 OK" -> "P9 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P5 OK" -> "P6 OK" [ color=grey16 penwidth = "1.38629436111989"label ="4" labelfloat=false fontname="Arial" fontsize=8]
 
-"P9 OK" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P6 OK" -> "P7 OK" [ color=grey16 penwidth = "3.89182029811063"label ="49" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7 OK" -> "P7 FAIL" [ color=grey16 penwidth = "2.19722457733622"label ="9" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7 OK" -> "P9 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7 OK" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
 }

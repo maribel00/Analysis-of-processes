@@ -113,6 +113,8 @@ dotExportDISCO <- function(dot, basedir=".") {
     for (j in 2:ncol(edges)-1){
       first <- as.numeric(str_extract(labels[j], "\\d+(?=_.*$)"))
       second <- as.numeric(str_extract(labels[i], "\\d+(?=_.*$)"))
+      print(first)
+      print(second)
       if (!is.na(first) && !is.na(second) && edges[j,i] > 0 && (first != second)){
         edges[1,i] <- edges[1,i] + edges[j,i]
         edges[j,ncol(edges)] <- edges[j,ncol(edges)] + edges[j,i]
@@ -286,7 +288,7 @@ dotExportProblem <- function(dot, basedir=".") {
     if (labels[i] == 'START' || labels[i] == 'END') {
       writeLines(paste0('"', labels[i], '"', ' [shape=box, fillcolor=white, style=filled, color=black]'), f)
     } else {
-      if (endsWith(labels[i], "FAIL")) {
+      if (endsWith(labels[i], "FAIL") && !endsWith(labels[i], "OK")) {
         writeLines(paste0('"', labels[i], '"', ' [shape=circle, color=', color[labels[i]], ', style=filled]'), f)
       } else {
         writeLines(paste0('"', labels[i], '"', ' [shape=circle, color=', color[labels[i]], ', peripheries=2, style=filled]'), f)

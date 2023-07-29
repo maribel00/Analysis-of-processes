@@ -5,24 +5,35 @@ source("SIIE23master.R")
 source("Dot.R")
 source("GraphMiner.R")
 
+SIIE23doLoadMilestones<-function(){
+  SIIE23Milestones <<- unique(read.delim2("~/Descargas/Unified.tsv") %>% select(Session, Milestone))
+}
+
 SIIE23doInitDatasets()
 SIIE23doLoadSessions()
+SIIE23doLoadMilestones()
 nrow(SIIE23RAW)
 head(SIIE23RAW)
+SIIE23Milestones <- SIIE23Milestones %>% group_by(Session) %>% summarise(Milestone = max(Milestone))
+nrow(SIIE23Milestones)
+head(SIIE23Milestones)
 
-data <- SIIE23RAW
+data <- merge(SIIE23RAW, SIIE23Milestones, by = "Session")
 # Crear la nueva columna "State"
 data <- data %>%
   mutate(State = ifelse(OutCome == "fail", paste(Problem, "FAIL"), paste(Problem, "OK")))
+
+data$Composition <- paste(data$Problem, data$Milestone, sep = "_")
 head(data)
 
-graphoptions1 <- graphoptions('SIIE2023_1',maxproblems=10)
-graphoptions2 <- graphoptions('SIIE2023_2',fieldactivity='Problem')
-graphoptions3 <- graphoptions('SIEE2023_3',fieldactivity='State') 
-graphoptions4 <- graphoptions('SIIE2023_4',fieldactivity='State',minproblems=1,maxproblems=10)
+graphoptions0 <- graphoptions('SIIE2023', fieldactivity='Composite', minproblems = 1, maxproblems = 10)
+graphoptions1 <- graphoptions('SIIE2023_1', maxproblems=10)
+graphoptions2 <- graphoptions('SIIE2023_2', fieldactivity='Problem')
+graphoptions3 <- graphoptions('SIEE2023_3', fieldactivity='State') 
+graphoptions4 <- graphoptions('SIIE2023_4', fieldactivity='State',minproblems=1,maxproblems=10)
 
 graphpwd <- "./Graphs"
-graph <- GraphMiner(data, graphoptions1, graphpwd)
+graph <- GraphMiner(data, graphoptions0, graphpwd)
 graphpwd1 <- "./GraphsSummary"
 graph1 <- GraphMinerSummary(data, graphoptions1, graphpwd1)
 graphpwd2 <- "./GraphsProblems"

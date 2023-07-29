@@ -1,4 +1,4 @@
-graphoptions<-function(name,fieldactivity="Composite",minproblems=9,maxproblems=9) {
+graphoptions<-function(name,fieldactivity="Composition",minproblems=9,maxproblems=9) {
   return( list(problemname=name,maxproblems=maxproblems,minproblems=minproblems,fieldcase="Session",
                fieldagent="Group", fieldactivity=fieldactivity,
                fieldproblem="Problem",leafsuffix=".solved",rootsuffix=".fail",
@@ -70,6 +70,7 @@ GraphMiner<-function(data,graphoptions,graphpwd) {
       dotExport(res,graphpwd)
       dotShow(res,graphpwd)
       saveRDS(res,paste(graphpwd,"/",id,".RDS",sep=""))
+      saveRDS(res,paste(pwd,"/Graphs/",gsub(" ","_",group),"_",level,"_",ifelse(data[1,"Grade"]<8.1,"LOW","GOOD"),".RDS",sep=""))
     }
   }
   return (res)
@@ -95,7 +96,6 @@ GraphMinerSummary<-function(data,graphoptions,graphpwd) {
       dsxGroup<-dsxGroup[order(dsxGroup$Start,decreasing = FALSE),]
       dsxGroupxP<-dsxGroup[dsxGroup$psolved<=graphoptions$maxproblems, ]
       # Add nodes
-      #readline(cat("Adding nodes ",group,"\n"))
       cat("Adding nodes ",group,"\n")
       res<-dotAddNode(res,"START","square")
       for (n in unique(dsxGroupxP[[graphoptions$fieldactivity]])) {
@@ -105,7 +105,6 @@ GraphMinerSummary<-function(data,graphoptions,graphpwd) {
           res<-dotAddNode(res,n,"circle")
       }
       # Add arcs
-      #readline(cat("Adding ",nrow(dsxGroupxP), " edges\n"))
       cat("Adding ",nrow(dsxGroupxP), " edges\n")
       nprev<-"START"
       first <-dsxGroupxP[1,graphoptions$fieldactivity]
@@ -134,13 +133,12 @@ GraphMinerSummary<-function(data,graphoptions,graphpwd) {
         res <- dotAddEdge(res,nprev,"END")
       }
       cat("Saving graph\n")
-      if (graphoptions$fieldactivity == 'Composite')
+      if (graphoptions$fieldactivity == 'Composition')
         dotExportDISCO(res,graphpwd)
       else
         dotExportProblem(res,graphpwd)
       # dotShow(res,graphpwd)
       saveRDS(res,paste(graphpwd,"/",id,".RDS",sep=""))
-      saveRDS(res,paste(pwd,"/Graphs/",gsub(" ","_",group),"_",level,"_",ifelse(data[1,"Grade"]<8.1,"LOW","GOOD"),".RDS",sep=""))
     }
   }
   
@@ -171,7 +169,7 @@ GraphMinerProblems<-function(data,graphoptions,graphpwd) {
       res<-dotAddNode(res,"START","square")
       for (n in unique(dsxGroupxP[[graphoptions$fieldactivity]])) {
         if (endsWith(n,graphoptions$leafid))
-          res<-dotAddNode(res,n,"doublecircle")
+          res<-dotAddNode(res,n,"circle")
         else
           res<-dotAddNode(res,n,"circle")
       }
@@ -190,7 +188,7 @@ GraphMinerProblems<-function(data,graphoptions,graphpwd) {
       }
       res <- dotAddEdge(res,nprev,"END")
       cat("Saving graph\n")
-      if (graphoptions$fieldactivity == 'Composite')
+      if (graphoptions$fieldactivity == 'Composition')
         dotExportDISCO(res,graphpwd)
       else
         dotExportProblem(res,graphpwd)

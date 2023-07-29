@@ -6,13 +6,13 @@ digraph DBA_2122_P2_GA_1 {
 	margin = 0;
 layout=circo;
 "START" [shape=box, fillcolor=white, style=filled, color=black]
-"P9 OK" [shape=circle, color=mediumpurple1, peripheries=2, style=filled]
-"P1 FAIL" [shape=circle, color=greenyellow, style=filled]
+"P2 FAIL" [shape=circle, color=bisque, style=filled]
+"P7 FAIL" [shape=circle, color=hotpink, style=filled]
 "END" [shape=box, fillcolor=white, style=filled, color=black]
-"START" -> "P9 OK" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P2 FAIL" [ style = dashed color=grey label ="2" labelfloat=false fontname="Arial" fontsize=8]
 
-"P9 OK" -> "P1 FAIL" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+"P2 FAIL" -> "P7 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
-"P1 FAIL" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P7 FAIL" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
 }

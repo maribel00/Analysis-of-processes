@@ -6,18 +6,24 @@ digraph DBA_1920_P2_GL_1 {
 	margin = 0;
 layout=circo;
 "START" [shape=box, fillcolor=white, style=filled, color=black]
-"P1 FAIL" [shape=circle, color=greenyellow, style=filled]
 "P2 FAIL" [shape=circle, color=bisque, style=filled]
-"P3 FAIL" [shape=circle, color=cadetblue, style=filled]
+"P5 FAIL" [shape=circle, color=deepskyblue, style=filled]
+"P1 FAIL" [shape=circle, color=greenyellow, style=filled]
+"P8 FAIL" [shape=circle, color=indianred1, style=filled]
+"P4 FAIL" [shape=circle, color=orange, style=filled]
 "P2 OK" [shape=circle, color=bisque, peripheries=2, style=filled]
 "END" [shape=box, fillcolor=white, style=filled, color=black]
-"START" -> "P1 FAIL" [ style = dashed color=grey label ="7" labelfloat=false fontname="Arial" fontsize=8]
+"START" -> "P2 FAIL" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
-"P1 FAIL" -> "P2 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P2 FAIL" -> "P5 FAIL" [ color=grey16 penwidth = "1.38629436111989"label ="4" labelfloat=false fontname="Arial" fontsize=8]
 
-"P1 FAIL" -> "P2 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P5 FAIL" -> "P1 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
-"P2 FAIL" -> "P3 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+"P1 FAIL" -> "P8 FAIL" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P8 FAIL" -> "P4 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P8 FAIL" -> "P2 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
 
 "P2 OK" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
 

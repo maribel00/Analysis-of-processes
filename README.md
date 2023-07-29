@@ -30,6 +30,7 @@ Como podemos ver, el repositorio está divido en dos grandes partes: la document
 
 La carpeta `Documentation` presenta la siguiente estructura interna:
 
+```
 📂documentation
  ┗ 📂classicthesis-tex-es
  ┃ ┣ 📂_minted-main
@@ -57,6 +58,7 @@ La carpeta `Documentation` presenta la siguiente estructura interna:
  ┃ ┣ 📜texput.log
  ┃ ┣ 📜titlepage.tex
  ┃ ┗ 📜ugrA4.pdf
+ ```
 
 En ella, se destaca:
 * El directorio `add_ons`, donde se encuentra algunos archivos auxiliares que contienen la declaración de originalidad (`originalidad.tex`), la autorización para la ubicación de la memoria en la biblioteca (`autorizacion.tex`), la autorización para su defensa (`tutor.tex`), los resuménes del proyecto tanto en inglés como en español (`resumen.tex` y `summary.tex`) y los agradecimientos (`agradecimientos.tex`).
@@ -100,15 +102,22 @@ Dentro de la carpeta `Code`, encontramos:
 
 #### datasets
 
+* El dataset
+* Los datasets `datasetS.csv`, `datasetA.csv`, `datasetN.csv`, `datasetSOB.csv`, `datasetMH.csv` corresponden a la segmentación del dataset por notas.
+
 ## Manual
 
-Proporcione instrucciones y ejemplos de uso. Incluya capturas de pantalla según sea necesario.
+Para obtener los grafos correspondientes al proceso de aprendizaje de cada uno de los grupos se deberá tener instalado Rscript. A continuación, se deberá la siguiente instrucción en el directorio `/code/R`:
 
-Para agregar una captura de pantalla, cree una carpeta `assets/images` en su repositorio y cargue la captura de pantalla en ella. Luego, con la ruta relativa, agréguela a su README utilizando la siguiente sintaxis:
+`Rscript generate.R`
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+No obstante, el proceso de generación de todos los grafos es costoso. Así pues, ya se proporcionan los mismos en las carpetas `Graphs`, `GraphsSummary`, `GraphsProblems`, `GraphsStates` y `GraphsStates_wc`.
+
+Para reproducir los experimentos cuyos resultados se muestran en los *Capítulos 12* y *13* de la memoria se deberá ejecutar en el directorio `/code/R` las siguientes líneas:
+
+`Rscript`
+
+`Rscript`
 
 ## Crédito
 

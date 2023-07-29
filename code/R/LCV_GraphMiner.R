@@ -38,8 +38,6 @@ gRightUntil<-function(data, graphoptions, level) {
 
 }
 
-
-
 GraphMiner<-function(data,graphoptions) {
   # readline("Preprocessing activities\n")
   # data<-gpreProcess(data,graphoptions)
@@ -112,8 +110,6 @@ GraphMiner<-function(data,graphoptions) {
 }
 
 GraphMinerCore<-function(data,group, level, graphoptions) {
-  # readline("Preprocessing activities\n")
-  # data<-gpreProcess(data,graphoptions)
   ugroup <- gsub(" ","_",group)
   cat("Creating graph for group ",group," and  ",level," problems solved\n")
   id<-paste(ugroup,"_",level,sep="")
@@ -142,7 +138,6 @@ GraphMinerCore<-function(data,group, level, graphoptions) {
     potential<-c(nprev)
     visited<-c()
     nprev<-potential[1]
-    # cat(r,") TRY ",nprev,"-->",nnext,"(",dotgetAllAncestors(res,nprev),")\n")
     if (!graphoptions$cyclic){
       if (nnext %in% dotgetAllAncestors(res,nprev) | nprev == nnext) {
         if (nnext == first)
@@ -150,14 +145,12 @@ GraphMinerCore<-function(data,group, level, graphoptions) {
         else
           top <-first
         while (length(potential)>0 & (nnext %in% dotgetAllAncestors(res,nprev) | nprev == nnext) & nprev!=top ) {
-          # cat("VISITED", visited,"\nPOTENTIAL", potential,"\n")
           potential <- potential[-1]
           visited<-append(visited,nprev)
           potential<- append(potential,setdiff(dotgetDirectAncestors(res, nprev),visited))
           nprev<-potential[1]
         }
       }
-      # cat("\tFINALLY",nprev,"-->",nnext,"\n")
     }
     res<-dotAddEdge(res,nprev,nnext[1])
     nprev <- nnext[1]
