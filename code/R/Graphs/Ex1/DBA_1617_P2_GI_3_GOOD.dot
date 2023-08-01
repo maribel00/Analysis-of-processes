@@ -1,0 +1,21 @@
+digraph DBA_1617_P2_GI_3_GOOD {
+labelloc="tl"
+label= " DBA 1617 P2 GI 3 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"A" -> "p1_f" [ label=132]
+"p1_f" -> "p1_s" [ label=42]
+"p1_s" -> "p2_f" [ label=15]
+"p2_f" -> "p2_s" [ label=3]
+"p2_s" -> "p3_s" [ label=1]
+}

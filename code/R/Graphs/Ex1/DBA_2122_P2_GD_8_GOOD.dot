@@ -1,0 +1,48 @@
+digraph DBA_2122_P2_GD_8_GOOD {
+labelloc="tl"
+label= " DBA 2122 P2 GD 8 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"p4_s" [shape="doublecircle" label="p4
+s"]
+"p5_s" [shape="doublecircle" label="p5
+s"]
+"p6_s" [shape="doublecircle" label="p6
+s"]
+"p7_f" [shape="circle" label="p7
+f"]
+"p7_s" [shape="doublecircle" label="p7
+s"]
+"p6_f" [shape="circle" label="p6
+f"]
+"p8_f" [shape="circle" label="p8
+f"]
+"p8_s" [shape="doublecircle" label="p8
+s"]
+"A" -> "p1_f" [ label=70]
+"p1_f" -> "p1_s" [ label=38]
+"p1_f" -> "p2_f" [ label=13]
+"p1_s" -> "p7_f" [ label=24]
+"p1_s" -> "p6_f" [ label=1]
+"p2_f" -> "p2_s" [ label=2]
+"p2_s" -> "p3_s" [ label=1]
+"p3_s" -> "p4_s" [ label=1]
+"p4_s" -> "p5_s" [ label=1]
+"p5_s" -> "p6_s" [ label=6]
+"p6_s" -> "p7_f" [ label=11]
+"p6_s" -> "p6_f" [ label=3]
+"p7_f" -> "p7_s" [ label=3]
+"p7_f" -> "p8_f" [ label=115]
+"p7_s" -> "p6_f" [ label=1]
+"p8_f" -> "p8_s" [ label=1]
+}

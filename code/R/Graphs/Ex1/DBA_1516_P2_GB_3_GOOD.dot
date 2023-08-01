@@ -1,0 +1,25 @@
+digraph DBA_1516_P2_GB_3_GOOD {
+labelloc="tl"
+label= " DBA 1516 P2 GB 3 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"A" -> "p1_f" [ label=32]
+"p1_f" -> "p1_s" [ label=32]
+"p1_s" -> "p2_f" [ label=5]
+"p2_f" -> "p2_s" [ label=1]
+"p2_f" -> "p3_f" [ label=3]
+"p2_s" -> "p3_f" [ label=2]
+"p3_f" -> "p3_s" [ label=1]
+}

@@ -1,0 +1,49 @@
+digraph DBA_2021_P2_GL_6_GOOD {
+labelloc="tl"
+label= " DBA 2021 P2 GL 6 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p4_s" [shape="doublecircle" label="p4
+s"]
+"p5_s" [shape="doublecircle" label="p5
+s"]
+"p4_f" [shape="circle" label="p4
+f"]
+"p5_f" [shape="circle" label="p5
+f"]
+"p6_f" [shape="circle" label="p6
+f"]
+"p7_f" [shape="circle" label="p7
+f"]
+"p8_f" [shape="circle" label="p8
+f"]
+"p7_s" [shape="doublecircle" label="p7
+s"]
+"A" -> "p1_f" [ label=254]
+"p1_f" -> "p1_s" [ label=146]
+"p1_s" -> "p2_s" [ label=1]
+"p2_s" -> "p3_s" [ label=12]
+"p3_s" -> "p3_f" [ label=6]
+"p3_s" -> "p4_s" [ label=1]
+"p3_s" -> "p5_s" [ label=19]
+"p3_f" -> "p5_f" [ label=29]
+"p4_s" -> "p5_s" [ label=3]
+"p5_s" -> "p4_f" [ label=3]
+"p5_s" -> "p5_f" [ label=4]
+"p5_s" -> "p7_s" [ label=1]
+"p4_f" -> "p3_f" [ label=1]
+"p5_f" -> "p6_f" [ label=1]
+"p5_f" -> "p7_f" [ label=1]
+"p6_f" -> "p7_f" [ label=1]
+"p7_f" -> "p8_f" [ label=4]
+}

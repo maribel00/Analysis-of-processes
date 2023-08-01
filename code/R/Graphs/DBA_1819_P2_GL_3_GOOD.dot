@@ -1,0 +1,43 @@
+digraph DBA_1819_P2_GL_3_GOOD {
+labelloc="tl"
+label= " DBA 1819 P2 GL 3 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p6_f" [shape="circle" label="p6
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p4_f" [shape="circle" label="p4
+f"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p7_f" [shape="circle" label="p7
+f"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p5_f" [shape="circle" label="p5
+f"]
+"p5_s" [shape="doublecircle" label="p5
+s"]
+"p9_s" [shape="doublecircle" label="p9
+s"]
+"A" -> "p1_f" [ label=19]
+"p1_f" -> "p6_f" [ label=4]
+"p1_f" -> "p1_s" [ label=3]
+"p1_f" -> "p3_f" [ label=1]
+"p1_f" -> "p5_f" [ label=1]
+"p1_f" -> "p5_s" [ label=3]
+"p6_f" -> "p7_f" [ label=1]
+"p6_f" -> "p3_f" [ label=1]
+"p1_s" -> "p6_f" [ label=1]
+"p1_s" -> "p4_f" [ label=1]
+"p1_s" -> "p2_f" [ label=2]
+"p1_s" -> "p9_s" [ label=1]
+"p2_f" -> "p7_f" [ label=1]
+"p5_f" -> "p2_f" [ label=1]
+"p5_s" -> "p1_s" [ label=2]
+}

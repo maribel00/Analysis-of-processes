@@ -1,0 +1,34 @@
+digraph DBA_2122_P2_GL_5_GOOD {
+labelloc="tl"
+label= " DBA 2122 P2 GL 5 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1.fail" [shape="circle" label="p1.fail"]
+"p1.solved" [shape="doublecircle" label="p1.solved"]
+"p2.fail" [shape="circle" label="p2.fail"]
+"p2.solved" [shape="doublecircle" label="p2.solved"]
+"p3.fail" [shape="circle" label="p3.fail"]
+"p3.solved" [shape="doublecircle" label="p3.solved"]
+"p4.fail" [shape="circle" label="p4.fail"]
+"p4.solved" [shape="doublecircle" label="p4.solved"]
+"p5.fail" [shape="circle" label="p5.fail"]
+"p6.fail" [shape="circle" label="p6.fail"]
+"p6.solved" [shape="doublecircle" label="p6.solved"]
+"A" -> "p1.fail" [ label=52]
+"p1.fail" -> "p1.solved" [ label=21]
+"p1.fail" -> "p2.fail" [ label=10]
+"p1.fail" -> "p3.fail" [ label=11]
+"p1.solved" -> "p2.solved" [ label=1]
+"p2.fail" -> "p1.solved" [ label=3]
+"p2.fail" -> "p2.solved" [ label=2]
+"p2.fail" -> "p3.fail" [ label=2]
+"p3.fail" -> "p1.solved" [ label=1]
+"p3.fail" -> "p3.solved" [ label=6]
+"p3.fail" -> "p4.fail" [ label=2]
+"p4.fail" -> "p4.solved" [ label=1]
+"p4.solved" -> "p5.fail" [ label=1]
+"p5.fail" -> "p6.fail" [ label=1]
+"p6.fail" -> "p6.solved" [ label=1]
+}

@@ -1,0 +1,11 @@
+digraph DBA_2021_P2_GB_1_LOW {
+labelloc="tl"
+label= " DBA 2021 P2 GB 1 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"A" -> "p1_s" [ label=1]
+}

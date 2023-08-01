@@ -1,0 +1,25 @@
+digraph DBA_1718_P2_GH_3_LOW {
+labelloc="tl"
+label= " DBA 1718 P2 GH 3 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"A" -> "p1_f" [ label=173]
+"p1_f" -> "p1_s" [ label=12]
+"p1_f" -> "p2_s" [ label=3]
+"p1_s" -> "p2_f" [ label=1]
+"p2_s" -> "p1_s" [ label=1]
+"p2_s" -> "p2_f" [ label=1]
+"p2_s" -> "p3_s" [ label=1]
+}

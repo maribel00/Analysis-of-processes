@@ -1,0 +1,18 @@
+digraph DBA_2021_P2_GG_3_GOOD {
+labelloc="tl"
+label= " DBA 2021 P2 GG 3 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"A" -> "p1_f" [ label=39]
+"p1_f" -> "p1_s" [ label=38]
+"p1_s" -> "p2_s" [ label=10]
+"p2_s" -> "p3_s" [ label=1]
+}

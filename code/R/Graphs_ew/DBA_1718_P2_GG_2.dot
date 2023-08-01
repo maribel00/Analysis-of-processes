@@ -1,0 +1,16 @@
+digraph DBA_1718_P2_GG_2 {
+labelloc="tl"
+label= " DBA 1718 P2 GG 2 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1.fail" [shape="circle" label="p1.fail"]
+"p1.solved" [shape="doublecircle" label="p1.solved"]
+"p2.fail" [shape="circle" label="p2.fail"]
+"p9.fail" [shape="circle" label="p9.fail"]
+"A" -> "p1.fail" [ label=42]
+"p1.fail" -> "p1.solved" [ label=39]
+"p1.solved" -> "p2.fail" [ label=6]
+"p2.fail" -> "p9.fail" [ label=1]
+}

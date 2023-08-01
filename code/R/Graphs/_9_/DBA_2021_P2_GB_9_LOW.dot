@@ -1,0 +1,39 @@
+digraph DBA_2021_P2_GB_9_LOW {
+labelloc="tl"
+label= " DBA 2021 P2 GB 9 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p4_s" [shape="doublecircle" label="p4
+s"]
+"p5_s" [shape="doublecircle" label="p5
+s"]
+"p6_s" [shape="doublecircle" label="p6
+s"]
+"p7_s" [shape="doublecircle" label="p7
+s"]
+"p7_f" [shape="circle" label="p7
+f"]
+"A" -> "p1_s" [ label=59]
+"p1_s" -> "p1_f" [ label=115]
+"p1_s" -> "p2_s" [ label=26]
+"p2_s" -> "p2_f" [ label=19]
+"p2_s" -> "p3_s" [ label=6]
+"p3_s" -> "p3_f" [ label=1]
+"p3_s" -> "p4_s" [ label=8]
+"p4_s" -> "p5_s" [ label=88]
+"p5_s" -> "p6_s" [ label=5]
+"p6_s" -> "p7_s" [ label=58]
+"p7_s" -> "p7_f" [ label=10]
+}

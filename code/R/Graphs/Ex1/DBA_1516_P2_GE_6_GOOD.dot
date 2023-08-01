@@ -1,0 +1,31 @@
+digraph DBA_1516_P2_GE_6_GOOD {
+labelloc="tl"
+label= " DBA 1516 P2 GE 6 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"p4_s" [shape="doublecircle" label="p4
+s"]
+"p5_s" [shape="doublecircle" label="p5
+s"]
+"p6_s" [shape="doublecircle" label="p6
+s"]
+"A" -> "p1_f" [ label=248]
+"p1_f" -> "p1_s" [ label=36]
+"p1_f" -> "p2_f" [ label=10]
+"p1_f" -> "p2_s" [ label=1]
+"p2_f" -> "p1_s" [ label=7]
+"p2_s" -> "p3_s" [ label=1]
+"p3_s" -> "p4_s" [ label=1]
+"p4_s" -> "p5_s" [ label=1]
+"p5_s" -> "p6_s" [ label=1]
+}

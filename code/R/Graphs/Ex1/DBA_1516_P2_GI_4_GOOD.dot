@@ -1,0 +1,39 @@
+digraph DBA_1516_P2_GI_4_GOOD {
+labelloc="tl"
+label= " DBA 1516 P2 GI 4 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p4_f" [shape="circle" label="p4
+f"]
+"p5_f" [shape="circle" label="p5
+f"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"p4_s" [shape="doublecircle" label="p4
+s"]
+"A" -> "p1_f" [ label=140]
+"p1_f" -> "p2_f" [ label=89]
+"p1_f" -> "p1_s" [ label=57]
+"p1_f" -> "p3_f" [ label=3]
+"p2_f" -> "p2_s" [ label=5]
+"p1_s" -> "p2_f" [ label=14]
+"p1_s" -> "p3_f" [ label=3]
+"p1_s" -> "p2_s" [ label=1]
+"p3_f" -> "p2_f" [ label=2]
+"p3_f" -> "p4_f" [ label=19]
+"p3_f" -> "p3_s" [ label=1]
+"p4_f" -> "p5_f" [ label=3]
+"p4_f" -> "p4_s" [ label=1]
+"p2_s" -> "p3_s" [ label=1]
+"p3_s" -> "p4_f" [ label=2]
+}

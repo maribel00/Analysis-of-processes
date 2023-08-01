@@ -1,0 +1,14 @@
+digraph DBA_2122_P2_GO_1_GOOD {
+labelloc="tl"
+label= " DBA 2122 P2 GO 1 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"A" -> "p1_f" [ label=1]
+"p1_f" -> "p1_s" [ label=1]
+}

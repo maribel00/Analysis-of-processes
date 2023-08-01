@@ -1,108 +1,5 @@
 library(stringr)
 
-dotpwd<<-"/home/maribel/Descargas/SIIE23Sripts/Graphs/"
-
-dot<- function(name,directed=FALSE,engine="circo") {
-  return (list(name=gsub(" ","_",name),title="",
-               adjacency=matrix(0,0,0),
-               landscape=FALSE,fill=FALSE, directed=directed, shapes=c(),
-               engine=engine,dimx=10,dimy=10))
-}
-
-dotgetMatrix<-function(dot) {
-  return (dot$adjacency)
-}
-
-dotsetMatrix<-function(dot, matrix, reset=FALSE) {
-  dot$adjacency<-matrix
-  if (reset) {
-    for (i in (1:ncol(matrix))) {
-      dot <- dotsetShape(dot,colnames(matrix)[i],"circle")
-    }
-  }
-  return (dot)
-}
-
-dotsetShape<-function(dot, colname, shape) {
-  icol <- which(colnames(dotgetMatrix(dot))==colname)
-  dot$shapes[icol] <- shape
-  return (dot)
-}
-
-dotAddNode<-function(dot,node, shape="circle") {
-  m <-dotgetMatrix(dot)
-  if (!node %in% colnames(m)) {
-    m2<-rbind(m,rep(0,ncol(m)))
-    m2 <- cbind(m2,rep(0,nrow(m2)))
-    if (ncol(m)==0) {
-      colnames(m2)<-c(node)
-      dot$shapes<-c(shape)
-    } else {
-      colnames(m2) <- c(colnames(m),node)
-      dot$shapes<-append(dot$shapes,shape)
-    }
-    rownames(m2) <- colnames(m2,2)
-    dot <- dotsetMatrix(dot,m2)
-  }
-  return (dot)
-}
-
-dotAddEdge<-function(dot,from, to) {
-  dot$adjacency[from,to]<-dot$adjacency[from,to]+1
-  return (dot)
-}
-
-dotsetEngine<-function(dot, engine) {
-  dot$engine <- engine
-  return (dot)
-}
-
-dotgetAllDepths<-function(dot, node) {
-  direct<-dotgetDirectAncestors(dot,node)
-  if (length(direct)==0) {
-    return (c(0));
-  }
-  res<-c()
-  for (n in direct) {
-    allpaths <- dotgetAllDepths(dot, n)+1
-    res <- append(res, allpaths)
-  }
-  return (res)
-}
-
-
-dotgetAllFreqs<-function(dot, node) {
-  direct<-dotgetDirectAncestors(dot,node)
-  if (length(direct)==0) {
-    return (c(0));
-  }
-  res<-c()
-  for (n in direct) {
-    allpaths <- dotgetAllFreqs(dot, n)+dot$adjacency[n,node]
-    res <- append(res, allpaths)
-  }
-  return (res)
-}
-
-dotgetAllAncestors<-function(dot, node) {
-  direct<-dotgetDirectAncestors(dot,node)
-  res<-direct
-  for (n in direct) {
-    res<- union(res,setdiff(dotgetAllAncestors(dot,n),res))
-  }
-  return (res)
-}
-
-dotgetDirectAncestors<-function(dot, node) {
-  res<-c()
-  select <-dot$adjacency[,node]
-  for (a in (1:length(select))) {
-    if (select[a]>0)
-      res<-append(res,colnames(dot$adjacency)[a])
-  }
-  return (res)
-}
-
 dotExportDISCO <- function(dot, basedir=".") {
   dot <- dotAddNode(dot,"END","square")
   name <- dot$name
@@ -110,17 +7,15 @@ dotExportDISCO <- function(dot, basedir=".") {
   labels <- colnames(dot$adjacency)
   
   for (i in 2:ncol(edges)-1){
-    for (j in 2:ncol(edges)-1){
-      first <- as.numeric(str_extract(labels[j], "\\d+(?=_.*$)"))
-      second <- as.numeric(str_extract(labels[i], "\\d+(?=_.*$)"))
-      print(first)
-      print(second)
-      if (!is.na(first) && !is.na(second) && edges[j,i] > 0 && (first != second)){
-        edges[1,i] <- edges[1,i] + edges[j,i]
-        edges[j,ncol(edges)] <- edges[j,ncol(edges)] + edges[j,i]
-        edges[j,i] <- 0
-      }
-    }
+   for (j in 2:ncol(edges)-1){
+     first <- as.numeric(str_extract(labels[j], "\\d+(?=_.*$)"))
+     second <- as.numeric(str_extract(labels[i], "\\d+(?=_.*$)"))
+     if (!is.na(first) && !is.na(second) && edges[j,i] > 0 && (first != second)){
+       edges[1,i] <- edges[1,i] + edges[j,i]
+       edges[j,ncol(edges)] <- edges[j,ncol(edges)] + edges[j,i]
+       edges[j,i] <- 0
+     }
+   }
   }
   
   for (i in 1:nrow(edges)){
@@ -219,6 +114,9 @@ dotExportProblem <- function(dot, basedir=".") {
   # Recortar los labels
   for (i in 1:length(labels)) {
     labels[i] <- gsub('p', 'P', labels[i])
+    labels[i] <- gsub("\\.", " ", labels[i])
+    labels[i] <- gsub('fail', 'FAIL', labels[i])
+    labels[i] <- gsub('solved', 'OK', labels[i])
   }
   
   color <- c(

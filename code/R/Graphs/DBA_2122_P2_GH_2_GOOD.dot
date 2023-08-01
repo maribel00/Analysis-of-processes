@@ -1,0 +1,20 @@
+digraph DBA_2122_P2_GH_2_GOOD {
+labelloc="tl"
+label= " DBA 2122 P2 GH 2 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"A" -> "p1_s" [ label=42]
+"p1_s" -> "p1_f" [ label=60]
+"p1_f" -> "p2_f" [ label=1]
+"p1_f" -> "p2_s" [ label=1]
+}

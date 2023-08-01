@@ -1,0 +1,11 @@
+digraph DBA_1920_P2_GN_1_GOOD {
+labelloc="tl"
+label= " DBA 1920 P2 GN 1 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"A" -> "p1_s" [ label=1]
+}

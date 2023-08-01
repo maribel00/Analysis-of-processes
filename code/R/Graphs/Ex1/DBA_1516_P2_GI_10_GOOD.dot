@@ -1,0 +1,82 @@
+digraph DBA_1516_P2_GI_10_GOOD {
+labelloc="tl"
+label= " DBA 1516 P2 GI 10 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p4_f" [shape="circle" label="p4
+f"]
+"p5_f" [shape="circle" label="p5
+f"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"p4_s" [shape="doublecircle" label="p4
+s"]
+"p5_s" [shape="doublecircle" label="p5
+s"]
+"p6_f" [shape="circle" label="p6
+f"]
+"p7_f" [shape="circle" label="p7
+f"]
+"p8_f" [shape="circle" label="p8
+f"]
+"p6_s" [shape="doublecircle" label="p6
+s"]
+"p8_s" [shape="doublecircle" label="p8
+s"]
+"p9_f" [shape="circle" label="p9
+f"]
+"p9_s" [shape="doublecircle" label="p9
+s"]
+"A" -> "p1_f" [ label=140]
+"p1_f" -> "p2_f" [ label=128]
+"p1_f" -> "p1_s" [ label=63]
+"p1_f" -> "p3_f" [ label=9]
+"p2_f" -> "p2_s" [ label=19]
+"p1_s" -> "p2_f" [ label=22]
+"p1_s" -> "p3_f" [ label=9]
+"p1_s" -> "p2_s" [ label=4]
+"p1_s" -> "p6_s" [ label=3]
+"p3_f" -> "p2_f" [ label=4]
+"p3_f" -> "p4_f" [ label=39]
+"p3_f" -> "p2_s" [ label=5]
+"p3_f" -> "p3_s" [ label=7]
+"p3_f" -> "p6_s" [ label=10]
+"p4_f" -> "p5_f" [ label=7]
+"p4_f" -> "p4_s" [ label=6]
+"p4_f" -> "p5_s" [ label=3]
+"p5_f" -> "p5_s" [ label=3]
+"p2_s" -> "p4_f" [ label=1]
+"p2_s" -> "p3_s" [ label=9]
+"p2_s" -> "p7_f" [ label=1]
+"p2_s" -> "p8_f" [ label=6]
+"p3_s" -> "p4_f" [ label=6]
+"p3_s" -> "p4_s" [ label=7]
+"p3_s" -> "p5_s" [ label=1]
+"p4_s" -> "p5_f" [ label=3]
+"p4_s" -> "p5_s" [ label=6]
+"p5_s" -> "p6_f" [ label=5]
+"p6_f" -> "p7_f" [ label=21]
+"p7_f" -> "p8_f" [ label=19]
+"p7_f" -> "p9_f" [ label=17]
+"p8_f" -> "p8_s" [ label=4]
+"p6_s" -> "p2_f" [ label=2]
+"p6_s" -> "p4_f" [ label=3]
+"p6_s" -> "p2_s" [ label=2]
+"p6_s" -> "p5_s" [ label=1]
+"p6_s" -> "p7_f" [ label=6]
+"p6_s" -> "p8_f" [ label=6]
+"p8_s" -> "p9_f" [ label=2]
+"p9_f" -> "p9_s" [ label=2]
+}

@@ -1,0 +1,20 @@
+digraph DBA_1819_P2_GB_2_GOOD {
+labelloc="tl"
+label= " DBA 1819 P2 GB 2 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p7_f" [shape="circle" label="p7
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"A" -> "p1_f" [ label=9]
+"p1_f" -> "p7_f" [ label=1]
+"p1_f" -> "p1_s" [ label=3]
+"p1_s" -> "p2_s" [ label=1]
+}

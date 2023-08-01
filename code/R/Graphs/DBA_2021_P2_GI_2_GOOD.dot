@@ -1,0 +1,17 @@
+digraph DBA_2021_P2_GI_2_GOOD {
+labelloc="tl"
+label= " DBA 2021 P2 GI 2 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"A" -> "p1_f" [ label=64]
+"p1_f" -> "p1_s" [ label=81]
+"p1_s" -> "p2_s" [ label=1]
+}

@@ -100,10 +100,19 @@ Dentro de la carpeta `Code`, encontramos:
 
 #### R
 
+* El directorio `Preliminary analyses` recoge los estudios realizados justo al comienzo del proyecto. Contiene los siguientes archivos:
+    - `TestHomogeneidad.R` se encarga de la realización del un test *ANOVA* de dos factores con el objetivo de garantizar que el dataset que tenemos es homogéneo.
+    - `FiltrarRegistros.R` se encarga de filtrar y limpiar el dataset original `DBA1520.csv` y de almacenar el nuevo dataset en el archivo `cleandataset.csv`.
+    - `Segmentar.R` se encarga de segmentar el dataset `cleandataset.csv` en distintos datasets en función de las calificaciones obtenidas por cada uno de los grupos de prácticas. Las calificaciones de los grupos pueden encontrarse en `DBA1520GRADED.csv`.
+    - `Estudio.R` se encarga de realizar un estudio estadístico de los datasets resultantes de la segmentación realiza como el script `Segmentar.R`.
+* El directorio
+
 #### datasets
 
-* El dataset
-* Los datasets `datasetS.csv`, `datasetA.csv`, `datasetN.csv`, `datasetSOB.csv`, `datasetMH.csv` corresponden a la segmentación del dataset por notas.
+* El dataset de partida, `DBA1520.csv`, que no contiene los registros de todos los años (sólo contiene datos de los cursos académicos 2015-2016, 2016-2017, 2017-2018 y 2019-2020).
+* El dataset `cleandataset.csv` no es más que el dataset `DBA1520.csv` limpio (sin datos erróneos). Se genera a través del script `FiltrarRegistros.R`.
+* El dataset `DBA1520GRADED.csv`, que contiene una fila por cada uno de los grupos de prácticas en la que se indica su nombre, el número de integrantes, el año al que pertenecen y la calificación obtenida por los mismos.
+* Los datasets `datasetS.csv`, `datasetA.csv`, `datasetN.csv`, `datasetSOB.csv`, `datasetMH.csv` corresponden a la segmentación del dataset `cleandataset.csv` por notas. Se generan mediante el script `Segmentar.R`.
 
 ## Manual
 

@@ -1,7 +1,9 @@
 \chapter{Teoría de grafos}\label{sec:chapterV}
 \addcontentsline{toc}{chapter}{Teoría de grafos}
 
-En el ámbito de las matemáticas y las ciencias de la computación, se emplea el término \emph{grafo} (del griego \emph{grafos} que significa \emph{dibujo} o \emph{imagen}) para referirse a un conjunto de objetos llamados \emph{vértices} o \emph{nodos}, los cuales están unidos por enlaces conocidos como \emph{aristas} o \emph{arcos}. Estas conexiones representan las relaciones binarias que existen entre los elementos de un conjunto, y son objeto de estudio de la teoría de grafos.
+En el ámbito de las matemáticas y las ciencias de la computación, se emplea el término \emph{grafo} (del griego \emph{grafos} que significa \emph{dibujo} o \emph{imagen}) para referirse a un conjunto de objetos llamados \emph{vértices} o \emph{nodos}, los cuales están unidos por enlaces conocidos como \emph{aristas} o \emph{arcos}. Estas conexiones representan las relaciones binarias que existen entre los elementos de un conjunto, y son objeto de estudio de la teoría de grafos \cite{IJSRCSEIT:graph_theory_applications}.
+
+Como veremos en los Capítulos \ref{sec:chapterXII} y \ref{sec:chapterXIII}, los grafos jugarán un papel fundamental en este trabajo al conseguir representar fielmente el proceso de aprendizaje de los alumnos.
 
 \section{Grafos}
 
@@ -40,7 +42,7 @@ El grafo dado en la Figura \ref{fig:grafo1} tiene conjunto de vértices $V=\left
 \end{exampleth}
 
 \begin{definition}
-Un \emph{vértice} o \emph{nodo} es la unidad fundamental de las que se componen los grafos. Los vértices en sí mismos se tratan como objetos indivisibles y sin propiedades. No obstante, pueden tener asociados una semántica dependiendo del contexto de aplicación del grafo. Por ejemplo, en el grafo \ref{fig:DBA1516P2GA2} un nodo representa la consecución de un objetivo de un problema.
+Un \emph{vértice} o \emph{nodo} es la unidad fundamental de la que se componen los grafos. Los vértices en sí mismos se tratan como objetos indivisibles y sin propiedades. No obstante, pueden tener asociados una semántica dependiendo del contexto de aplicación del grafo. Por ejemplo, en el grafo \ref{fig:DBA1516P2GA2} un nodo representa la consecución de un objetivo de un problema.
 \end{definition}
 
 \begin{definition}
@@ -50,8 +52,12 @@ Una \emph{arista} representa una relación entre dos vértices de un grafo. Las 
 \begin{definition}
 Un \emph{grafo podenderado} es un grafo cuyas aristas tienen un peso o valor asociado.
 
-Formalmente, se puede definir como un trío ordenado $G=(V,E,W)$ donde $V=\left\lbrace v_1, \dots, v_n \right\rbrace$ es un conjunto de vértices, $E = \left\lbrace e_1, \dots, e_m \right\rbrace$ y $W = \left\lbrace w_1,\dots,w_m\right\rbrace$ es el conjunto de pesos asociados a cada arista.
+Formalmente, se puede definir como un trío ordenado $G=(V,E,W)$ donde $V=\left\lbrace v_1, \dots, v_n \right\rbrace$ es un conjunto de vértices, $E = \left\lbrace e_1, \dots, e_m \right\rbrace$ es un conjunto de aristas y $W = \left\lbrace w_1,\dots,w_m\right\rbrace$ es el conjunto de pesos asociados a cada arista.
 \end{definition}
+
+\begin{exampleth}
+En la Figura \ref{fig:grafo2} se muestra un ejemplo de grafo ponderado que tiene conjunto de vértices $V=\left\lbrace 1,2,3,4,5,6 \right\rbrace$, conjunto de aristas $E=\left\lbrace (1,2), (1,4), (2,3), (2,5), (3,6), (4,5), (5,6) \right\rbrace$ y conjunto de pesos $W=\left\lbrace 2, 1, 1, 4, 3, 4, 2 \right\rbrace$.
+\end{exampleth}
 
 \deactivatequoting
 \begin{figure}[H]
@@ -122,6 +128,28 @@ Mientras que en un grafo no dirigido se tiene que $E \subseteq \{x \in \mathcal{
 En la Figura \ref{fig:grafo3} se muestra un ejemplo de grafo dirigido mientras que en la Figura \ref{fig:grafo1} tenemos un ejemplo de grafo no dirigido.
 \end{exampleth}
 
+\begin{definition}\label{def:conexo}
+Dado un grafo $G=(V,E)$, un \emph{camino} suyo es una secuencia de aristas $(e_1,e_2,\dots,e_n)$ para la cual existe una secuencia de vértices $(v_1,v_2,\dots,v_{n+1})$ tales que $e_i = \left\lbrace v_i,v_{i+1} \right\rbrace$ en caso de que el grafo sea \emph{no dirigido}, o bien $e_i = (v_i, v_{i+1})$ en caso de que sea \emph{dirigido}, para todo $i \in \left\lbrace 1,\dots,n \right\rbrace$. En este caso, la longitud del camino es $n$. Adicionalmente, un camino se dirá \emph{cerrado} si $v_1 = v_{n+1}$ y \emph{abierto} en caso contrario.
+
+Un \emph{grafo conexo} es un grafo en que todos sus vértices están conectados por un camino.
+
+De lo contrairo, si algún grafo no cumple la propiedad anterior se dirá que es \emph{disconexo}.
+\end{definition}
+
+\begin{definition}
+Un \emph{bucle} es una arista que relaciona un vértice consigo mismo.
+\end{definition}
+
+\begin{definition}
+En un grafo $G=(V,E)$, se dice que dos aristas son \emph{paralelas} o \emph{múltiples} si el vértice inicial y el vértice final de las mismas coinciden. 
+
+Los grafos que permiten la existencia de bucles y aristas múltiples se denominan \emph{multigrafos}. Por el contrario, los grafos sin bucles y sin aristas paralelas se denominarán \emph{simples}.
+\end{definition}
+
+\begin{exampleth}
+En la Figura \ref{fig:grafo1} se muestra un ejemplo de grafo simple. Por otro lado, en la Figura \ref{fig:grafo4} podemos ver un multigrafo.
+\end{exampleth}
+
 \begin{figure}[H]
     \centering
 \begin{tikzpicture}
@@ -149,36 +177,14 @@ En la Figura \ref{fig:grafo3} se muestra un ejemplo de grafo dirigido mientras q
 	\label{fig:grafo4}
 \end{figure}
 
-\begin{definition}
-Un \emph{grafo conexo} es un grafo en que todos sus vértices están conectados por un camino o por un semicamino dependiendo de si el grafo es no dirigido o dirigido.
-
-De lo contrairo, si algún grafo no cumple la propiedad anterior se dirá que es \emph{disconexo}.
-\end{definition}
-
-\begin{definition}
-Un \emph{bucle} es una arista que relacionado un vértice consigo mismo.
-\end{definition}
-
-\begin{definition}
-En un grafo $G=(V,E)$, se dice que dos aristas son \emph{paralelas} o \emph{múltiples} si el vértice inicial y el vértice final de las mismas coinciden. 
-
-Los grafos que permiten la existencia de bucles y aristas múltiples se denominan \emph{multigrafos}. Por el contrario, los grafos sin bucles y sin aristas paralelas se denominarán \emph{simples}.
-\end{definition}
-
-\begin{exampleth}
-En la Figura \ref{fig:grafo2} tenemos un ejemplo de grafo ponderado.
-
-En la Figura \ref{fig:grafo1} se muestra un ejemplo de grafo simple. Por otro lado, en la Figura \ref{fig:grafo4} podemos ver un multigrafo.
-\end{exampleth}
-
 \begin{definition}\label{def:adjacency}
 En un grafo $G=(V,E)$ dos vértices se dirán \emph{adyacentes} (o \emph{vecinos}) si están relacionados por al menos una arista. Es decir, dos vértices $u,v \in V$ son adjacentes si $\exists e \in E$ tal que $e = (u,v)$.
 
-La \emph{matriz de adyacencia} de un grafo es una matriz cuadrada de dimensión $|V| \times |V|$ que se utiliza como forma de representar las relaciones binarias entre los nodos del mismo. La denotaremos por $A = (a_{ij})_{1\leq i,j\leq |V|}$.
+La \emph{matriz de adyacencia} de un grafo es una matriz cuadrada de dimensión $|V| \times |V|$ que se utiliza como forma de representar las relaciones binarias entre los nodos del mismo. La denotaremos por $\mathcal{A} = (a_{ij})_{1\leq i,j\leq |V|}$.
 
 Si tenemos que $G$ es un grafo no dirigido, entonces $a_{ij} = 1$ y $a_{ji} = 1$ si el vértice $v_i$ es adyacente al vértice $v_j$ y $a_{ij} = a_{ji} = 0$ en caso contrario. Si el grafo $G$ es dirigido, entonces tendremos que $a_{ij} = 1$ si y sólo si existe $e \in E$ tal que $e = (v_i,v_j)$ y $a_{ij} = 0$ en caso contrario.
 
-Por último, si tenemos un grafo ponderando, entonces se sustiuirá en valor de $1$ en los casos anteriores por el peso de las aristas correspondientes.
+Por último, si tenemos un grafo ponderando, entonces se sustiuirá el valor de $1$ en los casos anteriores por el peso de las aristas correspondientes.
 \end{definition}
 
 \begin{exampleth}
@@ -204,10 +210,20 @@ N(v) = \left\lbrace u \in V | \left\lbrace v,u\right\rbrace \in E \right\rbrace
 
 Así pues, el grado de un vértice $v \in V$ puede definirse como el módulo de su vecindario: $\text{deg}(v) = |N(v)|$.
 
-En el caso de los grafos dirigidos se distingue entre el \emph{grado de entrada} $\text{deg}^-(v)$ (número de aristas que tienen a $v$ como el vértice final) y el \emph{grado de salida} $\text{deg}^+(v)$ (número de ariastas que tienen a $v$ como vértice inicial). 
+En el caso de los grafos dirigidos se distingue entre el \emph{grado de entrada} $\text{deg}^-(v)$ (número de aristas que tienen a $v$ como vértice final) y el \emph{grado de salida} $\text{deg}^+(v)$ (número de aristas que tienen a $v$ como vértice inicial). 
 \end{definition}
 
 % Meter Lema del apetrón de manos?
+
+\begin{definition}
+Un grafo en el que todos sus vértices tienen el mismo grado (de entrada, en el caso de los grafos dirigidos) se denomina \emph{regular}. Además, un grafo con vértices de grado $k$ se llamará $k$-regular.
+\end{definition}
+
+\begin{definition}
+Un \emph{grafo completo} $G=(V,E)$ es un grafo no dirigido simple en el que para cada par de vértices $u, v\in V$ existe una arista $e \in E$ tal que $e = \left\lbrace u,v\right\rbrace$.
+
+El \emph{grafo completo de $n$ vértices} se denotará por $K_n$. Así pues, $K_n$ tendrá $\frac{n\cdot (n-1)}{2}$ aristas y es un grafo regular de grado $n-1$.
+\end{definition}
 
 \begin{figure}[H]
 \centering
@@ -229,14 +245,18 @@ En el caso de los grafos dirigidos se distingue entre el \emph{grado de entrada}
 \end{figure}
 
 \begin{definition}
-Un grafo en el que todos sus vértices tienen el mismo grado (de entrada, en el caso de los grafos dirigidos) se denomina \emph{regular}. Además, un grafo con vértices de grado $k$ se llamará $k$-regular.
+Un \emph{grafo ciclo} o simplemente un \emph{ciclo} es un grafo que consiste en un camino simple cerrado. Esto es, hay un único camino en el que no se repite ningún vértice salvo el primero con el último.
+
+Denotaremos a un grafo ciclo de $n$ vértices por $C_n$. Si consideramos que es un grafo no dirigido, cada vértice tendrá un vecindario de tamaño $2$ y, por tanto, será un grafo $2$-regular. Por el contrario, si tenemos un grafo dirigido, será un grafo $1$-regular.
 \end{definition}
 
 \begin{definition}
-Un \emph{grafo completo} $G=(V,E)$ es un grafo no dirigido simple en el que para cada par de vértices $u, v\in V$ existe una arista $e \in E$ tal que $e = \left\lbrace u,v\right\rbrace$.
-
-El \emph{grafo completo de $n$ vértices} se denotará por $K_n$. Así pues, $K_n$ tendrá $\frac{n\cdot (n-1)}{2}$ aristas y es un grafo regular de grado $n-1$.
+Un grafo rueda es un grafo de $n$ vértices (denotado usualmente por $W_n$) que se obtiene al añadir un único vértice a un grafo ciclo de $n-1$ vértices, conectando el nuevo vértice a todos los ya existentes. Es decir, el nuevo vértice será adyacente a todos los vértices del grafo $C_{n-1}$.
 \end{definition}
+
+\begin{exampleth}
+En las Figuras \ref{fig:grafo5}, \ref{fig:grafo6} y \ref{fig:grafo7} podemos ver un grafo completo, un grado ciclo y un grafo rueda respectivamente.
+\end{exampleth}
 
 \begin{figure}[H]
   \centering
@@ -286,20 +306,6 @@ El \emph{grafo completo de $n$ vértices} se denotará por $K_n$. Así pues, $K_
 \end{minipage}
 \end{figure}
 
-\begin{definition}
-Un \emph{grafo ciclo} o simplemente un \emph{ciclo} es un grafo que consiste en un camino simple cerrado. Esto es, hay un único camino en el que no se repite ningún vértice salvo el primero con el último.
-
-Denotaremos a un grafo ciclo de $n$ vértices por $C_n$. Si consideramos que es un grafo no dirigido, cada vértice tendrá un vecindario de tamaño $2$ y, por tanto, será un grafo $2$-regular. Por el contrario, si tenemos un grafo dirigido, será un grafo $1$-regular.
-\end{definition}
-
-\begin{definition}
-Un grafo rueda es un grafo de $n$ vértices (denotado usualmente por $W_n$) es un grafo que se obtiene al añadir un único vértice a un grafo ciclo de $n-1$ vértices, conectando el nuevo el vértice a todos los ya existentes. Es decir, el nuevo vértice será adyacente a todos los vértices del grafo $C_{n-1}$.
-\end{definition}
-
-\begin{exampleth}
-En las Figuras \ref{fig:grafo5}, \ref{fig:grafo6} y \ref{fig:grafo7} podemos ver un grafo completo, un grado ciclo y un grafo rueda respectivamente.
-\end{exampleth}
-
 \begin{definition}\label{def:cyclic}
 Diremos que un grafo es \emph{cíclico} si contiene al menos un grafo ciclo. Por el contrario, se dirá que un grafo es \emph{acíclico} si no contiene ningún ciclo.
 
@@ -330,7 +336,7 @@ No obstante, en este trabajo fin de grado nos centraremos en los llamados \emph{
 \end{figure}
 
 \begin{exampleth}
-En la Figura \ref{fig:grafo1} tenemos un grafo dirigido con ciclos o cíclico (contiene, por ejemplo, el $1$-$3$-$4$-$5$). Sin embargo, eliminado una de las aristas del mismo obtenemos el grafo de la Figura \ref{fig:grafo8}, que es acíclico. 
+En la Figura \ref{fig:grafo3} tenemos un grafo dirigido con ciclos o cíclico (contiene, por ejemplo, el $1$-$3$-$4$-$5$). Sin embargo, eliminado una de las aristas del mismo obtenemos el grafo de la Figura \ref{fig:grafo8}, que es acíclico. 
 \end{exampleth}
 
 \begin{definition}
@@ -338,21 +344,21 @@ Un grafo conexo acíclico no dirigido se denominará \emph{árbol}. Por otro lad
 \end{definition}
 
 \begin{definition}
-Un \emph{árbol de expansión} de un grafo conexo no dirigido $G$ es un subgrafo suyo que es árbol y que contiene a todos sus vértices.
+Un \emph{árbol de expansión} o \emph{árbol generador} de un grafo conexo no dirigido $G$ es un subgrafo suyo que es un árbol y que contiene a todos sus vértices.
 
-El \emph{número de árboles de expansión} de un grafo conexo $G$, habitualmente denotado por $t(G)$, es un invariante importante en la teoría de grafos. Éste puede obtenerse mediante el denominado \emph{Teorema de Kirchhoff}. Este teorema demuestra que el número de árboles de expansión de un grafo puede obtenerse en tiempo polinómico a partir del determinante de una submatriz de la \emph{matriz Laplaciana} del grafo. Más aún, nos dice que éste número es igual a cualquier cofactor de la matriz Laplaciana. El Teorema de Kirchhoff es una generalización de la \emph{fórmula de Cayley}, que proporciona el número de árboles de expansión en el caso de un grafo completo y que veremos a continuación.
+El \emph{número de árboles de expansión} de un grafo conexo $G$, habitualmente denotado por $t(G)$, es un invariante importante en la teoría de grafos. Éste puede obtenerse mediante el denominado \emph{Teorema de Kirchhoff}. Este teorema demuestra que el número de árboles de expansión de un grafo puede obtenerse en tiempo polinómico a partir del determinante de una submatriz de la \emph{matriz Laplaciana} del grafo. Más aún, nos dice que éste número es igual a cualquier cofactor de la matriz Laplaciana. El Teorema de Kirchhoff es una generalización de la \emph{fórmula de Cayley} \cite{EspinosaArmenta:LaFormulaDeCayley}, que proporciona el número de árboles de expansión en el caso de un grafo completo y que veremos a continuación.
 \end{definition}
 
 \begin{proposition}\label{prop:1}
 Dado un grafo completo $K_n = (V,E)$ con $V=\left\lbrace v_1,v_2,\dots,v_n\right\rbrace$, la fórmula de Cayley establece que el número de árboles de expansión del mismo es $t(K_n) = n^{n-2}$.
 \end{proposition}
 
-En 1918, el alemán H. Prüfer obtuvo una elegante correspondencia biyectiva entre árboles etiquetados con $n$ vértices y sucesiones de longitud $n-2$, denominadas \emph{códigos de Prüfer}.
+En $1918$, el alemán H. Prüfer obtuvo una elegante correspondencia biyectiva entre árboles etiquetados con $n$ vértices y sucesiones de longitud $n-2$ denominadas \emph{códigos de Prüfer}.
 
 \begin{definition}
 La definición del \emph{código de Prüfer} de un árbol $T = (V,E)$ no trivial, denotado por $P(T)$, es recursiva. Si $|V| = 2$ entonces $T$ consiste de una sola arista y $P(T) = \emptyset$. Supongamos ahora que el código de Prüfer de cualquier árbol con $n$ vértices está definido  y sea $T = (V = \left\lbrace v_1, v_2,\dots v_n, v_{n+1} \right\rbrace,E)$ un árbol con $n+1$ vértices. Sea
 \begin{equation}
-v = \min \left\lbrace i \in \left\lbrace 1,2,\dots,n,n+1 \right\rbrace | \text{ deg}(v_i) = 1\right\rbrace
+v = v_{\min \left\lbrace i \in \left\lbrace 1,2,\dots,n,n+1 \right\rbrace | \text{ deg}(v_i) = 1\right\rbrace}
 \end{equation}
 y sea $u$ el único vértice adyacente a $v$ en $T$. Por lo tanto, $T' = T - v$ es un árbol con $n$ vértices y $P(T-v)$ está bien definido por hipótesis de inducción. El código de Prüfer de $T$ se definirá de la siguiente forma:
 \begin{equation}
@@ -383,9 +389,9 @@ P(T) = (u,P(T'))
 \end{figure}
 
 \begin{exampleth}
-Consideremos el árbol de la Figura \ref{fig:arbol1}. Tenemos que el vértice de grado uno con la numeración más pequeña es el vértice $1$. Este vértice únicamente es adayacente al vértice número $5$. Así pues, $P(T) = (5,P(T-1))$. Cuando eliminamos el primer vértice, obtenemos que el vértice de grado uno de menor numeración es el $3$, cuyo único vértice adyacentes es el $2$, lo que conduce a que $P(T) = (5,2,P(T-\left\lbrace 1,3 \right\rbrace))$. Eliminando ahora este tercer vértice, tenemos que el vértice $2$ es el de menor numeración cuyo grado es $1$ y su único nodo adyacente es el número $5$. Esto hace que $P(T) = (5,2,5,P(T-\left\lbrace 1,3,2 \right\rbrace))$. Como $T-\left\lbrace 1,3 \right\rbrace$ es un árbol con dos vértices, $P(T-\left\lbrace 1,3 \right\rbrace) = \emptyset$ y $P(T) = (5,2,5)$.
+Consideremos el árbol de la Figura \ref{fig:arbol1}. Tenemos que el vértice de grado uno con la numeración más pequeña es el vértice $1$. Este vértice únicamente es adayacente al vértice número $5$. Así pues, $P(T) = (5,P(T-1))$. Cuando eliminamos el primer vértice, obtenemos que el vértice de grado uno de menor numeración es el $3$, cuyo único vértice adyacente es el $2$, lo que conduce a que $P(T) = (5,2,P(T-\left\lbrace 1,3 \right\rbrace))$. Eliminando ahora este tercer vértice, tenemos que el vértice $2$ es el de menor numeración cuyo grado es $1$ y su único nodo adyacente es el número $5$. Esto hace que $P(T) = (5,2,5,P(T-\left\lbrace 1,3,2 \right\rbrace))$. Como $T-\left\lbrace 1,3,2 \right\rbrace$ es un árbol con dos vértices, $P(T-\left\lbrace 1,3,2 \right\rbrace) = \emptyset$ y $P(T) = (5,2,5)$.
 
-Este ejemplo pone de manifiesto que no es necesario que todos los vértices aparezcan en el códgo de Prüfer y que pudiera ocurrir que un mismo vértice aparezca más de una vez en los mismos. De hecho, el número de veces que un vértice aparece en el código de Prüfer depende del grado de dicho vértice. Este resultado se verá en el siguiente Lema.
+Este ejemplo pone de manifiesto que no es necesario que todos los vértices de un árbol aparezcan en su código de Prüfer asociado y que pudiera ocurrir que un mismo vértice aparezca más de una vez en el mismo. De hecho, el número de veces que un vértice aparece en el código de Prüfer depende del grado de dicho vértice. Este resultado se verá en la siguiente Proposición.
 \end{exampleth}
 
 \begin{proposition} % En realidad es un Lema
@@ -409,7 +415,7 @@ Si $T$ y $T'$ son dos árboles con $n \geq 3$ vértices numerados tales que $P(T
 \begin{proof}
 Si $n = 3$, entonces $P(T)$ consiste de un solo número, correspondiente al único vértice de grado dos de $T$. Como $P(T) = P(T')$, este vértice también es el único vértice de grado dos de $T'$ y tenemos que $T = T'$.
 
-Supongamos ahora que el resultado es cierto para cualesquiera dos árboles con $n$ vértices numerados. Sean ahora $T$ y $T'$ dos árboles con $n+1$ vértices numerados tales que $P(T) = P(T')$.  Sea $v$ el mínimo elemento de $\left \lbrace 1,\dots,n,n+1\right \rbrace$ que no aparece en $P(T)$. Por el lema anterior $\text{deg}_T (v) = 1$ y $\text{deg}_{T'} = 1$. Así pues, existe un único $u$ tal que $u$ es adyacente a $v$ en $T$ y existe un único $u'$ tal que $u'$ es adyacente a $v$ en $T'$. De ahí obtenemos que $P(T) = (u,P(T-v))$ y que $P(T') = (w,P(T-v'))$. Como $P(T) = P(T')$, se sigue que $u = u'$ y, por lo tanto, $P(T-v) = P(T'-v')$. Por lo que, por hipótesis de inducción, $T-v = T'-v$. Concluimos así que $T=T'$.
+Supongamos ahora que el resultado es cierto para cualesquiera dos árboles con $n$ vértices numerados. Sean ahora $T$ y $T'$ dos árboles con $n+1$ vértices numerados tales que $P(T) = P(T')$.  Sea $v$ el mínimo elemento de $\left \lbrace 1,\dots,n,n+1\right \rbrace$ que no aparece en $P(T)$. Por el lema anterior $\text{deg}_T (v) = 1$ y $\text{deg}_{T'} = 1$. Así pues, existe un único $u$ tal que $u$ es adyacente a $v$ en $T$ y existe un único $u'$ tal que $u'$ es adyacente a $v$ en $T'$. De ahí obtenemos que $P(T) = (u,P(T-v))$ y que $P(T') = (u',P(T-v))$. Como $P(T) = P(T')$, se sigue que $u = u'$ y, por lo tanto, $P(T-v) = P(T'-v)$. Por lo que, por hipótesis de inducción, $T-v = T'-v$. Concluimos así que $T=T'$.
 \end{proof}
 
 A continuación veremos que a cada palabra de longitud $n-2$ del alfabeto $\left\lbrace 1,2,\dots,n \right\rbrace$ le corresponde un árbol cuyo código de Prüfer es esa palabra.
@@ -459,15 +465,15 @@ Finalmente, se procederá a demostrar la fórmula de Cayley \ref{prop:1}:
 Si $n = 1$ o $n = 2$ el resultado es trivialmente cierto. Si $n \geq 3$ de las Proposiones \ref{prop:2} y \ref{prop:3} se sigue que existe una correspondencia biyectiva entre el conjunto de árboles generadores con $n$ vértices y el conjunto de palabras de longitud $n-2$ del alfabeto $\left\lbrace 1,2,\dots,n \right\rbrace$. Como el número de palabras de longitud $n-2$ de un alfabeto con $n$ elementos es $n^{n-2}$, entonces hay $n^{n-2}$ árboles de expansión distintos de un grafo completo con $n$ vértices.
 \end{proof}
 
-A continuación, se introducirá el concepto de matriz laplaciana de un grafo que, junto con el Teorema de Kirchhoff nos permitirá calcular el número de árboles de expansión de un grafo arbitrario.
+A continuación, se introducirá el concepto de \emph{matriz laplaciana} de un grafo que, junto con el Teorema de Kirchhoff nos permitirá calcular el número de árboles de expansión de un grafo arbitrario.
 
 \begin{definition}
-La matriz laplaciana (también conocida como matriz de admitancia o matriz de Kirchhoff) es una representación matricial de un grafo muy utilizada en la Teoría espectral de grafos, cuyo objetivo es el estudio de las propiedades de los grafos en relación de los polinomios caracterísicos, valores y vectores propios de las matrices asociadas a los mismos.
+La \emph{matriz laplaciana} (también conocida como matriz de admitancia o matriz de Kirchhoff) es una representación matricial de un grafo muy utilizada en la Teoría espectral de grafos, cuyo objetivo es el estudio de las propiedades de los grafos en relación de los polinomios caracterísicos, valores y vectores propios de las matrices asociadas a los mismos.
 
-Para un grafo simple $G$ con vértices $V = (v_1,\dots,v_n)$ los elementos de la matrix laplaciana $L_{n\times n}$ se definen como sigue:
+Para un grafo simple $G$ con vértices $V = (v_1,\dots,v_n)$ los elementos de la matrix laplaciana $\mathcal{L}_{n\times n}$ se definen como sigue:
 
 \begin{equation}
-L_{i,j} = 
+\mathcal{L}_{i,j} = 
 \begin{cases}
     \text{deg}(v_i) & \text{si } i=j \\
     -1 & \text{si } i\neq j \text{ y }v_i \text{ es adyacente a }v_j\\
@@ -475,7 +481,7 @@ L_{i,j} =
 \end{cases}
 \end{equation}
 
-Equivalentemente, se tiene que $L = D - A$ donde $D$ es la matriz de grados del grafo (matriz diagonal cuyos elementos no nulos son los grados de cada uno de los vértices) y $A$ es la matriz de adyacencia del grafo.
+Equivalentemente, se tiene que $\mathcal{L} = \mathcal{D} - \mathcal{A}$ donde $\mathcal{D}$ es la matriz de grados del grafo (matriz diagonal cuyos elementos no nulos son los grados de cada uno de los vértices) y $\mathcal{A}$ es la matriz de adyacencia del grafo (Definición \ref{def:adjacency}).
 \end{definition}
 
 \begin{exampleth}
@@ -501,6 +507,7 @@ La matriz laplaciana del grafo simple de la Figura \ref{fig:grafo2} será la sig
 3 & -2 & 0 & -1 & 0 & 0\\
 -2 & 7 & -1 & 0 & -4 & 0\\
 0 & -1 & 4 & 0 & 0 & -3\\
+-1 & 0 & 0 & 5 & -4 & 0\\
 0 & -4 & 0 & -4 & 10 & -2\\
 0 & 0 & -3 & 0 & -2 & 5
 \end{pmatrix}
@@ -508,7 +515,7 @@ La matriz laplaciana del grafo simple de la Figura \ref{fig:grafo2} será la sig
 \end{exampleth}
 
 \begin{exampleth}
-Las matrices lapacianas del grafo dirigido de la Figura \ref{fig:grafo3} de entrada y de salida se muestran en las ecuaciones \ref{eq:inlaplacian} y \ref{eq:outlaplacian} teniendo en cuenta las matrices de adyacencia (Ecuación \ref{eq:adyacencia}), del grado de entrada (Ecuación \ref{eq:entrada}) y del grado de salida (Ecuación \ref{eq:salida}) de dicho grafo.
+Las matrices lapacianas del grafo dirigido de la Figura \ref{fig:grafo3} de entrada y de salida se muestran en las Ecuaciones \ref{eq:inlaplacian} y \ref{eq:outlaplacian} teniendo en cuenta las matrices de adyacencia (Ecuación \ref{eq:adyacencia}), del grado de entrada (Ecuación \ref{eq:entrada}) y del grado de salida (Ecuación \ref{eq:salida}) de dicho grafo.
 
 \begin{equation}
 \begin{pmatrix}
@@ -566,35 +573,35 @@ Las matrices lapacianas del grafo dirigido de la Figura \ref{fig:grafo3} de entr
 \end{equation}
 \end{exampleth}
 
-\begin{theorem}
-El Teorema de Kirchhoff. Sea un grafo conexo $G$ con $n$ vértices numerados y sean $\lambda_1$, $\lambda_2$, \dots, $\lambda_{n-1}$ los valores propios no nulos de su matriz laplaciana. Se tiene entonces que el número de árboles de expansión del grafo $G$ es
+\begin{theorem}\label{theorem}
+El Teorema de Kirchhoff \cite{ORIE6334}. Sea un grafo conexo $G$ con $n$ vértices numerados y sean $\lambda_1$, $\lambda_2$, \dots, $\lambda_{n-1}$ los valores propios no nulos de su matriz laplaciana. Se tiene entonces que el número de árboles de expansión del grafo $G$ es
 
 \begin{equation}
 t(G) = \frac{1}{n} \cdot \lambda_1 \cdots \lambda_{n-1}
 \end{equation}
 
-Como podemos ver, se trata de una generalización de la fórmula de Cayley que además de muestra que el número de árboles de expansión de cualquier grafo se puede calcular en tiempo polinómico a partir del determinante de una submatriz de la matriz laplaciana. Específicamente, el número de árboles de expansión de un grafo conexo coincide con cualquier cofactor de su matriz laplaciana.
+Como podemos ver, se trata de una generalización de la fórmula de Cayley que además demuestra que el número de árboles de expansión de cualquier grafo se puede calcular en tiempo polinómico a partir del determinante de una submatriz de la matriz laplaciana. Específicamente, el número de árboles de expansión de un grafo conexo coincide con cualquier cofactor de su matriz laplaciana.
 \end{theorem}
 
 \begin{proof}
-Sea $L_G[i]$ la matriz laplaciana del grafo $G$ a la que se le ha eliminado su fila y su columna $i$-ésimas. Demostraré que el número de árboles de expansión de un grafo $G$ viene dado por $\det(L_G[i])$, para cualquier $i \in \left\lbrace 1,\dots,n \right\rbrace$.
+Sea $\mathcal{L}_G[i]$ la matriz laplaciana del grafo $G$ a la que se le ha eliminado su fila y su columna $i$-ésimas. Se procederá a demostrar que el número de árboles de expansión de un grafo $G$ viene dado por $\det(\mathcal{L}_G[i])$, para cualquier $i \in \left\lbrace 1,\dots,n \right\rbrace$.
 
 Para ello, usaremos el siguiente hecho:
 
 \begin{proposition}\label{prop:fact}
-Sea $A \in \mathbb{R}^{n\times n}$ y tomemos $E_{ii}$ una matriz con un $1$ en su entrada $(i,i)^{th}$ y ceros en el resto de entradas. Así pues,
+Sea $A \in \mathbb{R}^{n\times n}$ y tomemos $E_{ii}$ una matriz con un $1$ en su entrada con posición $(i,i)$ (fila $i$-ésima y columna $i$-ésima) y ceros en el resto de entradas. Así pues,
 
 \begin{equation}
 \det(A+E_{ii}) = \det(A)+\det(A[i])
 \end{equation}
 
-Este hecho es evidente si consideramos la suma de permutaciones de la definición del determinante de una matriz:
+Este hecho es evidente si consideramos la suma de permutaciones de la definición del determinante de una matriz
 
 \begin{equation}
 \det(A = (a_{ij})) = \sum_{\pi}{sgn(\pi) \cdot a_{1\pi(1)} \cdot a_{2\pi(2)} \dots a_{n\pi(n)}}
 \end{equation}
 
-y teniendo en cuenta que hemos aumentado la entrada $(i,i)^{th}$, $a_{ii}$, hasta $a_{ii}+1$. Así pues, hemos obtenido el determinante original más la suma de todas las permutaciones de $[n]\setminus \left\lbrace i \right\rbrace$, evitando la $i$-ésima fila y columna (es decir, $\det(A[i])$.
+y tenemos en cuenta que hemos aumentado la entrada $(i,i)$, $a_{ii}$, a $a_{ii}+1$. Así pues, hemos obtenido el determinante original más la suma de todas las permutaciones de $[n]\setminus \left\lbrace i \right\rbrace$, evitando la $i$-ésima fila y columna (es decir, $\det(A[i])$).
 \end{proposition}
 
 La prueba se realizará por inducción en el número de vértices y aristas del grafo $G$.
@@ -602,16 +609,16 @@ La prueba se realizará por inducción en el número de vértices y aristas del 
 \textbf{Caso base:} Si $G$ es un grafo vacío con dos vértices, entonces
 
 \begin{equation}
-L_G =
+\mathcal{L}_G =
 \begin{pmatrix}
 0 & 0 \\
 0 & 0
 \end{pmatrix}
 \end{equation}
 
-Así pues, $L_G[i] = 0$ y $\det(L_G[i]) = 0$ tal y como se quería demostrar.
+Así pues, $\mathcal{L}_G[i] = 0$ y $\det(\mathcal{L}_G[i]) = 0$ tal y como se quería demostrar.
 
-\textbf{Paso inductivo:} Sea $G-e$ el grafo resultante de sustraerle la arista $e$ al grafo inicial y $G/e$ el grafo con la arista $e$ contraída. Véase a en la Figura \ref{fig:contraction} una ilustración de la contracción en grafos.
+\textbf{Paso inductivo:} Sea $G-e$ el grafo resultante de sustraerle la arista $e$ al grafo inicial y $G/e$ el grafo con la arista $e$ contraída (véase en la Figura \ref{fig:contraction} una ilustración de la contracción en grafos).
 
 \begin{figure}[H]
 \centering
@@ -621,42 +628,44 @@ Así pues, $L_G[i] = 0$ y $\det(L_G[i]) = 0$ tal y como se quería demostrar.
   \tikzset{every node/.style={draw, circle, minimum size=1cm}}
 
   % Nodos en la primera columna
-  \node[fill=red!30] (I) at (0,0) {I};
-  \node[fill=blue!30] (J) at (0,-2) {J};
+  \node[fill=white] (I) at (0,1) {I};
+  \node[fill=white] (J) at (0,-3) {J};
 
   % Nodos en la segunda columna
-  \node[fill=green!30] (C) at (2,0) {C};
-  \node[fill=orange!30] (D) at (2,-1) {D};
-  \node[fill=purple!30] (E) at (2,-2) {E};
+  \node[fill=white] (C) at (2,1) {C};
+  \node[fill=white] (D) at (2,-1) {D};
+  \node[fill=white] (E) at (2,-3) {E};
 
   % Aristas entre los nodos
-  \draw (I) -- (C);
-  \draw (I) -- (D);
-  \draw (J) -- (D);
-  \draw (J) -- (E);
+  \draw[pink, line width=1pt] (I) -- (C);
+  \draw[red, line width=1pt] (I) -- (D);
+  \draw[orange, line width=1pt] (J) -- (D);
+  \draw[green, line width=1pt] (J) -- (E);
+  \draw[blue, line width=1pt] (I) -- (J);
 
   % Grafo derecho
   % Establecer los estilos de los nodos
   \tikzset{every node/.style={draw, circle, minimum size=1cm}}
 
   % Nodos en la primera columna (solo 1 nodo)
-  \node[fill=red!30] (X) at (4,0) {I-J};
+  \node[fill=white] (X) at (4,-1) {I-J};
 
   % Nodos en la segunda columna
-  \node[fill=green!30] (Y) at (6,0) {C};
-  \node[fill=orange!30] (Z) at (6,-1) {D};
-  \node[fill=purple!30] (W) at (6,-2) {E};
+  \node[fill=white] (Y) at (6,1) {C};
+  \node[fill=white] (Z) at (6,-1) {D};
+  \node[fill=white] (W) at (6,-3) {E};
 
   % Aristas entre los nodos
-  \draw (X) -- (Y);
-  \draw (X) -- (Z);
-  \draw (X) -- (W);
+  \draw[pink, line width=1pt] (X) -- (Y);
+  \draw[red, line width=1pt] (X) to [out=0, in=90, loop, distance=0.5cm] (Z);
+  \draw[orange, line width=1pt] (X) to [out=0, in=270, loop, distance=0.5cm] (Z);
+  \draw[green, line width=1pt] (X) -- (W);
 \end{tikzpicture}
 \caption{Ejemplo de contracción de los nodos $I$ y $J$ en un único nodo.}
 \label{fig:contraction}
 \end{figure}
 
-Si $i$ es un vértice aislado, entonces $G$ no admite árboles de expansión y la fila y la columna $i$-ésima de $L_G$ están conformadas de ceros. Esto es, $\det(L_G[i]) = \det(L_{G-i}) = 0$ tal y como queríamos.
+Si $i$ es un vértice aislado, entonces $G$ no admite árboles de expansión y la fila y la columna $i$-ésima de $\mathcal{L}_G$ están conformadas de ceros. Esto es, $\det(\mathcal{L}_G[i]) = \det(\mathcal{L}_{G-i}) = 0$ tal y como queríamos.
 
 Por el contrario, si $i$ no es un vértice aislado podemos suponer que existe una arista $e = (i,j)$ incidente a $i$. Para cualquier árbol de expansión, $T$, se tiene que o bien $e \in T$ o bien $e \notin T$. Así pues, tenemos $t(G/e)$ denota el número de árboles de expansión $T$ tal que $e \in T$ mientras que $t(G-e)$ proporcionará el número de árboles de expansión $T$ tal que $e \notin T$. Esto es,
 
@@ -666,28 +675,32 @@ t(G) = t(G/e) + t(G-e)
 
 Nótese que $G/e$ tiene un vértice menos que $G$ y que $G-e$ tiene una arista menos que $G$, lo cual servirá de base para realizar la inducción.
 
-En primer lugar, se relacionará $L_G$ con $L_{G-e}$. Observemos que $L_G[i] = L_{G-e}[i] + E_{jj}$ (esto es, si eliminamos la arista $e$ la matriz Laplaciana resultante solamente difiere de $L_G[i]$ en el grado del vértice $j$). Así pues, empleando la Proposición \ref{prop:fact}, tenemos que
+En primer lugar, se relacionará $\mathcal{L}_G$ con $\mathcal{L}_{G-e}$. Observemos que $\mathcal{L}_G[i] = \mathcal{L}_{G-e}[i] + E_{jj}$ (esto es, si eliminamos la arista $e$ la matriz Laplaciana resultante solamente difiere de $\mathcal{L}_G[i]$ en el grado del vértice $j$). Así pues, empleando la Proposición \ref{prop:fact}, tenemos que
 
 \begin{equation}
-\det(L_G[i]) = \det(L_{G-e}[i] + E_{jj}) = \det(L_{G-e}[i]) + \det(L_{G-e}[i,j]) = \det(L_{G-e}[i]) + \det(L_G[i,j])
+\begin{split}
+\det(\mathcal{L}_G[i]) = \det(\mathcal{L}_{G-e}[i] + E_{jj}) = \det(\mathcal{L}_{G-e}[i]) + \det(\mathcal{L}_{G-e}[i,j]) = \\ = \det(\mathcal{L}_{G-e}[i]) + \det(\mathcal{L}_G[i,j])
+\end{split}
 \end{equation} 
 
-donde $L_G[i,j]$ denota a la matriz $L_G$ a la que se le han sustraído las filas y columnas $i$-ésima y $j$-ésima. La última igualdad se deduce de que, una vez eliminadas las filas y columnas $i$-ésima y $j$-ésima, no hay diferencia entre $L_G$ y $L_{G-e}$ para $e = (i, j)$.
+donde $\mathcal{L}_G[i,j]$ denota a la matriz $\mathcal{L}_G$ a la que se le han sustraído las filas y columnas $i$-ésima y $j$-ésima. La última igualdad se deduce de que, una vez eliminadas las filas y columnas $i$-ésima y $j$-ésima, no hay diferencia entre $\mathcal{L}_G$ y $\mathcal{L}_{G-e}$ para $e = (i, j)$.
 
-Ahora relacionaremos $L_G$ con $L_{G/e}$ . Supongamos que contraemos $i$ en $j$ (entonces $L_{G/e}$ no tiene ninguna fila o columna correspondiente a $i$). Entonces, $L_{G/e}[j] = L_G[i,j]$.
+Ahora relacionaremos $\mathcal{L}_G$ con $\mathcal{L}_{G/e}$ . Supongamos que contraemos $i$ en $j$ (entonces $\mathcal{L}_{G/e}$ no tiene ninguna fila o columna correspondiente a $i$). Entonces, $\mathcal{L}_{G/e}[j] = \mathcal{L}_G[i,j]$.
 
 Así pues, tenemos que
 
 \begin{equation}
-\det(L_G[i]) = \det(L_{G-e}[i]) + \det(L_{G/e}[j]) = t(G-e)+t(G/e) = t(G)
+\det(\mathcal{L}_G[i]) = \det(\mathcal{L}_{G-e}[i]) + \det(\mathcal{L}_{G/e}[j]) = t(G-e)+t(G/e) = t(G)
 \end{equation}
 
-donde la segunda igual se deduce por inducción. Esto completa la prueba.
+donde la segunda igual se deduce por hipótesis de inducción. Esto completa la prueba.
 \end{proof}
 
-\section{Medidas de complejidad de propósito general}
+\section{Medidas de complejidad de propósito general}\label{sec:complexity}
 
-Esta sección es una recopilación de varias de las medidas de complejidad \cite{cormen2022introduction} aplicadas a grafos dirigidos acíclicos ponderados $G = (V,E)$ a partir de sus matrices de adyacencia ponderadas. Se denotará a las matrices de adyacencia por $\mathcal{A}_{v\times v}$ y se tendrá que el número de vértices es $v = |V| = 2\cdot n + 1$, $n \in \mathbb{N}$. Es decir, tendremos un número impar de vértices.
+Teniendo en mente que la finalidad última de este trabajo es encontrar indicadores del progreso de los alumnos y la detección precoz de aquellos grupos con problemas para que el profesor pueda proporcionarles ayuda y orientación, se han obtenido medidas de rendimiento sobre los procesos minados, a las que denominaremos características topológicas de los grafos de procesos. Se tratarán de funciones \emph{off-the-shelf} genéricas sobre grafos, lo que permitiría aplicar los resulados aquí obtenidos en otras plataformas educativas.
+
+Esta sección es una recopilación de varias de esas medidas de complejidad \cite{cormen2022introduction} aplicadas a grafos dirigidos acíclicos ponderados $G = (V,E)$ a partir de sus matrices de adyacencia ponderadas. Se denotará a las matrices de adyacencia por $\mathcal{A}_{v\times v}$ y se tendrá que el número de vértices es $v = |V| = 2\cdot n + 1$, $n \in \mathbb{N}$. Es decir, tendremos un número impar de vértices.
 
 Todas ellas tratan de medir la complejidad de un grafo en términos de la densidad de las conexiones entre los vértices utilizando diferentes perspectivas.
 
@@ -697,14 +710,14 @@ Es el cociente entre el número de aristas del grafo y el número máximo de ari
 De(\mathcal{A}) = \frac{|E^{\mathcal{A}}|}{v^{\mathcal{A}}\cdot (v^{\mathcal{A}}-1)}
 \end{equation}
 \subsection{Grado medio}
-El grado de un nodo es el número de aristas entrantes y salientes o, en el caso de los grafos ponderados, la suma de los pesos entrantes y salientes. Así pues, en los grafos dirigidos se tiene que:
+El grado de un nodo es el número de aristas entrantes y salientes o, en el caso de los grafos ponderados, la suma de los pesos entrantes y salientes. Así pues, en los grafos dirigidos se tiene que el grado medio es:
 \begin{equation}
 Dm(\mathcal{A}) = \frac{|E^{\mathcal{A}}|}{v^{\mathcal{A}}}
 \end{equation}
 \subsection{Longitud del camino característico}
-Es el número medio de aristas, no sus pesos, entre cualquier par de nodos, en promedio. Podríamos aplicar cualquier algoritmo de camino más corto como el de Dijkstra \cite{cormen2022introduction} a la matriz característica $\mathcal{A}'$ para propagar las frecuencias y obtener un cierre de la matriz original $\hat{\mathcal{A}}'$. Esto da una idea de la profundidad media del grafo, no en número de sesiones, sino en número de aristas. Esto es,
+Es el número medio de aristas, no sus pesos, entre cualquier par de nodos, en promedio. Podríamos aplicar cualquier algoritmo de caminos mínimos como el de Dijkstra \cite{cormen2022introduction} a la matriz característica $\mathcal{A}'$ para propagar las frecuencias y obtener un cierre de la matriz original $\hat{\mathcal{A}}'$. Esto da una idea de la profundidad media del grafo, no en número de sesiones, sino en número de aristas. Esto es,
 \begin{equation}
-Le(\mathcal{A}) = \frac{1}{E(\hat{\mathcal{A}}')} \cdot \sum_r \sum_c \hat{\mathcal{A}}'[r,c]
+Le(\mathcal{A}) = \frac{1}{E^{\hat{\mathcal{A}}'}} \cdot \sum_r \sum_c \hat{\mathcal{A}}'[r,c]
 \end{equation}
 \subsection{Diámetro del grafo}
 Sólo trata de medir el número de aristas entre los nodos más distantes del grafo.
@@ -712,7 +725,7 @@ Sólo trata de medir el número de aristas entre los nodos más distantes del gr
 Di(\mathcal{A}) = \max{\hat{\mathcal{A}}'[r,c]}
 \end{equation}
 \subsection{Conectividad}
-En este caso, se ha elegido el coeficiente de agrupación \cite{cormen2022introduction}. La conectividad mide la densidad de los subgrafos alrededor de los nodos de una determinada arista, es decir, es una medida de densidad local. Para el cálculo de la conectividad se usará el concepto de vecindad de un nodo $v_i$, $N(v_i)$, anteriormente definido en la Definición \ref{def:neighborhood}.
+En este caso, se ha elegido el coeficiente de agrupación \cite{cormen2022introduction}. La conectividad mide la densidad de los subgrafos alrededor de los nodos de una determinada arista. Es decir, es una medida de densidad local. Para el cálculo de la conectividad se usará el concepto de vecindad de un nodo $v_i$, $N(v_i)$, anteriormente definido en la Definición \ref{def:neighborhood}.
 
 Así pues, el coeficiente de agrupación local mide el número de aristas existentes en la vecindad del nodo $v_i$, denotado por $e_i$, con respecto al máximo permitido de aristas en esta vecindad $|k_i| \cdot (|k_i| - 1)$:
 \begin{equation}
@@ -725,29 +738,9 @@ Es la media de la longitud de todos los caminos diferentes que van del nodo raí
 \subsection{WDag}
 Se basa en Dag pero, en lugar de medir el número de pasos, recoge sus pesos.
 \subsection{St}
-Es el factor Laplaciano de la matriz característica. Este factor no es más que el número de árboles de expansión del grafo. Se trata también de una medida muy común de la entropía de un grafo.
-\subsection{Peso del comportamiento}
-Detecta cuánto esfuerzo han dedicado los alumnos a sus tareas de laboratorio en términos del número total de sesiones abiertas en el servidor. Matemáticamente se define como sigue:
-\begin{equation}
-We(\mathcal{A}) = \sum_r \sum_c \mathcal{A}[r][c]
-\end{equation}
-\subsection{Eficacia}
-Detecta cuántos problemas se han resuelto, simplemente contado el número de nodos $p_k^s$ presentes el grafo. Se formula como sigue:
-\begin{equation}
-Ef(\mathcal{A}) = \left|\left\lbrace p_i \in P, \sum_r \mathcal{A}[r][p_i^s] > 0 \right\rbrace\right|
-\end{equation}
+Definida como el factor Laplaciano de la matriz característica, es una medida basada en el análisis espectral de grafos. Este factor no es más que el número de árboles de expansión del grafo (Teorema \ref{theorem}). Se trata también de una medida muy común de la entropía de un grafo.
 
-Todas las métricas generales aquí presentadas se utilizarán para clasificar los grupos de estudiantes. Se ha de tener en cuenta que todas ellas se han definifido sobre grafos dirigidos ponderados y no tienen en cuenta absolutamente nada relacionado con el rendimiento de los alumnos ni con los registros temporales de su progreso excepto las funciones $We$ (número de sesiones) y $Ef$ (número de problemas resueltos) que se extraen únicamente de la matriz característica $\mathcal{A}$.
-
-\subsection{Características topológicas de los grafos de procesos}
-
-Teniendo en mente que la finalidad última de este trabajo es encontrar indicadores del progreso de los alumnos y la detección precoz de aquellos grupos con problemas para que el profesor pueda proporcionarles ayuda y orientación, se han obtenido medidas de rendimiento sobre los procesos minados. Se tratarán de funciones \emph{off-the-shelf} genéricas sobre grafos, lo que permitiría aplicar los resulados aquí obtenidos en otras plataformas educativas.
-
-Así pues, se han definido dos métricas distintas: el Laplaciano (\emph{Laplacian}), que usará el análisis espectral de grafos, y la heurística \emph{DAG}, que trata de determinar cómo de balanceados están los nodos de un grafo dirigido acíclico.
-
-\subsection{El Laplaciano (\emph{Laplacian})}
-
-En primer lugar, empezamos analizando el \emph{Learning Path} de los grupos para tener una idea de los problemas por los que ha ido navegando durante toda la práctica. En la Figura Figura \ref{fig:DBA1516P2GG} podemos ver el recorrido que hizo el grupo \texttt{DBA1920P2GG}. No obstante, para el cálculo de este coeficiente se usará un grafo de mayor complejidad, en el que se subdividen los estados en \texttt{Pi OK} o \texttt{Pi FAIL} dependiendo del milestone alcanzado (\texttt{OK} indica que se ha resuelto problema). En la Figura \ref{fig:DBA1516P2GG_states} se muestra este nuevo grupo para el grupo de prácticas que estamos considerando.
+En primer lugar, se empieza analizando el \emph{Learning Path} de los grupos para tener una idea de los problemas por los que ha ido navegando durante toda la práctica. En la Figura \ref{fig:DBA1516P2GG} podemos ver el recorrido que hizo el grupo \texttt{DBA1920P2GG}. No obstante, para el cálculo de este coeficiente se usará un grafo de mayor complejidad, en el que se subdividen los estados en \texttt{Pi OK} o \texttt{Pi FAIL} dependiendo del milestone alcanzado (\texttt{OK} indica que se ha resuelto problema). En la Figura \ref{fig:DBA1516P2GG_states} se muestra este nuevo grafo para el grupo de prácticas que estamos considerando. Así pues, el coeficiente se calcula sobre la matriz característica de este último grafo.
 
 \begin{figure}[H]
 \centering
@@ -757,84 +750,31 @@ En primer lugar, empezamos analizando el \emph{Learning Path} de los grupos para
 \label{fig:laplacian}
 \end{figure}
 
-En la Figura \ref{fig:densityplotlaplacian} podemos ver que el \emph{Laplaciano}, denotado por \emph{LOGLAP09}, no sigue una distribución perfectamente normal.
+\subsection{Peso del comportamiento}
+Detecta la cantidad de esfuerzo que han dedicado los alumnos a sus tareas de laboratorio en términos del número total de sesiones abiertas en el servidor. Matemáticamente se define como sigue:
+\begin{equation}
+We(\mathcal{A}) = \sum_r \sum_c \mathcal{A}[r][c]
+\end{equation}
+\subsection{Eficacia}
+Detecta cuantos problemas se han resuelto, simplemente contado el número de nodos $p_k^s$ presentes el grafo. Se formula como sigue:
+\begin{equation}
+Ef(\mathcal{A}) = \left|\left\lbrace p_i \in P, \sum_r \mathcal{A}[r][p_i^s] > 0 \right\rbrace\right|
+\end{equation}
+\subsection{Balance}
+
+Trata de determinar cómo de balanceados están los nodos de un grafo dirigido acíclico. De aquí en adelante se denotará por $Ba(\mathcal{A})$.
+
+El coeficiente $Ba$ se calcula a partir de la matriz de adyacencia de un grafo dirigido acíclico. Éste simplemente consiste en cálcular la desviación estándar de las componentes de la matriz de adyacencia no nulas y dividirla por la media de dichas entradas.
+
+Todas las métricas generales aquí presentadas se utilizarán para clasificar los grupos de estudiantes. Se ha de tener en cuenta que todas ellas se han definifido sobre grafos dirigidos ponderados y no tienen en cuenta absolutamente nada relacionado con el rendimiento de los alumnos ni con los registros temporales de su progreso excepto las funciones $We$ (número de sesiones) y $Ef$ (número de problemas resueltos) y que se extraen únicamente de la matriz característica $\mathcal{A}$.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.70\textwidth]{espectral/densityLOGLAP09.png}
-    \caption{Función de densidad de probabilidad del \emph{Laplaciano} obtenido por los distintos grupos de prácticas.}
-    \label{fig:densityplotlaplacian}
+    \includegraphics[width=\textwidth]{grafos/densities.png}
+    \caption{Funciones de densidad de las métricas topológicas utilizadas en el estudio. Las líneas discontinuas marcan los valores con probabilidad máxima.}
+    \label{fig:densities}
 \end{figure}
 
-\subsection{El coeficiente \emph{DAG}}
+Al tratar con conjuntos de métricas en el análisis estadístico, siempre es un alivio disponer de funciones con distribuciones normales y podemos aceptar que éste es el caso, tal y como se muestra en la Figura \ref{fig:densities}. En dicha imagen podemos ver que, excepto $Be$, que tiene rangos discretos (el índice de un problema), todas las métricas restantes podrían considerarse normales, dado el número limitado de grupos que estamos considerando en este estudio. Por otra parte, dado el comportamiento exponencial de algunas de ellas, especialmente las de naturaleza espectral ($Le$, $Di$, $Dag$, $WDag$ y $St$), se han reducido con un logaritmo general con la finalidad obtener escalas equivalentes en todas las métricas.
 
-El coeficiente DAG se calcula a partir de la matriz de adyacencia de un
-grafo dirigido acíclico. Así pues, es la suma de dos componentes, ponderadas
-por $0.2$ y $0.8$ respectivamente.
-
-La primera de las componentes del coeficiente se calcula a partir de todos
-los caminos del nodo inicial (\texttt{START}) al nodo final (\texttt{END}) de un grafo dirigido
-acíclico dado. Así pues, se calcula la media de los problemas abiertos en
-este tipo de caminos. Por ejemplo, dado el grado de la Figura,
-un posible camino es \texttt{\{START,PROBLEM1-20,PROBLEM1-40,PROBLEM1-60,END\}}, en el que se abre un problema.
-
-%\begin{figure}[H]
-%\centering
-%\includegraphics[width=\textwidth]{DBA2021P2GH.png}
-%\caption{Grafo Dirigido Acíclico de ejemplo: grupo DBA2021GH}
-%\label{fig:1}
-%\end{figure}
-
-Esta primera componente intenta captar el comportamiento de algunos grupos
-que van saltando de problema en problema en la misma sesión, valorándolo
-de manera negativa.
-
-Por el contrario, la segunda componente no tiene ningún contenido semántico.
-Ésta simplemente consiste en cálcular la desviación estándar de las componentes
-de la matriz de adyacencia no nulas y dividirla por la media de dichas entradas.
-En resumen, ésta segunda componente trata de ver cómo de balanceados están
-los nodos de un grafo.
-
-El pseudocódigo del cálculo de este coeficiente puede verse en el Algoritmo
-\ref{alg:dag}.
-
-\begin{algorithm}
-\caption{Función encargada del cálculo del coeficiente DAG.}\label{alg:dag}
-\begin{algorithmic}[1]
-\Function{get\_coefficient}{}
-\State $\texttt{coefficient} \gets 0$
-\State $\texttt{problems} \gets \emptyset$ \Comment{Tiene el mismo tamaño que \texttt{paths}}
-\For{$ i = 0 $ \textbf{to} $\texttt{paths.size()}$}
-\State $\texttt{problems[i].add(num\_problems(paths[i]))}$
-\EndFor
-\If{$\texttt{paths.size()} == 0$}
-\State $\texttt{coefficient} \gets 3$
-\Else
-\State $\texttt{mean} \gets \texttt{calculate\_mean(problems)}$
-\State $\texttt{mean} \gets (\texttt{mean} - 1) / (9-1)$ \Comment{Normalización}
-\State $\texttt{coefficient} \gets \texttt{coefficient} + 0.2 \cdot \texttt{mean}$
-\State $\texttt{nonzero} \gets \emptyset$
-\State $\texttt{mean\_frequency} \gets 0$
-\State $\texttt{n} \gets 0$
-\For{$\texttt{row}$ \textbf{in} $\texttt{frequency}$}
-\For{$\texttt{element}$ \textbf{in} $\texttt{row}$}
-\If{$\texttt{element} > 0$}
-\State $\texttt{nonzero.add(element)}$
-\State $\texttt{mean\_frequency} \gets \texttt{mean\_frequency} + \texttt{element}$
-\State $\texttt{n} \gets \texttt{n}+1$
-\EndIf
-\EndFor
-\EndFor
-\State $\texttt{mean\_frequency} \gets \texttt{mean\_frequency}/\texttt{n}$
-\State $\texttt{sum\_squares} \gets 0$
-\For{$ i = 0 $ \textbf{to} $\texttt{n}$}
-\State $\texttt{sum\_squares} \gets \texttt{sum\_squares} + (\texttt{nonzero[i]}-\texttt{mean\_frequency})^2$
-\EndFor
-\State $\texttt{variance} \gets \texttt{sum\_squares}/(\texttt{n}-1)$
-\State $\texttt{std\_dev} \gets \texttt{sqrt(variance)}$
-\State $\texttt{coefficient} \gets \texttt{coefficient} + 0.8 \cdot \texttt{std\_dev}/\texttt{mean\_frequency}$
-\EndIf
-\State \Return \texttt{coefficient}
-\EndFunction
-\end{algorithmic}
-\end{algorithm}
+Por otra parte, algunas de ellas se han reducido con un logaritmo general con la finalidad obtener escalas equivalentes en todas las métricas dado su comportamiento exponencial, especialmente las de naturaleza espectral ($Le$, $Di$, $Dag$, $WDag$ y $St$), .

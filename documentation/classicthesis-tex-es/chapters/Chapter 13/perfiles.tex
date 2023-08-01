@@ -201,3 +201,20 @@ La distribución de la variable \emph{Grade} dentro de cada partición puede ver
 \end{figure}
 
 \subsection{Clustering mediante el coeficiente DAG}
+
+\subsection{¿Quiénes son los grupos en riesgo?}\label{sec:badstudents}
+
+El objetivo principal de este enfoque es tratar de identificar a los estudiantes que tienen dificultades en resolver las tareas propuestas en el laboratorio virtual porque ellos, y no los alumnos ordinarios, requieren la mayor parte de la atención de del profesor para poder alcanzar un $100\%$ de éxito. Pero, ¿quiénes son?
+
+En principio nos vamos a centrar en los alumnos con el cuartil más bajo de la nota, es decir, aquellos cuya nota está por debajo, como mínimo, del $75\%$ de las demás calificaciones (Figura \ref{fig:frequenciesgrade}). Sin embargo, dada la dinámica de las calificaciones cada año (Figura \ref{fig:boxplotachieveryear}), podemos ver que este primer cuartil podría no ser muy preciso. En su lugar, se ha usado la función \texttt{KMeans} en R para dividir el rango de calificaciones en $5$ intervalos con una precisión del $95\%$ en las interdependencias e intradependencias de los $5$ clusters. En la partición obtenida mediante KMeans, hay dos grupos cuyas calificaciones son son estrictamente inferiores a $8$ (Figura \ref{fig:KMeans5}). Vamos a centrarnos en estos a grupos, que se denominarán \emph{``LOW''}. Por el contrario, el resto de grupos se llamarán \emph{``GOOD''}.
+
+Este conjunto de datos podría procesarse como un único cluster de datos y sólo tendríamos una visión del final del periodo de las prácticas, que podría ser informativo, pero no útil para una intervención temprana. Con el fin de preparar el conjunto de datos para que sea útil cuanto antes y no sólo al final de la práctica, se va a estratificar por niveles donde cada nivel $i \in [3,9]$ está marcado por la primera vez que el problema (o asignación) $i$ se ha resuelto (Figura \ref{fig:stratification}). Por lo tanto, alcanzar nivel $9$ significa que se han completado todas las tareas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{clustering/stratification.png}
+    \caption{Estratificación del conjunto de datos en $10$ episodios consecutivos. Uno para la consecución de cada uno de los $9$ problemas, más un último episodio hasta el final de la práctica.}
+    \label{fig:stratification}
+\end{figure}
+
+Así pues, tenemos un conjunto de datos muy fiable, reforzado con evidencias de que no hay sesgos a lo largo de los años. También tenemos una partición preliminar sólida y significativa de las calificaciones y un nuevo conjunto de funciones en forma de campana de uso general para identificar estas particiones (Sección \ref{sec:complexity}). ¿Qué podría salir mal?

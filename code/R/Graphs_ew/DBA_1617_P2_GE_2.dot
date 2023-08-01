@@ -1,0 +1,23 @@
+digraph DBA_1617_P2_GE_2 {
+labelloc="tl"
+label= " DBA 1617 P2 GE 2 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1.fail" [shape="circle" label="p1.fail"]
+"p1.solved" [shape="doublecircle" label="p1.solved"]
+"p2.fail" [shape="circle" label="p2.fail"]
+"p3.fail" [shape="circle" label="p3.fail"]
+"p4.fail" [shape="circle" label="p4.fail"]
+"p5.fail" [shape="circle" label="p5.fail"]
+"A" -> "p1.fail" [ label=94]
+"p1.fail" -> "p1.solved" [ label=181]
+"p1.solved" -> "p2.fail" [ label=14]
+"p1.solved" -> "p3.fail" [ label=1]
+"p1.solved" -> "p4.fail" [ label=7]
+"p2.fail" -> "p3.fail" [ label=1]
+"p2.fail" -> "p4.fail" [ label=1]
+"p2.fail" -> "p5.fail" [ label=4]
+"p4.fail" -> "p3.fail" [ label=1]
+}

@@ -1,0 +1,38 @@
+digraph DBA_2021_P2_GC_6_GOOD {
+labelloc="tl"
+label= " DBA 2021 P2 GC 6 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p4_s" [shape="doublecircle" label="p4
+s"]
+"p5_s" [shape="doublecircle" label="p5
+s"]
+"p6_f" [shape="circle" label="p6
+f"]
+"p6_s" [shape="doublecircle" label="p6
+s"]
+"A" -> "p1_f" [ label=98]
+"p1_f" -> "p1_s" [ label=22]
+"p1_s" -> "p2_f" [ label=2]
+"p1_s" -> "p2_s" [ label=8]
+"p2_f" -> "p2_s" [ label=10]
+"p2_s" -> "p3_s" [ label=25]
+"p3_s" -> "p3_f" [ label=4]
+"p3_s" -> "p4_s" [ label=5]
+"p3_s" -> "p5_s" [ label=6]
+"p4_s" -> "p5_s" [ label=9]
+"p4_s" -> "p6_f" [ label=1]
+"p6_f" -> "p6_s" [ label=1]
+}

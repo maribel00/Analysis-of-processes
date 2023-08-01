@@ -1,0 +1,33 @@
+digraph DBA_1819_P2_GJ_3_GOOD {
+labelloc="tl"
+label= " DBA 1819 P2 GJ 3 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p5_f" [shape="circle" label="p5
+f"]
+"p8_f" [shape="circle" label="p8
+f"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p9_f" [shape="circle" label="p9
+f"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p6_s" [shape="doublecircle" label="p6
+s"]
+"p7_s" [shape="doublecircle" label="p7
+s"]
+"A" -> "p1_f" [ label=8]
+"p1_f" -> "p5_f" [ label=1]
+"p1_f" -> "p8_f" [ label=1]
+"p1_f" -> "p3_f" [ label=1]
+"p1_f" -> "p2_f" [ label=1]
+"p1_f" -> "p1_s" [ label=3]
+"p3_f" -> "p9_f" [ label=1]
+"p1_s" -> "p6_s" [ label=3]
+"p1_s" -> "p7_s" [ label=1]
+}

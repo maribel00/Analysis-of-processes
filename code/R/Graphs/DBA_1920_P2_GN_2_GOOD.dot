@@ -1,0 +1,24 @@
+digraph DBA_1920_P2_GN_2_GOOD {
+labelloc="tl"
+label= " DBA 1920 P2 GN 2 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"A" -> "p1_s" [ label=3]
+"p1_s" -> "p1_f" [ label=33]
+"p1_s" -> "p3_f" [ label=7]
+"p1_f" -> "p2_f" [ label=10]
+"p2_f" -> "p2_s" [ label=1]
+"p3_f" -> "p1_f" [ label=1]
+}

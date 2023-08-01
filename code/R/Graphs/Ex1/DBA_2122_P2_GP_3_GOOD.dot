@@ -1,0 +1,34 @@
+digraph DBA_2122_P2_GP_3_GOOD {
+labelloc="tl"
+label= " DBA 2122 P2 GP 3 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p4_f" [shape="circle" label="p4
+f"]
+"p5_f" [shape="circle" label="p5
+f"]
+"p6_f" [shape="circle" label="p6
+f"]
+"p6_s" [shape="doublecircle" label="p6
+s"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"A" -> "p1_f" [ label=39]
+"p1_f" -> "p1_s" [ label=9]
+"p1_f" -> "p2_f" [ label=26]
+"p1_f" -> "p2_s" [ label=1]
+"p2_f" -> "p3_f" [ label=5]
+"p2_f" -> "p6_f" [ label=18]
+"p3_f" -> "p4_f" [ label=1]
+"p4_f" -> "p5_f" [ label=1]
+"p5_f" -> "p6_f" [ label=3]
+"p6_f" -> "p6_s" [ label=1]
+}

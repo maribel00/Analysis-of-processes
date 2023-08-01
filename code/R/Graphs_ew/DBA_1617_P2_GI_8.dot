@@ -1,0 +1,31 @@
+digraph DBA_1617_P2_GI_8 {
+labelloc="tl"
+label= " DBA 1617 P2 GI 8 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1.fail" [shape="circle" label="p1.fail"]
+"p1.solved" [shape="doublecircle" label="p1.solved"]
+"p2.fail" [shape="circle" label="p2.fail"]
+"p2.solved" [shape="doublecircle" label="p2.solved"]
+"p3.solved" [shape="doublecircle" label="p3.solved"]
+"p4.solved" [shape="doublecircle" label="p4.solved"]
+"p5.solved" [shape="doublecircle" label="p5.solved"]
+"p6.fail" [shape="circle" label="p6.fail"]
+"p7.solved" [shape="doublecircle" label="p7.solved"]
+"p8.solved" [shape="doublecircle" label="p8.solved"]
+"p8.fail" [shape="circle" label="p8.fail"]
+"A" -> "p1.fail" [ label=132]
+"p1.fail" -> "p1.solved" [ label=42]
+"p1.solved" -> "p2.fail" [ label=15]
+"p2.fail" -> "p2.solved" [ label=3]
+"p2.solved" -> "p3.solved" [ label=1]
+"p3.solved" -> "p4.solved" [ label=1]
+"p4.solved" -> "p5.solved" [ label=1]
+"p5.solved" -> "p6.fail" [ label=3]
+"p6.fail" -> "p7.solved" [ label=1]
+"p6.fail" -> "p8.solved" [ label=1]
+"p7.solved" -> "p8.solved" [ label=1]
+"p8.solved" -> "p8.fail" [ label=1]
+}

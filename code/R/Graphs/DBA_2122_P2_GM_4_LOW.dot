@@ -1,0 +1,30 @@
+digraph DBA_2122_P2_GM_4_LOW {
+labelloc="tl"
+label= " DBA 2122 P2 GM 4 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"p4_s" [shape="doublecircle" label="p4
+s"]
+"A" -> "p1_s" [ label=17]
+"p1_s" -> "p1_f" [ label=37]
+"p1_f" -> "p2_f" [ label=19]
+"p2_f" -> "p2_s" [ label=3]
+"p2_f" -> "p3_f" [ label=18]
+"p3_f" -> "p2_s" [ label=1]
+"p3_f" -> "p3_s" [ label=1]
+"p3_f" -> "p4_s" [ label=1]
+}

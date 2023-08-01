@@ -1,0 +1,57 @@
+digraph DBA_1819_P2_GK_2_GOOD {
+labelloc="tl"
+label= " DBA 1819 P2 GK 2 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p9_f" [shape="circle" label="p9
+f"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p4_f" [shape="circle" label="p4
+f"]
+"p8_f" [shape="circle" label="p8
+f"]
+"p7_f" [shape="circle" label="p7
+f"]
+"p5_f" [shape="circle" label="p5
+f"]
+"p6_f" [shape="circle" label="p6
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"A" -> "p1_f" [ label=107]
+"p1_f" -> "p2_f" [ label=34]
+"p1_f" -> "p9_f" [ label=9]
+"p1_f" -> "p3_f" [ label=7]
+"p1_f" -> "p4_f" [ label=1]
+"p1_f" -> "p8_f" [ label=2]
+"p1_f" -> "p7_f" [ label=5]
+"p1_f" -> "p5_f" [ label=3]
+"p1_f" -> "p6_f" [ label=5]
+"p1_f" -> "p1_s" [ label=5]
+"p2_f" -> "p9_f" [ label=1]
+"p2_f" -> "p3_f" [ label=3]
+"p2_f" -> "p4_f" [ label=3]
+"p2_f" -> "p7_f" [ label=2]
+"p2_f" -> "p5_f" [ label=2]
+"p2_f" -> "p6_f" [ label=3]
+"p2_f" -> "p1_s" [ label=1]
+"p2_f" -> "p2_s" [ label=1]
+"p9_f" -> "p5_f" [ label=1]
+"p9_f" -> "p6_f" [ label=1]
+"p3_f" -> "p4_f" [ label=3]
+"p3_f" -> "p5_f" [ label=1]
+"p4_f" -> "p9_f" [ label=1]
+"p4_f" -> "p5_f" [ label=1]
+"p8_f" -> "p3_f" [ label=1]
+"p8_f" -> "p7_f" [ label=1]
+"p6_f" -> "p7_f" [ label=1]
+}

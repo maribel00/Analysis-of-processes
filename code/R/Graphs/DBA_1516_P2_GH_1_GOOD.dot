@@ -1,0 +1,14 @@
+digraph DBA_1516_P2_GH_1_GOOD {
+labelloc="tl"
+label= " DBA 1516 P2 GH 1 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"A" -> "p1_f" [ label=225]
+"p1_f" -> "p1_s" [ label=1]
+}

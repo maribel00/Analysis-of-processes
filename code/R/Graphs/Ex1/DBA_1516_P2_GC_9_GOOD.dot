@@ -1,0 +1,85 @@
+digraph DBA_1516_P2_GC_9_GOOD {
+labelloc="tl"
+label= " DBA 1516 P2 GC 9 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p4_s" [shape="doublecircle" label="p4
+s"]
+"p5_s" [shape="doublecircle" label="p5
+s"]
+"p6_s" [shape="doublecircle" label="p6
+s"]
+"p2_s" [shape="doublecircle" label="p2
+s"]
+"p9_f" [shape="circle" label="p9
+f"]
+"p3_s" [shape="doublecircle" label="p3
+s"]
+"p7_s" [shape="doublecircle" label="p7
+s"]
+"p8_s" [shape="doublecircle" label="p8
+s"]
+"p2_f" [shape="circle" label="p2
+f"]
+"p4_f" [shape="circle" label="p4
+f"]
+"p8_f" [shape="circle" label="p8
+f"]
+"p7_f" [shape="circle" label="p7
+f"]
+"p9_s" [shape="doublecircle" label="p9
+s"]
+"A" -> "p1_f" [ label=48]
+"p1_f" -> "p1_s" [ label=40]
+"p1_f" -> "p2_s" [ label=13]
+"p1_f" -> "p9_f" [ label=23]
+"p1_f" -> "p2_f" [ label=8]
+"p1_s" -> "p3_f" [ label=7]
+"p1_s" -> "p4_s" [ label=2]
+"p1_s" -> "p5_s" [ label=7]
+"p1_s" -> "p6_s" [ label=3]
+"p1_s" -> "p2_s" [ label=17]
+"p1_s" -> "p9_f" [ label=17]
+"p1_s" -> "p3_s" [ label=8]
+"p1_s" -> "p7_s" [ label=6]
+"p1_s" -> "p2_f" [ label=3]
+"p1_s" -> "p4_f" [ label=1]
+"p3_f" -> "p4_s" [ label=1]
+"p3_f" -> "p9_f" [ label=1]
+"p3_f" -> "p3_s" [ label=3]
+"p4_s" -> "p5_s" [ label=9]
+"p4_s" -> "p7_s" [ label=1]
+"p4_s" -> "p8_s" [ label=1]
+"p5_s" -> "p6_s" [ label=9]
+"p5_s" -> "p7_s" [ label=1]
+"p6_s" -> "p7_s" [ label=8]
+"p6_s" -> "p8_s" [ label=1]
+"p2_s" -> "p3_f" [ label=4]
+"p2_s" -> "p5_s" [ label=1]
+"p2_s" -> "p9_f" [ label=3]
+"p2_s" -> "p3_s" [ label=9]
+"p2_s" -> "p8_f" [ label=2]
+"p9_f" -> "p6_s" [ label=1]
+"p9_f" -> "p3_s" [ label=1]
+"p9_f" -> "p7_s" [ label=2]
+"p9_f" -> "p8_s" [ label=1]
+"p9_f" -> "p7_f" [ label=2]
+"p9_f" -> "p9_s" [ label=1]
+"p3_s" -> "p4_s" [ label=10]
+"p3_s" -> "p7_s" [ label=1]
+"p3_s" -> "p4_f" [ label=2]
+"p7_s" -> "p8_s" [ label=8]
+"p2_f" -> "p3_f" [ label=1]
+"p2_f" -> "p2_s" [ label=3]
+"p2_f" -> "p9_f" [ label=1]
+"p4_f" -> "p8_f" [ label=1]
+"p4_f" -> "p7_f" [ label=1]
+"p8_f" -> "p8_s" [ label=1]
+"p7_f" -> "p7_s" [ label=3]
+}

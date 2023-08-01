@@ -1,0 +1,24 @@
+digraph DBA_1516_P2_GC_4_GOOD {
+labelloc="tl"
+label= " DBA 1516 P2 GC 4 "
+rankdir="RL";
+"A" [shape="square" label="A"]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"p3_f" [shape="circle" label="p3
+f"]
+"p4_s" [shape="doublecircle" label="p4
+s"]
+"p5_s" [shape="doublecircle" label="p5
+s"]
+"p6_s" [shape="doublecircle" label="p6
+s"]
+"A" -> "p1_f" [ label=34]
+"p1_f" -> "p1_s" [ label=3]
+"p1_s" -> "p3_f" [ label=1]
+"p3_f" -> "p4_s" [ label=1]
+"p4_s" -> "p5_s" [ label=1]
+"p5_s" -> "p6_s" [ label=1]
+}
