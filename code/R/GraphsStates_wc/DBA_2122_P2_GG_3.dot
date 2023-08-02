@@ -1,0 +1,30 @@
+digraph DBA_2122_P2_GG_3 {
+	labelloc="t";
+	label=DBA_2122_P2_GG_3;
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+layout=circo;
+"START" [shape=box, fillcolor=white, style=filled, color=black]
+"P1 FAIL" [shape=circle, color=greenyellow, style=filled]
+"P1 OK" [shape=circle, color=greenyellow, peripheries=2, style=filled]
+"P2 FAIL" [shape=circle, color=bisque, style=filled]
+"P3 FAIL" [shape=circle, color=cadetblue, style=filled]
+"P3 OK" [shape=circle, color=cadetblue, peripheries=2, style=filled]
+"P7 OK" [shape=circle, color=hotpink, peripheries=2, style=filled]
+"END" [shape=box, fillcolor=white, style=filled, color=black]
+"START" -> "P1 FAIL" [ style = dashed color=grey label ="58" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 FAIL" -> "P1 OK" [ color=grey16 penwidth = "3.66356164612965"label ="39" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 OK" -> "P2 FAIL" [ color=grey16 penwidth = "3.36729582998647"label ="29" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2 FAIL" -> "P3 FAIL" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3 FAIL" -> "P3 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3 OK" -> "P7 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7 OK" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+}

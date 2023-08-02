@@ -1,0 +1,59 @@
+digraph DBA_2021_P2_GF_10 {
+	labelloc="t";
+	label=DBA_2021_P2_GF_10;
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+"START" [shape=box, fillcolor=white, style=filled, color=black]
+"P9" [shape=circle, color=mediumpurple1, style=filled]
+"P1" [shape=circle, color=greenyellow, style=filled]
+"P2" [shape=circle, color=bisque, style=filled]
+"P3" [shape=circle, color=cadetblue, style=filled]
+"P4" [shape=circle, color=orange, style=filled]
+"P5" [shape=circle, color=deepskyblue, style=filled]
+"P6" [shape=circle, color=gold, style=filled]
+"P7" [shape=circle, color=hotpink, style=filled]
+"END" [shape=box, fillcolor=white, style=filled, color=black]
+"START" -> "P9" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P9" -> "P1" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1" -> "P1" [ color=grey16 penwidth = "4.07753744390572"label ="59" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1" -> "P2" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1" -> "P3" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2" -> "P1" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2" -> "P2" [ color=grey16 penwidth = "3.43398720448515"label ="31" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2" -> "P3" [ color=grey16 penwidth = "1.38629436111989"label ="4" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2" -> "P5" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3" -> "P1" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3" -> "P2" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3" -> "P3" [ color=grey16 penwidth = "3.25809653802148"label ="26" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3" -> "P4" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3" -> "P5" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P4" -> "P5" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5" -> "P2" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5" -> "P5" [ color=grey16 penwidth = "3.04452243772342"label ="21" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5" -> "P6" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P6" -> "P6" [ color=grey16 penwidth = "1.79175946922805"label ="6" labelfloat=false fontname="Arial" fontsize=8]
+
+"P6" -> "P7" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+}

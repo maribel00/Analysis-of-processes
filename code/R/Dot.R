@@ -186,10 +186,10 @@ dotExportProblem <- function(dot, basedir=".") {
     if (labels[i] == 'START' || labels[i] == 'END') {
       writeLines(paste0('"', labels[i], '"', ' [shape=box, fillcolor=white, style=filled, color=black]'), f)
     } else {
-      if (endsWith(labels[i], "FAIL") && !endsWith(labels[i], "OK")) {
-        writeLines(paste0('"', labels[i], '"', ' [shape=circle, color=', color[labels[i]], ', style=filled]'), f)
-      } else {
+      if (endsWith(labels[i], "OK")) {
         writeLines(paste0('"', labels[i], '"', ' [shape=circle, color=', color[labels[i]], ', peripheries=2, style=filled]'), f)
+      } else {
+        writeLines(paste0('"', labels[i], '"', ' [shape=circle, color=', color[labels[i]], ', style=filled]'), f)
       }
     }
   }

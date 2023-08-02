@@ -1,0 +1,21 @@
+digraph DBA_1920_P2_GK_1 {
+	labelloc="t";
+	label=DBA_1920_P2_GK_1;
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+layout=circo;
+"START" [shape=box, fillcolor=white, style=filled, color=black]
+"P1 FAIL" [shape=circle, color=greenyellow, style=filled]
+"P2 FAIL" [shape=circle, color=bisque, style=filled]
+"P9 FAIL" [shape=circle, color=mediumpurple1, style=filled]
+"END" [shape=box, fillcolor=white, style=filled, color=black]
+"START" -> "P1 FAIL" [ style = dashed color=grey label ="104" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 FAIL" -> "P2 FAIL" [ color=grey16 penwidth = "2.484906649788"label ="12" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 FAIL" -> "P9 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P9 FAIL" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+}

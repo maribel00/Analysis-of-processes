@@ -1,7 +1,7 @@
 \chapter{Implementación de la herramienta de Minería de Procesos \emph{Graph Miner}}\label{sec:chapterIV}
 \addcontentsline{toc}{chapter}{Implementación de la herramienta de Minería de Procesos \emph{Graph Miner}}
 
-\section{Uso de grafos como representación de los grupos}
+\section{Uso de grafos como representación de los grupos}\label{sec:representation}
 
 Para dar una estructura de orden mínimo al comportamiento $B^g$, suponemos que es cierto lo siguiente: el resultado de la sesión $i$ depende en su mayor parte de lo ocurrido en la sesión $i-1$ o, como mucho, de cualquiera de las sesiones inmediatamente anteriores. Si aceptamos esta suposición, entonces $B^g$ tiene una estructura de orden parcial en la que cada sesión aparece conectada a la anterior.
 
@@ -62,24 +62,65 @@ Podría decirse que $\mathcal{A}^g$ contiene lo que podría haber sido la \emph{
 
 \section{Resultados obtenidos}
 
-En esta sección se muestran los diferentes grafos obtenidos con la herramienta de Minería de Procesos \emph{Graph Miner}. Comparando las Figuras \ref{fig:DBA1516P2GA1} y \ref{fig:problemsDBA1516P2GA} vemos que los diagramas de la implementación propia y el original obtenido con Disco coinciden.
+En esta sección se muestran los diferentes grafos obtenidos con la herramienta de Minería de Procesos \emph{Graph Miner}. Comparando las Figuras \ref{fig:DBA1516P2GA1} y \ref{fig:problemsDBA1516P2GA} vemos que los diagramas de la implementación propia y el original obtenido con Disco coinciden, con la salvedad de que en el diagrama de creación propia se muestran el $100\%$ de las actividades y el $100\%$ de los caminos.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{DBA1516P2GA1.png}
+    \includegraphics[width=0.5\textwidth]{implementación/DBA_1516_P2_GA_10_problems.png}
     \caption{Análisis de procesos del grupo \texttt{DBA 1516 P2 GA} (\texttt{Activity} problema y \texttt{CaseId} grupo) obtenido con la implementación propia.}
     \label{fig:DBA1516P2GA1}
 \end{figure}
 
-Además, como podemos ver en la Figura \ref{fig:DBA1516P2GA2}, hemos obtenido el mismo diagrama que en el de la Figura \ref{fig:compoundDBA1516P2GA} con la salvedad de que hemos impedido el retorno a un estado anterior (el motivo se verá más adelante). Es decir, se han eliminado ciclos.
+Además, como podemos ver en la Figura \ref{fig:DBA1516P2GA2}, hemos obtenido el mismo diagrama que el que se muestra en la Figura \ref{fig:compoundDBA1516P2GA} con la salvedad de que hemos impedido el retorno a un estado anterior (es decir, se han eliminado ciclos) y como, en el caso anterior, de que en el diagrama de creación propia se muestran el $100\%$ de las actividades y el $100\%$ de los caminos.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{DBA1516P2GA2.png}
+    \includegraphics[width=\textwidth]{implementación/DBA_1516_P2_GA_10.png}
     \caption{Análisis de procesos del grupo \texttt{DBA 1516 P2 GA} (\texttt{Activity} problema-milestone y \texttt{CaseId} sesión) obtenido con la implementación propia.}
     \label{fig:DBA1516P2GA2}
 \end{figure}
 
-Además, se ha extendido la implementación de la herramienta de minería de procesos Disco \cite{gunther2012disco}, obteniendo otros diagramas que nos serán de mucha utilidad, como la agrupación en estados exitosos y fallidos (Figura) y una serie de grafos parciales considerando sólo la resolución hasta el problema $i$-ésimo, $i \in \left\lbrace 1,\dots,9 \right\rbrace$ (Figura).
+Además, se ha extendido la implementación de la herramienta de minería de procesos Disco \cite{gunther2012disco}, obteniendo otros diagramas que nos serán de mucha utilidad, como la agrupación en estados exitosos y fallidos (Figura \ref{fig:DBA1516P2GA3}) y una serie de grafos parciales considerando sólo la resolución hasta el problema $i$-ésimo, $i \in \left\lbrace 1,\dots,9 \right\rbrace$ (Figuras \ref{fig:DBA1516P2GA4}, \ref{fig:DBA1516P2GA5}, \ref{fig:DBA1516P2GA6} y \ref{fig:DBA1516P2GA7}) y considerando todos los registros, incluida toda la actividad realizada por el alumnado después de la resolución del último de los problemas ($i = 10$).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{implementación/DBA_1516_P2_GA_10_states.png}
+    \caption{Análisis de procesos del grupo \texttt{DBA 1516 P2 GA} (\texttt{Activity} problema-estado y \texttt{CaseId} sesión) obtenido con la implementación propia.}
+    \label{fig:DBA1516P2GA3}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{implementación/DBA_1516_P2_GA_1.png} \\
+\includegraphics[width=\textwidth]{implementación/DBA_1516_P2_GA_2.png} \\
+\includegraphics[width=\textwidth]{implementación/DBA_1516_P2_GA_3.png} \\
+\includegraphics[width=0.7\textwidth]{implementación/DBA_1516_P2_GA_4.png}
+\caption{Análisis de procesos del grupo \texttt{DBA 1516 P2 GA} (\texttt{Activity} problema-estado y \texttt{CaseId} sesión) obtenido con la implementación propia. En estos grafos los ciclos se han eliminado con el procedimiento explicado en la Sección \ref{sec:representation}.}
+\label{fig:DBA1516P2GA4}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{implementación/DBA_1516_P2_GA_5.png} \\
+\includegraphics[width=0.7\textwidth]{implementación/DBA_1516_P2_GA_6.png}
+\caption{Análisis de procesos del grupo \texttt{DBA 1516 P2 GA} (\texttt{Activity} problema-estado y \texttt{CaseId} sesión) obtenido con la implementación propia. En estos grafos los ciclos se han eliminado con el procedimiento explicado en la Sección \ref{sec:representation}.}
+\label{fig:DBA1516P2GA5}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{implementación/DBA_1516_P2_GA_7.png} \\
+\includegraphics[width=0.7\textwidth]{implementación/DBA_1516_P2_GA_8.png}
+\caption{Análisis de procesos del grupo \texttt{DBA 1516 P2 GA} (\texttt{Activity} problema-estado y \texttt{CaseId} sesión) obtenido con la implementación propia. En estos grafos los ciclos se han eliminado con el procedimiento explicado en la Sección \ref{sec:representation}.}
+\label{fig:DBA1516P2GA6}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{implementación/DBA_1516_P2_GA_9.png} \\
+\includegraphics[width=0.7\textwidth]{implementación/DBA_1516_P2_GA_10_final.png}
+\caption{Análisis de procesos del grupo \texttt{DBA 1516 P2 GA} (\texttt{Activity} problema-estado y \texttt{CaseId} sesión) obtenido con la implementación propia. En estos grafos los ciclos se han eliminado con el procedimiento explicado en la Sección \ref{sec:representation}. En este caso, el grupo \texttt{DBA 1516 P2 GA} ha resuelto únicamente $8$ de los $9$ problemas resueltos, por lo que las gráficas \texttt{DBA\_1516\_P2\_GA\_9} y \texttt{DBA\_1516\_P2\_GA\_10} son idénticas y contendrán toda la actividad registrada en el servidor de dicho grupo.}
+\label{fig:DBA1516P2GA7}
+\end{figure}
 
 A partir de ahora, estos diagramos tendrán la consideración de grafos. En particular, serán grafos dirigidos y operaremos con ellos como tales. En el siguiente capítulo se expondrán los conceptos básicos de grafos y principales resultados matemáticos que se usarán en este trabajo fin de grado.

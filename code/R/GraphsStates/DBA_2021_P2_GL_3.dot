@@ -1,0 +1,27 @@
+digraph DBA_2021_P2_GL_3 {
+	labelloc="t";
+	label=DBA_2021_P2_GL_3;
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+layout=circo;
+"START" [shape=box, fillcolor=white, style=filled, color=black]
+"P1 FAIL" [shape=circle, color=greenyellow, style=filled]
+"P1 OK" [shape=circle, color=greenyellow, peripheries=2, style=filled]
+"P7 OK" [shape=circle, color=hotpink, peripheries=2, style=filled]
+"END" [shape=box, fillcolor=white, style=filled, color=black]
+"START" -> "P1 FAIL" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 FAIL" -> "P1 FAIL" [ color=grey16 penwidth = "5.08140436498446"label ="161" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 FAIL" -> "P1 OK" [ color=grey16 penwidth = "4.53259949315326"label ="93" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 OK" -> "P1 FAIL" [ color=grey16 penwidth = "4.52178857704904"label ="92" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 OK" -> "P1 OK" [ color=grey16 penwidth = "3.97029191355212"label ="53" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 OK" -> "P7 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7 OK" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+}

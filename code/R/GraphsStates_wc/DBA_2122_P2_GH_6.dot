@@ -1,0 +1,44 @@
+digraph DBA_2122_P2_GH_6 {
+	labelloc="t";
+	label=DBA_2122_P2_GH_6;
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+layout=circo;
+"START" [shape=box, fillcolor=white, style=filled, color=black]
+"P1 OK" [shape=circle, color=greenyellow, peripheries=2, style=filled]
+"P1 FAIL" [shape=circle, color=greenyellow, style=filled]
+"P2 FAIL" [shape=circle, color=bisque, style=filled]
+"P2 OK" [shape=circle, color=bisque, peripheries=2, style=filled]
+"P3 OK" [shape=circle, color=cadetblue, peripheries=2, style=filled]
+"P5 OK" [shape=circle, color=deepskyblue, peripheries=2, style=filled]
+"P6 FAIL" [shape=circle, color=gold, style=filled]
+"P6 OK" [shape=circle, color=gold, peripheries=2, style=filled]
+"P7 FAIL" [shape=circle, color=hotpink, style=filled]
+"P8 FAIL" [shape=circle, color=indianred1, style=filled]
+"END" [shape=box, fillcolor=white, style=filled, color=black]
+"START" -> "P1 OK" [ style = dashed color=grey label ="43" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 OK" -> "P1 FAIL" [ color=grey16 penwidth = "4.14313472639153"label ="63" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 FAIL" -> "P2 FAIL" [ color=grey16 penwidth = "2.30258509299405"label ="10" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 FAIL" -> "P2 OK" [ color=grey16 penwidth = "1.09861228866811"label ="3" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2 FAIL" -> "P2 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2 OK" -> "P3 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P3 OK" -> "P5 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P5 OK" -> "P6 FAIL" [ color=grey16 penwidth = "1"label ="2" labelfloat=false fontname="Arial" fontsize=8]
+
+"P6 FAIL" -> "P6 OK" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P6 OK" -> "P7 FAIL" [ color=grey16 penwidth = "1.6094379124341"label ="5" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7 FAIL" -> "P8 FAIL" [ color=grey16 penwidth = "1"label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P7 FAIL" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+}

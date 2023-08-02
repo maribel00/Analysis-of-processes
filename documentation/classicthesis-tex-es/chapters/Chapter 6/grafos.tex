@@ -740,13 +740,13 @@ Se basa en Dag pero, en lugar de medir el número de pasos, recoge sus pesos.
 \subsection{St}
 Definida como el factor Laplaciano de la matriz característica, es una medida basada en el análisis espectral de grafos. Este factor no es más que el número de árboles de expansión del grafo (Teorema \ref{theorem}). Se trata también de una medida muy común de la entropía de un grafo.
 
-En primer lugar, se empieza analizando el \emph{Learning Path} de los grupos para tener una idea de los problemas por los que ha ido navegando durante toda la práctica. En la Figura \ref{fig:DBA1516P2GG} podemos ver el recorrido que hizo el grupo \texttt{DBA1920P2GG}. No obstante, para el cálculo de este coeficiente se usará un grafo de mayor complejidad, en el que se subdividen los estados en \texttt{Pi OK} o \texttt{Pi FAIL} dependiendo del milestone alcanzado (\texttt{OK} indica que se ha resuelto problema). En la Figura \ref{fig:DBA1516P2GG_states} se muestra este nuevo grafo para el grupo de prácticas que estamos considerando. Así pues, el coeficiente se calcula sobre la matriz característica de este último grafo.
+En primer lugar, se empieza analizando el \emph{Learning Path} de los grupos para tener una idea de los problemas por los que ha ido navegando durante toda la práctica. En la Figura \ref{fig:DBA1516P2GG} podemos ver el recorrido que hizo el grupo \texttt{DBA 1516 P2 GG}. No obstante, para el cálculo de este coeficiente se usará un grafo de mayor complejidad, en el que se subdividen los estados en \texttt{Pi OK} o \texttt{Pi FAIL} dependiendo del milestone alcanzado (\texttt{OK} indica que se ha resuelto problema). En la Figura \ref{fig:DBA1516P2GG_states} se muestra este nuevo grafo para el grupo de prácticas que estamos considerando. Además, los ciclos han sido eliminados siguiente el procedimiento descrito en la Sección \ref{sec:representation}. Así pues, el coeficiente se calcula sobre la matriz característica de este último grafo.
 
 \begin{figure}[H]
 \centering
-\subfloat[Grafo que muestra la exploración de los problemas que ha realizado.]{\label{fig:DBA1516P2GG}\includegraphics[width=0.47\textwidth]{DBA1516P2GG.png}}\qquad
-\subfloat[Grafo que muestra la exploración de los problemas, considerando si un problema ha sido resuelto (\texttt{OK}) o no (\texttt{FAIL}).]{\label{fig:DBA1516P2GG_states}\includegraphics[width=0.47\textwidth]{DBA1516P2GG_states.png}}
-\caption{Leaning Path del grupo de prácticas \texttt{DBA1516P2GG}.}
+\subfloat[Grafo que muestra la exploración de los problemas que ha realizado.]{\label{fig:DBA1516P2GG}\includegraphics[width=0.4\textwidth]{grafos/DBA_1516_P2_GG_10.png}}\qquad
+\subfloat[Grafo que muestra la exploración de los problemas, considerando si un problema ha sido resuelto (\texttt{OK}) o no (\texttt{FAIL}).]{\label{fig:DBA1516P2GG_states}\includegraphics[width=0.7\textwidth]{grafos/DBA_1516_P2_GG_10_wc.png}}
+\caption{Leaning Path del grupo de prácticas \texttt{DBA 1516 P2 GG}.}
 \label{fig:laplacian}
 \end{figure}
 
@@ -777,4 +777,4 @@ Todas las métricas generales aquí presentadas se utilizarán para clasificar l
 
 Al tratar con conjuntos de métricas en el análisis estadístico, siempre es un alivio disponer de funciones con distribuciones normales y podemos aceptar que éste es el caso, tal y como se muestra en la Figura \ref{fig:densities}. En dicha imagen podemos ver que, excepto $Be$, que tiene rangos discretos (el índice de un problema), todas las métricas restantes podrían considerarse normales, dado el número limitado de grupos que estamos considerando en este estudio. Por otra parte, dado el comportamiento exponencial de algunas de ellas, especialmente las de naturaleza espectral ($Le$, $Di$, $Dag$, $WDag$ y $St$), se han reducido con un logaritmo general con la finalidad obtener escalas equivalentes en todas las métricas.
 
-Por otra parte, algunas de ellas se han reducido con un logaritmo general con la finalidad obtener escalas equivalentes en todas las métricas dado su comportamiento exponencial, especialmente las de naturaleza espectral ($Le$, $Di$, $Dag$, $WDag$ y $St$), .
+Por otra parte, algunas de ellas se han reducido con un logaritmo general con la finalidad obtener escalas equivalentes en todas las métricas dado su comportamiento exponencial, especialmente las de naturaleza espectral ($Le$, $Di$, $Dag$, $WDag$ y $St$).

@@ -1,0 +1,15 @@
+digraph DBA_2122_P2_GM_1 {
+	labelloc="t";
+	label=DBA_2122_P2_GM_1;
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+layout=circo;
+"START" [shape=box, fillcolor=white, style=filled, color=black]
+"P2 FAIL" [shape=circle, color=bisque, style=filled]
+"END" [shape=box, fillcolor=white, style=filled, color=black]
+"START" -> "P2 FAIL" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P2 FAIL" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+}

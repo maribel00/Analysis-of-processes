@@ -1,0 +1,17 @@
+digraph DBA_1516_P2_GG_1 {
+	labelloc="t";
+	label=DBA_1516_P2_GG_1;
+	dpi = 150
+	size="16,11!";
+	margin = 0;
+layout=circo;
+"START" [shape=box, fillcolor=white, style=filled, color=black]
+"P1 FAIL" [shape=circle, color=greenyellow, style=filled]
+"END" [shape=box, fillcolor=white, style=filled, color=black]
+"START" -> "P1 FAIL" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 FAIL" -> "P1 FAIL" [ color=grey16 penwidth = "4.34380542185368"label ="77" labelfloat=false fontname="Arial" fontsize=8]
+
+"P1 FAIL" -> "END" [ style = dashed color=grey label ="1" labelfloat=false fontname="Arial" fontsize=8]
+
+}
