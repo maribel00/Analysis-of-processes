@@ -61,19 +61,19 @@ Para aproximarnos al concepto subjetivo de ``dificultad del problema'' vamos a a
 
 \subsection{Dificultad del problema: la tasa de fallo}
 
-La apertura de un problema se corresponde con una sesión de trabajo, la cual puede terminar como fallo (fail) si no se consigue resolver el problema, o éxito (solved) en caso de que se haya resuelto el problema. Así pues, se definirá la tasa de fallo como el cociente entre el número total de sesiones fallidas entre el número total de sesiones de un mismo problema. El boxplot de las tasas de fallo por problema puede verse en la Figura \ref{fig:boxplotfailratio}.
+La apertura de un problema se corresponde con una sesión de trabajo, la cual puede terminar fracasando (fail) si no se consigue resolver el problema, o teniendo éxito (solved) en caso de que se haya resuelto el problema. Así pues, se definirá la tasa de fallo como el cociente entre el número total de sesiones fallidas y el número total de sesiones de un mismo problema. El boxplot de las tasas de fallo por problema puede verse en la Figura \ref{fig:boxplotfailratio}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{boxplotfailratioproblem.png}
-    \caption{Boxplot de la tasa de fallo (Fail ratio) por problema.}
+    \includegraphics[width=0.8\textwidth]{análisis/boxplotfailratioproblem.png}
+    \caption{Boxplot de la tasa de fallo (\emph{fail ratio}) por problema.}
     \label{fig:boxplotfailratio}
 \end{figure}
 
-Tras realizar el test ANOVA de un factor (resultados en la Tabla \ref{tab:ANOVAfailratio}), cuya hipótesis nula establece que la tasa de fallo media de los nueve problemas considerados es la misma, se detecta que las distribuciones de probabilidad de la tasa de fallo son estadísticamente iguales en los distintos problemas ($p = 0.1733 > 0.05$)\footnote{Nótese que hemos establecido un nivel de significancia de $\alpha = 0.05$.}.
+Tras realizar el test ANOVA de un factor (resultados en la Tabla \ref{tab:ANOVAfailratio}), cuya hipótesis nula establece que la tasa de fallo media de los nueve problemas considerados es la misma, se detecta que las diferencias entre las distribuciones de probabilidad de la tasa de fallo  podrían ser estadísticamente significativas en los distintos problemas ($p = 7.72e-12 < 0.05$)\footnote{Nótese que hemos establecido un nivel de significancia de $\alpha = 0.05$.}. Si aplicamos el test de Kruskal-Wallis, obtenemos $p-value = 3.756e-12 < 0.05$, lo que confirma los resultados obtenidos por el test de ANOVA.
 
-% latex table generated in R 4.3.0 by xtable 1.8-4 package
-% Sat May 27 20:17:56 2023
+% latex table generated in R 4.3.1 by xtable 1.8-4 package
+% Wed Aug  2 16:49:26 2023
 \begin{table}[H]
 \centering
 \caption{Resultados del test ANOVA de un solo factor (tasa de fallo).}
@@ -82,46 +82,164 @@ Tras realizar el test ANOVA de un factor (resultados en la Tabla \ref{tab:ANOVAf
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-ndsp[[nVariable]] & 8 & 0.51 & 0.06 & 1.52 & 0.1733 \\ 
-  Residuals         & 54 & 2.26 & 0.04 &  &  \\ 
+data[[Variable]] & 8 & 4.00 & 0.50 & 9.12 & 7.72e-12 \\ 
+  Residuals        & 570 & 31.23 & 0.05 &  &  \\ 
    \hline
 \end{tabular}
 \end{table}
 
-Además, se ha realizado un test de Tukey por pares de problemas (Tabla \ref{tab:Tukeyfailratio}). En él se observa que casi todos los pares pueden considerarse estadísticamente iguales ($\text{p adj} > 0.2$ en todos ellos) salvo quizá, el par P9-P5 ($\text{p adj} = 0.2$). La Figura \ref{fig:confidenceratiofail} muestra los intervalos de confianza de todas las diferencias entre las distintas parejas de años.
+Además, se ha realizado un test de Tukey por pares de problemas (Tabla \ref{tab:Tukeyfailratio}). En él se observa que no todos los pares pueden considerarse estadísticamente iguales aunque haya algunos que quizá puedan serlo, como el par $P1-P2$ ($\text{p adj} = 1.00$). La Figura \ref{fig:confidenceratiofail} muestra los intervalos de confianza de todas las diferencias entre las distintas parejas de años.
+
+\begin{table}[H]
+\centering
+\caption{Test HSD de Tukey (Honestly-significance-difference) de la tasa de fallo por problemas.}
+\label{tab:Tukeyfailratio}
+\begin{tabular}{rrrrr}
+  \hline
+ & diff & lwr & upr & p adj \\ 
+  \hline
+p2-p1 & -0.00 & -0.13 & 0.12 & 1.00 \\ 
+  p3-p1 & -0.11 & -0.24 & 0.01 & 0.11 \\ 
+  p4-p1 & -0.17 & -0.29 & -0.04 & 0.00 \\ 
+  p5-p1 & -0.22 & -0.35 & -0.10 & 0.00 \\ 
+  p6-p1 & -0.08 & -0.21 & 0.04 & 0.47 \\ 
+  p7-p1 & -0.09 & -0.21 & 0.03 & 0.36 \\ 
+  p8-p1 & -0.06 & -0.18 & 0.06 & 0.81 \\ 
+  p9-p1 & 0.08 & -0.05 & 0.21 & 0.61 \\ 
+  p3-p2 & -0.11 & -0.24 & 0.02 & 0.17 \\ 
+  p4-p2 & -0.16 & -0.29 & -0.03 & 0.00 \\ 
+  p5-p2 & -0.22 & -0.35 & -0.09 & 0.00 \\ 
+  p6-p2 & -0.08 & -0.21 & 0.05 & 0.59 \\ 
+  p7-p2 & -0.08 & -0.21 & 0.04 & 0.48 \\ 
+  p8-p2 & -0.06 & -0.18 & 0.07 & 0.89 \\ 
+  p9-p2 & 0.08 & -0.05 & 0.22 & 0.57 \\ 
+  p4-p3 & -0.05 & -0.19 & 0.08 & 0.95 \\ 
+  p5-p3 & -0.11 & -0.24 & 0.02 & 0.20 \\ 
+  p6-p3 & 0.03 & -0.10 & 0.16 & 1.00 \\ 
+  p7-p3 & 0.03 & -0.10 & 0.15 & 1.00 \\ 
+  p8-p3 & 0.05 & -0.08 & 0.18 & 0.94 \\ 
+  p9-p3 & 0.19 & 0.06 & 0.33 & 0.00 \\ 
+  p5-p4 & -0.06 & -0.19 & 0.08 & 0.93 \\ 
+  p6-p4 & 0.08 & -0.05 & 0.22 & 0.57 \\ 
+  p7-p4 & 0.08 & -0.05 & 0.21 & 0.64 \\ 
+  p8-p4 & 0.10 & -0.03 & 0.24 & 0.24 \\ 
+  p9-p4 & 0.25 & 0.11 & 0.38 & 0.00 \\ 
+  p6-p5 & 0.14 & 0.01 & 0.27 & 0.03 \\ 
+  p7-p5 & 0.13 & 0.01 & 0.26 & 0.03 \\ 
+  p8-p5 & 0.16 & 0.03 & 0.29 & 0.00 \\ 
+  p9-p5 & 0.30 & 0.17 & 0.44 & 0.00 \\ 
+  p7-p6 & -0.01 & -0.13 & 0.12 & 1.00 \\ 
+  p8-p6 & 0.02 & -0.11 & 0.15 & 1.00 \\ 
+  p9-p6 & 0.16 & 0.03 & 0.30 & 0.01 \\ 
+  p8-p7 & 0.03 & -0.10 & 0.15 & 1.00 \\ 
+  p9-p7 & 0.17 & 0.03 & 0.30 & 0.00 \\ 
+  p9-p8 & 0.14 & 0.01 & 0.27 & 0.03 \\ 
+   \hline
+\end{tabular}
+\end{table}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\textwidth]{confidencefailratio.png}
+    \includegraphics[width=0.80\textwidth]{análisis/confidencefailratio.png}
     \caption{Intervalos de confianza de la tasas de fallo de los problemas.}
     \label{fig:confidenceratiofail}
 \end{figure}
 
-%Estos datos hay que interpretarlos de manera incremental, pues para resolver un problema Pi requiere las habilidades de Pj(0<=j<i) más habilidades nuevas propias de Pi Periódicamente se incrementa notablemente el nivel de dificultad. P1 es el que más cuesta porque siempre cuesta trabajo empezar, P2-4 son muy parecidos y P5 es un poco más difícil, P6-P8 suben un escalón de dificultad y P9 también.
+Estos datos hay que interpretarlos de manera incremental, pues para resolver un problema $P_i$ se requieren las habilidades de los problemas $P_j$, $0\leq j < i$ más habilidades nuevas propias del problema $P_i$. Así pues, periódicamente se incrementa notablemente el nivel de dificultad. % P1 es el que más cuesta porque siempre cuesta trabajo empezar, P2-4 son muy parecidos y P5 es un poco más difícil, P6-P8 suben un escalón de dificultad y P9 también.
 
 \subsection{Dificultad del problema: tiempo necesario en resolverlo}
 
-Es el número de horas que transcurren desde que el problema se abre por primera vez hasta que es resuelto por primera vez.
+Es el número de horas que transcurren desde que el problema se abre por primera vez hasta que es resuelto por primera vez. El boxplot de los tiempos de resolución por problema puede verse en la Figura \ref{fig:boxplotduration}.
 
-\textbf{Falta imagen.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{análisis/boxplotduration.png}
+    \caption{Boxplots del tiempo necesario para resolver cada uno de los problemas.}
+    \label{fig:boxplotduration}
+\end{figure}
 
-De nuevo los tests detectan comportamientos diferentes (ANOVA p=9.27e-5, KW p=8.8e-8).
+Podemos ver un resumen del test ANOVA de un factor en la Tabla \ref{tab:ANOVAduration}. De nuevo, los tests detectan comportamientos diferentes: obtenemos $p=0.0074$ con el test ANOVA de un solo factor y $p=0.0002763$ con la prueba de Kruskal-Wallis).
 
-\textbf{Falta tabla.}
+% latex table generated in R 4.3.1 by xtable 1.8-4 package
+% Wed Aug  2 18:33:43 2023
+\begin{table}[H]
+\centering
+\caption{Resultados del test ANOVA de un solo factor (tiempo en resolver los problemas por primera vez).}
+\label{tab:ANOVAduration}
+\begin{tabular}{lrrrrr}
+  \hline
+ & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
+  \hline
+dataset[[Variable]] & 8 & 222548.19 & 27818.52 & 2.64 & 0.0074 \\ 
+  Residuals           & 642 & 6757495.31 & 10525.69 &  &  \\ 
+   \hline
+\end{tabular}
+\end{table}
 
-Por pares.
+Adicionalmente, se aportan los resultados del test de Tukey por pares de problemas (Tabla \ref{tab:Tukeyduration}). En ellos se detecta, por ejemplo, que los pares de problemas $P9-P7$ y $P9-P5$ son estadísticamente diferentes ($\text{p adj} = 0.02$ en ambos casos). En la Figura \ref{fig:confidenceduration} se muestran los intervalos de confianza de todas las diferencias entre las distintas parejas de años.
 
-\textbf{Falta tabla.}
+% latex table generated in R 4.3.1 by xtable 1.8-4 package
+% Wed Aug  2 18:34:46 2023
+\begin{table}[H]
+\centering
+\caption{Test HSD de Tukey (Honestly-significance-difference) del tiempo de resolución por problemas.}
+\label{tab:Tukeyduration}
+\begin{tabular}{rrrrr}
+  \hline
+ & diff & lwr & upr & p adj \\ 
+  \hline
+p2-p1 & -8.38 & -59.84 & 43.08 & 1.00 \\ 
+  p3-p1 & -14.68 & -66.66 & 37.31 & 0.99 \\ 
+  p4-p1 & -22.83 & -74.99 & 29.33 & 0.91 \\ 
+  p5-p1 & -41.17 & -92.97 & 10.63 & 0.25 \\ 
+  p6-p1 & -34.32 & -86.85 & 18.22 & 0.52 \\ 
+  p7-p1 & -41.10 & -93.26 & 11.07 & 0.26 \\ 
+  p8-p1 & -27.84 & -80.38 & 24.70 & 0.78 \\ 
+  p9-p1 & 19.54 & -35.45 & 74.52 & 0.97 \\ 
+  p3-p2 & -6.30 & -58.28 & 45.68 & 1.00 \\ 
+  p4-p2 & -14.45 & -66.61 & 37.71 & 0.99 \\ 
+  p5-p2 & -32.79 & -84.60 & 19.01 & 0.56 \\ 
+  p6-p2 & -25.94 & -78.48 & 26.60 & 0.84 \\ 
+  p7-p2 & -32.72 & -84.88 & 19.45 & 0.58 \\ 
+  p8-p2 & -19.46 & -72.00 & 33.07 & 0.97 \\ 
+  p9-p2 & 27.91 & -27.07 & 82.90 & 0.82 \\ 
+  p4-p3 & -8.15 & -60.83 & 44.52 & 1.00 \\ 
+  p5-p3 & -26.49 & -78.81 & 25.83 & 0.82 \\ 
+  p6-p3 & -19.64 & -72.69 & 33.41 & 0.97 \\ 
+  p7-p3 & -26.42 & -79.10 & 26.25 & 0.83 \\ 
+  p8-p3 & -13.17 & -66.21 & 39.88 & 1.00 \\ 
+  p9-p3 & 34.21 & -21.26 & 89.68 & 0.60 \\ 
+  p5-p4 & -18.34 & -70.84 & 34.16 & 0.98 \\ 
+  p6-p4 & -11.49 & -64.71 & 41.74 & 1.00 \\ 
+  p7-p4 & -18.27 & -71.12 & 34.59 & 0.98 \\ 
+  p8-p4 & -5.01 & -58.24 & 48.21 & 1.00 \\ 
+  p9-p4 & 42.36 & -13.28 & 98.01 & 0.30 \\ 
+  p6-p5 & 6.85 & -46.02 & 59.73 & 1.00 \\ 
+  p7-p5 & 0.07 & -52.43 & 52.57 & 1.00 \\ 
+  p8-p5 & 13.33 & -39.55 & 66.20 & 1.00 \\ 
+  p9-p5 & 60.70 & 5.40 & 116.01 & 0.02 \\ 
+  p7-p6 & -6.78 & -60.00 & 46.45 & 1.00 \\ 
+  p8-p6 & 6.47 & -47.12 & 60.07 & 1.00 \\ 
+  p9-p6 & 53.85 & -2.14 & 109.85 & 0.07 \\ 
+  p8-p7 & 13.25 & -39.97 & 66.48 & 1.00 \\ 
+  p9-p7 & 60.63 & 4.99 & 116.27 & 0.02 \\ 
+  p9-p8 & 47.38 & -8.62 & 103.37 & 0.17 \\ 
+   \hline
+\end{tabular}
+\end{table}
 
-Intervalos de confianza.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\textwidth]{análisis/confidenceduration.png}
+    \caption{Intervalos de confianza del tiempo empleado en la resolución de los problemas propuestos por primera vez.}
+    \label{fig:confidenceduration}
+\end{figure}
 
-\textbf{Falta imagen.}
-
-Por lo tanto, se puede ver, dadas las evidencias aportadas que la resolución de cada problema exige respuestas claramente diferentes por parte del alumnado.
+Por lo tanto, se puede ver, dadas las evidencias aportadas, que la resolución de cada problema exige respuestas claramente diferentes por parte del alumnado.
 
 \section{Actividad registrada}\label{sec:activityrecorded}
 
-El número de registros y de sesiones de trabajo de cada uno de los años analizados se muestran en la Tabla \ref{tab:records}. Como podemos ver, aunque el curso académico $2021$ registra más actividad que los demás, no es el que presenta un mayor número de sesiones.
+El número de registros y de sesiones de trabajo de cada uno de los años analizados se muestran en la Tabla \ref{tab:records}. Como podemos ver, aunque el curso académico 2020-2021 (Y2020) registra más actividad que los demás, no es el que presenta el mayor número de sesiones.
 
 \begin{table}[H]
 \centering

@@ -90,7 +90,7 @@ GenerateBaseDataset<-function() {
     res <- rbind(res,data.frame(dsList[i]))
     i<-i-1;
   }
-  # saveRDS(res,paste(pwd,"dsbase.RDS",sep=""))
+  saveRDS(res,paste(pwd,"dsbase.RDS",sep=""))
   QuartileMatrix <- matrix(0,4,7)
   colnames(QuartileMatrix) <- unique(c(SIIE23RAW$Year))
   rownames(QuartileMatrix) <- seq(1:4)

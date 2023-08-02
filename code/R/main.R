@@ -13,10 +13,6 @@ dsbase <- GenerateBaseDataset()
 dsbase$Di <- log(dsbase$Di)
 dsbase$PERFORMANCE <- as.factor(dsbase$PERFORMANCE)
 
-new <- dsbase[dsbase$Group=="DBA 1516 P2 GA",c("p")]
-new <- max(new)
-new
-
 # MÉTRICAS
 
 LCV_Lime_Theme()

@@ -5,8 +5,10 @@ rankdir="RL";
 graph [ size=" 10 , 10 !"]
 
 "A" [shape="square" label="A"]
-"p1.fail" [shape="circle" label="p1.fail"]
-"p1.solved" [shape="doublecircle" label="p1.solved"]
-"A" -> "p1.fail" [ label=77]
-"p1.fail" -> "p1.solved" [ label=1]
+"p1_f" [shape="circle" label="p1
+f"]
+"p1_s" [shape="doublecircle" label="p1
+s"]
+"A" -> "p1_f" [ label=77]
+"p1_f" -> "p1_s" [ label=1]
 }
