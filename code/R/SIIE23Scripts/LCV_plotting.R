@@ -1,7 +1,7 @@
 source("SIIE23Scripts/LCV_Theme.R")
 library(dplyr)
 library(scales)
-LCV_histogram <- function (data, variable, nintervals=0, mybreaks=c(), columnlabels=c(),force_factor=FALSE, orderby="") {
+LCV_histogram <- function (data, variable, nintervals=0, mybreaks=c(), columnlabels=c(),force_factor=FALSE, orderby="", flip = FALSE) {
   if (orderby != "") {
     dorder<-data[[orderby]]
     dvariable <- data[[variable]]
@@ -15,12 +15,18 @@ LCV_histogram <- function (data, variable, nintervals=0, mybreaks=c(), columnlab
   if (is.factor(dvariable) || nintervals ==  0)  {
     if (length(mybreaks)==0) {
       res<-ggplot(data)+
-        geom_bar(stat="count",aes(x=dvariable),fill=fillcolor, color=textcolor,alpha=alphafill)+
-        geom_text(stat="count", aes(x=dvariable,label=..count..),color=textcolor,vjust=1.75,size=3 )+
-        xlab(variable)+
-        # coord_flip()+
-        LCV_theme2
-
+        geom_bar(stat="count",aes(x=dvariable),fill=fillcolor, color=textcolor,alpha=alphafill)
+        if (flip){
+          res <- res + geom_text(stat="count", aes(x=dvariable,label=..count..),color=textcolor,hjust=1.25,size=3 )
+        }
+        else {
+          res <- res + geom_text(stat="count", aes(x=dvariable,label=..count..),color=textcolor,vjust=1.75,size=3 )
+        }
+        res <- res + xlab(variable)
+        if (flip) {
+          res <- res + coord_flip()
+        }
+        res <- res + LCV_theme2
     }  else {
       # res<-ggplot(data, mapping=aes(x=dvariable))+
       #   geom_text(stat="count", aes(label=..count..),color=textcolor,vjust=-0.5)+
@@ -37,7 +43,7 @@ LCV_histogram <- function (data, variable, nintervals=0, mybreaks=c(), columnlab
     maxVal <- max(dhisto$counts)
     minVal <-min(dhisto$counts)
     nticks<-nintervals
-    res <- ggplot(ddataset,aes(x=dvariable))+
+    res <- ggplot(data,aes(x=dvariable))+
       geom_histogram(binwidth=(maxVar-minVar)/nintervals,aes(y=after_stat(count)),fill = fillcolor, color=textcolor,alpha=alphafill)+
       xlab(variable)+
       scale_x_continuous(n.breaks=nticks)+
@@ -45,6 +51,15 @@ LCV_histogram <- function (data, variable, nintervals=0, mybreaks=c(), columnlab
       LCV_theme2
   }
   # theme_classic()
+  res
+}
+
+LCV_boxplot_one <- function(data, value, name){
+  res <- ggplot(data, aes(x = "", y = value)) +
+    geom_boxplot(fill = fillcolor, color=textcolor,alpha=alphafill) +
+    xlab("") +  # Etiqueta en el eje x
+    ylab(name) +  # Etiqueta en el eje y
+    LCV_theme2  # Estilo de tema
   res
 }
 

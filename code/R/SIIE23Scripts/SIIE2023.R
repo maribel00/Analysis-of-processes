@@ -127,7 +127,6 @@ SIIE23doImportXtraData<-function(data, fulldataset, nproblems=MAXPROBLEMS){
   return (data)
 }
 
-
 SIIE23doLoadData<-function(){
   #\\readline("Press INTRO to LOAD DATA AND PREPROCESS")
   data <- read.delim2("~/Descargas/SIIE23.tsv")

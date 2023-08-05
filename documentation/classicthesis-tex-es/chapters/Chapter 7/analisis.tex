@@ -170,7 +170,7 @@ Podemos ver un resumen del test ANOVA de un factor en la Tabla \ref{tab:ANOVAdur
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-dataset[[Variable]] & 8 & 222548.19 & 27818.52 & 2.64 & 0.0074 \\ 
+data[[Variable]] & 8 & 222548.19 & 27818.52 & 2.64 & 0.0074 \\ 
   Residuals           & 642 & 6757495.31 & 10525.69 &  &  \\ 
    \hline
 \end{tabular}
@@ -258,12 +258,12 @@ Y2021 & 11961            &  6113  \\ \hline
 \end{tabular}
 \end{table}
 
-Al ser un servicio 24 horas los 7 días de la semana, los alumnos interactúan con el laboratorio remoto en cualquier día de la semana tal y como puede verse en la Figura \ref{fig:days} y a cualquier hora del día (Figura \ref{fig:hours}).
+Al ser un servicio $24$ horas los $7$ días de la semana, los alumnos interactúan con el laboratorio remoto en cualquier día de la semana tal y como puede verse en la Figura \ref{fig:days} y a cualquier hora del día (Figura \ref{fig:hours}).
 
 \begin{figure}[H]
 \centering
-\subfloat[Histograma de los días de la semana.]{\label{fig:days}\includegraphics[width=0.47\textwidth]{histogramdayofweek.png}}\qquad
-\subfloat[Histograma de las horas del día.]{\label{fig:hours}\includegraphics[width=0.47\textwidth]{histogramhour.png}}
+\subfloat[Histograma de los días de la semana.]{\label{fig:days}\includegraphics[width=0.9\textwidth]{análisis/days.png}}\\
+\subfloat[Histograma de las horas del día.]{\label{fig:hours}\includegraphics[width=0.9\textwidth]{análisis/hours.png}}
 \caption{Actividad registrada en el servidor remoto.}
 \label{fig:activity}
 \end{figure}
@@ -272,7 +272,7 @@ El número y tipo de las sesiones de trabajo de cada uno de los grupos puede con
 
 \subsection{Análisis de la normalidad de la distribución del número de sesiones}\label{sec:NormalityNumSessions}
 
-En las Figuras \ref{fig:boxplotresiduals} y \ref{fig:histogramresiduals} podemos ver el boxplot de los residuos y el histograma de los mismos.
+En las Figuras \ref{fig:boxplotresiduals} y \ref{fig:histogramresiduals} podemos ver el boxplot de los residuos de la variable número de sesiones (\emph{s}) junto con el histograma de los mismos.
 
 \begin{figure}[H]
 \centering
@@ -282,7 +282,7 @@ En las Figuras \ref{fig:boxplotresiduals} y \ref{fig:histogramresiduals} podemos
 \label{fig:activity}
 \end{figure}
 
-A continuación, en las Figuras \ref{fig:densitysessions} y \ref{fig:q-qsessions}, podemos observar que la distribución del número de sesiones no es perfectamente normal pero es casi-normal si eliminaremos algunos outsiders. La línea discontinua vertical marca el valor más probable ($336$ sesiones), lo que muestra un gran esfuerzo por parte del alumnado teniendo en cuenta la duración de la práctica (Tabla \ref{tab:days}).
+A continuación, en las Figuras \ref{fig:densitysessions} y \ref{fig:q-qsessions}, podemos observar que la distribución del número de sesiones no es perfectamente normal pero es casi-normal si eliminamos algunos outsiders. La línea discontinua vertical marca el valor más probable ($336$ sesiones), lo que muestra un gran esfuerzo por parte del alumnado teniendo en cuenta la duración de la práctica (Tabla \ref{tab:days}).
 
 \begin{figure}[H]
     \centering
@@ -303,7 +303,7 @@ Además, podemos ver en la Figura \ref{fig:outlierss} que hay algunos outliers (
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.60\textwidth]{análisis/boxplotinitials.png}
+    \includegraphics[width=0.80\textwidth]{análisis/boxplotinitials.png}
     \caption{Boxplot del número de sesiones por año inicialmente.}
     \label{fig:boxplotsessionsyearinitial}
 \end{figure}
@@ -339,7 +339,7 @@ Examinamos ahora los bloques significativos entre ellos agrupando los datos en o
 \label{fig:KMeans8details}
 \end{figure}
 
-Nótese que como hemos una obtenido una precisión del $0.9795579\% > 95\%$, no eliminaremos más outliers.
+Nótese que como hemos una obtenido una precisión del $97.95579\% > 95\%$, no eliminaremos más outliers.
 
 Así pues, tras la eliminación de los outliers correspondientes tanto al número de sesiones como al número de problemas resueltos como veremos en la subsección \ref{sec:NumProblems} (podemos ver la nueva función de densidad en la Figura \ref{fig:normalitys}) se procede a aplicar el test de normalidad de Shapiro-Wilk. Como se obtiene $p-value = 0.003307 < 0.05$, podemos decir que estadísticamente no sigue una distribución normal. No obstante, teniendo en cuenta que el tamaño de la muestra es relativamente pequeño (tenemos un total de $77$ grupos de prácticas), podemos considerar que se trata de una distribución normal.
 
@@ -352,11 +352,11 @@ Así pues, tras la eliminación de los outliers correspondientes tanto al númer
 
 \subsection{Sesiones por cada problema}
 
-En la Figura \ref{fig:boxplotsessionsproblem} podemos ver el boxplot del número de sesiones por problema. Como podemos ver, el problema P1 es mucho más frecuentado que el resto. No obstante, esto se debe la principal diferencia entre el número de sesiones abiertas del problema P1 y restantes se debe a que los alumnos utilizan el primer problema como base de todos los experimentos y para testear las comunicaciones con el servidor. Así pues, el problema P1 es frecuentemente utilizado, no ya sólo al comienzo, sino durante toda la práctica.
+En la Figura \ref{fig:boxplotsessionsproblem} podemos ver el boxplot del número de sesiones por problema. Como podemos ver, el problema P1 es mucho más frecuentado que el resto. No obstante, la diferencia entre el número de sesiones abiertas del problema P1 y el número de sesiones abiertas de los problemas restantes se debe a que los alumnos utilizan el primer problema como base de todos los experimentos y para testear las comunicaciones con el servidor. Así pues, el problema P1 es frecuentemente utilizado, no ya sólo al comienzo de la práctica, sino durante todo el desarrollo de la misma.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{boxplotsessionsproblem.png}
+    \includegraphics[width=0.8\textwidth]{análisis/boxplotsessionsproblem.png}
     \caption{Boxplot del número de sesiones por problema.}
     \label{fig:boxplotsessionsproblem}
 \end{figure}
@@ -367,12 +367,12 @@ Como podemos ver en la Figura \ref{fig:boxplotsessionsyear}, las sesiones de tra
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.60\textwidth]{análisis/boxplotfinals.png}
+    \includegraphics[width=0.80\textwidth]{análisis/boxplotfinals.png}
     \caption{Boxplot del número de sesiones por año tras la eliminación de algunos outliers.}
     \label{fig:boxplotsessionsyear}
 \end{figure}
 
-Un resumen de los resultados obtenidos al realizar el test ANOVA se muestra en la Tabla \ref{tab:ANOVAnumsessions}. La hipótesis nula establece que el número de sesiones medio de los siete cursos académicos estudiados es el mismo. Así pues, estableciendo un nivel de significancia de $0.05$, como tenemos que $p = 0.0412 < 0.05$, las diferencias entre las medias podrían ser estadísticamente significativas. Aplicando el test de Kruskal-Wallis, obtenemos un $p-value$ igual a $0.08798 > 0.05$.
+Un resumen de los resultados obtenidos al realizar el test ANOVA se muestra en la Tabla \ref{tab:ANOVAnumsessions}. La hipótesis nula establece que el número de sesiones medio de los siete cursos académicos estudiados es el mismo. Así pues, estableciendo un nivel de significancia de $0.05$, como tenemos que $p = 0.0412 < 0.05$, por lo que las diferencias entre las medias podrían ser estadísticamente significativas. Aplicando el test de Kruskal-Wallis, obtenemos un $p-value$ igual a $0.08798 > 0.05$.
 
 % latex table generated in R 4.3.0 by xtable 1.8-4 package
 % Sat May 27 18:26:28 2023
@@ -384,7 +384,7 @@ Un resumen de los resultados obtenidos al realizar el test ANOVA se muestra en l
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-ndsp[[nVariable]] & 6 & 460434.32 & 76739.05 & 2.34 & 0.0412 \\ 
+data[[Variable]] & 6 & 460434.32 & 76739.05 & 2.34 & 0.0412 \\ 
   Residuals         & 67 & 2197451.96 & 32797.79 &  &  \\ 
    \hline
 \end{tabular}
@@ -392,11 +392,11 @@ ndsp[[nVariable]] & 6 & 460434.32 & 76739.05 & 2.34 & 0.0412 \\
 
 Además, se ha realizado un test de Tukey por pares de años (Tabla \ref{tab:Tukeynumsessions}). En él se observa que todos los pares pueden considerarse estadísticamente iguales ($\text{p adj} > 0.1$ en todos ellos). Así pues, podemos concluir que el número de sesiones abiertas en el servidor sigue la misma distribución de probabilidad año tras año.
 
-La Figura \ref{fig:confidencenumsessions} muestra los intervalos de confianza de todas las diferencias entre las distintas parejas de años. Así pues, consideraremos que el número de sesiones de cada grupo por año es equivalente (las variaciones son debidas al azar). Esto es importante porque indica que el comportamiento más basico de los alumnos, que viene dado por cuantas veces se conectan, es el mismo año tras año.
+La Figura \ref{fig:confidencenumsessions} muestra los intervalos de confianza de todas las diferencias entre las distintas parejas de años. Así pues, consideraremos que el número de sesiones de cada grupo por año es equivalente (las variaciones son debidas al azar). Esto es importante porque indica que el comportamiento más básico de los alumnos, que viene dado por cuántas veces se conectan al servidor, es el mismo en todos los cursos académicos considerados.
 
 % latex table generated in R 4.3.0 by xtable 1.8-4 package
 % Sat May 27 18:26:44 2023
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \caption{Test HSD de Tukey (Honestly-significance-difference) del número de sesiones por años.}
 \label{tab:Tukeynumsessions}
@@ -447,7 +447,7 @@ Además, a partir de los registros almacenados en el servidor se calcularán el 
     \label{fig:initialp}
 \end{figure}
 
-Además, podemos ver en la Figura \ref{fig:outliersp} que hay un elemento extremo ($6$) considerando la distribución del número de problemas resueltos por grupo de alumnos. Segmentando por años, obtenemos los boxplots que se muestran en la Figura \ref{fig:boxplotproblemsyear}. Así pues, eliminaremos el outlier encontrado puesto que se trata de un valor extremo en todos los años incluidos en este estudio.
+Adicionalmente, podemos observar en la Figura \ref{fig:outliersp} la existencia de un elemento extremo ($6$) en la distribución del número de problemas resueltos por grupo de alumnos. Segmentando por años, obtenemos los boxplots que se muestran en la Figura \ref{fig:boxplotproblemsyear}. Así pues, eliminaremos el outlier encontrado puesto que se trata de un valor extremo en todos los años incluidos en este estudio.
 
 \begin{figure}[H]
     \centering
@@ -458,7 +458,7 @@ Además, podemos ver en la Figura \ref{fig:outliersp} que hay un elemento extrem
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.60\textwidth]{análisis/boxplotinitialp.png}
+    \includegraphics[width=0.80\textwidth]{análisis/boxplotinitialp.png}
     \caption{Boxplot del número de problemas resueltos por año.}
     \label{fig:boxplotproblemsyear}
 \end{figure}

@@ -1,15 +1,26 @@
 # Asistente para el descubrimiento de procesos de aprendizaje ocultos durante la realización de prácticas de laboratorio
 
-## Descripción
-
-
-
 ## Índice
 
-- [Contenido](#contenido)
-- [Manual](#manual)
+- [Descripción del proyecto](#descripción)
+- [Contenido del repositorio](#contenido)
+- [Manual de uso](#manual)
 - [Créditos](#créditos)
 - [Licencia](#licencia)
+
+## Descripción
+
+El estudio del proceso de aprendizaje que realizan los alumnos cuando se les platean una serie de tareas es fundamental puesto que éste podría facilitar la asimilación de nuevos conocimientos y de hacer accesible aquello que se enseña al estudiantado.
+
+El objetivo principal de este trabajo es, precisamente, identificar los patrones de comportamiento de aquellos estudiantes en riesgo de obtener un rendimiento más bajo de lo esperado con el fin de permitir una temprana intervención del personal docente, evitando así el fracaso de los mismos en la adquisión de nuevos conocimientos.
+
+Así pues, en este trabajo fin de grado se usarán datos obtenidos en un laboratorio virtual para, a través de técnicas de Minería de Procesos, extraer una serie de grafos, representados mediante matrices, que reflejan el comportamiento de los alumnos en la plataforma tal y como se demostrará en este estudio.
+
+Una parte importante del mismo ha sido el desarrollo de una herramienta de Minería de Procesos de creación propia, *Graph Miner*, que se encarga de traducir los registros del labotorio virtual en las matrices que representan el comportamiento de los alumnos. Como veremos, ésta suplirá los inconvenientes del programa de Minería de Procesos ya existente, *Disco*.
+
+Adicionalmente, se usarán técnicas de aprendizaje automático supervisado no sólo para preveer grupos en riesgo sino también para predecir en qué intervalo de notas se encuentra la calificación de los diferentes grupos de alumnos con evidencias estadísticas. De hecho, se pueden realizar tales predicciones con una alta fiabilidad en estadios tempranos del desarrollo de la práctica.
+
+Por último, destacar que, para realizar las clasificaciones descritas en el párrafo anterior, se han utilizado tanto medidas clásicas del rendimiento de los alumnos como medidas de complejidad basadas únicamente en la topología del grafo representado a través de la matriz característica de cada grupo, demostrando éstas últimas ser igual de útiles que las primeras.
 
 ## Contenido
 

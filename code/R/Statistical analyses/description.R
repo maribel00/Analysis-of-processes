@@ -1,12 +1,11 @@
 setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
-source("LCV_Theme.R")
-source("LCV_plotting.R")
-source("LCV_Clustering.R")
-source("LCV_Bayes.R")
-source("SIIE2023.R")
+
+source("SIIE23Scripts/SIIE2023.R")
 library(forcats) # Recodificación de variables categóricas.
 
-data <- doLoadData()
+# data <- readBaseDataset()
+# data <- data[data$Level == 10,]
+data <- SIIE23doLoadData()
 nrow(data) # 77
 head(data)
 colnames(data)

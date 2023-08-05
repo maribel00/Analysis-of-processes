@@ -20,13 +20,13 @@ LCV_density <- function (data, variable, nintervals=0, showextremes=FALSE, showm
     res<-ggplot(ddataset,aes(x=dvariable))+
       geom_density(color=textcolor,fill=fillcolor,alpha=alphafill)
     if (showall  | showmax) {
-      res<- res+geom_segment(aes(x=bestx, xend=bestx, y=0, yend=fd(bestx)), linetype="dashed", lineend = "round", color ="black")
+      res<- res+geom_segment(aes(x=bestx, xend=bestx, y=0, yend=fd(bestx)), linetype="dashed", lineend = "round", color ="gray")
       tmax<- paste("\nMAX prob: ",bestx)
     }else{
       tmax<-""
     }
     if (showall  | showmean) {
-      res <- res+geom_segment(aes(x=cogx, xend=cogx, y=0, yend=fd(cogx)), linetype="solid", lineend = "round", color ="black")
+      res <- res+geom_segment(aes(x=cogx, xend=cogx, y=0, yend=fd(cogx)), linetype="solid", lineend = "round", color ="gray")
       tmean<- paste("\nCOM: ",cogx)
     }else{
       tmean<-""
