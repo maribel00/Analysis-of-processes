@@ -12,7 +12,7 @@ En primer lugar, escogeremos como separación los cuartiles de las calificacione
 \centering
 \subfloat[Boxplot de las calificaciones por cuartil.]{\label{fig:boxplotquartilegrade}\includegraphics[width=0.47\textwidth]{clustering/boxplotgrade.png}}\qquad
 \subfloat[Número de grupos por cuartil.]{\label{fig:countquartilegrade}\includegraphics[width=0.47\textwidth]{clustering/countquartilegrade.png}}%
-\caption{Resultados obtenidos tras aplicar el algoritmo agrupar las caficaciones por cuartiles.}
+\caption{Resultados obtenidos tras agrupar las caficaciones por cuartiles.}
 \label{fig:quartilegradeclustering}
 \end{figure}
 
@@ -52,7 +52,7 @@ Se agruparán los datos usando el algoritmo de las K-medias sobre la variable \e
     \label{fig:indicesdindex}
 \end{figure}
 
-Aplicando el algoritmo de las K-medias para $K = 2$ (Figura \ref{fig:KMeans2}) y para $K = 3$ (Figura \ref{fig:KMeans3}), vemos que hay una gran diferencia la precisión de uno y otro (para $K = 2$ se tiene $\texttt{accuracy} = 0.6978412$ mientras que para $K = 3$ se tendrá $\texttt{accuracy} = 0.8585982$). Como podemos ver en la Figura \ref{fig:KMeans2}, seguimos teniendo un outlier.
+Aplicando el algoritmo de las K-medias para $K = 2$ (Figura \ref{fig:KMeans2}) y para $K = 3$ (Figura \ref{fig:KMeans3}), vemos que hay una gran diferencia entre la precisión de uno y otro (para $K = 2$ se tiene $\texttt{accuracy} = 0.6978412$ mientras que para $K = 3$ se tendrá $\texttt{accuracy} = 0.8585982$). Además, como puede apreciarse en las Figuras \ref{fig:KMeans2} y \ref{fig:KMeans3}, seguimos teniendo un outlier en ambos casos.
 
 \begin{figure}[H]
     \centering
@@ -68,7 +68,7 @@ Aplicando el algoritmo de las K-medias para $K = 2$ (Figura \ref{fig:KMeans2}) y
     \label{fig:KMeans3}
 \end{figure}
 
-La distribución de la variable \emph{Grade} dentro de cada partición puede verse en las Figuras \ref{fig:KMeans2boxplot} y \ref{fig:KMeans3boxplot} mientras que el número de grupo que hay en las particiones puede verse en las Figuras \ref{fig:KMeans2count} y \ref{fig:KMeans3count}.
+La distribución de la variable \emph{Grade} dentro de cada partición puede verse en las Figuras \ref{fig:KMeans2boxplot} y \ref{fig:KMeans3boxplot} mientras que el número de grupos que hay en las particiones puede verse en las Figuras \ref{fig:KMeans2count} y \ref{fig:KMeans3count}.
 
 \begin{figure}[H]
 \centering
@@ -105,7 +105,7 @@ Por último, para cinco particiones (Figura \ref{fig:KMeans5}) se tendrá $\text
 
 \section{Por clusters aproximados de rendimiento}
 
-De las medidas de rendimiento estudiadas en el Capítulo \ref{chapter:rendimiento}, nos quedaremos con aquellas que correlan con la variable \emph{Grade} (\emph{np}, \emph{fr}, \emph{ps}, \emph{sq} y \emph{ns}). Así pues, se definirá una nueva métrica como la suma de las medidas de rendimiento \emph{p}, \emph{fr}, \emph{ps}, \emph{sq} y \emph{s}. En la Figura \ref{fig:correlationfm} vemos que ésta no correla con la variable \emph{Grade}.
+De las medidas de rendimiento estudiadas en el Capítulo \ref{chapter:rendimiento}, nos quedaremos con aquellas que correlan con la variable \emph{Grade} (\emph{np}, \emph{fr}, \emph{ps}, \emph{sq} y \emph{ns}). Así pues, se definirá una nueva métrica, a la que denotaremos por \emph{fm}, como la suma de las medidas de rendimiento \emph{p}, \emph{fr}, \emph{ps}, \emph{sq} y \emph{s}. En la Figura \ref{fig:correlationfm} vemos que \emph{fm} no correla con la variable \emph{Grade}.
 
 \begin{figure}[H]
     \centering
@@ -146,7 +146,7 @@ Aplicando el algoritmo de las K-medias para $K = 4$ (Figura \ref{fig:KMeans4}) y
     \label{fig:KMeans7}
 \end{figure}
 
-La distribución de la variable \emph{Grade} dentro de cada partición puede verse en las Figuras \ref{fig:KMeans4boxplot} y \ref{fig:KMeans7boxplot} mientras que el número de grupo que hay en las particiones puede verse en las Figuras \ref{fig:KMeans4count} y \ref{fig:KMeans7count}.
+La distribución de la variable \emph{Grade} dentro de cada partición puede verse en las Figuras \ref{fig:KMeans4boxplot} y \ref{fig:KMeans7boxplot} mientras que el número de grupos que hay en las particiones puede verse en las Figuras \ref{fig:KMeans4count} y \ref{fig:KMeans7count}.
 
 \begin{figure}[H]
 \centering
@@ -164,7 +164,7 @@ La distribución de la variable \emph{Grade} dentro de cada partición puede ver
 \label{fig:KMeans7details}
 \end{figure}
 
-\section{Clustering mediante las propiedas espectrales de los grafos}
+\section{Clustering mediante las propiedades espectrales de los grafos}
 \subsection{Clustering mediante el coeficiente LOGLAP09}
 
 Ahora, se ha decidido se asociar los datos usando el algoritmo de las K-medias sobre la variable \emph{LOGLAP09}. Para decidir el número de clusters en el que agruparemos los datos, se usarán métodos gráficos. Como podemos ver en las Figuras \ref{fig:indiceshubertLAP} y \ref{fig:indicesdindexLAP}, se ha decidido agrupar los datos en $5$ clusters (Figura \ref{fig:KMeansLAP}, $\texttt{accuracy} = 0.9673813$).
