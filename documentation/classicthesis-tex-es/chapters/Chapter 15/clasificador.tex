@@ -855,7 +855,7 @@ El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exact
     \end{tabular}
   };
 \end{tikzpicture}
-\caption{Aprendiendo a identificar a los grupos \emph{``LOW''}, es decir, aquellos con una puntuación inferior a una nota $8.1$ sobre $10$.}
+\caption{Aprendiendo a identificar a los grupos \emph{``LOW''}, es decir, aquellos con una puntuación inferior a $8.1$ sobre $10$.}
 \label{fig:cm4}
 \end{figure}
 
@@ -865,7 +865,7 @@ El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exact
   \addcontentsline{lol}{subsection}{\kvtcb@title}
   \makeatother
 \begin{multicols}{2}
-    \begin{minted}{R}
+    \begin{minted}[fontsize=\scriptsize]{R}
 Rule 11/1: (43, lift 1.6)
 	p > 7
 	We > 0.104152
@@ -1044,7 +1044,7 @@ Rule 99/5: (3.1, lift 5.3)
 Rule 99/6: (2.7, lift 5.2)
 	s <= 384
 	Cl <= 0.1232493
-	->  class [7.39,7.96]  [0.788]
+  ->  class [7.39,7.96] [0.788]
 
 Rule 99/7: (6.6/1.3, lift 4.8)
 	s <= 282
@@ -1071,7 +1071,7 @@ Rule 99/9: (4.6, lift 4.4)
 Rule 99/10: (4.1, lift 4.4)
 	s <= 282
 	WDag <= -7.014961
-	->  class [8.1,8.64]  [0.836]
+  ->  class [8.1,8.64] [0.836]
 
 Rule 99/11: (11.2/1.5, lift 4.2)
 	s > 443
@@ -1086,12 +1086,12 @@ Rule 99/12: (9.6/1.6, lift 4.1)
 	We > 0.1196341
 	WDag <= -2.951776
 	Be <= 2
-	->  class [8.1,8.64]  [0.779]
+  ->  class [8.1,8.64] [0.779]
 
 Rule 99/13: (2.4, lift 4.0)
 	s > 443
 	Cl <= 0.1157051
-	->  class [8.1,8.64]  [0.773]
+  ->  class [8.1,8.64] [0.773]
 
 Rule 99/14: (12.8/6.9, lift 2.4)
 	p > 8
@@ -1103,11 +1103,11 @@ Rule 99/15: (6.1, lift 3.0)
 	s <= 443
 	p <= 8
 	Be <= 2
-	->  class [8.79,9.35]  [0.876]
+  ->  class [8.79,9.35] [0.876]
 
 Rule 99/16: (203.4/138.5, lift 1.1)
 	We > 0.1196341
-	->  class [8.79,9.35]  [0.321]
+  ->  class [8.79,9.35] [0.321]
 
 Rule 99/17: (7.8, lift 2.8)
 	s <= 282
