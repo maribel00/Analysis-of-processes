@@ -1,18 +1,13 @@
 setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
-library("NbClust")
-library(forcats) # Recodificación de variables categóricas.
-# install.packages("NbClust")
-source("LCV_Theme.R")
-source("LCV_plotting.R")
-source("LCV_Bayes.R")
-source("LCV_Clustering.R")
-source("LCV_Regression.R")
-source("SIIE2023.R")
 
-data <- doLoadData()
+source("SIIE23Scripts/SIIE2023.R")
+
+data <- SIIE23doLoadData()
+
 data <- data[data$s < 1000,]
 data <- data[data$p > 6,]
-data$QuartileGrade <- as.character(data$QuartileGrade)
+data$QuartileGrade <- as.factor(data$QuartileGrade)
+nrow(data)
 
 # Por clusters fijos de notas
 LCV_Orange_Theme()

@@ -12,6 +12,7 @@ dsbase <- GenerateBaseDataset()
 
 dsbase$Di <- log(dsbase$Di)
 dsbase$PERFORMANCE <- as.factor(dsbase$PERFORMANCE)
+dsbase$KMEANS_Grade <- as.factor(dsbase$KMEANS_Grade)
 
 # MÉTRICAS
 
@@ -43,15 +44,21 @@ SIIE23ShowMetric(dsbase[dsbase$Level == 10,], metric="Ba")
 # COMBINACIÓN DE TODAS LAS MÉTRICAS
 
 dsend <- dsbase[dsbase$Level >= 8,]
-treeend <- C5.0(dsend[,allmetricsF()], as.factor(dsend$PERFORMANCE), trials = 100, rules=TRUE)
+treeend <- C5.0(dsend[,allmetricsF()], dsend$PERFORMANCE, trials = 100, rules=TRUE, control = C5.0Control(fuzzyThreshold = TRUE,))
 summary(treeend)
 
 predictend <- predict(treeend, dsend[,allmetricsF()])
 cmend <- confusionMatrix(predictend, dsend[,c("PERFORMANCE")])
 cmend
 
+treeendg <- C5.0(dsend[,allmetricsF()], dsend$KMEANS_Grade, trials = 100, rules=TRUE, control = C5.0Control(fuzzyThreshold = TRUE,))
+summary(treeendg)
+
+predictendg <- predict(treeendg, dsend[,allmetricsF()])
+cmendg <- confusionMatrix(predictendg, dsend[,c("KMEANS_Grade")])
+cmendg
+
 dsbegin <- dsbase[dsbase$Level <= 5,]
-# treebegin <- C5.0(dsbegin[,allmetricsF()], as.factor(dsbegin$PERFORMANCE), trials = 100, rules=TRUE,  control = C5.0Control(fuzzyThreshold = TRUE, minCases = 3,))
 treebegin <- C5.0(dsbegin[,allmetricsF()], dsbegin$PERFORMANCE, trials = 100, rules=TRUE,  control = C5.0Control(fuzzyThreshold = TRUE,))
 summary(treebegin)
 
@@ -65,13 +72,27 @@ predictbegin <- predict(treebegin, dsbegin[,allmetricsF()])
 cmbegin <- confusionMatrix(predictbegin, dsbegin[,c("PERFORMANCE")])
 cmbegin
 
+treebeging <- C5.0(dsbegin[,allmetricsF()], dsbegin$KMEANS_Grade, trials = 100, rules=TRUE,  control = C5.0Control(fuzzyThreshold = TRUE,))
+summary(treebeging)
+
+predictbeging <- predict(treebeging, dsbegin[,allmetricsF()])
+cmbeging <- confusionMatrix(predictbeging, dsbegin[,c("KMEANS_Grade")])
+cmbeging
+
 # MEDIDAS DE COMPLEJIDAD DE PROPÓSITO GENERAL
 
-treeend <- C5.0(dsend[,topologicalmetrics()], as.factor(dsend$PERFORMANCE), trials = 100, rules=TRUE)
-summary(treeend)
+treeendtopological <- C5.0(dsend[,topologicalmetrics()], dsend$PERFORMANCE, trials = 100, rules=TRUE, control = C5.0Control(fuzzyThreshold = TRUE,))
+summary(treeendtopological)
 
-predictend <- predict(treeend, dsend[,allmetricsF()])
-cmend <- confusionMatrix(predictend, dsend[,c("PERFORMANCE")])
+predictendtopological <- predict(treeendtopological, dsend[,topologicalmetrics()])
+cmend <- confusionMatrix(predictendtopological, dsend[,c("PERFORMANCE")])
+cmend
+
+treeendtopologicalg <- C5.0(dsend[,topologicalmetrics()], dsend$KMEANS_Grade, trials = 100, rules=TRUE, control = C5.0Control(fuzzyThreshold = TRUE,))
+summary(treeendtopologicalg)
+
+predictendtopologicalg <- predict(treeendtopologicalg, dsend[,topologicalmetrics()])
+cmend <- confusionMatrix(predictendtopologicalg, dsend[,c("PERFORMANCE")])
 cmend
 
 # treebegin <- C5.0(dsbegin[,allmetricsF()], as.factor(dsbegin$PERFORMANCE), trials = 100, rules=TRUE,  control = C5.0Control(fuzzyThreshold = TRUE, minCases = 3,))
@@ -82,12 +103,19 @@ predictbegintopological <- predict(treebegintopological, dsbegin[,topologicalmet
 cmbegin <- confusionMatrix(predictbegintopological, dsbegin[,c("PERFORMANCE")])
 cmbegin
 
+treebegintopologicalg <- C5.0(dsbegin[,topologicalmetrics()], dsbegin$KMEANS_Grade, trials = 100, rules=TRUE,  control = C5.0Control(fuzzyThreshold = TRUE,))
+summary(treebegintopologicalg)
+
+predictbegintopologicalg <- predict(treebegintopologicalg, dsbegin[,topologicalmetrics()])
+cmbeging <- confusionMatrix(predictbegintopologicalg, dsbegin[,c("KMEANS_Grade")])
+cmbeging
+
 LCV_Heaven_Theme()
 LCV_MosaicDensities(dsbase[dsbase$Level == 9,], topologicalmetrics())
 
 # MEDIDAS DE RENDIMIENTO CLÁSICAS
 
-treeend_classic <- C5.0(dsend[,classicalmetrics()], dsend$PERFORMANCE, trials = 100, rules=TRUE)
+treeend_classic <- C5.0(dsend[,classicalmetrics()], dsend$PERFORMANCE, trials = 100, rules=TRUE, control = C5.0Control(fuzzyThreshold = TRUE,))
 summary(treeend_classic)
 
 head(dsend)
@@ -95,7 +123,7 @@ predictend <- predict(treeend, dsend[,allmetricsF()])
 cmend <- confusionMatrix(predictend, dsend[,c("PERFORMANCE")])
 cmend
 
-treebegin <- C5.0(dsbegin[,allmetricsF()], dsbegin$PERFORMANCE, trials = 100, rules=TRUE)
+treebegin <- C5.0(dsbegin[,allmetricsF()], dsbegin$PERFORMANCE, trials = 100, rules=TRUE, control = C5.0Control(fuzzyThreshold = TRUE,))
 summary(treebegin)
 
 predictbegin <- predict(treebegin, dsbegin[,allmetricsF()])

@@ -165,9 +165,9 @@ La distribución de la variable \emph{Grade} dentro de cada partición puede ver
 \end{figure}
 
 \section{Clustering mediante las propiedades espectrales de los grafos}
-\subsection{Clustering mediante el coeficiente LOGLAP09}
+\subsection{Clustering mediante el coeficiente St}
 
-Ahora, se ha decidido se asociar los datos usando el algoritmo de las K-medias sobre la variable \emph{LOGLAP09}. Para decidir el número de clusters en el que agruparemos los datos, se usarán métodos gráficos. Como podemos ver en las Figuras \ref{fig:indiceshubertLAP} y \ref{fig:indicesdindexLAP}, se ha decidido agrupar los datos en $5$ clusters (Figura \ref{fig:KMeansLAP}, $\texttt{accuracy} = 0.9673813$).
+Ahora, se ha decidido asociar los datos usando el algoritmo de las K-medias sobre la variable \emph{St}. Para fijar el número de clusters en el que agruparemos los datos, se usarán métodos gráficos. Como podemos ver en las Figuras \ref{fig:indiceshubertLAP} y \ref{fig:indicesdindexLAP}, se ha decidido agrupar los datos en $5$ clusters (Figura \ref{fig:KMeansLAP}, $\texttt{accuracy} = 0.9544702$).
 
 \begin{figure}[H]
     \centering
@@ -200,13 +200,46 @@ La distribución de la variable \emph{Grade} dentro de cada partición puede ver
 \label{fig:KMeansLAPdetails}
 \end{figure}
 
-\subsection{Clustering mediante el coeficiente DAG}
+\subsection{Clustering mediante el coeficiente Ba}
 
-\subsection{¿Quiénes son los grupos en riesgo?}\label{sec:badstudents}
+Por último, se agruparán los datos usando el algoritmo de las K-medias sobre la variable \emph{Ba}. Para fijar el número de clusters en el que agruparemos los datos, se usarán métodos gráficos. Como podemos ver en las Figuras \ref{fig:indiceshubertBa} y \ref{fig:indicesdindexBa}, se ha decidido agrupar los datos en $5$ clusters (Figura \ref{fig:KMeansBa}, $\texttt{accuracy} = 0.9421558$).
 
-El objetivo principal de este enfoque es tratar de identificar a los estudiantes que tienen dificultades en resolver las tareas propuestas en el laboratorio virtual porque ellos, y no los alumnos ordinarios, requieren la mayor parte de la atención de del profesor para poder alcanzar un $100\%$ de éxito. Pero, ¿quiénes son?
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{clustering/HubertBa.png}
+    \caption{Valores estadísticos de Hubert.}
+    \label{fig:indiceshubertBa}
+\end{figure}
 
-En principio nos vamos a centrar en los alumnos con el cuartil más bajo de la nota, es decir, aquellos cuya nota está por debajo, como mínimo, del $75\%$ de las demás calificaciones (Figura \ref{fig:frequenciesgrade}). Sin embargo, dada la dinámica de las calificaciones cada año (Figura \ref{fig:boxplotachieveryear}), podemos ver que este primer cuartil podría no ser muy preciso. En su lugar, se ha usado la función \texttt{KMeans} en R para dividir el rango de calificaciones en $5$ intervalos con una precisión del $95\%$ en las interdependencias e intradependencias de los $5$ clusters. En la partición obtenida mediante KMeans, hay dos grupos cuyas calificaciones son son estrictamente inferiores a $8$ (Figura \ref{fig:KMeans5}). Vamos a centrarnos en estos a grupos, que se denominarán \emph{``LOW''}. Por el contrario, el resto de grupos se llamarán \emph{``GOOD''}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{clustering/DindexBa.png}
+    \caption{Valores de Dindex.}
+    \label{fig:indicesdindexBa}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{clustering/partitionsBa.png}
+    \caption{Particiones obtenidas con $K = 5$. No hay ningún outlier.}
+    \label{fig:KMeansBa}
+\end{figure}
+
+La distribución de la variable \emph{Grade} dentro de cada partición puede verse en la Figura \ref{fig:KMeansBaboxplot} mientras que el número de grupos que hay en las particiones puede verse en la Figura \ref{fig:KMeansBacount}.
+
+\begin{figure}[H]
+\centering
+\subfloat[Boxplot de cada una de las particiones.]{\label{fig:KMeansBaboxplot}\includegraphics[width=0.47\textwidth]{clustering/KMeansBaboxplot.png}}\qquad
+\subfloat[Número de grupos por partición.]{\label{fig:KMeansBacount}\includegraphics[width=0.47\textwidth]{clustering/KMeansBacount.png}}%
+\caption{Resultados obtenidos tras aplicar el algoritmo de las $K$-Medias con $K = 5$.}
+\label{fig:KMeansLAPdetails}
+\end{figure}
+
+\section{¿Quiénes son los grupos en riesgo?}\label{sec:badstudents}
+
+El objetivo principal de este enfoque es tratar de identificar a los estudiantes que tienen dificultades en resolver las tareas propuestas en el laboratorio virtual porque ellos, y no los alumnos ordinarios, requieren en mayor medida de la atención del profesorado para poder alcanzar un $100\%$ de éxito. Pero, ¿quiénes son?
+
+En principio nos vamos a centrar en los alumnos con el cuartil más bajo de la nota, es decir, aquellos cuya nota está por debajo, como mínimo, del $75\%$ de las demás calificaciones (Figura \ref{fig:frequenciesgrade}). Sin embargo, dada la dinámica de las calificaciones cada año (Figura \ref{fig:boxplotachieveryear}), podemos ver que este primer cuartil podría no ser muy preciso. En su lugar, se ha usado la función \texttt{KMeans} en R para dividir el rango de calificaciones en $5$ intervalos con una precisión del $95\%$ en las interdependencias e intradependencias de los $5$ clusters. En la partición obtenida mediante KMeans, hay dos clusters cuyos grupos han obtenido calificaciones estrictamente inferiores a $8.1$ (Figura \ref{fig:KMeans5}). Vamos a centrarnos en dichos grupos, a los que se denominará \emph{``LOW''}. Por el contrario, el resto de grupos se llamarán \emph{``GOOD''}.
 
 Este conjunto de datos podría procesarse como un único cluster de datos y sólo tendríamos una visión del final del periodo de las prácticas, que podría ser informativo, pero no útil para una intervención temprana. Con el fin de preparar el conjunto de datos para que sea útil cuanto antes y no sólo al final de la práctica, se va a estratificar por niveles donde cada nivel $i \in [3,9]$ está marcado por la primera vez que el problema (o asignación) $i$ se ha resuelto (Figura \ref{fig:stratification}). Por lo tanto, alcanzar nivel $9$ significa que se han completado todas las tareas.
 
