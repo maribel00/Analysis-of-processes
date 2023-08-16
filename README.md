@@ -3,6 +3,7 @@
 ## Índice
 
 - [Descripción del proyecto](#descripción)
+- [Objetivos del proyecto](#objetivos)
 - [Contenido del repositorio](#contenido)
 - [Manual de uso](#manual)
 - [Créditos](#créditos)
@@ -21,6 +22,10 @@ Una parte importante del mismo ha sido el desarrollo de una herramienta de Miner
 Adicionalmente, se usarán técnicas de aprendizaje automático supervisado no sólo para preveer grupos en riesgo sino también para predecir en qué intervalo de notas se encuentra la calificación de los diferentes grupos de alumnos con evidencias estadísticas. De hecho, se pueden realizar tales predicciones con una alta fiabilidad en estadios tempranos del desarrollo de la práctica.
 
 Por último, destacar que, para realizar las clasificaciones descritas en el párrafo anterior, se han utilizado tanto medidas clásicas del rendimiento de los alumnos como medidas de complejidad basadas únicamente en la topología del grafo representado a través de la matriz característica de cada grupo, demostrando éstas últimas ser igual de útiles que las primeras.
+
+## Objetivos
+
+El principal objetivo de este proyecto es identificar patrones de comportamiento indicativos de la evolución de los alumnos y del progreso de su aprendizaje, detectando, en las fases más tempranas posibles, comportamientos que pudiesen ser anómalos o que pudiesen indicar problemas de aprendizaje. Es decir, se pretende relevar, mediante la utilización de técnicas de minería de procesos, las posibles estrategias de los alumnos para cumplir los distintos objetivos de la asignatura así como desvelar su forma de trabajo habitual.
 
 ## Contenido
 
@@ -133,13 +138,11 @@ Para obtener los grafos correspondientes al proceso de aprendizaje de cada uno d
 
 No obstante, el proceso de generación de todos los grafos es costoso. Así pues, ya se proporcionan los mismos en las carpetas `Graphs`, `GraphsSummary`, `GraphsProblems`, `GraphsStates` y `GraphsStates_wc`.
 
-Para reproducir los experimentos cuyos resultados se muestran en los *Capítulos 12* y *13* de la memoria se deberá ejecutar en el directorio `/code/R` las siguientes líneas:
+Para reproducir los experimentos cuyos resultados se muestran en los *Capítulos 13* y *14* de la memoria se deberá ejecutar en el directorio `/code/R` las siguientes líneas:
 
-`Rscript`
+`Rscript main.R`
 
-`Rscript`
-
-## Crédito
+## Créditos
 
 Enumere sus colaboradores, si los hubiera, con enlaces a sus perfiles de GitHub.
 
@@ -150,11 +153,3 @@ Si siguió tutoriales, también incluya enlaces a ellos aquí.
 ## Licencia
 
 La última sección de un archivo README de alta calidad es la licencia. Esto permite que otros desarrolladores sepan lo que pueden y no pueden hacer con su proyecto. Si necesita ayuda para elegir una licencia, consulte [https://choosealicense.com/](https://choosealicense.com/).
-
-## Funciones
-
-Si su proyecto tiene muchas funciones, enumérelas aquí.
-
-## Pruebas
-
-Vaya un paso más allá y escriba pruebas para su aplicación. Luego, proporcione ejemplos sobre cómo ejecutarlas aquí.
