@@ -5,7 +5,7 @@
 - [Descripción del proyecto](#📝-descripción-del-proyecto)
 - [Objetivos del proyecto](#✔-objetivos)
 - [Contenido del repositorio](#💻-contenido-del-repositorio)
-- [Manual de uso](#📖-manual)
+- [Manual de uso](#📖-manual-de-uso)
 - [Créditos](#✒-créditos)
 - [Licencia](#⚖-licencia)
 
@@ -130,7 +130,7 @@ Dentro de la carpeta `Code`, encontramos:
 * El dataset `DBA1520GRADED.csv`, que contiene una fila por cada uno de los grupos de prácticas en la que se indica su nombre, el número de integrantes, el año al que pertenecen y la calificación obtenida por los mismos.
 * Los datasets `datasetS.csv`, `datasetA.csv`, `datasetN.csv`, `datasetSOB.csv`, `datasetMH.csv` corresponden a la segmentación del dataset `cleandataset.csv` por notas. Se generan mediante el script `Segmentar.R`.
 
-## 📖 Manual
+## 📖 Manual de uso
 
 Para obtener los grafos correspondientes al proceso de aprendizaje de cada uno de los grupos se deberá tener instalado Rscript. A continuación, se deberá la siguiente instrucción en el directorio `/code/R`:
 
