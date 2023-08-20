@@ -1,15 +1,15 @@
 # Asistente para el descubrimiento de procesos de aprendizaje ocultos durante la realización de prácticas de laboratorio
 
-## Índice
+## 🗂 Índice
 
-- [Descripción del proyecto](#descripción)
-- [Objetivos del proyecto](#objetivos)
-- [Contenido del repositorio](#contenido)
-- [Manual de uso](#manual)
-- [Créditos](#créditos)
-- [Licencia](#licencia)
+- [Descripción del proyecto](#📝-descripción-del-proyecto)
+- [Objetivos del proyecto](#✔-objetivos)
+- [Contenido del repositorio](#💻-contenido-del-repositorio)
+- [Manual de uso](#📖-manual)
+- [Créditos](#✒-créditos)
+- [Licencia](#⚖-licencia)
 
-## Descripción
+## 📝 Descripción del proyecto
 
 El estudio del proceso de aprendizaje que realizan los alumnos cuando se les platean una serie de tareas es fundamental puesto que éste podría facilitar la asimilación de nuevos conocimientos y de hacer accesible aquello que se enseña al estudiantado.
 
@@ -27,7 +27,7 @@ Por último, destacar que, para realizar las clasificaciones descritas en el pá
 
 El principal objetivo de este proyecto es identificar patrones de comportamiento indicativos de la evolución de los alumnos y del progreso de su aprendizaje, detectando, en las fases más tempranas posibles, comportamientos que pudiesen ser anómalos o que pudiesen indicar problemas de aprendizaje. Es decir, se pretende relevar, mediante la utilización de técnicas de minería de procesos, las posibles estrategias de los alumnos para cumplir los distintos objetivos de la asignatura así como desvelar su forma de trabajo habitual.
 
-## Contenido
+## 💻 Contenido del repositorio
 
 Este directorio presenta la estructura que se muestra a continuación:
 
@@ -130,7 +130,7 @@ Dentro de la carpeta `Code`, encontramos:
 * El dataset `DBA1520GRADED.csv`, que contiene una fila por cada uno de los grupos de prácticas en la que se indica su nombre, el número de integrantes, el año al que pertenecen y la calificación obtenida por los mismos.
 * Los datasets `datasetS.csv`, `datasetA.csv`, `datasetN.csv`, `datasetSOB.csv`, `datasetMH.csv` corresponden a la segmentación del dataset `cleandataset.csv` por notas. Se generan mediante el script `Segmentar.R`.
 
-## Manual
+## 📖 Manual
 
 Para obtener los grafos correspondientes al proceso de aprendizaje de cada uno de los grupos se deberá tener instalado Rscript. A continuación, se deberá la siguiente instrucción en el directorio `/code/R`:
 
@@ -142,7 +142,7 @@ Para reproducir los experimentos cuyos resultados se muestran en los *Capítulos
 
 `Rscript main.R`
 
-## Créditos
+## ✒ Créditos
 
 Enumere sus colaboradores, si los hubiera, con enlaces a sus perfiles de GitHub.
 
@@ -150,6 +150,6 @@ Si utilizó activos de terceros que requieren autoría, enumere los creadores co
 
 Si siguió tutoriales, también incluya enlaces a ellos aquí.
 
-## Licencia
+## ⚖ Licencia
 
 La última sección de un archivo README de alta calidad es la licencia. Esto permite que otros desarrolladores sepan lo que pueden y no pueden hacer con su proyecto. Si necesita ayuda para elegir una licencia, consulte [https://choosealicense.com/](https://choosealicense.com/).
