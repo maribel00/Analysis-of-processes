@@ -152,4 +152,4 @@ Si siguió tutoriales, también incluya enlaces a ellos aquí.
 
 ## ⚖ Licencia
 
-La última sección de un archivo README de alta calidad es la licencia. Esto permite que otros desarrolladores sepan lo que pueden y no pueden hacer con su proyecto. Si necesita ayuda para elegir una licencia, consulte [https://choosealicense.com/](https://choosealicense.com/).
+El contenido de este repositorio está sujeto a la licencia [MIT](https://github.com/maribel00/Analysis-of-processes/blob/f2ce972be1725cbb0f038a191eeca4421cffe0ca/LICENSE).
