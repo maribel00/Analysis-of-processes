@@ -1,0 +1,24 @@
+digraph DBA_1819_P2_GD_2_GOOD {
+labelloc="tl"
+label= " DBA 1819 P2 GD 2 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1.fail" [shape="circle" label="p1.fail"]
+"p4.fail" [shape="circle" label="p4.fail"]
+"p2.fail" [shape="circle" label="p2.fail"]
+"p9.fail" [shape="circle" label="p9.fail"]
+"p7.fail" [shape="circle" label="p7.fail"]
+"p1.solved" [shape="doublecircle" label="p1.solved"]
+"p2.solved" [shape="doublecircle" label="p2.solved"]
+"A" -> "p1.fail" [ label=17]
+"p1.fail" -> "p4.fail" [ label=1]
+"p1.fail" -> "p2.fail" [ label=3]
+"p1.fail" -> "p9.fail" [ label=2]
+"p1.fail" -> "p7.fail" [ label=1]
+"p1.fail" -> "p1.solved" [ label=2]
+"p4.fail" -> "p2.fail" [ label=2]
+"p7.fail" -> "p2.fail" [ label=1]
+"p1.solved" -> "p2.solved" [ label=1]
+}

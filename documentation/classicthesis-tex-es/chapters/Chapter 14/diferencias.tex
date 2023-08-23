@@ -7,6 +7,53 @@ Para analizar la capacidad de distinción de una métrica se procederá, tras el
 
 \subsection{Estudio de la capacidad de separación de las medidas clásicas del rendimiento}
 
+Como podemos ver en la Figura \ref{fig:tstudentcomplexityclassic}, la única medida con medias estadísticamente diferentes en ambas poblaciones es \emph{ns} ($p-value = 0.02561 < 0.05$). % Podríamos igualmente considerar que hay diferencias significativas entre las medias de la medida \emph{Ef}, aunque con un grado de certeza menor ($p-value = 0.1696 < 0.2$).
+Adicionalmente, podemos ver las funciones de densidad de las dos poblaciones de cada métrica en la Figura \ref{fig:tstudentcomplexitydensityclassic}.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node[inner sep=0pt] (image1) at (0,0)
+    {\includegraphics[width=0.3\textwidth]{diferencias/ns.png}};
+  \node[below, align=center, text width=0.3\textwidth] at (image1.south)
+    {\scriptsize\textcolor{gray}{\texttt{t = -2.3904, df = 22.496, p-value = 0.02561}}};
+\end{tikzpicture}%
+\begin{tikzpicture}
+  \node[inner sep=0pt] (image2) at (0,0)
+    {\includegraphics[width=0.3\textwidth]{diferencias/np.png}};
+  \node[below, align=center, text width=0.3\textwidth] at (image2.south)
+    {\scriptsize\textcolor{gray}{\texttt{t = 0.81747, df = 15.122, p-value = 0.4264}}};
+\end{tikzpicture}%
+
+\begin{tikzpicture}
+  \node[inner sep=0pt] (image7) at (0,0)
+    {\includegraphics[width=0.3\textwidth]{diferencias/fr.png}};
+  \node[below, align=center, text width=0.3\textwidth] at (image7.south)
+    {\scriptsize\textcolor{gray}{\texttt{t = -0.71541, df = 14.751, p-value = 0.4855}}};
+\end{tikzpicture}%
+
+\caption{Boxplots de las diferentes medidas clásicas de rendimiento por grupos de alumnos.}
+\label{fig:tstudentcomplexityclassic}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.48\textwidth]{diferencias/densityns.png}
+\includegraphics[width=0.48\textwidth]{diferencias/densitynp.png} \\
+\includegraphics[width=0.48\textwidth]{diferencias/densityfr.png}
+%\includegraphics[width=0.48\textwidth]{diferencias/densityle.png} \\
+%\includegraphics[width=0.48\textwidth]{diferencias/densitydi.png}
+%\includegraphics[width=0.48\textwidth]{diferencias/densitywe.png} \\
+%\includegraphics[width=0.48\textwidth]{diferencias/densityef.png}
+%\includegraphics[width=0.48\textwidth]{diferencias/densityst.png} \\
+%\includegraphics[width=0.48\textwidth]{diferencias/densitydag.png}
+%\includegraphics[width=0.48\textwidth]{diferencias/densitywdag.png} \\
+%\includegraphics[width=0.48\textwidth]{diferencias/densitybe.png}
+%\includegraphics[width=0.48\textwidth]{diferencias/densityba.png}
+\caption{Funciones de densidad de las diferentes medidas clásicas de rendimiento por grupos de alumnos.}
+\label{fig:tstudentcomplexitydensityclassic}
+\end{figure}
+
 \subsection{Estudio de la capacidad de separación de las medidas de complejidad de propósito general}
 
 Como podemos ver en la Figura \ref{fig:tstudentcomplexity}, la única medida con medias estadísticamente diferentes en ambas poblaciones es \emph{We} ($p-value = 0.02562 < 0.05$). Podríamos igualmente considerar que hay diferencias significativas entre las medias de la medida \emph{Ef}, aunque con un grado de certeza menor ($p-value = 0.1696 < 0.2$). Adicionalmente, podemos ver las funciones de densidad de las dos poblaciones de cada métrica en la Figura \ref{fig:tstudentcomplexitydensity}.
@@ -110,4 +157,3 @@ Como podemos ver en la Figura \ref{fig:tstudentcomplexity}, la única medida con
 \caption{Funciones de densidad de las diferentes medidas de complejidad por grupos de alumnos.}
 \label{fig:tstudentcomplexitydensity}
 \end{figure}
-
