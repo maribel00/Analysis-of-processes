@@ -144,11 +144,7 @@ Para reproducir los experimentos cuyos resultados se muestran en los *Capítulos
 
 ## ✒ Créditos
 
-Enumere sus colaboradores, si los hubiera, con enlaces a sus perfiles de GitHub.
-
-Si utilizó activos de terceros que requieren autoría, enumere los creadores con enlaces a su presencia web principal en esta sección.
-
-Si siguió tutoriales, también incluya enlaces a ellos aquí.
+Este trabajo fin de grado ha sido tutorizado por Luis Castillo Vidal, Catedrático de Universidad del Departamento de Ciencias de la Computación e Inteligencia Artificial de la Universidad de Granada.
 
 ## ⚖ Licencia
 
