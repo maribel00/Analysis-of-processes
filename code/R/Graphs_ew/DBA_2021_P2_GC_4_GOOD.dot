@@ -1,0 +1,23 @@
+digraph DBA_2021_P2_GC_4_GOOD {
+labelloc="tl"
+label= " DBA 2021 P2 GC 4 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1.fail" [shape="circle" label="p1.fail"]
+"p1.solved" [shape="doublecircle" label="p1.solved"]
+"p2.fail" [shape="circle" label="p2.fail"]
+"p2.solved" [shape="doublecircle" label="p2.solved"]
+"p3.solved" [shape="doublecircle" label="p3.solved"]
+"p3.fail" [shape="circle" label="p3.fail"]
+"p4.solved" [shape="doublecircle" label="p4.solved"]
+"A" -> "p1.fail" [ label=97]
+"p1.fail" -> "p1.solved" [ label=19]
+"p1.solved" -> "p2.fail" [ label=2]
+"p1.solved" -> "p2.solved" [ label=6]
+"p2.fail" -> "p2.solved" [ label=10]
+"p2.solved" -> "p3.solved" [ label=13]
+"p3.solved" -> "p3.fail" [ label=4]
+"p3.solved" -> "p4.solved" [ label=1]
+}

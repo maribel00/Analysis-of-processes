@@ -1,0 +1,16 @@
+digraph DBA_1920_P2_GD_3 {
+labelloc="tl"
+label= " DBA 1920 P2 GD 3 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1.solved" [shape="doublecircle" label="p1.solved"]
+"p2.solved" [shape="doublecircle" label="p2.solved"]
+"p3.fail" [shape="circle" label="p3.fail"]
+"p8.solved" [shape="doublecircle" label="p8.solved"]
+"A" -> "p1.solved" [ label=1]
+"p1.solved" -> "p2.solved" [ label=1]
+"p2.solved" -> "p3.fail" [ label=6]
+"p3.fail" -> "p8.solved" [ label=1]
+}

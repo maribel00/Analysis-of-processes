@@ -1,0 +1,20 @@
+digraph DBA_1516_P2_GG_5 {
+labelloc="tl"
+label= " DBA 1516 P2 GG 5 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1.fail" [shape="circle" label="p1.fail"]
+"p1.solved" [shape="doublecircle" label="p1.solved"]
+"p2.fail" [shape="circle" label="p2.fail"]
+"p2.solved" [shape="doublecircle" label="p2.solved"]
+"p3.solved" [shape="doublecircle" label="p3.solved"]
+"p4.solved" [shape="doublecircle" label="p4.solved"]
+"A" -> "p1.fail" [ label=78]
+"p1.fail" -> "p1.solved" [ label=2]
+"p1.solved" -> "p2.fail" [ label=11]
+"p2.fail" -> "p2.solved" [ label=1]
+"p2.solved" -> "p3.solved" [ label=1]
+"p3.solved" -> "p4.solved" [ label=1]
+}

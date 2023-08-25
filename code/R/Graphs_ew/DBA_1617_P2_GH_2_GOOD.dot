@@ -1,0 +1,19 @@
+digraph DBA_1617_P2_GH_2_GOOD {
+labelloc="tl"
+label= " DBA 1617 P2 GH 2 "
+rankdir="RL";
+graph [ size=" 10 , 10 !"]
+
+"A" [shape="square" label="A"]
+"p1.fail" [shape="circle" label="p1.fail"]
+"p2.fail" [shape="circle" label="p2.fail"]
+"p1.solved" [shape="doublecircle" label="p1.solved"]
+"p3.fail" [shape="circle" label="p3.fail"]
+"p2.solved" [shape="doublecircle" label="p2.solved"]
+"A" -> "p1.fail" [ label=153]
+"p1.fail" -> "p2.fail" [ label=38]
+"p1.fail" -> "p1.solved" [ label=72]
+"p2.fail" -> "p3.fail" [ label=1]
+"p2.fail" -> "p2.solved" [ label=1]
+"p1.solved" -> "p2.fail" [ label=4]
+}
