@@ -20,16 +20,16 @@ y manteniendo el grado de entrada de cada uno de los vértices.]{\label{fig:exam
 \mathcal{A}^g = 
 \left(
 \begin{array}{c|cccccccc}
-    & A & p_1^f & p_1^s & p_2^f & p_2^s & p_3^f & p_3^s & Z \\
+    & START & p_1^f & p_1^s & p_2^f & p_2^s & p_3^f & p_3^s & END \\
   \hline
-  A & \textbf{0} & 5 & 0 & 0 & 0 & 0 & 0 & 0 \\
+  START & \textbf{0} & 5 & 0 & 0 & 0 & 0 & 0 & 0 \\
   p_1^f & 0 & \textbf{0} & 4 & 3 & 1 & 2 & 0 & 0 \\
   p_1^s & 0 & 0 & \textbf{0} & 0 & 1 & 0 & 0 & 0 \\
   p_2^f & 0 & 0 & 1 & \textbf{0} & 0 & 1 & 0 & 0 \\
   p_2^s & 0 & 0 & 0 & 0 & \textbf{0} & 1 & 0 & 0 \\
   p_3^f & 0 & 0 & 0 & 0 & 0 & \textbf{0} & 1 & 0\\
   p_3^s & 0 & 0 & 0 & 0 & 0 & 0 & \textbf{0} & 1 \\
-  Z & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \textbf{0}
+  END & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \textbf{0}
 \end{array}
 \right)
 \end{equation}
@@ -37,7 +37,7 @@ y manteniendo el grado de entrada de cada uno de los vértices.]{\label{fig:exam
 Esta perspectiva nos permite ver $B^g$ como un grafo dirigido $G = (V^g,E^g)$ que capta la dinámica de un grupo mientras se esfuerza por resolver los distintos problemas que se le han planteado. Por lo tanto, el conjunto de eventos (problemas y estado de los mismos más un evento de inicio y otro de finalización) que los estudiantes han realizado es el conjunto de vértices del grafo:
 
 \begin{equation}
-V^g = \left\lbrace ^0A \right\rbrace \cup \left\lbrace ^sp_i^k \in B^g \right\rbrace \cup \left\lbrace Z \right\rbrace
+V^g = \left\lbrace ^0START \right\rbrace \cup \left\lbrace ^sp_i^k \in B^g \right\rbrace \cup \left\lbrace END \right\rbrace
 \end{equation}
 
 y cada par de eventos consecutivos se considera una arista del grafo:

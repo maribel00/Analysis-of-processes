@@ -177,10 +177,10 @@ siendo $p_i^1$ el suceso de sólo abrir el problema $i$ y $p_i^5$ la obtención 
 B^g = \left\lbrace ^sp_i^k,\dots \right\rbrace
 \end{equation}
 
-Cada \emph{sesión} del laboratorio virtual $^sp_i^k$ se etiqueta como el mayor hito $k$ alcanzado en cada problema $p_i$ y un número natural secuencial $s$ que es un registro del tiempo actual del sistema. Además, se utiliza una marca $A$ para señalar el inicio del de laboratorio y un indicador $Z$ para señalar el cierre del mismo.
+Cada \emph{sesión} del laboratorio virtual $^sp_i^k$ se etiqueta como el mayor hito $k$ alcanzado en cada problema $p_i$ y un número natural secuencial $s$ que es un registro del tiempo actual del sistema. Además, se utiliza una marca $START$ para señalar el inicio del de laboratorio y un indicador $END$ para señalar el cierre del mismo.
 
 \begin{equation}
-B^g = \left\lbrace ^0A \right\rbrace \cup \left\lbrace ^sp_i^k,\dots \right\rbrace \cup \left\lbrace Z \right\rbrace
+B^g = \left\lbrace ^0START \right\rbrace \cup \left\lbrace ^sp_i^k,\dots \right\rbrace \cup \left\lbrace END \right\rbrace
 \end{equation}
 
 \begin{table}[H]
@@ -188,8 +188,8 @@ B^g = \left\lbrace ^0A \right\rbrace \cup \left\lbrace ^sp_i^k,\dots \right\rbra
 \caption{El comportamiento de un grupo ficticio con $20$ sesiones de trabajo en el laboratorio virtual.}
 \label{tab:sequence}
 \begin{tabular}{cccccccccccc}
-$^0A$ & $^1p_1^1$ & $^2p_1^3$ & $^3p_1^5$ & $^4p_1^5$ & $^5p_1^5$ & $^6p_1^4$ & $^7p_2^3$ & $^8p_2^4$ & $^9p_1^5$ & $^{10}p_1^5$ \\ \hline
-$^{11}p_2^5$  & $^{12}p_1^1$ & $^{13}p_2^5$ & $^{14}p_3^2$ & $^{15}p_3^4$ & $^{16}p_1^2$ & $^{17}p_3^3$ & $^{18}p_2^3$ & $^{19}p_3^4$ & $^{20}p_3^5$ & $Z$
+$^0START$ & $^1p_1^1$ & $^2p_1^3$ & $^3p_1^5$ & $^4p_1^5$ & $^5p_1^5$ & $^6p_1^4$ & $^7p_2^3$ & $^8p_2^4$ & $^9p_1^5$ & $^{10}p_1^5$ \\ \hline
+$^{11}p_2^5$  & $^{12}p_1^1$ & $^{13}p_2^5$ & $^{14}p_3^2$ & $^{15}p_3^4$ & $^{16}p_1^2$ & $^{17}p_3^3$ & $^{18}p_2^3$ & $^{19}p_3^4$ & $^{20}p_3^5$ & $END$
 \end{tabular}
 \end{table}
 

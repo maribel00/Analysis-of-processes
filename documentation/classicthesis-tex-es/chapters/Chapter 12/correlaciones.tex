@@ -12,12 +12,12 @@ En primer, las correlaciones que más nos interesan son las de las distintas mé
 
 Así pues, vemos que las variables \emph{np} ($p = 0.0127 < 0.05$), \emph{fr} ($p = 0.0378 < 0.05$), \emph{ps} ($p = 0.0031 < 0.05$) y \emph{sq} ($p = 0.0226 < 0.05$) correlan con la calificación obtenida y que la variable \emph{ns} podría correlar con la variable \emph{Grade} aunque con un grado de certeza menor que el resto ($p = 0.0712 < 0.1$).
 
-Además, realizando una regresión polinomial entre dichas medidas y la variable \emph{Grade} obtenemos que existe una relación no lineal entre las variables \emph{np} ($p = 0.0137 < 0.05$), \emph{fr} ($p = 0.0016 < 0.05$) y \emph{ps} ($p = 0.0006 < 0.05$) y las calificaciones obtenidas tal y como se muestra en la Figura \ref{fig:correlations2}. Adicionalmente, podría existir una relación no lineal entre la variable \emph{sq} y la variable \emph{Grade} aunque con un grado de certeza menor ($p = 0.0695 < 0.1$).
+Además, realizando una regresión polinomial de orden $2$ entre dichas medidas y la variable \emph{Grade} obtenemos que existe una relación no lineal entre las variables \emph{np} ($p = 0.0137 < 0.05$), \emph{fr} ($p = 0.0016 < 0.05$) y \emph{ps} ($p = 0.0006 < 0.05$) y las calificaciones obtenidas tal y como se muestra en la Figura \ref{fig:correlations2}. Adicionalmente, podría existir una relación no lineal entre la variable \emph{sq} y la variable \emph{Grade} aunque con un grado de certeza menor ($p = 0.0695 < 0.1$).
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{correlaciones/classicalpolynomial.png}
-    \caption{Regresión polinomial entre las distintas métricas clásicas y la variable \emph{Grade}.}
+    \caption{Regresión polinomial de orden $2$ entre las distintas métricas clásicas y la variable \emph{Grade}.}
     \label{fig:correlations2}
 \end{figure}
 
@@ -35,6 +35,6 @@ Por último, estudiaremos si existe alguna relación no lineal entre alguna de l
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{correlaciones/topologicalpolynomial.png}
-    \caption{Regresión polinomial entre las medidas de complejidad de propósito general y la variable \emph{Grade}.}
+    \caption{Regresión polinomial de orden $2$ entre las medidas de complejidad de propósito general y la variable \emph{Grade}.}
     \label{fig:correlations4}
 \end{figure}
