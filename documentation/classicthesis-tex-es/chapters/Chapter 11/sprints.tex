@@ -1,7 +1,29 @@
 \chapter{Etapas del proyecto: división en sprints y seguimiento de los mismos}\label{chapter:sprints}
 \addcontentsline{toc}{chapter}{Etapas del proyecto: división en sprints}
 
-El proyecto se ha dividido en once sprints de tres semanas cada uno y un último sprint con los días restantes. Además, durante el transcurso de cada sprint se ha realizado un seguimiento del trabajo realizado en el mismo, aportando \emph{burndown charts} de cada uno de ellos.
+\section{Planificación temporal}
+
+El proyecto se ha dividido en once sprints de tres semanas cada uno y un último sprint con los días restantes. El diagrama de Gantt expuesto en la Figura \ref{fig:gantt} muestra la planificación realizada para el mismo, con un total de siete bloques distintos incluyendo:
+
+\begin{itemize}
+\item El inicio del proyecto, en el que se plantean unos objetivos iniciales, se empieza a trabajar con los datos disponibles y se comprueba la homogeneidad de los mismos. Adicionalmente, se estudian los datos segmentados por años y por calificaciones.
+\item La extracción de los procesos ocultos en los datos a través de la herramienta DISCO para posteriormente realizar un primer análisis de los grafos obtenidos con la misma. Además, este bloque incluye el estudio de la literatura académica relacionada.
+\item El uso de medidas basadas en las características topológicas de los grafos obtenidos anteriormente. Se crea una medida propia calculada a partir de la matriz de adyacencia de un grafo y se compara con el resto de métricas de la literatura (tanto medidas clásicas de rendimiento como medidas de complejidad de propósito general).
+\item La implementación de una suite de minería de procesos propia que suplirá los defectos de la ya existente.
+\item La identificación de los diferentes perfiles de estudiantes mediante técnicas de clustering. En particular, se empleará el algoritmo de las K-medias.
+\item La identificación de los grupos en riesgo de obtener peores calificaciones. Finalmente, se conseguirá incluso clasificar a los grupos en intervalos de notas. En este bloque, se entrenan diferentes clasificadores que emplearán datos del primer tercio de la práctica o del último tercio de la misma así como conjuntos diferentes de métricas (tanto topólogicas como clásicas).
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{sprints/Gantt.png}
+    \caption{Diagrama de Gantt del proyecto.}
+    \label{fig:gantt}
+\end{figure}
+
+En el diagrama de la Figura \ref{fig:gantt} se puede observar la existencia de dependencias entre tareas. Por ejemplo, en el segundo bloque presentado puede verse, lógicamente, la imposibilidad de realizar un análisis de los grafos sin haberlos extraído previamente. No obstante, existen tareas que se pueden realizar de manera concurrente. Un ejemplo de esto último podría ser la documentación (recopilación de información y creación de gráficos ilustrativos), que puede realizarse en paralelo al resto de tareas.
+
+Además, durante el transcurso de cada sprint se ha realizado un seguimiento del trabajo realizado en el mismo, aportando \emph{burndown charts} de cada uno de ellos.
 
 Un \emph{burdown chart} es una gráfica en la que se muestra el progreso de un proyecto durante cierto periodo de tiempo preestablecido (un sprint, una release o el proyecto completo, por ejemplo). Para la construcción de los mismos se requieren los siguientes elementos:
 \begin{itemize}

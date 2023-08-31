@@ -5,15 +5,15 @@ Para realizar la identificación de los subconjuntos de alumnos definidos en la 
 
 Se utilizarán como variables de entrada del clasificador tanto las medidas clásicas de rendimiento presentadas en el Capítulo \ref{chapter:rendimiento} como las medidas grafo-teóricas (Sección \ref{sec:complexity}). Por su parte, como categorías de salida, tendremos tanto una única partición en alumnos ``LOW'', que se supone que requieren más esfuerzo para superar el laboratorio, como las cinco particiones que se muestran en la Figura \ref{fig:KMeans5}.
 
-Dado que hay muy pocos registros ($77$ en cada nivel), el problema de clasificación va a ser difícil y, con el fin de aumentar las evidencias requeridas por C5.0 para trabajar, el conjunto de datos se agrupará cada tres niveles consecutivos. Así pues, por un lado, agruparemos los niveles $3$, $4$ y $5$ para realizar predicciones al principio de la práctica y, por otro lado, agruparemos los niveles $8$, $9$ y $10$. Así pues, las siguientes secciones se dividrán en dos subapartados, dependiendo de la parte del dataset que estemos utilizando para entrenar el clasificador.
+Dado que hay muy pocos registros ($77$ en cada nivel), el problema de clasificación va a ser difícil y, con el fin de aumentar las evidencias requeridas por C5.0 para trabajar, el conjunto de datos se agrupará cada tres niveles consecutivos. Así pues, por un lado, agruparemos los niveles $3$, $4$ y $5$ para realizar predicciones al principio de la práctica y, por otro lado, agruparemos los niveles $8$, $9$ y $10$. Así pues, las siguientes secciones se dividirán en dos subapartados, dependiendo de la parte del dataset que estemos utilizando para entrenar el clasificador.
 
-\section{Clasificación empleando las métricas clásicas de rendimiento}
+\section{Clasificación en grupos \emph{``LOW''} y \emph{``GOOD''}}
 
+\subsection{Clasificación empleando las métricas clásicas de rendimiento}
 
+\subsection{Clasificación empleando las medidas de complejidad de propósito general}
 
-\section{Clasificación empleando las medidas de complejidad de propósito general}
-
-\subsection{Clasificación empleando los niveles 3, 4 y 5}
+\subsubsection{Clasificación empleando los niveles 3, 4 y 5}
 
 El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $35$ de los $36$ casos de grupos \emph{``LOW''} del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p = 3.843e-16$ estadísticamente muy relevante (Figura \ref{fig:cm2}). Además, las reglas obtenidas (Figura \ref{rules2}) tienen pleno sentido. Por ejemplo, la regla $7$ dice: ``Un grupo está en riesgo si está centrado en los problemas con numeración alta (\texttt{Be > 6})''. O la regla $3$ que dice ``Un grupo está en riesgo si no se ha centrado por igual en todos los problemas (\texttt{Ba > 3.366005}) y recorre caminos menos largos en media (\texttt{WDag > -4.317488}) teniendo en cuenta que el valor de máxima probabilidad de la métrica $WDag$ es $-4.19$.
 
@@ -101,7 +101,347 @@ Rule 11/9: (19.9/5.4, lift 2.0)
 \label{rules2}
 \end{tcolorbox}
 
-Pero no sólo esto, ¿podríamos dar un gran paso y predecir no sólo equipos \emph{``LOW''}/\emph{``GOOD''}, sino también un límite inferior y superior de sus calificaciones finales, y adivinar en cuál de los $5$ intervalos de la Figura \ref{fig:KMeans5} se encuentran? La respuesta es, felizmente, sí.
+Pero no sólo esto, ¿podríamos dar un gran paso y predecir no sólo equipos \emph{``LOW''}/\emph{``GOOD''}, sino también un límite inferior y superior de sus calificaciones finales, y adivinar en cuál de los $5$ intervalos de la Figura \ref{fig:KMeans5} se encuentran? La respuesta es, felizmente, sí (Sección \ref{sec:intervals}).
+
+\subsubsection{Clasificación empleando los niveles 8, 9 y 10}
+
+El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ casos de grupos \emph{``LOW''} del nivel $8$ en adelante, es decir, a partir del último tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm3}). Además, las reglas obtenidas (Figura \ref{rules3}) tienen pleno sentido como en el caso anteriormente visto.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node (matrix)  {$\begin{array}{c|cc}
+			 & GOOD & LOW \\ \hline
+        GOOD & 186  & 0 \\
+        LOW & 0 & 36
+\end{array}$};
+  \node[above of= matrix, node distance=0.5cm, yshift=1cm,font=\color{black}] {\textbf{Referencia}};
+  \node[left of= matrix, node distance=3.5cm, rotate=90, anchor=center,yshift=-0.7cm,font=\color{black}] {\textbf{Predicción}};
+  % Tabular environment for additional text
+  \node[below of=matrix, node distance=2.5cm,font=\color{gray}]{
+    \begin{tabular}{l}
+      \texttt{Accuracy : 1} \\
+      \texttt{95\% CI : (0.9835, 1)} \\
+      \texttt{No Inform. Rate : 0.8378} \\
+      \texttt{P-Value : < 2.2e-16}
+    \end{tabular}
+  };
+\end{tikzpicture}
+\caption{Aprendiendo a identificar a los grupos \emph{``LOW''}, es decir, aquellos con una puntuación inferior a $8.1$ sobre $10$.}
+\label{fig:cm3}
+\end{figure}
+
+\begin{tcolorbox}[title=Reglas de clasificación para identificar grupos de tipo \emph{``LOW''}.]
+  %add special color box to list of listings
+  \makeatletter
+  \addcontentsline{lol}{subsection}{\kvtcb@title}
+  \makeatother
+\begin{multicols}{2}
+    \begin{minted}{R}
+Rule 99/1: (8.3, lift 1.3)
+	St <= 1.791759
+	->  class GOOD  [0.903]
+
+Rule 99/2: (8.3, lift 1.3)
+	Be <= 1
+	Ba <= 7.664816
+	->  class GOOD  [0.903]
+
+Rule 99/3: (81.3/11, lift 1.3)
+	We > 0.4208696
+	->  class GOOD  [0.855]
+
+Rule 99/4: (72.7/13, lift 1.2)
+	Cl <= 0.2771242
+	We > 0.06390639
+	We <= 0.4208696
+	Be > 4
+	->  class GOOD  [0.812]
+
+Rule 99/5: (28.1/1.9, lift 2.8)
+	We <= 0.4208696
+	St > 1.791759
+	Be <= 4
+	Ba > 7.664816
+	->  class LOW  [0.905]
+
+Rule 99/6: (6.9, lift 2.7)
+	Di > -8.386857
+	St > 15.46906
+	->  class LOW  [0.883]
+
+Rule 99/7: (4.8, lift 2.6)
+	Cl > 0.2771242
+	Be > 4
+	->  class LOW  [0.852]
+
+Rule 99/8: (28.7/4.1, lift 2.6)
+	We <= 0.4208696
+	St > 1.791759
+	Be > 1
+	Be <= 4
+	->  class LOW  [0.834]
+
+Rule 99/9: (5.3/0.4, lift 2.5)
+	We <= 0.06390639
+	Be > 4
+	->  class LOW  [0.815]
+    \end{minted}
+  \end{multicols}
+\label{rules3}
+\end{tcolorbox}
+
+\subsection{Clasificación empleando una combinación de todas las métricas}
+
+A continuación, se repetirán los experimentos anteriores, pero ahora empleando las funciones $s$, $p$, $Cl$, $De$, $Dm$, $Le$, $Di$, $We$, $Ef$, $St$, $Dag$, $WDag$, $Be$ y $Ba$.
+
+\subsubsection{Clasificación empleando los niveles 3, 4 y 5}
+
+El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ casos de grupos \emph{``LOW''} del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm1}). Entre las reglas obtenidas (Figura \ref{rules1}), la regla $6$ dice: ``Un grupo está en riesgo si ha realizado pocas sesiones (\texttt{s <= 21}) y el grafo no está lo suficientemente balanceado (\texttt{Ba > 3,366005})''. O la regla $7$ que dice ``Un grupo está en riesgo si tiene pocas sesiones \texttt{We <= 0.01620162} y no se centra por igual en todos los problemas \texttt{Ba > 3.366005}''. %Esto es como el mal gráfico mostrado al principio de este documento en la Figura 1, largo y desconectado.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node (matrix)  {$\begin{array}{c|cc}
+			 & GOOD & LOW \\ \hline
+        GOOD & 186  & 0 \\
+        LOW & 0 & 36
+\end{array}$};
+  \node[above of= matrix, node distance=0.5cm, yshift=1cm,font=\color{black}] {\textbf{Referencia}};
+  \node[left of= matrix, node distance=3.5cm, rotate=90, anchor=center,yshift=-0.7cm,font=\color{black}] {\textbf{Predicción}};
+  % Tabular environment for additional text
+  \node[below of=matrix, node distance=2.5cm,font=\color{gray}]{
+    \begin{tabular}{l}
+      \texttt{Accuracy : 1} \\
+      \texttt{95\% CI : (0.9835, 1)} \\
+      \texttt{No Inform. Rate : 0.8378} \\
+      \texttt{P-Value : < 2.2e-16}
+    \end{tabular}
+  };
+\end{tikzpicture}
+\caption{Aprendiendo a identificar a los grupos \emph{``LOW''}, es decir, aquellos con una puntuación inferior a $8.1$ sobre $10$.}
+\label{fig:cm1}
+\end{figure}
+
+\begin{tcolorbox}[title=Reglas de clasificación para identificar grupos de tipo \emph{``LOW''}.]
+  %add special color box to list of listings
+  \makeatletter
+  \addcontentsline{lol}{subsection}{\kvtcb@title}
+  \makeatother
+\begin{multicols}{2}
+    \begin{minted}{R}
+Rule 5/1: (20.9, lift 1.5)
+	s > 177
+	Ba <= 5.651057
+	->  class GOOD  [0.956]
+
+Rule 5/2: (21.2/0.3, lift 1.5)
+	s > 21
+	Cl > 0.6111111
+	WDag > -6.562621
+	->  class GOOD  [0.945]
+
+Rule 5/3: (11, lift 1.4)
+	Ba <= 3.366005
+	->  class GOOD  [0.923]
+
+Rule 5/4: (41.2/4.6, lift 1.4)
+	WDag <= -6.678342
+	->  class GOOD  [0.871]
+
+Rule 5/5: (143.1/44.1, lift 1.1)
+	Cl <= 0.4866667
+	->  class GOOD  [0.689]
+
+Rule 5/6: (12.4, lift 2.6)
+	s <= 21
+	Ba > 3.366005
+	->  class LOW  [0.931]
+
+Rule 5/7: (10.3, lift 2.6)
+	We <= 0.01620162
+	Ba > 3.366005
+	->  class LOW  [0.918]
+
+Rule 5/8: (19/1.4, lift 2.5)
+	s > 177
+	s <= 271
+	Cl <= 0.4866667
+	WDag > -6.39693
+	Ba > 5.651057
+	->  class LOW  [0.885]
+
+Rule 5/9: (9.8/0.6, lift 2.4)
+	s <= 105
+	Cl <= 0.6111111
+	We > 0.1657658
+	->  class LOW  [0.868]
+
+Rule 5/10: (19.6/4.3, lift 2.1)
+	WDag > -6.678342
+	WDag <= -6.562621
+	->  class LOW  [0.755]
+
+Rule 5/11: (26.4/7.8, lift 1.9)
+	Cl > 0.4866667
+	Cl <= 0.6111111
+	WDag > -6.678342
+	Ba > 3.366005
+	->  class LOW  [0.690]
+    \end{minted}
+  \end{multicols}
+\label{rules1}
+\end{tcolorbox}
+
+\subsubsection{Clasificación empleando los niveles 8, 9 y 10}
+
+El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ casos de grupos \emph{``LOW''} del nivel $8$ en adelante, es decir, a partir del último tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm4}). Las reglas obtenidas pueden consultarse en la Figura \ref{rules4}.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node (matrix)  {$\begin{array}{c|cc}
+			 & GOOD & LOW \\ \hline
+        GOOD & 186  & 0 \\
+        LOW & 0 & 36
+\end{array}$};
+  \node[above of= matrix, node distance=0.5cm, yshift=1cm,font=\color{black}] {\textbf{Referencia}};
+  \node[left of= matrix, node distance=3.5cm, rotate=90, anchor=center,yshift=-0.7cm,font=\color{black}] {\textbf{Predicción}};
+  % Tabular environment for additional text
+  \node[below of=matrix, node distance=2.5cm,font=\color{gray}]{
+    \begin{tabular}{l}
+      \texttt{Accuracy : 1} \\
+      \texttt{95\% CI : (0.9835, 1)} \\
+      \texttt{No Inform. Rate : 0.8378} \\
+      \texttt{P-Value : < 2.2e-16}
+    \end{tabular}
+  };
+\end{tikzpicture}
+\caption{Aprendiendo a identificar a los grupos \emph{``LOW''}, es decir, aquellos con una puntuación inferior a $8.1$ sobre $10$.}
+\label{fig:cm4}
+\end{figure}
+
+\begin{tcolorbox}[title=Reglas de clasificación para identificar grupos de tipo \emph{``LOW''}.]
+  %add special color box to list of listings
+  \makeatletter
+  \addcontentsline{lol}{subsection}{\kvtcb@title}
+  \makeatother
+\begin{multicols}{2}
+    \begin{minted}[fontsize=\scriptsize]{R}
+Rule 11/1: (43, lift 1.6)
+	p > 7
+	We > 0.104152
+	Ef <= 8
+	St > 6.356108
+	->  class GOOD  [0.978]
+
+Rule 11/2: (32.2, lift 1.6)
+	s > 443
+	->  class GOOD  [0.971]
+
+Rule 11/3: (24.2, lift 1.6)
+	s > 187
+	s <= 329
+	p > 7
+	St > 6.356108
+	->  class GOOD  [0.962]
+
+Rule 11/4: (24, lift 1.6)
+	p > 7
+	St > 6.356108
+	Dag > -5.723585
+	->  class GOOD  [0.962]
+
+Rule 11/5: (24, lift 1.6)
+	s <= 186
+	We > 0.104152
+	->  class GOOD  [0.961]
+
+Rule 11/6: (23.7, lift 1.6)
+	Cl > 0.1952381
+	We > 0.104152
+	St > 6.356108
+	->  class GOOD  [0.961]
+
+Rule 11/7: (20, lift 1.6)
+	s > 187
+	s <= 273
+	p > 7
+	Cl <= 0.2669468
+	->  class GOOD  [0.955]
+
+Rule 11/8: (18.6, lift 1.6)
+	Cl <= 0.2669468
+	We > 0.104152
+	Dag > -5.480639
+	->  class GOOD  [0.951]
+
+Rule 11/9: (17.2, lift 1.6)
+	Le > -8.653838
+	We > 0.104152
+	St > 6.356108
+	->  class GOOD  [0.948]
+
+Rule 11/10: (14.2, lift 1.5)
+	Dm <= 1.142857
+	->  class GOOD  [0.938]
+
+Rule 11/11: (7.1, lift 1.5)
+	Le <= -9.535989
+	->  class GOOD  [0.890]
+
+Rule 11/12: (28.6, lift 2.5)
+	s > 329
+	s <= 443
+	Cl <= 0.1952381
+	Le > -9.535989
+	Le <= -8.653838
+	Ef > 8
+	Dag <= -5.723585
+	->  class LOW  [0.967]
+
+Rule 11/13: (18, lift 2.4)
+	s > 273
+	s <= 443
+	Dm > 1.142857
+	St <= 6.356108
+	Dag <= -5.480639
+	->  class LOW  [0.950]
+
+Rule 11/14: (12.3, lift 2.4)
+	s > 186
+	s <= 187
+	->  class LOW  [0.930]
+
+Rule 11/15: (11.7, lift 2.4)
+	Dm > 1.142857
+	We <= 0.104152
+	->  class LOW  [0.927]
+
+Rule 11/16: (10.1, lift 2.4)
+	s > 186
+	p <= 7
+	Dm > 1.142857
+	->  class LOW  [0.917]
+
+Rule 11/17: (10.1, lift 2.4)
+	s > 186
+	s <= 443
+	Cl > 0.2669468
+	Dm > 1.142857
+	->  class LOW  [0.917]
+    \end{minted}
+  \end{multicols}
+\label{rules4}
+\end{tcolorbox}
+
+\section{Clasificación en intervalos de notas}\label{sec:intervals}
+
+\subsection{Clasificación empleando las métricas clásicas de rendimiento}
+
+\subsection{Clasificación empleando las medidas de complejidad de propósito general}
+
+\subsubsection{Clasificación empleando los niveles 3, 4 y 5}
 
 Efectivamente, C5.0 obtiene un conjunto de reglas (Figura \ref{rules5}) capaz de clasificar exactamente todos los grupos dentro de su correspondiente intervalo de calificaciones del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm5}).
 
@@ -266,93 +606,7 @@ Rule 99/22: (10.6/2.6, lift 2.4)
 \label{rules5}
 \end{tcolorbox}
 
-\subsection{Clasificación empleando los niveles 8, 9 y 10}
-
-El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ casos de grupos \emph{``LOW''} del nivel $8$ en adelante, es decir, a partir del último tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm3}). Además, las reglas obtenidas (Figura \ref{rules3}) tienen pleno sentido como en el caso anteriormente visto.
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-  \node (matrix)  {$\begin{array}{c|cc}
-			 & GOOD & LOW \\ \hline
-        GOOD & 186  & 0 \\
-        LOW & 0 & 36
-\end{array}$};
-  \node[above of= matrix, node distance=0.5cm, yshift=1cm,font=\color{black}] {\textbf{Referencia}};
-  \node[left of= matrix, node distance=3.5cm, rotate=90, anchor=center,yshift=-0.7cm,font=\color{black}] {\textbf{Predicción}};
-  % Tabular environment for additional text
-  \node[below of=matrix, node distance=2.5cm,font=\color{gray}]{
-    \begin{tabular}{l}
-      \texttt{Accuracy : 1} \\
-      \texttt{95\% CI : (0.9835, 1)} \\
-      \texttt{No Inform. Rate : 0.8378} \\
-      \texttt{P-Value : < 2.2e-16}
-    \end{tabular}
-  };
-\end{tikzpicture}
-\caption{Aprendiendo a identificar a los grupos \emph{``LOW''}, es decir, aquellos con una puntuación inferior a $8.1$ sobre $10$.}
-\label{fig:cm3}
-\end{figure}
-
-\begin{tcolorbox}[title=Reglas de clasificación para identificar grupos de tipo \emph{``LOW''}.]
-  %add special color box to list of listings
-  \makeatletter
-  \addcontentsline{lol}{subsection}{\kvtcb@title}
-  \makeatother
-\begin{multicols}{2}
-    \begin{minted}{R}
-Rule 99/1: (8.3, lift 1.3)
-	St <= 1.791759
-	->  class GOOD  [0.903]
-
-Rule 99/2: (8.3, lift 1.3)
-	Be <= 1
-	Ba <= 7.664816
-	->  class GOOD  [0.903]
-
-Rule 99/3: (81.3/11, lift 1.3)
-	We > 0.4208696
-	->  class GOOD  [0.855]
-
-Rule 99/4: (72.7/13, lift 1.2)
-	Cl <= 0.2771242
-	We > 0.06390639
-	We <= 0.4208696
-	Be > 4
-	->  class GOOD  [0.812]
-
-Rule 99/5: (28.1/1.9, lift 2.8)
-	We <= 0.4208696
-	St > 1.791759
-	Be <= 4
-	Ba > 7.664816
-	->  class LOW  [0.905]
-
-Rule 99/6: (6.9, lift 2.7)
-	Di > -8.386857
-	St > 15.46906
-	->  class LOW  [0.883]
-
-Rule 99/7: (4.8, lift 2.6)
-	Cl > 0.2771242
-	Be > 4
-	->  class LOW  [0.852]
-
-Rule 99/8: (28.7/4.1, lift 2.6)
-	We <= 0.4208696
-	St > 1.791759
-	Be > 1
-	Be <= 4
-	->  class LOW  [0.834]
-
-Rule 99/9: (5.3/0.4, lift 2.5)
-	We <= 0.06390639
-	Be > 4
-	->  class LOW  [0.815]
-    \end{minted}
-  \end{multicols}
-\label{rules3}
-\end{tcolorbox}
+\subsubsection{Clasificación empleando los niveles 8, 9 y 10}
 
 Adicionalmente, C5.0 obtiene un conjunto de reglas (Figura \ref{rules6}) capaz de clasificar exactamente todos los grupos dentro de su correspondiente intervalo de calificaciones del nivel $8$ en adelante, es decir, a partir del último tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm6}).
 
@@ -567,107 +821,11 @@ Rule 99/27: (101.6/64.1, lift 1.4)
 \label{rules6}
 \end{tcolorbox}
 
-\section{Clasificación empleando una combinación de todas las métricas}
+\subsection{Clasificación empleando una combinación de todas las métricas}
 
 A continuación, se repetirán los experimentos anteriores, pero ahora empleando las funciones $s$, $p$, $Cl$, $De$, $Dm$, $Le$, $Di$, $We$, $Ef$, $St$, $Dag$, $WDag$, $Be$ y $Ba$.
 
-\subsection{Clasificación empleando los niveles 3, 4 y 5}
-
-El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ casos de grupos \emph{``LOW''} del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm1}). Entre las reglas obtenidas (Figura \ref{rules1}), la regla $6$ dice: ``Un grupo está en riesgo si ha realizado pocas sesiones (\texttt{s <= 21}) y el grafo no está lo suficientemente balanceado (\texttt{Ba > 3,366005})''. O la regla $7$ que dice ``Un grupo está en riesgo si tiene pocas sesiones \texttt{We <= 0.01620162} y no se centra por igual en todos los problemas \texttt{Ba > 3.366005}''. %Esto es como el mal gráfico mostrado al principio de este documento en la Figura 1, largo y desconectado.
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-  \node (matrix)  {$\begin{array}{c|cc}
-			 & GOOD & LOW \\ \hline
-        GOOD & 186  & 0 \\
-        LOW & 0 & 36
-\end{array}$};
-  \node[above of= matrix, node distance=0.5cm, yshift=1cm,font=\color{black}] {\textbf{Referencia}};
-  \node[left of= matrix, node distance=3.5cm, rotate=90, anchor=center,yshift=-0.7cm,font=\color{black}] {\textbf{Predicción}};
-  % Tabular environment for additional text
-  \node[below of=matrix, node distance=2.5cm,font=\color{gray}]{
-    \begin{tabular}{l}
-      \texttt{Accuracy : 1} \\
-      \texttt{95\% CI : (0.9835, 1)} \\
-      \texttt{No Inform. Rate : 0.8378} \\
-      \texttt{P-Value : < 2.2e-16}
-    \end{tabular}
-  };
-\end{tikzpicture}
-\caption{Aprendiendo a identificar a los grupos \emph{``LOW''}, es decir, aquellos con una puntuación inferior a $8.1$ sobre $10$.}
-\label{fig:cm1}
-\end{figure}
-
-\begin{tcolorbox}[title=Reglas de clasificación para identificar grupos de tipo \emph{``LOW''}.]
-  %add special color box to list of listings
-  \makeatletter
-  \addcontentsline{lol}{subsection}{\kvtcb@title}
-  \makeatother
-\begin{multicols}{2}
-    \begin{minted}{R}
-Rule 5/1: (20.9, lift 1.5)
-	s > 177
-	Ba <= 5.651057
-	->  class GOOD  [0.956]
-
-Rule 5/2: (21.2/0.3, lift 1.5)
-	s > 21
-	Cl > 0.6111111
-	WDag > -6.562621
-	->  class GOOD  [0.945]
-
-Rule 5/3: (11, lift 1.4)
-	Ba <= 3.366005
-	->  class GOOD  [0.923]
-
-Rule 5/4: (41.2/4.6, lift 1.4)
-	WDag <= -6.678342
-	->  class GOOD  [0.871]
-
-Rule 5/5: (143.1/44.1, lift 1.1)
-	Cl <= 0.4866667
-	->  class GOOD  [0.689]
-
-Rule 5/6: (12.4, lift 2.6)
-	s <= 21
-	Ba > 3.366005
-	->  class LOW  [0.931]
-
-Rule 5/7: (10.3, lift 2.6)
-	We <= 0.01620162
-	Ba > 3.366005
-	->  class LOW  [0.918]
-
-Rule 5/8: (19/1.4, lift 2.5)
-	s > 177
-	s <= 271
-	Cl <= 0.4866667
-	WDag > -6.39693
-	Ba > 5.651057
-	->  class LOW  [0.885]
-
-Rule 5/9: (9.8/0.6, lift 2.4)
-	s <= 105
-	Cl <= 0.6111111
-	We > 0.1657658
-	->  class LOW  [0.868]
-
-Rule 5/10: (19.6/4.3, lift 2.1)
-	WDag > -6.678342
-	WDag <= -6.562621
-	->  class LOW  [0.755]
-
-Rule 5/11: (26.4/7.8, lift 1.9)
-	Cl > 0.4866667
-	Cl <= 0.6111111
-	WDag > -6.678342
-	Ba > 3.366005
-	->  class LOW  [0.690]
-    \end{minted}
-  \end{multicols}
-\label{rules1}
-\end{tcolorbox}
+\subsubsection{Clasificación empleando los niveles 3, 4 y 5}
 
 Igualmente, C5.0 obtiene un conjunto de reglas (Figura \ref{rules7}) capaz de clasificar exactamente todos los grupos dentro de su correspondiente intervalo de calificaciones del nivel $3$ al $5$, es decir, a partir del primer tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm7}).
 
@@ -831,147 +989,7 @@ Rule 99/20: (199.9/135.5, lift 1.1)
 \label{rules7}
 \end{tcolorbox}
 
-\subsection{Clasificación empleando los niveles 8, 9 y 10}
-
-El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ casos de grupos \emph{``LOW''} del nivel $8$ en adelante, es decir, a partir del último tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm4}). Las reglas obtenidas pueden consultarse en la Figura \ref{rules4}.
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-  \node (matrix)  {$\begin{array}{c|cc}
-			 & GOOD & LOW \\ \hline
-        GOOD & 186  & 0 \\
-        LOW & 0 & 36
-\end{array}$};
-  \node[above of= matrix, node distance=0.5cm, yshift=1cm,font=\color{black}] {\textbf{Referencia}};
-  \node[left of= matrix, node distance=3.5cm, rotate=90, anchor=center,yshift=-0.7cm,font=\color{black}] {\textbf{Predicción}};
-  % Tabular environment for additional text
-  \node[below of=matrix, node distance=2.5cm,font=\color{gray}]{
-    \begin{tabular}{l}
-      \texttt{Accuracy : 1} \\
-      \texttt{95\% CI : (0.9835, 1)} \\
-      \texttt{No Inform. Rate : 0.8378} \\
-      \texttt{P-Value : < 2.2e-16}
-    \end{tabular}
-  };
-\end{tikzpicture}
-\caption{Aprendiendo a identificar a los grupos \emph{``LOW''}, es decir, aquellos con una puntuación inferior a $8.1$ sobre $10$.}
-\label{fig:cm4}
-\end{figure}
-
-\begin{tcolorbox}[title=Reglas de clasificación para identificar grupos de tipo \emph{``LOW''}.]
-  %add special color box to list of listings
-  \makeatletter
-  \addcontentsline{lol}{subsection}{\kvtcb@title}
-  \makeatother
-\begin{multicols}{2}
-    \begin{minted}[fontsize=\scriptsize]{R}
-Rule 11/1: (43, lift 1.6)
-	p > 7
-	We > 0.104152
-	Ef <= 8
-	St > 6.356108
-	->  class GOOD  [0.978]
-
-Rule 11/2: (32.2, lift 1.6)
-	s > 443
-	->  class GOOD  [0.971]
-
-Rule 11/3: (24.2, lift 1.6)
-	s > 187
-	s <= 329
-	p > 7
-	St > 6.356108
-	->  class GOOD  [0.962]
-
-Rule 11/4: (24, lift 1.6)
-	p > 7
-	St > 6.356108
-	Dag > -5.723585
-	->  class GOOD  [0.962]
-
-Rule 11/5: (24, lift 1.6)
-	s <= 186
-	We > 0.104152
-	->  class GOOD  [0.961]
-
-Rule 11/6: (23.7, lift 1.6)
-	Cl > 0.1952381
-	We > 0.104152
-	St > 6.356108
-	->  class GOOD  [0.961]
-
-Rule 11/7: (20, lift 1.6)
-	s > 187
-	s <= 273
-	p > 7
-	Cl <= 0.2669468
-	->  class GOOD  [0.955]
-
-Rule 11/8: (18.6, lift 1.6)
-	Cl <= 0.2669468
-	We > 0.104152
-	Dag > -5.480639
-	->  class GOOD  [0.951]
-
-Rule 11/9: (17.2, lift 1.6)
-	Le > -8.653838
-	We > 0.104152
-	St > 6.356108
-	->  class GOOD  [0.948]
-
-Rule 11/10: (14.2, lift 1.5)
-	Dm <= 1.142857
-	->  class GOOD  [0.938]
-
-Rule 11/11: (7.1, lift 1.5)
-	Le <= -9.535989
-	->  class GOOD  [0.890]
-
-Rule 11/12: (28.6, lift 2.5)
-	s > 329
-	s <= 443
-	Cl <= 0.1952381
-	Le > -9.535989
-	Le <= -8.653838
-	Ef > 8
-	Dag <= -5.723585
-	->  class LOW  [0.967]
-
-Rule 11/13: (18, lift 2.4)
-	s > 273
-	s <= 443
-	Dm > 1.142857
-	St <= 6.356108
-	Dag <= -5.480639
-	->  class LOW  [0.950]
-
-Rule 11/14: (12.3, lift 2.4)
-	s > 186
-	s <= 187
-	->  class LOW  [0.930]
-
-Rule 11/15: (11.7, lift 2.4)
-	Dm > 1.142857
-	We <= 0.104152
-	->  class LOW  [0.927]
-
-Rule 11/16: (10.1, lift 2.4)
-	s > 186
-	p <= 7
-	Dm > 1.142857
-	->  class LOW  [0.917]
-
-Rule 11/17: (10.1, lift 2.4)
-	s > 186
-	s <= 443
-	Cl > 0.2669468
-	Dm > 1.142857
-	->  class LOW  [0.917]
-    \end{minted}
-  \end{multicols}
-\label{rules4}
-\end{tcolorbox}
+\subsubsection{Clasificación empleando los niveles 8, 9 y 10}
 
 Adicionalmente, C5.0 obtiene un conjunto de reglas (Figura \ref{rules8}) capaz de clasificar exactamente todos los grupos dentro de su correspondiente intervalo de calificaciones del nivel $8$ en adelante, es decir, a partir del último tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm8}).
 
