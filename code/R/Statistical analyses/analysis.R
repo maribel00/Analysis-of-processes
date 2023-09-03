@@ -123,3 +123,52 @@ head(data)
 
 LCV_Lime_Theme()
 LCV_boxplot(data, "Problem", "sessions")
+
+# NÚMERO DE DÍAS QUE DURA LA PRÁCTICA CADA AÑO
+
+# Calcular la duración máxima en días por año
+result <- SIIE23RAW
+# Convertir las columnas SStart y SEnd a objetos POSIXct
+result$SStart <- as.POSIXct(result$SStart, format = "%d/%m/%Y %H:%M:%S")
+result$SEnd <- as.POSIXct(result$SEnd, format = "%d/%m/%Y %H:%M:%S")
+
+# Calcular la diferencia entre la fecha máxima y la fecha mínima en días por año
+result <- result %>%
+  group_by(Year) %>%
+  summarise(Duration = as.numeric(difftime(max(SEnd), min(SStart), units = "days")))
+
+# Mostrar el resultado
+print(result)
+summary(result)
+
+data <- c(32, 23, 29, 17, 27, 16, 38)
+
+# Calcular la media
+media <- mean(data)
+cat("Media:", media, "\n")
+
+# Calcular la desviación estándar
+desviacion_estandar <- sd(data)
+cat("Desviación estándar:", desviacion_estandar, "\n")
+
+# NÚMERO DE REGISTROS Y NÚMERO DE SESIONES
+
+data <- c(4489, 4538, 3661, 2811, 5156, 3904, 6113)
+
+# Calcular la media
+media <- mean(data)
+cat("Media:", media, "\n")
+
+# Calcular la desviación estándar
+desviacion_estandar <- sd(data)
+cat("Desviación estándar:", desviacion_estandar, "\n")
+
+data <- c(12088, 12525, 9088, 5705, 14475, 21188, 11961)
+
+# Calcular la media
+media <- mean(data)
+cat("Media:", media, "\n")
+
+# Calcular la desviación estándar
+desviacion_estandar <- sd(data)
+cat("Desviación estándar:", desviacion_estandar, "\n")

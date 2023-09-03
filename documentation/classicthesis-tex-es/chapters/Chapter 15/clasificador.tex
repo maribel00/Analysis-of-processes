@@ -13,6 +13,94 @@ Dado que hay muy pocos registros ($77$ en cada nivel), el problema de clasificac
 
 \subsection{Clasificación empleando las medidas de complejidad de propósito general}
 
+\subsubsection{Clasificación empleando los niveles 8, 9 y 10}
+
+El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ casos de grupos \emph{``LOW''} del nivel $8$ en adelante, es decir, a partir del último tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm3}). Además, las reglas obtenidas (Figura \ref{rules3}) tienen pleno sentido como en el caso anteriormente visto.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node (matrix)  {$\begin{array}{c|cc}
+			 & GOOD & LOW \\ \hline
+        GOOD & 186  & 0 \\
+        LOW & 0 & 36
+\end{array}$};
+  \node[above of= matrix, node distance=0.5cm, yshift=1cm,font=\color{black}] {\textbf{Referencia}};
+  \node[left of= matrix, node distance=3.5cm, rotate=90, anchor=center,yshift=-0.7cm,font=\color{black}] {\textbf{Predicción}};
+  % Tabular environment for additional text
+  \node[below of=matrix, node distance=2.5cm,font=\color{gray}]{
+    \begin{tabular}{l}
+      \texttt{Accuracy : 1} \\
+      \texttt{95\% CI : (0.9835, 1)} \\
+      \texttt{No Inform. Rate : 0.8378} \\
+      \texttt{P-Value : < 2.2e-16}
+    \end{tabular}
+  };
+\end{tikzpicture}
+\caption{Aprendiendo a identificar a los grupos \emph{``LOW''}, es decir, aquellos con una puntuación inferior a $8.1$ sobre $10$.}
+\label{fig:cm3}
+\end{figure}
+
+\begin{tcolorbox}[title=Reglas de clasificación para identificar grupos de tipo \emph{``LOW''}.]
+  %add special color box to list of listings
+  \makeatletter
+  \addcontentsline{lol}{subsection}{\kvtcb@title}
+  \makeatother
+\begin{multicols}{2}
+    \begin{minted}{R}
+Rule 99/1: (8.3, lift 1.3)
+	St <= 1.791759
+	->  class GOOD  [0.903]
+
+Rule 99/2: (8.3, lift 1.3)
+	Be <= 1
+	Ba <= 7.664816
+	->  class GOOD  [0.903]
+
+Rule 99/3: (81.3/11, lift 1.3)
+	We > 0.4208696
+	->  class GOOD  [0.855]
+
+Rule 99/4: (72.7/13, lift 1.2)
+	Cl <= 0.2771242
+	We > 0.06390639
+	We <= 0.4208696
+	Be > 4
+	->  class GOOD  [0.812]
+
+Rule 99/5: (28.1/1.9, lift 2.8)
+	We <= 0.4208696
+	St > 1.791759
+	Be <= 4
+	Ba > 7.664816
+	->  class LOW  [0.905]
+
+Rule 99/6: (6.9, lift 2.7)
+	Di > -8.386857
+	St > 15.46906
+	->  class LOW  [0.883]
+
+Rule 99/7: (4.8, lift 2.6)
+	Cl > 0.2771242
+	Be > 4
+	->  class LOW  [0.852]
+
+Rule 99/8: (28.7/4.1, lift 2.6)
+	We <= 0.4208696
+	St > 1.791759
+	Be > 1
+	Be <= 4
+	->  class LOW  [0.834]
+
+Rule 99/9: (5.3/0.4, lift 2.5)
+	We <= 0.06390639
+	Be > 4
+	->  class LOW  [0.815]
+    \end{minted}
+  \end{multicols}
+\label{rules3}
+\end{tcolorbox}
+
 \subsubsection{Clasificación empleando los niveles 3, 4 y 5}
 
 El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $35$ de los $36$ casos de grupos \emph{``LOW''} del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p = 3.843e-16$ estadísticamente muy relevante (Figura \ref{fig:cm2}). Además, las reglas obtenidas (Figura \ref{rules2}) tienen pleno sentido. Por ejemplo, la regla $7$ dice: ``Un grupo está en riesgo si está centrado en los problemas con numeración alta (\texttt{Be > 6})''. O la regla $3$ que dice ``Un grupo está en riesgo si no se ha centrado por igual en todos los problemas (\texttt{Ba > 3.366005}) y recorre caminos menos largos en media (\texttt{WDag > -4.317488}) teniendo en cuenta que el valor de máxima probabilidad de la métrica $WDag$ es $-4.19$.
@@ -103,195 +191,9 @@ Rule 11/9: (19.9/5.4, lift 2.0)
 
 Pero no sólo esto, ¿podríamos dar un gran paso y predecir no sólo equipos \emph{``LOW''}/\emph{``GOOD''}, sino también un límite inferior y superior de sus calificaciones finales, y adivinar en cuál de los $5$ intervalos de la Figura \ref{fig:KMeans5} se encuentran? La respuesta es, felizmente, sí (Sección \ref{sec:intervals}).
 
-\subsubsection{Clasificación empleando los niveles 8, 9 y 10}
-
-El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ casos de grupos \emph{``LOW''} del nivel $8$ en adelante, es decir, a partir del último tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm3}). Además, las reglas obtenidas (Figura \ref{rules3}) tienen pleno sentido como en el caso anteriormente visto.
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-  \node (matrix)  {$\begin{array}{c|cc}
-			 & GOOD & LOW \\ \hline
-        GOOD & 186  & 0 \\
-        LOW & 0 & 36
-\end{array}$};
-  \node[above of= matrix, node distance=0.5cm, yshift=1cm,font=\color{black}] {\textbf{Referencia}};
-  \node[left of= matrix, node distance=3.5cm, rotate=90, anchor=center,yshift=-0.7cm,font=\color{black}] {\textbf{Predicción}};
-  % Tabular environment for additional text
-  \node[below of=matrix, node distance=2.5cm,font=\color{gray}]{
-    \begin{tabular}{l}
-      \texttt{Accuracy : 1} \\
-      \texttt{95\% CI : (0.9835, 1)} \\
-      \texttt{No Inform. Rate : 0.8378} \\
-      \texttt{P-Value : < 2.2e-16}
-    \end{tabular}
-  };
-\end{tikzpicture}
-\caption{Aprendiendo a identificar a los grupos \emph{``LOW''}, es decir, aquellos con una puntuación inferior a $8.1$ sobre $10$.}
-\label{fig:cm3}
-\end{figure}
-
-\begin{tcolorbox}[title=Reglas de clasificación para identificar grupos de tipo \emph{``LOW''}.]
-  %add special color box to list of listings
-  \makeatletter
-  \addcontentsline{lol}{subsection}{\kvtcb@title}
-  \makeatother
-\begin{multicols}{2}
-    \begin{minted}{R}
-Rule 99/1: (8.3, lift 1.3)
-	St <= 1.791759
-	->  class GOOD  [0.903]
-
-Rule 99/2: (8.3, lift 1.3)
-	Be <= 1
-	Ba <= 7.664816
-	->  class GOOD  [0.903]
-
-Rule 99/3: (81.3/11, lift 1.3)
-	We > 0.4208696
-	->  class GOOD  [0.855]
-
-Rule 99/4: (72.7/13, lift 1.2)
-	Cl <= 0.2771242
-	We > 0.06390639
-	We <= 0.4208696
-	Be > 4
-	->  class GOOD  [0.812]
-
-Rule 99/5: (28.1/1.9, lift 2.8)
-	We <= 0.4208696
-	St > 1.791759
-	Be <= 4
-	Ba > 7.664816
-	->  class LOW  [0.905]
-
-Rule 99/6: (6.9, lift 2.7)
-	Di > -8.386857
-	St > 15.46906
-	->  class LOW  [0.883]
-
-Rule 99/7: (4.8, lift 2.6)
-	Cl > 0.2771242
-	Be > 4
-	->  class LOW  [0.852]
-
-Rule 99/8: (28.7/4.1, lift 2.6)
-	We <= 0.4208696
-	St > 1.791759
-	Be > 1
-	Be <= 4
-	->  class LOW  [0.834]
-
-Rule 99/9: (5.3/0.4, lift 2.5)
-	We <= 0.06390639
-	Be > 4
-	->  class LOW  [0.815]
-    \end{minted}
-  \end{multicols}
-\label{rules3}
-\end{tcolorbox}
-
 \subsection{Clasificación empleando una combinación de todas las métricas}
 
 A continuación, se repetirán los experimentos anteriores, pero ahora empleando las funciones $s$, $p$, $Cl$, $De$, $Dm$, $Le$, $Di$, $We$, $Ef$, $St$, $Dag$, $WDag$, $Be$ y $Ba$.
-
-\subsubsection{Clasificación empleando los niveles 3, 4 y 5}
-
-El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ casos de grupos \emph{``LOW''} del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm1}). Entre las reglas obtenidas (Figura \ref{rules1}), la regla $6$ dice: ``Un grupo está en riesgo si ha realizado pocas sesiones (\texttt{s <= 21}) y el grafo no está lo suficientemente balanceado (\texttt{Ba > 3,366005})''. O la regla $7$ que dice ``Un grupo está en riesgo si tiene pocas sesiones \texttt{We <= 0.01620162} y no se centra por igual en todos los problemas \texttt{Ba > 3.366005}''. %Esto es como el mal gráfico mostrado al principio de este documento en la Figura 1, largo y desconectado.
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-  \node (matrix)  {$\begin{array}{c|cc}
-			 & GOOD & LOW \\ \hline
-        GOOD & 186  & 0 \\
-        LOW & 0 & 36
-\end{array}$};
-  \node[above of= matrix, node distance=0.5cm, yshift=1cm,font=\color{black}] {\textbf{Referencia}};
-  \node[left of= matrix, node distance=3.5cm, rotate=90, anchor=center,yshift=-0.7cm,font=\color{black}] {\textbf{Predicción}};
-  % Tabular environment for additional text
-  \node[below of=matrix, node distance=2.5cm,font=\color{gray}]{
-    \begin{tabular}{l}
-      \texttt{Accuracy : 1} \\
-      \texttt{95\% CI : (0.9835, 1)} \\
-      \texttt{No Inform. Rate : 0.8378} \\
-      \texttt{P-Value : < 2.2e-16}
-    \end{tabular}
-  };
-\end{tikzpicture}
-\caption{Aprendiendo a identificar a los grupos \emph{``LOW''}, es decir, aquellos con una puntuación inferior a $8.1$ sobre $10$.}
-\label{fig:cm1}
-\end{figure}
-
-\begin{tcolorbox}[title=Reglas de clasificación para identificar grupos de tipo \emph{``LOW''}.]
-  %add special color box to list of listings
-  \makeatletter
-  \addcontentsline{lol}{subsection}{\kvtcb@title}
-  \makeatother
-\begin{multicols}{2}
-    \begin{minted}{R}
-Rule 5/1: (20.9, lift 1.5)
-	s > 177
-	Ba <= 5.651057
-	->  class GOOD  [0.956]
-
-Rule 5/2: (21.2/0.3, lift 1.5)
-	s > 21
-	Cl > 0.6111111
-	WDag > -6.562621
-	->  class GOOD  [0.945]
-
-Rule 5/3: (11, lift 1.4)
-	Ba <= 3.366005
-	->  class GOOD  [0.923]
-
-Rule 5/4: (41.2/4.6, lift 1.4)
-	WDag <= -6.678342
-	->  class GOOD  [0.871]
-
-Rule 5/5: (143.1/44.1, lift 1.1)
-	Cl <= 0.4866667
-	->  class GOOD  [0.689]
-
-Rule 5/6: (12.4, lift 2.6)
-	s <= 21
-	Ba > 3.366005
-	->  class LOW  [0.931]
-
-Rule 5/7: (10.3, lift 2.6)
-	We <= 0.01620162
-	Ba > 3.366005
-	->  class LOW  [0.918]
-
-Rule 5/8: (19/1.4, lift 2.5)
-	s > 177
-	s <= 271
-	Cl <= 0.4866667
-	WDag > -6.39693
-	Ba > 5.651057
-	->  class LOW  [0.885]
-
-Rule 5/9: (9.8/0.6, lift 2.4)
-	s <= 105
-	Cl <= 0.6111111
-	We > 0.1657658
-	->  class LOW  [0.868]
-
-Rule 5/10: (19.6/4.3, lift 2.1)
-	WDag > -6.678342
-	WDag <= -6.562621
-	->  class LOW  [0.755]
-
-Rule 5/11: (26.4/7.8, lift 1.9)
-	Cl > 0.4866667
-	Cl <= 0.6111111
-	WDag > -6.678342
-	Ba > 3.366005
-	->  class LOW  [0.690]
-    \end{minted}
-  \end{multicols}
-\label{rules1}
-\end{tcolorbox}
 
 \subsubsection{Clasificación empleando los niveles 8, 9 y 10}
 
@@ -435,176 +337,109 @@ Rule 11/17: (10.1, lift 2.4)
 \label{rules4}
 \end{tcolorbox}
 
+\subsubsection{Clasificación empleando los niveles 3, 4 y 5}
+
+El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ casos de grupos \emph{``LOW''} del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm1}). Entre las reglas obtenidas (Figura \ref{rules1}), la regla $6$ dice: ``Un grupo está en riesgo si ha realizado pocas sesiones (\texttt{s <= 21}) y el grafo no está lo suficientemente balanceado (\texttt{Ba > 3,366005})''. O la regla $7$ que dice ``Un grupo está en riesgo si tiene pocas sesiones \texttt{We <= 0.01620162} y no se centra por igual en todos los problemas \texttt{Ba > 3.366005}''. %Esto es como el mal gráfico mostrado al principio de este documento en la Figura 1, largo y desconectado.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node (matrix)  {$\begin{array}{c|cc}
+			 & GOOD & LOW \\ \hline
+        GOOD & 186  & 0 \\
+        LOW & 0 & 36
+\end{array}$};
+  \node[above of= matrix, node distance=0.5cm, yshift=1cm,font=\color{black}] {\textbf{Referencia}};
+  \node[left of= matrix, node distance=3.5cm, rotate=90, anchor=center,yshift=-0.7cm,font=\color{black}] {\textbf{Predicción}};
+  % Tabular environment for additional text
+  \node[below of=matrix, node distance=2.5cm,font=\color{gray}]{
+    \begin{tabular}{l}
+      \texttt{Accuracy : 1} \\
+      \texttt{95\% CI : (0.9835, 1)} \\
+      \texttt{No Inform. Rate : 0.8378} \\
+      \texttt{P-Value : < 2.2e-16}
+    \end{tabular}
+  };
+\end{tikzpicture}
+\caption{Aprendiendo a identificar a los grupos \emph{``LOW''}, es decir, aquellos con una puntuación inferior a $8.1$ sobre $10$.}
+\label{fig:cm1}
+\end{figure}
+
+\begin{tcolorbox}[title=Reglas de clasificación para identificar grupos de tipo \emph{``LOW''}.]
+  %add special color box to list of listings
+  \makeatletter
+  \addcontentsline{lol}{subsection}{\kvtcb@title}
+  \makeatother
+\begin{multicols}{2}
+    \begin{minted}{R}
+Rule 5/1: (20.9, lift 1.5)
+	s > 177
+	Ba <= 5.651057
+	->  class GOOD  [0.956]
+
+Rule 5/2: (21.2/0.3, lift 1.5)
+	s > 21
+	Cl > 0.6111111
+	WDag > -6.562621
+	->  class GOOD  [0.945]
+
+Rule 5/3: (11, lift 1.4)
+	Ba <= 3.366005
+	->  class GOOD  [0.923]
+
+Rule 5/4: (41.2/4.6, lift 1.4)
+	WDag <= -6.678342
+	->  class GOOD  [0.871]
+
+Rule 5/5: (143.1/44.1, lift 1.1)
+	Cl <= 0.4866667
+	->  class GOOD  [0.689]
+
+Rule 5/6: (12.4, lift 2.6)
+	s <= 21
+	Ba > 3.366005
+	->  class LOW  [0.931]
+
+Rule 5/7: (10.3, lift 2.6)
+	We <= 0.01620162
+	Ba > 3.366005
+	->  class LOW  [0.918]
+
+Rule 5/8: (19/1.4, lift 2.5)
+	s > 177
+	s <= 271
+	Cl <= 0.4866667
+	WDag > -6.39693
+	Ba > 5.651057
+	->  class LOW  [0.885]
+
+Rule 5/9: (9.8/0.6, lift 2.4)
+	s <= 105
+	Cl <= 0.6111111
+	We > 0.1657658
+	->  class LOW  [0.868]
+
+Rule 5/10: (19.6/4.3, lift 2.1)
+	WDag > -6.678342
+	WDag <= -6.562621
+	->  class LOW  [0.755]
+
+Rule 5/11: (26.4/7.8, lift 1.9)
+	Cl > 0.4866667
+	Cl <= 0.6111111
+	WDag > -6.678342
+	Ba > 3.366005
+	->  class LOW  [0.690]
+    \end{minted}
+  \end{multicols}
+\label{rules1}
+\end{tcolorbox}
+
 \section{Clasificación en intervalos de notas}\label{sec:intervals}
 
 \subsection{Clasificación empleando las métricas clásicas de rendimiento}
 
 \subsection{Clasificación empleando las medidas de complejidad de propósito general}
-
-\subsubsection{Clasificación empleando los niveles 3, 4 y 5}
-
-Efectivamente, C5.0 obtiene un conjunto de reglas (Figura \ref{rules5}) capaz de clasificar exactamente todos los grupos dentro de su correspondiente intervalo de calificaciones del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm5}).
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-  \node (matrix)  {$\begin{array}{c|ccccc}
-                         & \left[6.46,6.99\right] & \left[7.39,7.96\right] & \left[8.1,8.64\right] & \left[8.79,9.35\right] & \left[9.44,10\right]\\ \hline
-        \left[6.46,6.99\right] & 6 & 0 & 0 & 0 & 0 \\
-        \left[7.39,7.96\right] & 0 & 30 & 0 & 0 & 0 \\
-        \left[8.1,8.64\right] & 0 & 0 & 42 & 0 & 0 \\
-        \left[8.79,9.35\right] & 0 & 0 & 0 & 69 & 0 \\
-        \left[9.44,10\right] & 0 & 0 & 0 & 0 & 75
-\end{array}$};
-  \node[above of= matrix, node distance=1.5cm, yshift=1cm,font=\color{black}] {\textbf{Referencia}};
-  \node[left of= matrix, node distance=8cm, rotate=90, anchor=center,yshift=-0.7cm,font=\color{black}] {\textbf{Predicción}};
-  % Tabular environment for additional text
-  \node[below of=matrix, node distance=3.5cm,font=\color{gray}]{
-    \begin{tabular}{l}
-      \texttt{Accuracy : 1} \\
-      \texttt{95\% CI : (0.9835, 1)} \\
-      \texttt{No Inform. Rate : 0.3378} \\
-      \texttt{P-Value : < 2.2e-16 }
-    \end{tabular}
-  };
-\end{tikzpicture}
-\caption{Aprendiendo a identificar a los grupos de prácticas con un intervalo de notas (Figura \ref{fig:KMeans5}).}
-\label{fig:cm5}
-\end{figure}
-
-\begin{tcolorbox}[title=Reglas de clasificación para identificar intervalos de notas.]
-  %add special color box to list of listings
-  \makeatletter
-  \addcontentsline{lol}{subsection}{\kvtcb@title}
-  \makeatother
-\begin{multicols}{3}
-    \begin{minted}[fontsize=\scriptsize]{R}
-Rule 99/1: (4.6, lift 4.7)
-        We <= 0.01080108
-        Ba > 3.366005
-        ->  class [7.39,7.96]  [0.848]
-Rule 99/2: (3.4, lift 4.5)
-        We <= 0.2018018
-        WDag <= -6.478509
-        Be <= 1
-        ->  class [7.39,7.96]  [0.815]
-Rule 99/3: (9.4/2.2, lift 4.0)
-        We <= 0.2702703
-        St > 1.791759
-        St <= 2.079442
-        ->  class [7.39,7.96]  [0.721]
-Rule 99/4: (11.1/3.5, lift 3.6)
-        Cl > 0.2619048
-        Di <= -4.219508
-        We > 0.2131148
-        We <= 0.2702703
-        St > 0
-        WDag <= -5.901418
-      ->  class [7.39,7.96] [0.653]
-Rule 99/5: (6.5/2.1, lift 3.5)
-        De <= 0.0952381
-        We <= 0.1321739
-        ->  class [7.39,7.96]  [0.630]
-Rule 99/6: (10.2/6.1, lift 2.3)
-        St > 5.257495
-        ->  class [7.39,7.96]  [0.414]
-Rule 99/7: (7.6/0.5, lift 3.6)
-        We > 0.2702703
-        St <= 0
-        WDag > -7.122867
-      ->  class [8.1,8.64] [0.840]
-Rule 99/8: (4.1, lift 3.6)
-        We <= 0.2702703
-        St > 2.079442
-        WDag <= -5.296464
-        Be <= 2
-        ->  class [8.1,8.64]  [0.837]
-Rule 99/9: (9.4/1.8, lift 3.2)
-        Cl > 0.4095238
-        We <= 0.2702703
-        St > 0
-        St <= 1.791759
-        Dag > -5.204007
-        Ba > 5.925958
-        ->  class [8.1,8.64]  [0.751]
-Rule 99/10: (6.3/1.9, lift 2.8)
-        De <= 0.0952381
-        We > 0.1321739
-        ->  class [8.1,8.64]  [0.658]
-Rule 99/11: (17.1/6, lift 2.7)
-        De > 0.0952381
-        We > 0.01080108
-        We <= 0.04410441
-        Ba > 3.366005
-        ->  class [8.1,8.64]  [0.633]
-Rule 99/12: (6.7/2.3, lift 2.7)
-        We <= 0.01080108
-        Ba <= 3.366005
-        ->  class [8.1,8.64]  [0.621]   
-Rule 99/13: (187.3/131.4, lift 1.1)
-        We > 0.04410441
-        ->  class [8.79,9.35]  [0.301]       
-Rule 99/14: (9.2, lift 3.1)
-        Cl > 0.2619048
-        Di <= -4.219508
-        We > 0.1415628
-        We <= 0.2131148
-        St > 0
-        St <= 2.079442
-        Ba <= 5.925958
-        ->  class [9.44,10]  [0.911]
-Rule 99/15: (7.1, lift 3.0)
-        We > 0.2018018
-        We <= 0.2287122
-        St <= 0
-        ->  class [9.44,10]  [0.890]
-Rule 99/16: (6.8, lift 3.0)
-        We > 0.2702703
-        St <= 0
-        WDag > -8.251143
-        WDag <= -7.122867
-        ->  class [9.44,10]  [0.886]
-Rule 99/17: (5.5, lift 2.9)
-        We > 0.2131148
-        St <= 2.079442
-        WDag > -5.901418
-        ->  class [9.44,10]  [0.867]
-Rule 99/18: (5.1, lift 2.9)
-        We > 0.01080108
-        We <= 0.04410441
-        Ba <= 3.366005
-        ->  class [9.44,10]  [0.860]
-Rule 99/19: (4.7, lift 2.9)
-        We > 0.04410441
-        St <= 0
-        WDag > -5.755742
-        ->  class [9.44,10]  [0.851]
-Rule 99/20: (11.5/1.3, lift 2.8)
-        Dm <= 1
-        Di <= -4.219508
-        We > 0.04410441
-        We <= 0.2131148
-        St > 0
-        Ba <= 5.925958
-        ->  class [9.44,10]  [0.832]
-Rule 99/21: (9.1/1.7, lift 2.6)
-        Cl > 0.2792208
-        We > 0.2702703
-        St > 1.386294
-        Dag > -5.204007
-        Be > 1
-        ->  class [9.44,10]  [0.759]
-Rule 99/22: (10.6/2.6, lift 2.4)
-        Cl <= 0.4095238
-        De > 0.0952381
-        St <= 1.791759
-        Be > 2
-        Ba > 5.925958
-        ->  class [9.44,10]  [0.718]
-    \end{minted}
-  \end{multicols}
-\label{rules5}
-\end{tcolorbox}
 
 \subsubsection{Clasificación empleando los niveles 8, 9 y 10}
 
@@ -821,13 +656,9 @@ Rule 99/27: (101.6/64.1, lift 1.4)
 \label{rules6}
 \end{tcolorbox}
 
-\subsection{Clasificación empleando una combinación de todas las métricas}
-
-A continuación, se repetirán los experimentos anteriores, pero ahora empleando las funciones $s$, $p$, $Cl$, $De$, $Dm$, $Le$, $Di$, $We$, $Ef$, $St$, $Dag$, $WDag$, $Be$ y $Ba$.
-
 \subsubsection{Clasificación empleando los niveles 3, 4 y 5}
 
-Igualmente, C5.0 obtiene un conjunto de reglas (Figura \ref{rules7}) capaz de clasificar exactamente todos los grupos dentro de su correspondiente intervalo de calificaciones del nivel $3$ al $5$, es decir, a partir del primer tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm7}).
+Efectivamente, C5.0 obtiene un conjunto de reglas (Figura \ref{rules5}) capaz de clasificar exactamente todos los grupos dentro de su correspondiente intervalo de calificaciones del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm5}).
 
 \begin{figure}[H]
 \centering
@@ -853,7 +684,7 @@ Igualmente, C5.0 obtiene un conjunto de reglas (Figura \ref{rules7}) capaz de cl
   };
 \end{tikzpicture}
 \caption{Aprendiendo a identificar a los grupos de prácticas con un intervalo de notas (Figura \ref{fig:KMeans5}).}
-\label{fig:cm7}
+\label{fig:cm5}
 \end{figure}
 
 \begin{tcolorbox}[title=Reglas de clasificación para identificar intervalos de notas.]
@@ -863,131 +694,136 @@ Igualmente, C5.0 obtiene un conjunto de reglas (Figura \ref{rules7}) capaz de cl
   \makeatother
 \begin{multicols}{3}
     \begin{minted}[fontsize=\scriptsize]{R}
-Rule 99/1: (5.1/1.5, lift 19.5)
-	Be > 3
-	Ba > 7.831342
-	->  class [6.46,6.99]  [0.646]
-
-Rule 99/2: (6.7, lift 4.2)
-	Cl <= 0.2380952
-	St > 5.257495
-	Ba <= 7.831342
-  ->  class [7.39,7.96] [0.885]
-
-Rule 99/3: (21.4/4.5, lift 3.7)
-	s > 147
-	We <= 0.2702703
-	St <= 1.098612
-	Ba <= 7.831342
-	->  class [7.39,7.96]  [0.765]
-
-Rule 99/4: (9.6/2, lift 3.5)
-	s <= 21
-	Ba > 3.291119
-  ->  class [7.39,7.96] [0.742]
-
-Rule 99/5: (5.6/1.2, lift 3.4)
-	We <= 0.2702703
-	St > 1.791759
-	St <= 2.079442
-	Ba <= 7.831342
-	->  class [7.39,7.96]  [0.708]
-
-Rule 99/6: (11/3.6, lift 3.1)
-	s <= 146
-	Le <= -6.421415
-	St <= 2.079442
-	->  class [7.39,7.96]  [0.646]
-
-Rule 99/7: (6.4/0.4, lift 4.0)
-	s > 150
-	Cl > 0.1904762
-	We <= 0.2702703
-	St > 1.098612
-	St <= 1.386294
-	Ba <= 7.831342
-	->  class [8.1,8.64]  [0.829]
-
-Rule 99/8: (3.4, lift 4.0)
-	Cl > 0.2380952
-	St > 5.257495
-  ->  class [8.1,8.64] [0.814]
-
-Rule 99/9: (7.1/0.9, lift 3.8)
-	Cl > 0.3583333
-	We <= 0.2702703
-	St > 2.079442
-	->  class [8.1,8.64]  [0.790]
-
-Rule 99/10: (2.4, lift 3.8)
-	s > 146
-	s <= 147
-	Ba <= 7.831342
-	->  class [8.1,8.64]  [0.773]
-
-Rule 99/11: (8.7/2.5, lift 3.3)
-	s > 21
-	s <= 33
-	->  class [8.1,8.64]  [0.670]
-
-Rule 99/12: (8.4/3, lift 3.0)
-	s > 33
-	Cl <= 0.4222222
-	We <= 0.07213115
-	->  class [8.1,8.64]  [0.617]
-
-Rule 99/13: (15.3/6.3, lift 2.8)
-	We <= 0.4088335
-	Be <= 3
-	Ba > 7.831342
-  ->  class [8.1,8.64] [0.579]
-
-Rule 99/14: (4.4, lift 3.4)
-	s <= 146
-	p <= 5
-	WDag <= -6.715384
-  ->  class [8.79,9.35] [0.843]
-
-Rule 99/15: (4, lift 3.4)
-	s > 487
-  ->  class [8.79,9.35] [0.833]
-
-Rule 99/16: (11.5/1.4, lift 3.3)
-	s <= 338
-	We > 0.2702703
-	St > 0
-	St <= 5.257495
-	Be <= 1
-  ->  class [8.79,9.35] [0.823]
-
-Rule 99/17: (3, lift 3.2)
-	We > 0.4088335
-	Ba > 7.831342
-  ->  class [8.79,9.35] [0.802]
-
-Rule 99/18: (2.5, lift 3.1)
-	Cl <= 0.1904762
-	St <= 5.257495
-	Ba <= 7.831342
-  ->  class [8.79,9.35] [0.778]
-
-Rule 99/19: (17.4/5.9, lift 2.6)
-	s <= 146
-	p <= 5
-	Le > -6.421415
-	We > 0.07213115
-	We <= 0.1805556
-	St <= 2.079442
-	Ba <= 7.831342
-  ->  class [8.79,9.35] [0.643]
-
-Rule 99/20: (199.9/135.5, lift 1.1)
-	s > 33
-	->  class [9.44,10]  [0.324]
+Rule 99/1: (4.6, lift 4.7)
+        We <= 0.01080108
+        Ba > 3.366005
+        ->  class [7.39,7.96]  [0.848]
+Rule 99/2: (3.4, lift 4.5)
+        We <= 0.2018018
+        WDag <= -6.478509
+        Be <= 1
+        ->  class [7.39,7.96]  [0.815]
+Rule 99/3: (9.4/2.2, lift 4.0)
+        We <= 0.2702703
+        St > 1.791759
+        St <= 2.079442
+        ->  class [7.39,7.96]  [0.721]
+Rule 99/4: (11.1/3.5, lift 3.6)
+        Cl > 0.2619048
+        Di <= -4.219508
+        We > 0.2131148
+        We <= 0.2702703
+        St > 0
+        WDag <= -5.901418
+      ->  class [7.39,7.96] [0.653]
+Rule 99/5: (6.5/2.1, lift 3.5)
+        De <= 0.0952381
+        We <= 0.1321739
+        ->  class [7.39,7.96]  [0.630]
+Rule 99/6: (10.2/6.1, lift 2.3)
+        St > 5.257495
+        ->  class [7.39,7.96]  [0.414]
+Rule 99/7: (7.6/0.5, lift 3.6)
+        We > 0.2702703
+        St <= 0
+        WDag > -7.122867
+      ->  class [8.1,8.64] [0.840]
+Rule 99/8: (4.1, lift 3.6)
+        We <= 0.2702703
+        St > 2.079442
+        WDag <= -5.296464
+        Be <= 2
+        ->  class [8.1,8.64]  [0.837]
+Rule 99/9: (9.4/1.8, lift 3.2)
+        Cl > 0.4095238
+        We <= 0.2702703
+        St > 0
+        St <= 1.791759
+        Dag > -5.204007
+        Ba > 5.925958
+        ->  class [8.1,8.64]  [0.751]
+Rule 99/10: (6.3/1.9, lift 2.8)
+        De <= 0.0952381
+        We > 0.1321739
+        ->  class [8.1,8.64]  [0.658]
+Rule 99/11: (17.1/6, lift 2.7)
+        De > 0.0952381
+        We > 0.01080108
+        We <= 0.04410441
+        Ba > 3.366005
+        ->  class [8.1,8.64]  [0.633]
+Rule 99/12: (6.7/2.3, lift 2.7)
+        We <= 0.01080108
+        Ba <= 3.366005
+        ->  class [8.1,8.64]  [0.621]   
+Rule 99/13: (187.3/131.4, lift 1.1)
+        We > 0.04410441
+        ->  class [8.79,9.35]  [0.301]       
+Rule 99/14: (9.2, lift 3.1)
+        Cl > 0.2619048
+        Di <= -4.219508
+        We > 0.1415628
+        We <= 0.2131148
+        St > 0
+        St <= 2.079442
+        Ba <= 5.925958
+        ->  class [9.44,10]  [0.911]
+Rule 99/15: (7.1, lift 3.0)
+        We > 0.2018018
+        We <= 0.2287122
+        St <= 0
+        ->  class [9.44,10]  [0.890]
+Rule 99/16: (6.8, lift 3.0)
+        We > 0.2702703
+        St <= 0
+        WDag > -8.251143
+        WDag <= -7.122867
+        ->  class [9.44,10]  [0.886]
+Rule 99/17: (5.5, lift 2.9)
+        We > 0.2131148
+        St <= 2.079442
+        WDag > -5.901418
+        ->  class [9.44,10]  [0.867]
+Rule 99/18: (5.1, lift 2.9)
+        We > 0.01080108
+        We <= 0.04410441
+        Ba <= 3.366005
+        ->  class [9.44,10]  [0.860]
+Rule 99/19: (4.7, lift 2.9)
+        We > 0.04410441
+        St <= 0
+        WDag > -5.755742
+        ->  class [9.44,10]  [0.851]
+Rule 99/20: (11.5/1.3, lift 2.8)
+        Dm <= 1
+        Di <= -4.219508
+        We > 0.04410441
+        We <= 0.2131148
+        St > 0
+        Ba <= 5.925958
+        ->  class [9.44,10]  [0.832]
+Rule 99/21: (9.1/1.7, lift 2.6)
+        Cl > 0.2792208
+        We > 0.2702703
+        St > 1.386294
+        Dag > -5.204007
+        Be > 1
+        ->  class [9.44,10]  [0.759]
+Rule 99/22: (10.6/2.6, lift 2.4)
+        Cl <= 0.4095238
+        De > 0.0952381
+        St <= 1.791759
+        Be > 2
+        Ba > 5.925958
+        ->  class [9.44,10]  [0.718]
     \end{minted}
   \end{multicols}
-\label{rules7}
+\label{rules5}
 \end{tcolorbox}
+
+\subsection{Clasificación empleando una combinación de todas las métricas}
+
+A continuación, se repetirán los experimentos anteriores, pero ahora empleando las funciones $s$, $p$, $Cl$, $De$, $Dm$, $Le$, $Di$, $We$, $Ef$, $St$, $Dag$, $WDag$, $Be$ y $Ba$.
 
 \subsubsection{Clasificación empleando los niveles 8, 9 y 10}
 
@@ -1160,4 +996,168 @@ Rule 99/21: (48.6/20.4, lift 1.8)
     \end{minted}
   \end{multicols}
 \label{rules8}
+\end{tcolorbox}
+
+\subsubsection{Clasificación empleando los niveles 3, 4 y 5}
+
+Igualmente, C5.0 obtiene un conjunto de reglas (Figura \ref{rules7}) capaz de clasificar exactamente todos los grupos dentro de su correspondiente intervalo de calificaciones del nivel $3$ al $5$, es decir, a partir del primer tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cm7}).
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node (matrix)  {$\begin{array}{c|ccccc}
+                         & \left[6.46,6.99\right] & \left[7.39,7.96\right] & \left[8.1,8.64\right] & \left[8.79,9.35\right] & \left[9.44,10\right]\\ \hline
+        \left[6.46,6.99\right] & 6 & 0 & 0 & 0 & 0 \\
+        \left[7.39,7.96\right] & 0 & 30 & 0 & 0 & 0 \\
+        \left[8.1,8.64\right] & 0 & 0 & 42 & 0 & 0 \\
+        \left[8.79,9.35\right] & 0 & 0 & 0 & 69 & 0 \\
+        \left[9.44,10\right] & 0 & 0 & 0 & 0 & 75
+\end{array}$};
+  \node[above of= matrix, node distance=1.5cm, yshift=1cm,font=\color{black}] {\textbf{Referencia}};
+  \node[left of= matrix, node distance=8cm, rotate=90, anchor=center,yshift=-0.7cm,font=\color{black}] {\textbf{Predicción}};
+  % Tabular environment for additional text
+  \node[below of=matrix, node distance=3.5cm,font=\color{gray}]{
+    \begin{tabular}{l}
+      \texttt{Accuracy : 1} \\
+      \texttt{95\% CI : (0.9835, 1)} \\
+      \texttt{No Inform. Rate : 0.3378} \\
+      \texttt{P-Value : < 2.2e-16 }
+    \end{tabular}
+  };
+\end{tikzpicture}
+\caption{Aprendiendo a identificar a los grupos de prácticas con un intervalo de notas (Figura \ref{fig:KMeans5}).}
+\label{fig:cm7}
+\end{figure}
+
+\begin{tcolorbox}[title=Reglas de clasificación para identificar intervalos de notas.]
+  %add special color box to list of listings
+  \makeatletter
+  \addcontentsline{lol}{subsection}{\kvtcb@title}
+  \makeatother
+\begin{multicols}{3}
+    \begin{minted}[fontsize=\scriptsize]{R}
+Rule 99/1: (5.1/1.5, lift 19.5)
+	Be > 3
+	Ba > 7.831342
+	->  class [6.46,6.99]  [0.646]
+
+Rule 99/2: (6.7, lift 4.2)
+	Cl <= 0.2380952
+	St > 5.257495
+	Ba <= 7.831342
+  ->  class [7.39,7.96] [0.885]
+
+Rule 99/3: (21.4/4.5, lift 3.7)
+	s > 147
+	We <= 0.2702703
+	St <= 1.098612
+	Ba <= 7.831342
+	->  class [7.39,7.96]  [0.765]
+
+Rule 99/4: (9.6/2, lift 3.5)
+	s <= 21
+	Ba > 3.291119
+  ->  class [7.39,7.96] [0.742]
+
+Rule 99/5: (5.6/1.2, lift 3.4)
+	We <= 0.2702703
+	St > 1.791759
+	St <= 2.079442
+	Ba <= 7.831342
+	->  class [7.39,7.96]  [0.708]
+
+Rule 99/6: (11/3.6, lift 3.1)
+	s <= 146
+	Le <= -6.421415
+	St <= 2.079442
+	->  class [7.39,7.96]  [0.646]
+
+Rule 99/7: (6.4/0.4, lift 4.0)
+	s > 150
+	Cl > 0.1904762
+	We <= 0.2702703
+	St > 1.098612
+	St <= 1.386294
+	Ba <= 7.831342
+	->  class [8.1,8.64]  [0.829]
+
+Rule 99/8: (3.4, lift 4.0)
+	Cl > 0.2380952
+	St > 5.257495
+  ->  class [8.1,8.64] [0.814]
+
+Rule 99/9: (7.1/0.9, lift 3.8)
+	Cl > 0.3583333
+	We <= 0.2702703
+	St > 2.079442
+	->  class [8.1,8.64]  [0.790]
+
+Rule 99/10: (2.4, lift 3.8)
+	s > 146
+	s <= 147
+	Ba <= 7.831342
+	->  class [8.1,8.64]  [0.773]
+
+Rule 99/11: (8.7/2.5, lift 3.3)
+	s > 21
+	s <= 33
+	->  class [8.1,8.64]  [0.670]
+
+Rule 99/12: (8.4/3, lift 3.0)
+	s > 33
+	Cl <= 0.4222222
+	We <= 0.07213115
+	->  class [8.1,8.64]  [0.617]
+
+Rule 99/13: (15.3/6.3, lift 2.8)
+	We <= 0.4088335
+	Be <= 3
+	Ba > 7.831342
+  ->  class [8.1,8.64] [0.579]
+
+Rule 99/14: (4.4, lift 3.4)
+	s <= 146
+	p <= 5
+	WDag <= -6.715384
+  ->  class [8.79,9.35] [0.843]
+
+Rule 99/15: (4, lift 3.4)
+	s > 487
+  ->  class [8.79,9.35] [0.833]
+
+Rule 99/16: (11.5/1.4, lift 3.3)
+	s <= 338
+	We > 0.2702703
+	St > 0
+	St <= 5.257495
+	Be <= 1
+  ->  class [8.79,9.35] [0.823]
+
+Rule 99/17: (3, lift 3.2)
+	We > 0.4088335
+	Ba > 7.831342
+  ->  class [8.79,9.35] [0.802]
+
+Rule 99/18: (2.5, lift 3.1)
+	Cl <= 0.1904762
+	St <= 5.257495
+	Ba <= 7.831342
+  ->  class [8.79,9.35] [0.778]
+
+Rule 99/19: (17.4/5.9, lift 2.6)
+	s <= 146
+	p <= 5
+	Le > -6.421415
+	We > 0.07213115
+	We <= 0.1805556
+	St <= 2.079442
+	Ba <= 7.831342
+  ->  class [8.79,9.35] [0.643]
+
+Rule 99/20: (199.9/135.5, lift 1.1)
+	s > 33
+	->  class [9.44,10]  [0.324]
+    \end{minted}
+  \end{multicols}
+\label{rules7}
 \end{tcolorbox}

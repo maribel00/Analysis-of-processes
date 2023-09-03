@@ -60,7 +60,7 @@ A continuación se realizará un estudio por años de las calificaciones obtenid
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-data[[Variable]] & 6 & 13.05 & 2.18 & 4.11 & 0.0014 \\ 
+Grade & 6 & 13.05 & 2.18 & 4.11 & 0.0014 \\ 
   Residuals            & 67 & 35.47 & 0.53 &  &  \\ 
    \hline
 \end{tabular}
@@ -133,7 +133,7 @@ Además, realizando un test de Tukey por pares de años (Cuadro \ref{tab:Tukeype
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-data[[Variable]] & 6 & 2.91 & 0.48 & 1.27 & 0.2835 \\ 
+p & 6 & 2.91 & 0.48 & 1.27 & 0.2835 \\ 
   Residuals            & 67 & 25.58 & 0.38 &  &  \\ 
    \hline
 \end{tabular}
@@ -265,7 +265,7 @@ Si realizamos una segmentación por años, podemos ver que la media de esta medi
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-data[[Variable]] & 6 & 0.93 & 0.15 & 7.43 & 4.05e-06 \\ 
+ot & 6 & 0.93 & 0.15 & 7.43 & 4.05e-06 \\ 
   Residuals            & 67 & 1.40 & 0.02 &  &  \\ 
    \hline
 \end{tabular}
@@ -362,7 +362,7 @@ A continuación, se realizará un estudio por años de la tasa de fallo en la re
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-data[[Variable]] & 6 & 1.19 & 0.20 & 11.68 & 6.55e-09 \\ 
+fr & 6 & 1.19 & 0.20 & 11.68 & 6.55e-09 \\ 
   Residuals        & 67 & 1.14 & 0.02 &  &  \\ 
    \hline
 \end{tabular}
@@ -410,9 +410,9 @@ Y2016-Y2015 & -0.05 & -0.24 & 0.14 & 0.98 \\
     \label{fig:confidencefr}
 \end{figure}
 
-\section{Tiempo empelado en la resolución de un problema por primera vez (rt)}
+\section{Reaction Time (rt)}
 
-Número de veces que se abre un mismo problema sin resolver hasta que se resuelve por primera vez normalizado. Este valor está directamente relacionado con la tasa de fallo analizada anteriormente. Podemos ver que esta medida de rendimiento sigue una distribución casi normal, ligeramente inclinada a la izquierda tal y como puede verse en la Figura \ref{fig:densityplotrt}, lo que indica que los grupos suelen emplear poco tiempo en resolver un problema por primera vez.
+Tiempo desde que se abre un mismo problema por primera vez hasta que se resuelve normalizado. Este valor está directamente relacionado con la tasa de fallo analizada anteriormente. Podemos ver que esta medida de rendimiento sigue una distribución casi normal, ligeramente inclinada a la izquierda tal y como puede verse en la Figura \ref{fig:densityplotrt}, lo que indica que los grupos suelen emplear poco tiempo en resolver un problema por primera vez.
 
 \begin{figure}[H]
     \centering
@@ -459,7 +459,7 @@ A continuación, se realizará un estudio por años del número de intentos ante
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-data[[Variable]] & 6 & 0.45 & 0.07 & 8.37 & 8.85e-07 \\ 
+rt & 6 & 0.45 & 0.07 & 8.37 & 8.85e-07 \\ 
   Residuals        & 67 & 0.60 & 0.01 &  &  \\ 
    \hline
 \end{tabular}
@@ -507,7 +507,7 @@ Y2016-Y2015 & 0.04 & -0.10 & 0.17 & 0.98 \\
     \label{fig:confidencesessionsbefore}
 \end{figure}
 
-\section{Exploración de nuevas vías y mejoras (ps)}
+\section{Perseverancia (ps)}
 
 Curiosamente, algunos grupos siguen trabajando en un problema que ya han resuelto (Figura \ref{fig:densityplotps}).
 
@@ -518,9 +518,9 @@ Curiosamente, algunos grupos siguen trabajando en un problema que ya han resuelt
     \label{fig:densityplotps}
 \end{figure}
 
-\section{Resolver un problema por primera vez (st)}
+\section{Start Time (st)}
 
-Momento exacto en el que se consigue resolver cada problema por primera vez, normalizado para poder compararlo (ya que la duración de la práctica no es la misma todos los años). Como podemos ver en la Figura \ref{fig:densityplotearlybird}, sigue una distribución casi normal, ladeada hacia la derecha ya que los distintos grupos tienden a resolver los problemas por primera vez al final de la práctica.
+Tiempo transcurrido desde el inicio de las clases hasta que se consigue resolver cada problema por primera vez, normalizado para poder compararlo (ya que la duración de la práctica no es la misma todos los años). Como podemos ver en la Figura \ref{fig:densityplotearlybird}, sigue una distribución casi normal, ladeada hacia la derecha ya que los distintos grupos tienden a resolver los problemas por primera vez al final de la práctica.
 
 \begin{figure}[H]
     \centering
@@ -558,7 +558,7 @@ Si se realiza una segmentación por años, intuimos que esta medida de rendimien
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-data[[Variable]] & 6 & 0.22 & 0.04 & 1.68 & 0.1387 \\ 
+st & 6 & 0.22 & 0.04 & 1.68 & 0.1387 \\ 
   Residuals            & 67 & 1.46 & 0.02 &  &  \\ 
    \hline
 \end{tabular}

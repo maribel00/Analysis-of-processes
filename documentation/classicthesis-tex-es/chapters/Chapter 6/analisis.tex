@@ -50,6 +50,8 @@ Y2018 & 17 \\
 Y2019 & 27 \\
 Y2020 & 16 \\
 Y2021 & 38 \\ \hline
+Mean & 26 \\
+SD & 7.958224 \\ \hline
 \end{tabular}
 \end{table}
 
@@ -61,7 +63,7 @@ Para aproximarnos al concepto subjetivo de ``dificultad del problema'' vamos a a
 
 \subsection{Dificultad del problema: la tasa de fallo}
 
-La apertura de un problema se corresponde con una sesión de trabajo, la cual puede terminar fracasando (fail) si no se consigue resolver el problema, o teniendo éxito (solved) en caso de que se haya resuelto el problema. Así pues, se definirá la tasa de fallo como el cociente entre el número total de sesiones fallidas y el número total de sesiones de un mismo problema. El boxplot de las tasas de fallo por problema puede verse en la Figura \ref{fig:boxplotfailratio}.
+La apertura de un problema se corresponde con una sesión de trabajo, la cual puede terminar fracasando (fail) si no se consigue resolver el problema, o teniendo éxito (solved) en caso de que se haya resuelto el problema. Así pues, se definirá la tasa de fallo como el cociente entre el número total de sesiones fallidas y el número total de sesiones de un mismo problema. El boxplot de las tasas de fallo por problema puede verse en la Figura \ref{fig:boxplotfailratio}. En él, podemos observar que, aunque al principio cuesta empezar (la tasa de fallo del segundo problema es en media mayor que la del primero), los problemas $3$, $4$ y $5$ se resuelven con mayor facilidad y podrían considerarse equivalentes en cuanto a dificultad. Nótese, además, que la práctica está aprobada si se resuelven los cinco primeros problemas de la misma. Por otro lado, los cuatro últimos problemas presentan una dificultad creciente y superior a la de los cinco primeros problemas y determinarán la nota de la práctica. Esta tendencia primero decreciente y luego creciente se ha creado de manera intencionada por parte del profesorado para motivar al alumnado al principio de la práctica y empujarles a resolver los últimos problemas al final de la misma.
 
 \begin{figure}[H]
     \centering
@@ -82,7 +84,7 @@ Tras realizar el test ANOVA de un factor (resultados en el Cuadro \ref{tab:ANOVA
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-data[[Variable]] & 8 & 4.00 & 0.50 & 9.12 & 7.72e-12 \\ 
+fr & 8 & 4.00 & 0.50 & 9.12 & 7.72e-12 \\ 
   Residuals        & 570 & 31.23 & 0.05 &  &  \\ 
    \hline
 \end{tabular}
@@ -149,7 +151,7 @@ Estos datos hay que interpretarlos de manera incremental, pues para resolver un 
 
 \subsection{Dificultad del problema: tiempo necesario en resolverlo}
 
-Es el número de horas que transcurren desde que el problema se abre por primera vez hasta que es resuelto por primera vez. El boxplot de los tiempos de resolución por problema puede verse en la Figura \ref{fig:boxplotduration}.
+Es el número de horas que transcurren desde que el problema se abre por primera vez hasta que es resuelto por primera vez. El boxplot de los tiempos de resolución por problema puede verse en la Figura \ref{fig:boxplotduration}. Así pues, en correspondencia con el boxplot de la Figura \ref{fig:boxplotfailratio}, podemos observar que los alumnos dedican más tiempo a la resolución de los problemas con una mayor tasa de fallo y, por consiguiente, más difíciles.
 
 \begin{figure}[H]
     \centering
@@ -170,7 +172,7 @@ Podemos ver un resumen del test ANOVA de un factor en el Cuadro \ref{tab:ANOVAdu
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-data[[Variable]] & 8 & 222548.19 & 27818.52 & 2.64 & 0.0074 \\ 
+duration & 8 & 222548.19 & 27818.52 & 2.64 & 0.0074 \\ 
   Residuals           & 642 & 6757495.31 & 10525.69 &  &  \\ 
    \hline
 \end{tabular}
@@ -255,6 +257,8 @@ Y2018 & 5705             &  2811  \\
 Y2019 & 14475            &  5156  \\
 Y2020 & 21188            &  3904  \\
 Y2021 & 11961            &  6113  \\ \hline
+Mean & 12432.86 & 4381.714 \\
+SD & 4789.312 & 1068.3 \\ \hline
 \end{tabular}
 \end{table}
 
@@ -384,7 +388,7 @@ Un resumen de los resultados obtenidos al realizar el test ANOVA se muestra en e
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-data[[Variable]] & 6 & 460434.32 & 76739.05 & 2.34 & 0.0412 \\ 
+s & 6 & 460434.32 & 76739.05 & 2.34 & 0.0412 \\ 
   Residuals         & 67 & 2197451.96 & 32797.79 &  &  \\ 
    \hline
 \end{tabular}
