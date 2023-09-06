@@ -127,6 +127,7 @@ SIIE23doImportXtraData<-function(data, fulldataset, nproblems=MAXPROBLEMS){
   return (data)
 }
 
+
 SIIE23doLoadData<-function(){
   #\\readline("Press INTRO to LOAD DATA AND PREPROCESS")
   data <- read.delim2("~/Descargas/SIIE23.tsv")
@@ -336,6 +337,7 @@ SIIE23doGenerateDatasets<-function(downto=MAXPROBLEMS) {
   dstop<-data.frame()
   for (np in (MAXPROBLEMS:downto)) {
     cat("\nGenerating data frame at level ", np,":")
+    # ds <- myDataset(dsSIIE23RAW, np)
     ds <- myDataset(SIIE23RAW, np)
     ds$OUTLIER <- "NO"
     if (np == MAXPROBLEMS) {
@@ -803,24 +805,20 @@ maxS<-function(data,group, nproblems=MAXPROBLEMS) {
 }
 
 allmetricsF<-function() {
-  return (c("s", "p", "Cl","De", "Dm" ,"Le", "Di", "We", "Ef", "St","Dag", "WDag", "Be", "Ba"))
-  # return (c("s", "p", "Cl","De", "Dm" ,"Le", "Di", "We", "Ef", "St","Dag", "WDag", "Be"))
+  return (c("s", "p", "np", "fr", "ps", "sq", "Cl","De", "Dm" ,"Le", "Di", "We", "Ef", "St","Dag", "WDag", "Be", "Ba"))
 }
 
 topologicalmetrics<-function() {
-  return (c("Cl","De", "Dm" ,"Le", "Di", "We", "Ef", "St","Dag", "WDag", "Be", "Ba"))
+  return (c("s", "p", "Cl", "De", "Dm" ,"Le", "Di", "We", "Ef", "St","Dag", "WDag", "Be", "Ba"))
 }
 
 classicalmetrics<-function() {
-  # return (c("ns","np","ot","st","rt","ft","ps","fr","sq"))
-  return (c("ns","np","ot","st","rt","ps","fr","sq"))
+  return (c("s", "p", "ns", "np", "ot", "st", "rt", "ft", "ps", "fr", "sq"))
 }
-
 
 allfieldsF<-function() {
   return (c(inheritedfieldsF(),allmetricsF(),classicalmetrics()))
 }
-
 
 inheritedfieldsF<-function() {
   return (c("Group",	"Year","Grade", "QuartileGrade","Size"))
@@ -846,7 +844,8 @@ myProblems<-function(data, group, nproblems=MAXPROBLEMS, nsessions=10000) {
 
 mySolvedProblems<-function(data, group, nproblems=MAXPROBLEMS, nsessions=10000) {
   ldata<-subdataset(data,group,nproblems,nsessions)
-  ldata<-ldata[endsWith(ldata$Problem,"_s"),]
+  # ldata<-ldata[endsWith(ldata$Problem,"_s"),]
+  ldata<-ldata[endsWith(ldata$Composite,"solved"),]
   return  (unique(ldata[,"Problem"]))
 }
 
@@ -873,6 +872,7 @@ isSolvedProblem<-function(data, group, problem) {
 
 
 subdataset<-function(data,group, nproblems=MAXPROBLEMS, nsessions=10000) {
+  # return (data[data$Group==group & data$psolved <=nproblems & data$nID < nsessions,])
   predata <-data[data$Group==group,]
   realmax <- max(predata$psolved)
   if ( realmax >=nproblems)
@@ -881,12 +881,10 @@ subdataset<-function(data,group, nproblems=MAXPROBLEMS, nsessions=10000) {
     return (data[data$Group==group & data$psolved <=realmax & data$nID < nsessions,])
 }
 
-
 sp<-function(data,group,problem,nproblems=MAXPROBLEMS) {
   # ldata<-subdataset(data,group,nproblems)
   return (nrow(data[data$Group==group & data$Problem==problem & data$psolved <=nproblems,]))
 }
-
 
 presp<-function(data,group,problem,nproblems=MAXPROBLEMS) {
   # ldata<-subdataset(data,group,nproblems)
@@ -1205,7 +1203,6 @@ Ba<-function(data, group, nproblems, graphlist) {
   
   return (sd/mean)
 }
-
 
 # -----------------
 # gDe<-function(graph) {
@@ -1769,6 +1766,7 @@ myDataset<-function(data, nproblems=MAXPROBLEMS) {
     row <-c(Group=group)
     for(ifield in (1:length(allfieldsF()))) {
       field <- allfieldsF()[ifield]
+      # cat(field, "\n")
       if (field %in% inheritedfieldsF()){
         # cat("   1-Processing field ", field, "\n")
         # value <-as.numeric(do.call(field, list(group)))
