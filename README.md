@@ -11,21 +11,23 @@
 
 ## 📝 Descripción del proyecto
 
-El estudio del proceso de aprendizaje que realizan los alumnos cuando se les platean una serie de tareas es fundamental puesto que éste podría facilitar la asimilación de nuevos conocimientos y hacer accesible aquello que se enseña al estudiantado.
+El estudio del proceso de aprendizaje que realizan los alumnos cuando se les plantean una serie de tareas es fundamental puesto que éste podría facilitar la asimilación de nuevos conocimientos y hacer accesible aquello que se enseña al estudiantado.
 
 El objetivo principal de este trabajo es, precisamente, identificar los patrones de comportamiento de aquellos estudiantes en riesgo de obtener un rendimiento más bajo de lo esperado con el fin de permitir una temprana intervención del personal docente, evitando así el fracaso de los mismos en la adquisión de nuevos conocimientos.
 
-Así pues, en este trabajo fin de grado se usarán datos obtenidos en un laboratorio virtual para, a través de técnicas de Minería de Procesos, extraer una serie de grafos, representados mediante matrices, que reflejan el comportamiento de los alumnos en la plataforma tal y como se demostrará en este estudio.
+Así pues, en este trabajo fin de grado se usarán datos registrados en un laboratorio virtual para, a través de técnicas de Minería de Procesos, extraer una serie de grafos, representados mediante matrices, que reflejan el comportamiento de los alumnos en la plataforma tal y como se demostrará en este estudio.
 
 Una parte importante del mismo ha sido el desarrollo de una herramienta de Minería de Procesos de creación propia, *Graph Miner*, que se encarga de traducir los registros del labotorio virtual en las matrices que representan el comportamiento de los alumnos. Como veremos, ésta suplirá los inconvenientes del programa de Minería de Procesos ya existente, *Disco*.
 
-Adicionalmente, se usarán técnicas de aprendizaje automático supervisado no sólo para preveer grupos en riesgo sino también para predecir en qué intervalo de notas se encuentra la calificación de los diferentes grupos de alumnos con evidencias estadísticas. De hecho, se pueden realizar tales predicciones con una alta fiabilidad en estadios tempranos del desarrollo de la práctica.
+Adicionalmente, se usarán técnicas de aprendizaje automático supervisado no sólo para prever grupos en riesgo sino también para predecir en qué intervalo de notas se encuentra la calificación de los diferentes grupos de alumnos con evidencias estadísticas. De hecho, se pueden realizar tales predicciones con una alta fiabilidad en estadios tempranos del desarrollo de la práctica.
 
-Por último, destacar que, para realizar las clasificaciones descritas en el párrafo anterior, se han utilizado tanto medidas clásicas del rendimiento de los alumnos como medidas de complejidad basadas únicamente en la topología del grafo representado a través de la matriz característica de cada grupo, demostrando éstas últimas ser igual de útiles que las primeras.
+También destacar que, para realizar las clasificaciones descritas en el párrafo anterior, se han utilizado tanto medidas clásicas del rendimiento de los alumnos como medidas de complejidad basadas únicamente en la topología del grafo representado a través de la matriz característica de cada grupo, demostrando éstas últimas ser igual de útiles que las primeras.
+
+Por último, añadir que este proyecto ha inspirado la presentación del artículo *"In heaven as on earth: The performance of students is as good as it is the digraph that describes their behavior"* al *XXV International Symposium on Computers in Education (SIIE)*.
 
 ## ✔ Objetivos
 
-El principal objetivo de este proyecto es identificar patrones de comportamiento indicativos de la evolución de los alumnos y del progreso de su aprendizaje, detectando, en las fases más tempranas posibles, comportamientos que pudiesen ser anómalos o que pudiesen indicar problemas de aprendizaje. Es decir, se pretende relevar, mediante la utilización de técnicas de minería de procesos, las posibles estrategias de los alumnos para cumplir los distintos objetivos de la asignatura así como desvelar su forma de trabajo habitual.
+El principal objetivo de este proyecto es identificar patrones de comportamiento indicativos de la evolución de los alumnos y del progreso de su aprendizaje, detectando, en las fases más tempranas posibles, comportamientos que pudiesen ser anómalos o que pudiesen indicar problemas de aprendizaje. Es decir, se pretende revelar, mediante la utilización de técnicas de minería de procesos, las posibles estrategias de los alumnos para cumplir los distintos objetivos de la asignatura así como desvelar su forma de trabajo habitual.
 
 ## 💻 Contenido del repositorio
 
