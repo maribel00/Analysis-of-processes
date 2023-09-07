@@ -44,6 +44,9 @@ Como podemos ver en la Figura \ref{fig:cmend1}, C5.0 obtiene un conjunto de regl
   \makeatletter
   \addcontentsline{lol}{subsection}{\kvtcb@title}
   \makeatother
+  
+\phantomsection \label{rulesend1}  
+  
 \begin{multicols}{2}
     \begin{minted}{R}
 Rule 75/1: (73.8, lift 1.4)
@@ -89,7 +92,6 @@ Rule 75/7: (70.1/28.1, lift 2.0)
 Default class: GOOD
     \end{minted}
   \end{multicols}
-\label{rulesend1}
 \end{tcolorbox}
 
 \subsubsection{Clasificación empleando los niveles 3, 4 y 5}
@@ -125,12 +127,14 @@ Como podemos ver en la Figura \ref{fig:cmbegin1}, C5.0 no es capaz de identifica
   \makeatletter
   \addcontentsline{lol}{subsection}{\kvtcb@title}
   \makeatother
+
+\phantomsection \label{rulesbegin1}  
+
 \begin{multicols}{2}
     \begin{minted}{R}
 Default class: GOOD
     \end{minted}
   \end{multicols}
-\label{rulesbegin1}
 \end{tcolorbox}
 
 Pero no sólo esto, ¿podríamos dar un gran paso y predecir no sólo equipos \emph{``LOW''}/\emph{``GOOD''}, sino también un límite inferior y superior de sus calificaciones finales, y adivinar en cuál de los $5$ intervalos de la Figura \ref{fig:KMeans5} se encuentran? La respuesta es, felizmente, sí (Sección \ref{sec:intervals}).
@@ -172,6 +176,9 @@ El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exact
   \makeatletter
   \addcontentsline{lol}{subsection}{\kvtcb@title}
   \makeatother
+  
+\phantomsection \label{rules4}  
+  
 \begin{multicols}{2}
     \begin{minted}[fontsize=\footnotesize]{R}
 Rule 99/1: (44.4, lift 1.5)
@@ -265,7 +272,6 @@ Rule 99/14: (14.4/3.1, lift 2.3)
 Default class: GOOD
     \end{minted}
   \end{multicols}
-\label{rules4}
 \end{tcolorbox}
 
 \subsubsection{Clasificación empleando los niveles 3, 4 y 5}
@@ -301,6 +307,9 @@ El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exact
   \makeatletter
   \addcontentsline{lol}{subsection}{\kvtcb@title}
   \makeatother
+  
+\phantomsection \label{rules1}  
+  
 \begin{multicols}{2}
     \begin{minted}[fontsize=\scriptsize]{R}
 Rule 4/1: (34.6, lift 1.4)
@@ -409,7 +418,6 @@ Rule 4/16: (24.4/8, lift 2.1)
 Default class: GOOD
     \end{minted}
   \end{multicols}
-\label{rules1}
 \end{tcolorbox}
 
 \subsection{Clasificación empleando las medidas de complejidad de propósito general}
@@ -447,6 +455,9 @@ El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exact
   \makeatletter
   \addcontentsline{lol}{subsection}{\kvtcb@title}
   \makeatother
+  
+\phantomsection \label{rules3}  
+  
 \begin{multicols}{2}
     \begin{minted}{R}
 Rule 99/1: (8.3, lift 1.3)
@@ -501,7 +512,6 @@ Rule 99/9: (5.3/0.4, lift 2.5)
 Default class: GOOD
     \end{minted}
   \end{multicols}
-\label{rules3}
 \end{tcolorbox}
 
 \subsubsection{Clasificación empleando los niveles 3, 4 y 5}
@@ -537,6 +547,9 @@ El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exact
   \makeatletter
   \addcontentsline{lol}{subsection}{\kvtcb@title}
   \makeatother
+  
+\phantomsection \label{rules2}  
+
 \begin{multicols}{2}
     \begin{minted}{R}
 Rule 11/1: (17.8, lift 1.5)
@@ -591,7 +604,6 @@ Rule 11/9: (19.9/5.4, lift 2.0)
 Default class: GOOD
     \end{minted}
   \end{multicols}
-\label{rules2}
 \end{tcolorbox}
 
 \section{Clasificación en intervalos de notas}\label{sec:intervals}
@@ -634,6 +646,9 @@ Como podemos ver en la Figura \ref{fig:cmend2}, C5.0 obtiene un conjunto de regl
   \makeatletter
   \addcontentsline{lol}{subsection}{\kvtcb@title}
   \makeatother
+  
+\phantomsection \label{rulesend2}  
+  
 \begin{multicols}{3}
     \begin{minted}[fontsize=\scriptsize]{R}
 Rule 99/1: (13.8/2, lift 5.7)
@@ -746,7 +761,6 @@ Rule 99/17: (4.7/0.6, lift 2.5)
 Default class: [8.79,9.35]
     \end{minted}
   \end{multicols}
-\label{rulesend2}
 \end{tcolorbox}
 
 \subsubsection{Clasificación empleando los niveles 3, 4 y 5}
@@ -785,6 +799,9 @@ Como puede verse en la Figura \ref{fig:cmbegin2}, C5.0 obtiene un conjunto de re
   \makeatletter
   \addcontentsline{lol}{subsection}{\kvtcb@title}
   \makeatother
+  
+\phantomsection \label{rulesbegin2}  
+  
 \begin{multicols}{3}
     \begin{minted}[fontsize=\scriptsize]{R}
 Rule 99/1: (3.5, lift 17.3)
@@ -901,7 +918,6 @@ Rule 99/18: (198.5/132, lift 1.1)
 Default class: [9.44,10]
     \end{minted}
   \end{multicols}
-\label{rulesbegin2}
 \end{tcolorbox}
 
 \subsection{Clasificación empleando una combinación de todas las métricas}
@@ -944,6 +960,9 @@ Empleando el algoritmo C5.0 se obtiene un conjunto de reglas (Cuadro \ref{rules8
   \makeatletter
   \addcontentsline{lol}{subsection}{\kvtcb@title}
   \makeatother
+
+\phantomsection \label{rules8}  
+  
 \begin{multicols}{3}
     \begin{minted}[fontsize=\scriptsize]{R}
 Rule 99/1: (9.5/0.4, lift 21.4)
@@ -1066,7 +1085,6 @@ Rule 99/18: (23.1/5.1, lift 2.7)
 Default class: [8.79,9.35]
     \end{minted}
   \end{multicols}
-\label{rules8}
 \end{tcolorbox}
 
 \subsubsection{Clasificación empleando los niveles 3, 4 y 5}
@@ -1105,6 +1123,9 @@ Al igual que en el caso anterior, empleando el algoritmo C5.0 obtenemos un conju
   \makeatletter
   \addcontentsline{lol}{subsection}{\kvtcb@title}
   \makeatother
+  
+\phantomsection \label{rules7}
+
 \begin{multicols}{3}
     \begin{minted}[fontsize=\scriptsize]{R}
 Rule 99/1: (2.7, lift 21.1)
@@ -1252,7 +1273,6 @@ Rule 99/22: (145.2/87.7, lift 1.3)
 Default class: [8.79,9.35]
     \end{minted}
   \end{multicols}
-\label{rules7}
 \end{tcolorbox}
 
 \subsection{Clasificación empleando las medidas de complejidad de propósito general}
@@ -1293,6 +1313,9 @@ Empleando el algoritmo C5.0 obtenemos un conjunto de reglas (Cuadro \ref{rules6}
   \makeatletter
   \addcontentsline{lol}{subsection}{\kvtcb@title}
   \makeatother
+
+\phantomsection \label{rules6}  
+  
 \begin{multicols}{3}
     \begin{minted}[fontsize=\scriptsize]{R}
 Rule 99/1: (7.5/2.7, lift 17.2)
@@ -1411,7 +1434,6 @@ Rule 99/17: (13.3/4.7, lift 2.1)
 Default class: [8.79,9.35]
     \end{minted}
   \end{multicols}
-\label{rules6}
 \end{tcolorbox}
 
 \subsubsection{Clasificación empleando los niveles 3, 4 y 5}
@@ -1449,7 +1471,9 @@ Efectivamente, C5.0 obtiene un conjunto de reglas (Cuadro \ref{rules5}) capaz de
   %add special color box to list of listings
   \makeatletter
   \addcontentsline{lol}{subsection}{\kvtcb@title}
-  \makeatother
+  \makeatother 
+  
+\phantomsection \label{rules5}
 \begin{multicols}{3}
     \begin{minted}[fontsize=\scriptsize]{R}
 Rule 99/1: (4.6, lift 4.7)
@@ -1599,5 +1623,4 @@ Rule 99/22: (10.6/2.6, lift 2.4)
 Default class: [9.44,10]
     \end{minted}
   \end{multicols}
-\label{rules5}
 \end{tcolorbox}
