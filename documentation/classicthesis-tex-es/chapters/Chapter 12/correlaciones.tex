@@ -10,7 +10,7 @@ En primer, las correlaciones que más nos interesan son las de las distintas mé
     \label{fig:correlations}
 \end{figure}
 
-Así pues, vemos que las variables \emph{np} ($p = 0.0127 < 0.05$), \emph{fr} ($p = 0.0378 < 0.05$), \emph{ps} ($p = 0.0031 < 0.05$) y \emph{sq} ($p = 0.0226 < 0.05$) correlan con la calificación obtenida y que la variable \emph{ns} podría correlar con la variable \emph{Grade} aunque con un grado de certeza menor que el resto ($p = 0.0712 < 0.1$).
+Así pues, vemos que las variables \emph{np} ($p = 0.0127 < 0.05$), \emph{fr} ($p = 0.0378 < 0.05$), \emph{ps} ($p = 0.0031 < 0.05$) y \emph{sq} ($p = 0.0226 < 0.05$) correlan con la calificación obtenida y que la variable \emph{ns} podría correlar con la variable \emph{Grade} aunque con un grado de certeza menor que el resto ($p = 0.0712 < 0.1$). Posteriormente, en el Capítulo \ref{sec:chapterXIII} se utilizarán las métricas \emph{np}, \emph{fr}, \emph{ps} y \emph{sq} junto con las medidas de complejidad de propósito general para clasificar a los diferentes grupos de prácticas.
 
 Además, realizando una regresión polinomial de orden $2$ entre dichas medidas y la variable \emph{Grade} obtenemos que existe una relación no lineal entre las variables \emph{np} ($p = 0.0137 < 0.05$), \emph{fr} ($p = 0.0016 < 0.05$) y \emph{ps} ($p = 0.0006 < 0.05$) y las calificaciones obtenidas tal y como se muestra en la Figura \ref{fig:correlations2}. Adicionalmente, podría existir una relación no lineal entre la variable \emph{sq} y la variable \emph{Grade} aunque con un grado de certeza menor ($p = 0.0695 < 0.1$).
 
@@ -38,3 +38,5 @@ Por último, estudiaremos si existe alguna relación no lineal entre alguna de l
     \caption{Regresión polinomial de orden $2$ entre las medidas de complejidad de propósito general y la variable \emph{Grade}.}
     \label{fig:correlations4}
 \end{figure}
+
+Como podemos ver, casi ninguna de las medidas de complejidad de propósito general correla bien con la variable \emph{Grade}. Es por esto que se usarán todas las métricas combinadas para clasificar a los diferentes grupos de prácticas (Capítulo \ref{sec:chapterXIII}).
