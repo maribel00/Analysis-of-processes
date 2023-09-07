@@ -108,22 +108,19 @@ Dentro de la carpeta `Code`, encontramos:
 ```
 
 * Una carpeta que contiene los datasets que se han empleado en la realización de los experimentos.
-* La carpeta `C++` que contiene código escrito en C++.
+* La carpeta `C++` que contiene código escrito en C++ que implementa una clase representando a un digrafo acíclico sobre el que se calculan una serie de medidas de complejidad.
 * La carpeta `Python` que contiene una serie de notebooks con primeras inspecciones de los datasets y una primera versión de la aplicación final de este proyecto.
 * La carpeta `R`, de gran relevancia al contener tanto la aplicación final de este trabajo como todos los análisis estadísticos presentados en la memoria del proyecto. 
-
-#### C++
-
-#### Python
 
 #### R
 
 * El directorio `Preliminary analyses` recoge los estudios realizados justo al comienzo del proyecto. Contiene los siguientes archivos:
-    - `TestHomogeneidad.R` se encarga de la realización del un test *ANOVA* de dos factores con el objetivo de garantizar que el dataset que tenemos es homogéneo.
+    - `TestHomogeneidad.R` se encarga de la realización de un test *ANOVA* de dos factores con el objetivo de garantizar que el dataset que tenemos es homogéneo.
     - `FiltrarRegistros.R` se encarga de filtrar y limpiar el dataset original `DBA1520.csv` y de almacenar el nuevo dataset en el archivo `cleandataset.csv`.
     - `Segmentar.R` se encarga de segmentar el dataset `cleandataset.csv` en distintos datasets en función de las calificaciones obtenidas por cada uno de los grupos de prácticas. Las calificaciones de los grupos pueden encontrarse en `DBA1520GRADED.csv`.
-    - `Estudio.R` se encarga de realizar un estudio estadístico de los datasets resultantes de la segmentación realiza como el script `Segmentar.R`.
-* El directorio
+    - `Estudio.R` se encarga de realizar un estudio estadístico de los datasets resultantes de la segmentación realizada con el script `Segmentar.R`.
+* El directorio `SIIE23Scripts` recoge una serie de scripts auxiliares para la creación del dataset estratificado según los objetivos conseguidos y para el graficado de los resultados de algunos tests estadísticos proporcionados por el profesor Luis Castillo Vidal.
+* El directorio `Statistical analyses` almacena todos los scripts en los que se implementan todos los estudios estadísticos llevados a cabo en este proyecto fin de grado.
 
 #### datasets
 
