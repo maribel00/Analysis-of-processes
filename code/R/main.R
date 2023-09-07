@@ -1,4 +1,4 @@
-setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
+# setwd('./Escritorio/5º DGIIM/TFG/Analysis-of-processes/code/R/')
 
 source("SIIE23Scripts/SIIE2023.R")
 source("SIIE23Scripts/SIIE23master.R")
