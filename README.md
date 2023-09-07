@@ -11,7 +11,7 @@
 
 ## 📝 Descripción del proyecto
 
-El estudio del proceso de aprendizaje que realizan los alumnos cuando se les platean una serie de tareas es fundamental puesto que éste podría facilitar la asimilación de nuevos conocimientos y de hacer accesible aquello que se enseña al estudiantado.
+El estudio del proceso de aprendizaje que realizan los alumnos cuando se les platean una serie de tareas es fundamental puesto que éste podría facilitar la asimilación de nuevos conocimientos y hacer accesible aquello que se enseña al estudiantado.
 
 El objetivo principal de este trabajo es, precisamente, identificar los patrones de comportamiento de aquellos estudiantes en riesgo de obtener un rendimiento más bajo de lo esperado con el fin de permitir una temprana intervención del personal docente, evitando así el fracaso de los mismos en la adquisión de nuevos conocimientos.
 
