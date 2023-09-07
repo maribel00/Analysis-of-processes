@@ -104,7 +104,8 @@ Dentro de la carpeta `Code`, encontramos:
  ┃ ┣ 📜datasetMH.csv
  ┃ ┣ 📜datasetN.csv
  ┃ ┣ 📜datasetS.csv
- ┃ ┗ 📜datasetSOB.csv
+ ┃ ┣ 📜datasetSOB.csv
+ ┃ ┗ 📜SIIE23RAW.tsv
 ```
 
 * Una carpeta que contiene los datasets que se han empleado en la realización de los experimentos.
@@ -129,10 +130,13 @@ Dentro de la carpeta `Code`, encontramos:
 * El dataset `cleandataset.csv` no es más que el dataset `DBA1520.csv` limpio (sin datos erróneos). Se genera a través del script `FiltrarRegistros.R`.
 * El dataset `DBA1520GRADED.csv`, que contiene una fila por cada uno de los grupos de prácticas en la que se indica su nombre, el número de integrantes, el año al que pertenecen y la calificación obtenida por los mismos.
 * Los datasets `datasetS.csv`, `datasetA.csv`, `datasetN.csv`, `datasetSOB.csv`, `datasetMH.csv` corresponden a la segmentación del dataset `cleandataset.csv` por notas. Se generan mediante el script `Segmentar.R`.
+* El dataset `SIIE23RAW.tsv`, que es el que finalmente se usará en la aplicación final de este proyecto. En él, se encuentran integrados los registros del servidor de los últimos siete cursos académicos.
 
 ## 📖 Manual de uso
 
-Para obtener los grafos correspondientes al proceso de aprendizaje de cada uno de los grupos se deberá tener instalado Rscript. A continuación, se deberá la siguiente instrucción en el directorio `/code/R`:
+En primer lugar, se debe descargar el dataset `SIIE23RAW.tsv` y dejarlo en la carpeta `Descargas` de su ordenador para que los distintos scripts de R puedan acceder a él.
+
+A continuación, para obtener los grafos correspondientes al proceso de aprendizaje de cada uno de los grupos se deberá tener instalado Rscript. Una vez hecho lo anterior, se deberá la siguiente instrucción en el directorio `/code/R`:
 
 `Rscript generate.R`
 
