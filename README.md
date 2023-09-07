@@ -108,7 +108,7 @@ Dentro de la carpeta `Code`, encontramos:
 ```
 
 * Una carpeta que contiene los datasets que se han empleado en la realización de los experimentos.
-* La carpeta `C++` que contiene código escrito en C++ que implementa una clase representando a un digrafo acíclico sobre el que se calculan una serie de medidas de complejidad.
+* La carpeta `C++` que contiene código escrito en C++ que implementa una clase representando a un grafo acíclico dirigido sobre el que se calculan una serie de medidas de complejidad.
 * La carpeta `Python` que contiene una serie de notebooks con primeras inspecciones de los datasets y una primera versión de la aplicación final de este proyecto.
 * La carpeta `R`, de gran relevancia al contener tanto la aplicación final de este trabajo como todos los análisis estadísticos presentados en la memoria del proyecto. 
 
