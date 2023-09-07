@@ -136,7 +136,7 @@ Dentro de la carpeta `Code`, encontramos:
 
 En primer lugar, se debe descargar el dataset `SIIE23RAW.tsv` y dejarlo en la carpeta `Descargas` de su ordenador para que los distintos scripts de R puedan acceder a él.
 
-A continuación, para obtener los grafos correspondientes al proceso de aprendizaje de cada uno de los grupos se deberá tener instalado Rscript. Una vez hecho lo anterior, se deberá la siguiente instrucción en el directorio `/code/R`:
+A continuación, para obtener los grafos correspondientes al proceso de aprendizaje de cada uno de los grupos se deberá tener instalado Rscript. Una vez hecho lo anterior, se deberá ejecutar la siguiente instrucción en el directorio `/code/R`:
 
 `Rscript generate.R`
 
