@@ -13,11 +13,11 @@
 
 El estudio del proceso de aprendizaje que realizan los alumnos cuando se les plantean una serie de tareas es fundamental puesto que éste podría facilitar la asimilación de nuevos conocimientos y hacer accesible aquello que se enseña al estudiantado.
 
-El objetivo principal de este trabajo es, precisamente, identificar los patrones de comportamiento de aquellos estudiantes en riesgo de obtener un rendimiento más bajo de lo esperado con el fin de permitir una temprana intervención del personal docente, evitando así el fracaso de los mismos en la adquisión de nuevos conocimientos.
+El objetivo principal de este trabajo es, precisamente, identificar los patrones de comportamiento de aquellos estudiantes en riesgo de obtener un rendimiento más bajo de lo esperado con el fin de permitir una temprana intervención del personal docente, evitando así el fracaso de los mismos en la adquisición de nuevos conocimientos.
 
 Así pues, en este trabajo fin de grado se usarán datos registrados en un laboratorio virtual para, a través de técnicas de Minería de Procesos, extraer una serie de grafos, representados mediante matrices, que reflejan el comportamiento de los alumnos en la plataforma tal y como se demostrará en este estudio.
 
-Una parte importante del mismo ha sido el desarrollo de una herramienta de Minería de Procesos de creación propia, *Graph Miner*, que se encarga de traducir los registros del labotorio virtual en las matrices que representan el comportamiento de los alumnos. Como veremos, ésta suplirá los inconvenientes del programa de Minería de Procesos ya existente, *Disco*.
+Una parte importante del mismo ha sido el desarrollo de una herramienta de Minería de Procesos de creación propia, *Graph Miner*, que se encarga de traducir los registros del laboratorio virtual en las matrices que representan el comportamiento de los alumnos. Como veremos, ésta suplirá los inconvenientes del programa de Minería de Procesos ya existente, *Disco*.
 
 Adicionalmente, se usarán técnicas de aprendizaje automático supervisado no sólo para prever grupos en riesgo sino también para predecir en qué intervalo de notas se encuentra la calificación de los diferentes grupos de alumnos con evidencias estadísticas. De hecho, se pueden realizar tales predicciones con una alta fiabilidad en estadios tempranos del desarrollo de la práctica.
 
