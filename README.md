@@ -121,7 +121,7 @@ Dentro de la carpeta `Code`, encontramos:
     - `Estudio.R` se encarga de realizar un estudio estadístico de los datasets resultantes de la segmentación realizada con el script `Segmentar.R`.
 * El directorio `SIIE23Scripts` recoge una serie de scripts auxiliares para la creación del dataset estratificado según los objetivos conseguidos y para el graficado de los resultados de algunos tests estadísticos proporcionados por el profesor Luis Castillo Vidal.
 * El directorio `Statistical analyses` almacena todos los scripts en los que se implementan todos los estudios estadísticos llevados a cabo en este proyecto fin de grado.
-* El archivo `generate.R`, encargado de la generación de los grafos que representan a cada uno de los grupos de prácticas y el archivo `main.R`, que no es más que el script encargado de la generación de los resultados de este trabajo fin de grado.
+* El archivo `generate.R`, encargado de la generación de los grafos que representan a cada uno de los grupos de prácticas, y el archivo `main.R`, que no es más que el script encargado de la generación de los resultados de este trabajo fin de grado.
 
 #### datasets
 
