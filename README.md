@@ -142,7 +142,7 @@ A continuación, para obtener los grafos correspondientes al proceso de aprendiz
 
 No obstante, el proceso de generación de todos los grafos es costoso. Así pues, ya se proporcionan los mismos en las carpetas `Graphs`, `GraphsSummary`, `GraphsProblems`, `GraphsStates` y `GraphsStates_wc`.
 
-Para reproducir los experimentos cuyos resultados se muestran en el *Capítulo 13* de la memoria se deberá ejecutar en el directorio `/code/R` las siguientes líneas:
+Para reproducir los experimentos cuyos resultados se muestran en el *Capítulo 13* de la memoria se deberá ejecutar en el directorio `/code/R` la siguiente línea:
 
 `Rscript main.R`
 
