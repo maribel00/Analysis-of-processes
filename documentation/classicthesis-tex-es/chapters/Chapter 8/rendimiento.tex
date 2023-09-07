@@ -38,7 +38,7 @@ Más aún, la regresión es muy aceptable (Figura \ref{fig:q-qsessionsachiever})
     \label{fig:q-qsessionsachiever}
 \end{figure}
 
-A continuación se realizará un estudio por años de las calificaciones obtenidas. El boxplot de las calificaciones por años puede verse en la Figura \ref{fig:boxplotachieveryear}. Como se puede observar, los datos recogidos muestran una variación muy perceptible en las notas a lo largo de los años. De hecho, los test estadísticos ratifican que hay diferentes significativas entre ellas. Tras realizar el test ANOVA de un factor (resultados en el Cuadro \ref{tab:ANOVAachiever}) obtenemos $p = 0.00143 < 0.05$. Además, tras realizar el test de Kruskal-Wallis se obtiene $p-value = 0.01534$. Un análisis posterior por pares de Tukey muestra las diferencias entre los años (resultados en el Cuadro \ref{tab:Tukeyachiever}). Podemos ver que el año 2017 es el principal elemento de disrupción, pero por poco margen. Lo mismo indica el análisis de los intervalos de confianza de la Figura \ref{fig:confidenceachiever}.
+A continuación se realizará un estudio por años de las calificaciones obtenidas. El boxplot de las calificaciones por años puede verse en la Figura \ref{fig:boxplotachieveryear}. Como se puede observar, los datos recogidos muestran una variación muy perceptible en las notas a lo largo de los años. De hecho, los tests estadísticos ratifican que hay diferentes significativas entre ellas. Tras realizar el test ANOVA de un factor (resultados en el Cuadro \ref{tab:ANOVAachiever}) obtenemos $p = 0.00143 < 0.05$. Además, tras realizar el test de Kruskal-Wallis se obtiene $p-value = 0.01534$. Un análisis posterior por pares de Tukey muestra las diferencias entre los años (resultados en el Cuadro \ref{tab:Tukeyachiever}). Podemos ver que el año 2017 es el principal elemento de disrupción, pero por poco margen. Lo mismo indica el análisis de los intervalos de confianza de la Figura \ref{fig:confidenceachiever}.
 
 \begin{figure}[H]
     \centering
@@ -204,7 +204,7 @@ Como vemos en la Figura \ref{fig:densityplotft}, el punto de finalización de la
 
 \section{Número de sesiones realiazadas (s)}
 
-El número de sesiones realizadas por los diferentes grupos de prácticas se ha analizado con anterioridad. En la Sección \ref{sec:NormalityNumSessions} vimos que seguía una distribución casi-normal. Además, vimos que el número de sesiones sigue la misma distribución de probabilidad en cada uno de los cursos académicos considerados (Sección \ref{sec:ANOVANumSessions}).
+El número de sesiones realizadas por los diferentes grupos de prácticas se ha analizado con anterioridad. En la Sección \ref{sec:NormalityNumSessions} vimos que seguía una distribución casi normal. Además, vimos que el número de sesiones sigue la misma distribución de probabilidad en cada uno de los cursos académicos considerados (Sección \ref{sec:ANOVANumSessions}).
 
 %\section{Sesiones perdidas durante un problema}
 
@@ -246,7 +246,7 @@ En las Figuras \ref{fig:boxplotresidualsnewcomer} y \ref{fig:histogramresidualsn
 \label{fig:newcomer}
 \end{figure}
 
-Si realizamos una segmentación por años, podemos ver que la media de esta medida de rendimiento puede variar según el año que estemos considerando (Figura \ref{fig:boxplotnewcomer}). El test ANOVA de un sólo factor ha confirma lo observado (se ha obtenido $p = 4.05e-06 < 0.05$ como puede verse en el Cuadro \ref{tab:ANOVAnewcomer}). Igualmente, el test de Kruskal-Wallis coincide con lo anteriormente visto ($p-value = 4.633e-05 < 0.05$).
+Si realizamos una segmentación por años, podemos ver que la media de esta medida de rendimiento puede variar según el año que estemos considerando (Figura \ref{fig:boxplotnewcomer}). El test ANOVA de un sólo factor ha confirmado lo observado (se ha obtenido $p = 4.05e-06 < 0.05$ como puede verse en el Cuadro \ref{tab:ANOVAnewcomer}). Igualmente, el test de Kruskal-Wallis coincide con lo anteriormente visto ($p-value = 4.633e-05 < 0.05$).
 
 \begin{figure}[H]
     \centering
@@ -626,7 +626,7 @@ La medida de similaridad del coseno se define sobre dos vectores definidos sobre
 \label{eq:cosinesimilarity}
 \end{equation}
 
-Trivialmente, la similitud coseno pertenece siempre al intervalo $[-1,1]$. Por ejemplo, dos vectores proporcionales tienen una similitud coseno de $1$, dos vectores ortogonales tienen una similitud de $0$ y dos vectores opuestos tienen una similitud de $-1$. Sin embargo, en nuestro contexto, como los valores componentes de los vectores no pueden ser negativos (serán numeros naturales entre el uno y el nueve representando a cada uno de los problemas), la semejanza coseno está acotada en el intervalo $[0,1]$.
+Trivialmente, la similitud coseno pertenece siempre al intervalo $[-1,1]$. Por ejemplo, dos vectores proporcionales tienen una similitud coseno de $1$, dos vectores ortogonales tienen una similitud de $0$ y dos vectores opuestos tienen una similitud de $-1$. Sin embargo, en nuestro contexto, como los valores componentes de los vectores no pueden ser negativos (serán números naturales entre el uno y el nueve representando a cada uno de los problemas), la semejanza coseno está acotada en el intervalo $[0,1]$.
 
 Nótese que se podría haber definido una medida de similaridad basada en la distancia euclídea. Sin embargo, ésta sólo es de utilidad en espacios de dimensiones pequeñas.
 

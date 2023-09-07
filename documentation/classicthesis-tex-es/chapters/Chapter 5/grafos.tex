@@ -31,7 +31,7 @@ Como veremos en los Capítulos \ref{sec:chapterXII} y \ref{sec:chapterXIII}, los
 \label{fig:grafo1}
 \end{wrapfigure}
 
-En esta sección se introducirán las deficiones básicas que forman parte de la teoría de grafos.
+En esta sección se introducirán las definiciones básicas que forman parte de la teoría de grafos.
 
 \begin{definition}\label{def:grafo}
 Matemáticamente, un \emph{grafo} $G = (V,E)$ es una tupla de vértices $V$ y aristas $E$ que relacionan dichos vértices. Denominaremos  \emph{orden} del grafo al número de vértices del mismo ($|V|$). Por supuesto, siempre tendremos que $V \neq \emptyset$.
@@ -133,7 +133,7 @@ Dado un grafo $G=(V,E)$, un \emph{camino} suyo es una secuencia de aristas $(e_1
 
 Un \emph{grafo conexo} es un grafo en que todos sus vértices están conectados por un camino.
 
-De lo contrairo, si algún grafo no cumple la propiedad anterior se dirá que es \emph{disconexo}.
+De lo contrario, si algún grafo no cumple la propiedad anterior se dirá que es \emph{disconexo}.
 \end{definition}
 
 \begin{definition}
@@ -340,7 +340,7 @@ En la Figura \ref{fig:grafo3} tenemos un grafo dirigido con ciclos o cíclico (c
 \end{exampleth}
 
 \begin{definition}
-Un grafo conexo acíclico no dirigido se denominará \emph{árbol}. Por otro lado, un \emph{árbol orientado} o \emph{poliárbol} será un grafo dirigido acíclico cuyo grafo no dirigido subyacente es un árbol. De otra manera, si cambiamos sus aristas dirigidas por no diridas, se obtendía un grafo no dirigido conexo y acíclico.
+Un grafo conexo acíclico no dirigido se denominará \emph{árbol}. Por otro lado, un \emph{árbol orientado} o \emph{poliárbol} será un grafo dirigido acíclico cuyo grafo no dirigido subyacente es un árbol. De otra manera, si cambiamos sus aristas dirigidas por no dirigidas, se obtendría un grafo no dirigido conexo y acíclico.
 \end{definition}
 
 \begin{definition}
@@ -462,7 +462,7 @@ Consideremos la lista $(3,5,3,1)$. La longitud de esta lista es $4$, por lo que 
 
 Finalmente, se procederá a demostrar la fórmula de Cayley \ref{prop:1}:
 \begin{proof}
-Si $n = 1$ o $n = 2$ el resultado es trivialmente cierto. Si $n \geq 3$ de las Proposiones \ref{prop:2} y \ref{prop:3} se sigue que existe una correspondencia biyectiva entre el conjunto de árboles generadores con $n$ vértices y el conjunto de palabras de longitud $n-2$ del alfabeto $\left\lbrace 1,2,\dots,n \right\rbrace$. Como el número de palabras de longitud $n-2$ de un alfabeto con $n$ elementos es $n^{n-2}$, entonces hay $n^{n-2}$ árboles de expansión distintos de un grafo completo con $n$ vértices.
+Si $n = 1$ o $n = 2$ el resultado es trivialmente cierto. Si $n \geq 3$ de las Proposiciones \ref{prop:2} y \ref{prop:3} se sigue que existe una correspondencia biyectiva entre el conjunto de árboles generadores con $n$ vértices y el conjunto de palabras de longitud $n-2$ del alfabeto $\left\lbrace 1,2,\dots,n \right\rbrace$. Como el número de palabras de longitud $n-2$ de un alfabeto con $n$ elementos es $n^{n-2}$, entonces hay $n^{n-2}$ árboles de expansión distintos de un grafo completo con $n$ vértices.
 \end{proof}
 
 A continuación, se introducirá el concepto de \emph{matriz laplaciana} de un grafo que, junto con el Teorema de Kirchhoff nos permitirá calcular el número de árboles de expansión de un grafo arbitrario.
@@ -515,7 +515,7 @@ La matriz laplaciana del grafo simple de la Figura \ref{fig:grafo2} será la sig
 \end{exampleth}
 
 \begin{exampleth}
-Las matrices lapacianas del grafo dirigido de la Figura \ref{fig:grafo3} de entrada y de salida se muestran en las Ecuaciones \ref{eq:inlaplacian} y \ref{eq:outlaplacian} teniendo en cuenta las matrices de adyacencia (Ecuación \ref{eq:adyacencia}), del grado de entrada (Ecuación \ref{eq:entrada}) y del grado de salida (Ecuación \ref{eq:salida}) de dicho grafo.
+Las matrices laplacianas del grafo dirigido de la Figura \ref{fig:grafo3} de entrada y de salida se muestran en las Ecuaciones \ref{eq:inlaplacian} y \ref{eq:outlaplacian} teniendo en cuenta las matrices de adyacencia (Ecuación \ref{eq:adyacencia}), del grado de entrada (Ecuación \ref{eq:entrada}) y del grado de salida (Ecuación \ref{eq:salida}) de dicho grafo.
 
 \begin{equation}
 \begin{pmatrix}
@@ -698,7 +698,7 @@ donde la segunda igual se deduce por hipótesis de inducción. Esto completa la 
 
 \section{Medidas de complejidad de propósito general}\label{sec:complexity}
 
-Teniendo en mente que la finalidad última de este trabajo es encontrar indicadores del progreso de los alumnos y la detección precoz de aquellos grupos con problemas para que el profesor pueda proporcionarles ayuda y orientación, se han obtenido medidas de rendimiento sobre los procesos minados, a las que denominaremos características topológicas de los grafos de procesos. Se tratarán de funciones \emph{off-the-shelf} genéricas sobre grafos, lo que permitiría aplicar los resulados aquí obtenidos en otras plataformas educativas.
+Teniendo en mente que la finalidad última de este trabajo es encontrar indicadores del progreso de los alumnos y la detección precoz de aquellos grupos con problemas para que el profesor pueda proporcionarles ayuda y orientación, se han obtenido medidas de rendimiento sobre los procesos minados, a las que denominaremos características topológicas de los grafos de procesos. Se tratarán de funciones \emph{off-the-shelf} genéricas sobre grafos, lo que permitiría aplicar los resultados aquí obtenidos en otras plataformas educativas.
 
 Esta sección es una recopilación de varias de esas medidas de complejidad \cite{cormen2022introduction} aplicadas a grafos dirigidos acíclicos ponderados $G = (V,E)$ a partir de sus matrices de adyacencia ponderadas. Se denotará a las matrices de adyacencia por $\mathcal{A}_{v\times v}$ y se tendrá que el número de vértices es $v = |V| = 2\cdot n + 1$, $n \in \mathbb{N}$. Es decir, tendremos un número impar de vértices.
 
@@ -764,9 +764,9 @@ Ef(\mathcal{A}) = \left|\left\lbrace p_i \in P, \sum_r \mathcal{A}[r][p_i^s] > 0
 
 Trata de determinar cómo de balanceados están los nodos de un grafo dirigido acíclico. De aquí en adelante se denotará por $Ba(\mathcal{A})$.
 
-El coeficiente $Ba$ se calcula a partir de la matriz de adyacencia de un grafo dirigido acíclico. Éste simplemente consiste en cálcular la desviación estándar de las componentes de la matriz de adyacencia no nulas y dividirla por la media de dichas entradas.
+El coeficiente $Ba$ se calcula a partir de la matriz de adyacencia de un grafo dirigido acíclico. Éste simplemente consiste en calcular la desviación estándar de las componentes de la matriz de adyacencia no nulas y dividirla por la media de dichas entradas.
 
-Todas las métricas generales aquí presentadas se utilizarán para clasificar los grupos de estudiantes. Se ha de tener en cuenta que todas ellas se han definifido sobre grafos dirigidos ponderados y no tienen en cuenta absolutamente nada relacionado con el rendimiento de los alumnos ni con los registros temporales de su progreso excepto las funciones $We$ (número de sesiones) y $Ef$ (número de problemas resueltos) y que se extraen únicamente de la matriz característica $\mathcal{A}$.
+Todas las métricas generales aquí presentadas se utilizarán para clasificar los grupos de estudiantes. Se ha de tener en cuenta que todas ellas se han definido sobre grafos dirigidos ponderados y no tienen en cuenta absolutamente nada relacionado con el rendimiento de los alumnos ni con los registros temporales de su progreso excepto las funciones $We$ (número de sesiones) y $Ef$ (número de problemas resueltos) y que se extraen únicamente de la matriz característica $\mathcal{A}$.
 
 \begin{figure}[H]
     \centering
