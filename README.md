@@ -2,12 +2,12 @@
 
 ## 🗂 Índice
 
-- [Descripción del proyecto](#📝-descripción-del-proyecto)
-- [Objetivos del proyecto](#✔-objetivos)
-- [Contenido del repositorio](#💻-contenido-del-repositorio)
-- [Manual de uso](#📖-manual-de-uso)
-- [Créditos](#✒-créditos)
-- [Licencia](#⚖-licencia)
+- [Descripción del proyecto](#-descripción-del-proyecto)
+- [Objetivos del proyecto](#-objetivos)
+- [Contenido del repositorio](#-contenido-del-repositorio)
+- [Manual de uso](#-manual-de-uso)
+- [Créditos](#-créditos)
+- [Licencia](#-licencia)
 
 ## 📝 Descripción del proyecto
 
