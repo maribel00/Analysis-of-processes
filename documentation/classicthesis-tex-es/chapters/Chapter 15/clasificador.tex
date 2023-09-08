@@ -13,7 +13,7 @@ Dado que hay muy pocos registros ($77$ en cada nivel), el problema de clasificac
 
 \subsubsection{Clasificación empleando los niveles 8, 9 y 10}
 
-Como podemos ver en la Figura \ref{fig:cmend1}, C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ grupos de tipo \emph{``LOW''} empleando los datos del último tercio del tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cmend1}). Adicionalmente, las reglas para clasificar cada uno de los grupos obtenidas (Cuadro \ref{rulesend1}) son fácilmente interpretables. Por ejemplo, la regla $4$ nos indicaría que un grupo está en riesgo si no ha resuelto todos los problemas y tarda mucho en resolverlos una vez abiertos por primera vez.
+Como podemos ver en la Figura \ref{fig:cmend1}, C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ grupos de tipo \emph{``LOW''} empleando los datos del último tercio del tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cmend1}). Adicionalmente, las reglas para clasificar cada uno de los grupos obtenidas (Cuadro \ref{rulesend1}) son fácilmente interpretables. Por ejemplo, la regla $1$ dice: ``Un grupo no está en riesgo si ha realizado muchas sesiones (\texttt{ns > 0.342623}), no tarda ni mucho tiempo ni demasiado poco en resolver los problemas una vez abiertos (\texttt{rt > 0.01037344} y \texttt{rt <= 0.3019366}) y resuelve los problemas en un orden parecido al propuesto por el profesor (\texttt{sq > 0.8140351})''. Por otro lado, la regla $4$ nos indicaría que un grupo está en riesgo si no ha resuelto todos los problemas (\texttt{np <= 0.8888889}) y tarda mucho en resolverlos una vez abiertos por primera vez (\texttt{rt > 0.3676471}).
 
 \begin{figure}[H]
 \centering
@@ -93,6 +93,8 @@ Default class: GOOD
     \end{minted}
   \end{multicols}
 \end{tcolorbox}
+
+Como vemos en el Cuadro \ref{rulesend1}, en todas las reglas aparecen, precisamente, medidas clásicas de rendimiento que correlan con la variable \emph{Grade} (Capítulo \ref{chapter:correlations}).
 
 \subsubsection{Clasificación empleando los niveles 3, 4 y 5}
 
@@ -276,7 +278,7 @@ Default class: GOOD
 
 \subsubsection{Clasificación empleando los niveles 3, 4 y 5}
 
-El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente $35$ de los $36$ casos de grupos \emph{``LOW''} del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p = 3.843e-16$ estadísticamente muy relevante (Figura \ref{fig:cm1}). Entre las reglas obtenidas (Cuadro \ref{rules1}), la regla $4$ dice: ``Un grupo no está en riesgo si ha realizado muchas sesiones (\texttt{We > 0.3286957})''. O la regla $16$ que dice ``Un grupo está en riesgo si no ha seguido el orden que el profesor esperaba (\texttt{sq <= 0.9877296}), tiene pocas sesiones (\texttt{We <= 0.3286957}) y no se centra por igual en todos los problemas (\texttt{Ba > 6.715498})''. %Esto es como el mal gráfico mostrado al principio de este documento en la Figura 1, largo y desconectado.
+El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente $35$ de los $36$ casos de grupos \emph{``LOW''} del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p = 3.843e-16$ estadísticamente muy relevante (Figura \ref{fig:cm1}). Entre las reglas obtenidas (Cuadro \ref{rules1}), la regla $4$ dice: ``Un grupo no está en riesgo si ha realizado muchas sesiones (\texttt{We > 0.3286957})''. O la regla $16$ que dice: ``Un grupo está en riesgo si no ha seguido el orden que el profesor esperaba (\texttt{sq <= 0.9877296}), tiene pocas sesiones (\texttt{We <= 0.3286957}) y no se centra por igual en todos los problemas (\texttt{Ba > 6.715498})''. %Esto es como el mal gráfico mostrado al principio de este documento en la Figura 1, largo y desconectado.
 
 \begin{figure}[H]
 \centering
@@ -516,7 +518,7 @@ Default class: GOOD
 
 \subsubsection{Clasificación empleando los niveles 3, 4 y 5}
 
-El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente $35$ de los $36$ casos de grupos \emph{``LOW''} del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p = 3.843e-16$ estadísticamente muy relevante (Figura \ref{fig:cm2}). Además, las reglas obtenidas (Cuadro \ref{rules2}) tienen pleno sentido. Por ejemplo, la regla $7$ dice: ``Un grupo está en riesgo si está centrado en los problemas con numeración alta (\texttt{Be > 6})''. O la regla $3$ que dice ``Un grupo está en riesgo si no se ha centrado por igual en todos los problemas (\texttt{Ba > 3.366005}) y recorre caminos menos largos en media (\texttt{WDag > -4.317488}) teniendo en cuenta que el valor de máxima probabilidad de la métrica $WDag$ es $-4.19$.
+El resultado es que C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente $35$ de los $36$ casos de grupos \emph{``LOW''} del nivel $3$ en adelante, es decir, a partir de un tercio del periodo de tiempo dedicado a la práctica, con un $p$ value $p = 3.843e-16$ estadísticamente muy relevante (Figura \ref{fig:cm2}). Además, las reglas obtenidas (Cuadro \ref{rules2}) tienen pleno sentido. Por ejemplo, la regla $7$ dice: ``Un grupo está en riesgo si está centrado en los problemas con numeración alta (\texttt{Be > 6})''. O la regla $3$ que dice: ``Un grupo está en riesgo si no se ha centrado por igual en todos los problemas (\texttt{Ba > 3.366005}) y recorre caminos menos largos en media (\texttt{WDag > -4.317488}) teniendo en cuenta que el valor de máxima probabilidad de la métrica $WDag$ es $-4.19$.
 
 \begin{figure}[H]
 \centering
@@ -762,6 +764,8 @@ Default class: [8.79,9.35]
     \end{minted}
   \end{multicols}
 \end{tcolorbox}
+
+Como vemos en el Cuadro \ref{rulesend2}, en todas las reglas aparecen, precisamente, medidas clásicas de rendimiento que correlan con la variable \emph{Grade} (Capítulo \ref{chapter:correlations}).
 
 \subsubsection{Clasificación empleando los niveles 3, 4 y 5}
 
@@ -1623,4 +1627,13 @@ Rule 99/22: (10.6/2.6, lift 2.4)
 Default class: [9.44,10]
     \end{minted}
   \end{multicols}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colframe=blue!80, title=Resumen de los resultados obtenidos]
+En este trabajo fin de grado se ha conseguido:
+\begin{itemize}
+\item Identificar a los grupos en riesgo (\emph{LOW}) utilizando los datos de los niveles $3$, $4$ y $5$ (es decir, a partir de estadios tempranos del desarrollo de la práctica).
+\item Identificar a cada grupo con un intervalo de calificaciones también empleando datos de los niveles $3$, $4$ y $5$.
+\item Además, se ha obtenido un conjunto de reglas sencillas con pleno sentido y estadísticamente significativas capaz de clasificar a los grupos en ambos casos.
+\end{itemize}
 \end{tcolorbox}

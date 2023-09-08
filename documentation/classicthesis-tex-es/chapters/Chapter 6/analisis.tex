@@ -1,6 +1,8 @@
 \chapter{Los registros existentes}\label{sec:chapterVI}
 \addcontentsline{toc}{chapter}{Los registros existentes}
 
+A continuación se realizará un análisis del dataset del que disponemos con el fin de asegurar su fiabilidad y homogeneidad. Es decir, se comprobará la normalidad del mismo año tras año.
+
 En el laboratorio remoto se ha registrado la actividad de $7$ años consecutivos (desde el curso académico $1516$ al $2122$). Un ejemplo de las interacciones almacenadas puede verse en el Cuadro \ref{tab:example}.
 
 \begin{table}[H]
@@ -59,7 +61,7 @@ SD & 7.958224 \\ \hline
 
 Todos los años hay $9$ problemas de dificultad similar que deben ser resueltos por todos los grupos.
 
-Para aproximarnos al concepto subjetivo de ``dificultad del problema'' vamos a analizar el número de sesiones fallidas que necesita cada alumno para resolverlos por primera vez con respecto al número total de sesiones de ese problema (tasa de fallo) y la duración de este periodo en horas.
+Para aproximarnos al concepto subjetivo de ``dificultad del problema'' vamos a analizar el número de sesiones fallidas que necesita cada alumno para resolverlos por primera vez con respecto al número total de sesiones de ese problema (tasa de fallo) y la duración de este periodo en horas para determinar si realmente hay diferencias en la dificultad de los problemas planteados.
 
 \subsection{Dificultad del problema: la tasa de fallo}
 
@@ -286,7 +288,7 @@ En las Figuras \ref{fig:boxplotresiduals} y \ref{fig:histogramresiduals} podemos
 \label{fig:activity}
 \end{figure}
 
-A continuación, en las Figuras \ref{fig:densitysessions} y \ref{fig:q-qsessions}, podemos observar que la distribución del número de sesiones no es perfectamente normal pero es casi-normal si eliminamos algunos outsiders. La línea discontinua vertical marca el valor más probable ($336$ sesiones), lo que muestra un gran esfuerzo por parte del alumnado teniendo en cuenta la duración de la práctica (Cuadro \ref{tab:days}).
+A continuación, en las Figuras \ref{fig:densitysessions} y \ref{fig:q-qsessions}, podemos observar que la distribución del número de sesiones no es perfectamente normal pero es casi-normal si eliminamos algunos outliers. La línea discontinua vertical marca el valor más probable ($336$ sesiones), lo que muestra un gran esfuerzo por parte del alumnado teniendo en cuenta la duración de la práctica (Cuadro \ref{tab:days}).
 
 \begin{figure}[H]
     \centering
@@ -367,7 +369,7 @@ En la Figura \ref{fig:boxplotsessionsproblem} podemos ver el boxplot del número
 
 \subsection{Sesiones cada año}\label{sec:ANOVANumSessions}
 
-Como podemos ver en la Figura \ref{fig:boxplotsessionsyear}, las sesiones de trabajo abiertas en el servidor año tras año, parecen seguir la misma distribución de probabilidad.
+En la Figura \ref{fig:boxplotsessionsyear} podemos ver los boxplots de las sesiones de trabajo abiertas en el servidor año tras año. A continuación, se procederá a demostrar que el número de sesiones sigue la misma distribución de probabilidad todos los años. Es decir, veremos que la variabilidad perceptible en la Figura \ref{fig:boxplotsessionsyear} se debe al azar.
 
 \begin{figure}[H]
     \centering
@@ -466,3 +468,5 @@ Adicionalmente, podemos observar en la Figura \ref{fig:outliersp} la existencia 
     \caption{Boxplot del número de problemas resueltos por año.}
     \label{fig:boxplotproblemsyear}
 \end{figure}
+
+A pesar de que el estudio descriptivo anterior muestra unos datos muy variados, casi todos ellos son homogéneos año tras año. Es decir, todos los años son diferentes pero las variables recogidas año tras año presentan la misma distribución de probabilidad. No obstante, el objetivo de este estudio es sentar las bases para conseguir una experiencia de aprendizaje óptima para todos los grupos de alumnos. Así pues, se va a poner énfasis en detectar a aquellos grupos que estén en riesgo de obtener un peor rendimiento o peores calificaciones.
