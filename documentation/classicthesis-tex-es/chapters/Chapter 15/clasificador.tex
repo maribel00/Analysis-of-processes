@@ -13,7 +13,30 @@ Dado que hay muy pocos registros ($77$ en cada nivel), el problema de clasificac
 
 \subsubsection{Clasificación empleando los niveles 8, 9 y 10}
 
-Como podemos ver en la Figura \ref{fig:cmend1}, C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ grupos de tipo \emph{``LOW''} empleando los datos del último tercio del tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cmend1}). Adicionalmente, las reglas para clasificar cada uno de los grupos obtenidas (Cuadro \ref{rulesend1}) son fácilmente interpretables. Por ejemplo, la regla $1$ dice: ``Un grupo no está en riesgo si ha realizado muchas sesiones (\texttt{ns > 0.342623}), no tarda ni mucho tiempo ni demasiado poco en resolver los problemas una vez abiertos (\texttt{rt > 0.01037344} y \texttt{rt <= 0.3019366}) y resuelve los problemas en un orden parecido al propuesto por el profesor (\texttt{sq > 0.8140351})''. Por otro lado, la regla $4$ nos indicaría que un grupo está en riesgo si no ha resuelto todos los problemas (\texttt{np <= 0.8888889}) y tarda mucho en resolverlos una vez abiertos por primera vez (\texttt{rt > 0.3676471}).
+Como podemos ver en la Figura \ref{fig:cmend1}, C5.0 obtiene un conjunto de reglas capaz de clasificar exactamente los $36$ grupos de tipo \emph{``LOW''} empleando los datos del último tercio del tiempo dedicado a la práctica, con un $p$ value $p < 2.2e-16$ estadísticamente muy relevante (Figura \ref{fig:cmend1}). Adicionalmente, las reglas para clasificar cada uno de los grupos obtenidas (Cuadro \ref{rulesend1}) son fácilmente interpretables. Por ejemplo, en las Figuras \ref{fig:regla1} y \ref{fig:regla4} se describen dos de las reglas obtenidas.
+
+\begin{figure}[H]
+\centering
+\subfloat[Regla 1 de entre las generadas por C5.0 (Cuadro \ref{rulesend1}).]{\label{fig:rule1}\includegraphics[width=0.30\textwidth]{clasificación/regla1.png}}\qquad
+\subfloat[Función de densidad de probabilidad del número de sesiones normalizado.]{\label{fig:densityns2}\includegraphics[width=0.46\textwidth]{clasificación/densityns.png}}\qquad
+\subfloat[Función de densidad de probabilidad del tiempo de reacción normalizado.]{\label{fig:densityrt2}
+\includegraphics[width=0.46\textwidth]{clasificación/densityrt.png}}\qquad
+\subfloat[Función de densidad de probabilidad de la medida de similaridad del coseno.]{\label{fig:densitysq2}
+\includegraphics[width=0.46\textwidth]{clasificación/densitysq.png}}\qquad
+\caption{La regla $1$ dice: ``Un grupo no está en riesgo si ha realizado muchas sesiones (\texttt{ns > 0.342623}), no tarda ni mucho tiempo ni demasiado poco en resolver los problemas una vez abiertos (\texttt{rt > 0.01037344} y \texttt{rt <= 0.3019366}) y resuelve los problemas en un orden parecido al propuesto por el profesor (\texttt{sq > 0.8140351})''. Las Figuras \ref{fig:densityns2}, \ref{fig:densityrt2} y \ref{fig:densitysq2} muestran las funciones de densidad de probabilidad de las variables involucradas en la regla que se muestra en la Figura \ref{fig:rule1}.}
+\label{fig:regla1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfloat[Regla 4 de entre las generadas por C5.0 (Cuadro \ref{rulesend1}).]{\label{fig:rule4}\includegraphics[width=0.30\textwidth]{clasificación/regla4.png}}\qquad
+\subfloat[Función de densidad de probabilidad del número de problemas resueltos normalizado.]{\label{fig:densitynp3}
+\includegraphics[width=0.46\textwidth]{clasificación/densitynp.png}}\qquad
+\subfloat[Función de densidad de probabilidad del tiempo de reacción normalizado.]{\label{fig:densityrt3}
+\includegraphics[width=0.46\textwidth]{clasificación/densityrt.png}}\qquad
+\caption{La regla $4$ nos indica que un grupo está en riesgo si no ha resuelto todos los problemas (\texttt{np <= 0.8888889}) y tarda mucho en resolverlos una vez abiertos por primera vez (\texttt{rt > 0.3676471}). Las Figuras \ref{fig:densitynp3} y \ref{fig:densityrt3} muestran las funciones de densidad de probabilidad de las variables involucradas en la regla que se muestra en la Figura \ref{fig:rule4}.}
+\label{fig:regla4}
+\end{figure}
 
 \begin{figure}[H]
 \centering
@@ -1632,8 +1655,8 @@ Default class: [9.44,10]
 \begin{tcolorbox}[colframe=blue!80, title=Resumen de los resultados obtenidos]
 En este trabajo fin de grado se ha conseguido:
 \begin{itemize}
-\item Identificar a los grupos en riesgo (\emph{LOW}) utilizando los datos de los niveles $3$, $4$ y $5$ (es decir, a partir de estadios tempranos del desarrollo de la práctica).
-\item Identificar a cada grupo con un intervalo de calificaciones también empleando datos de los niveles $3$, $4$ y $5$.
+\item Identificar a los grupos en riesgo o \emph{``LOW''} (es decir, los de peores calificaciones) a partir de los datos de la resolución de las tareas $3$, $4$ y $5$ de las $9$ propuestas (esto es, a partir de estadios tempranos del desarrollo de la práctica).
+\item Identificar a cada grupo con un intervalo de calificaciones también empleando datos de la resolución de las tareas $3$, $4$ y $5$.
 \item Además, se ha obtenido un conjunto de reglas sencillas con pleno sentido y estadísticamente significativas capaz de clasificar a los grupos en ambos casos.
 \end{itemize}
 \end{tcolorbox}

@@ -43,3 +43,7 @@ LCV_ListOutliers(data,"Grade","all")
 
 summary(data$ns)
 summary(data$Grade)
+
+LCV_Heaven_Theme()
+LCV_density(data,"ns",showall = TRUE)
+LCV_density(data,"np",showall = TRUE)
